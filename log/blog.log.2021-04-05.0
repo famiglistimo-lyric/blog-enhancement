@@ -1,0 +1,1259 @@
+2021-04-05 15:19:56.439  INFO 21220 --- [Thread-14] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 15:19:56.448  INFO 21220 --- [Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-04-05 15:19:56.457  INFO 21220 --- [Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-04-05 15:20:02.377  INFO 11632 --- [restartedMain] com.yi.blog.BlogApplication              : Starting BlogApplication on LAPTOP-P12KV1HJ with PID 11632 (D:\blog\lyric\target\classes started by lyric in D:\blog)
+2021-04-05 15:20:02.380 DEBUG 11632 --- [restartedMain] com.yi.blog.BlogApplication              : Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2021-04-05 15:20:02.380  INFO 11632 --- [restartedMain] com.yi.blog.BlogApplication              : No active profile set, falling back to default profiles: default
+2021-04-05 15:20:02.454  INFO 11632 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-05 15:20:02.454  INFO 11632 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-05 15:20:03.709  INFO 11632 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2021-04-05 15:20:03.728  INFO 11632 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 15:20:03.729  INFO 11632 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2021-04-05 15:20:03.830  INFO 11632 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-05 15:20:03.830  INFO 11632 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1376 ms
+2021-04-05 15:20:04.209  WARN 11632 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.yi.blog.entity.BlogTags.
+2021-04-05 15:20:05.148  INFO 11632 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 15:20:05.231  INFO 11632 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-05 15:20:05.509  INFO 11632 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-05 15:20:05.555  INFO 11632 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2021-04-05 15:20:05.558  INFO 11632 --- [restartedMain] com.yi.blog.BlogApplication              : Started BlogApplication in 3.653 seconds (JVM running for 4.49)
+2021-04-05 15:20:14.189  INFO 11632 --- [http-nio-80-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 15:20:14.190  INFO 11632 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-05 15:20:14.200  INFO 11632 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2021-04-05 15:20:14.231  INFO 11632 --- [http-nio-80-exec-2] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com/', ip='127.0.0.1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@5c9b6229]}
+2021-04-05 15:20:14.271  INFO 11632 --- [http-nio-80-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-05 15:20:14.606  INFO 11632 --- [http-nio-80-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-05 15:20:14.637 DEBUG 11632 --- [http-nio-80-exec-2] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-05 15:20:14.654 DEBUG 11632 --- [http-nio-80-exec-2] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-05 15:20:14.699 DEBUG 11632 --- [http-nio-80-exec-2] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-05 15:20:14.700 DEBUG 11632 --- [http-nio-80-exec-2] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-05 15:20:14.764 DEBUG 11632 --- [http-nio-80-exec-2] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-05 15:20:14.765 DEBUG 11632 --- [http-nio-80-exec-2] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-05 15:20:14.795 DEBUG 11632 --- [http-nio-80-exec-2] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-05 15:20:14.797 DEBUG 11632 --- [http-nio-80-exec-2] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 2
+2021-04-05 15:20:14.804 DEBUG 11632 --- [http-nio-80-exec-2] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-05 15:20:14.804 DEBUG 11632 --- [http-nio-80-exec-2] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-05 15:20:14.831 DEBUG 11632 --- [http-nio-80-exec-2] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 2
+2021-04-05 15:20:14.836 DEBUG 11632 --- [http-nio-80-exec-2] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-05 15:20:14.836 DEBUG 11632 --- [http-nio-80-exec-2] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-05 15:20:14.869 DEBUG 11632 --- [http-nio-80-exec-2] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 3
+2021-04-05 15:20:14.905 DEBUG 11632 --- [http-nio-80-exec-2] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-05 15:20:14.905 DEBUG 11632 --- [http-nio-80-exec-2] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-05 15:20:14.934 DEBUG 11632 --- [http-nio-80-exec-2] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-05 15:20:14.947 DEBUG 11632 --- [http-nio-80-exec-2] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-05 15:20:14.949 DEBUG 11632 --- [http-nio-80-exec-2] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 44838(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-05 15:20:15.008 DEBUG 11632 --- [http-nio-80-exec-2] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-05 15:20:15.097  INFO 11632 --- [http-nio-80-exec-2] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-05 15:20:15.744  INFO 11632 --- [http-nio-80-exec-6] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com/footer/newblog', ip='127.0.0.1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-05 15:20:15.744  INFO 11632 --- [http-nio-80-exec-6] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newblogList
+2021-04-05 15:20:29.908  INFO 11632 --- [Thread-12] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 15:20:29.909  INFO 11632 --- [Thread-12] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-04-05 15:20:29.918  INFO 11632 --- [Thread-12] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-04-05 15:20:38.579  INFO 11632 --- [restartedMain] com.yi.blog.BlogApplication              : Starting BlogApplication on LAPTOP-P12KV1HJ with PID 11632 (D:\blog\lyric\target\classes started by lyric in D:\blog)
+2021-04-05 15:20:38.579 DEBUG 11632 --- [restartedMain] com.yi.blog.BlogApplication              : Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2021-04-05 15:20:38.580  INFO 11632 --- [restartedMain] com.yi.blog.BlogApplication              : No active profile set, falling back to default profiles: default
+2021-04-05 15:20:39.003  INFO 11632 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2021-04-05 15:20:39.004  INFO 11632 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 15:20:39.004  INFO 11632 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2021-04-05 15:20:39.017  INFO 11632 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-04-05 15:20:39.018  INFO 11632 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 436 ms
+2021-04-05 15:20:39.087  WARN 11632 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.yi.blog.entity.BlogTags.
+2021-04-05 15:20:39.435  WARN 11632 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'archiveShowController': Unsatisfied dependency expressed through field 'blogService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.yi.blog.service.BlogService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2021-04-05 15:20:39.436  INFO 11632 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-04-05 15:20:39.441  INFO 11632 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-04-05 15:20:39.623 ERROR 11632 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field blogService in com.yi.blog.web.ArchiveShowController required a bean of type 'com.yi.blog.service.BlogService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.yi.blog.service.BlogService' in your configuration.
+
+2021-04-05 15:32:26.589  INFO 13496 --- [restartedMain] com.yi.blog.BlogApplication              : Starting BlogApplication on LAPTOP-P12KV1HJ with PID 13496 (D:\blog\lyric\target\classes started by lyric in D:\blog)
+2021-04-05 15:32:26.592 DEBUG 13496 --- [restartedMain] com.yi.blog.BlogApplication              : Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2021-04-05 15:32:26.593  INFO 13496 --- [restartedMain] com.yi.blog.BlogApplication              : No active profile set, falling back to default profiles: default
+2021-04-05 15:32:26.630  INFO 13496 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-05 15:32:26.630  INFO 13496 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-05 15:32:27.925  INFO 13496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2021-04-05 15:32:27.943  INFO 13496 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 15:32:27.943  INFO 13496 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2021-04-05 15:32:28.035  INFO 13496 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-05 15:32:28.036  INFO 13496 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1405 ms
+2021-04-05 15:32:28.400  WARN 13496 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.yi.blog.entity.BlogTags.
+2021-04-05 15:32:29.276  INFO 13496 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 15:32:29.363  INFO 13496 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-05 15:32:29.650  INFO 13496 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-05 15:32:29.695  INFO 13496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2021-04-05 15:32:29.698  INFO 13496 --- [restartedMain] com.yi.blog.BlogApplication              : Started BlogApplication in 3.611 seconds (JVM running for 4.439)
+2021-04-05 15:32:32.542  INFO 13496 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 15:32:32.542  INFO 13496 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-05 15:32:32.551  INFO 13496 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2021-04-05 15:32:32.576  INFO 13496 --- [http-nio-80-exec-1] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com/', ip='127.0.0.1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@732c7db1]}
+2021-04-05 15:32:32.608  INFO 13496 --- [http-nio-80-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-05 15:32:33.098  INFO 13496 --- [http-nio-80-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-05 15:32:33.126 DEBUG 13496 --- [http-nio-80-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-05 15:32:33.142 DEBUG 13496 --- [http-nio-80-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-05 15:32:33.217 DEBUG 13496 --- [http-nio-80-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-05 15:32:33.218 DEBUG 13496 --- [http-nio-80-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-05 15:32:33.340 DEBUG 13496 --- [http-nio-80-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-05 15:32:33.341 DEBUG 13496 --- [http-nio-80-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-05 15:32:33.385 DEBUG 13496 --- [http-nio-80-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-05 15:32:33.386 DEBUG 13496 --- [http-nio-80-exec-1] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 2
+2021-04-05 15:32:33.393 DEBUG 13496 --- [http-nio-80-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-05 15:32:33.393 DEBUG 13496 --- [http-nio-80-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-05 15:32:33.430 DEBUG 13496 --- [http-nio-80-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 2
+2021-04-05 15:32:33.435 DEBUG 13496 --- [http-nio-80-exec-1] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-05 15:32:33.435 DEBUG 13496 --- [http-nio-80-exec-1] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-05 15:32:33.481 DEBUG 13496 --- [http-nio-80-exec-1] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 3
+2021-04-05 15:32:33.523 DEBUG 13496 --- [http-nio-80-exec-1] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-05 15:32:33.524 DEBUG 13496 --- [http-nio-80-exec-1] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-05 15:32:33.579 DEBUG 13496 --- [http-nio-80-exec-1] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-05 15:32:33.591 DEBUG 13496 --- [http-nio-80-exec-1] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-05 15:32:33.593 DEBUG 13496 --- [http-nio-80-exec-1] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 44839(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-05 15:32:33.677 DEBUG 13496 --- [http-nio-80-exec-1] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-05 15:32:33.785  INFO 13496 --- [http-nio-80-exec-1] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-05 15:32:34.400  INFO 13496 --- [http-nio-80-exec-6] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com/footer/newblog', ip='127.0.0.1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-05 15:32:34.400  INFO 13496 --- [http-nio-80-exec-6] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newblogList
+2021-04-05 15:47:01.744  INFO 13496 --- [http-nio-80-exec-8] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com/', ip='127.0.0.1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@4cae8b9a]}
+2021-04-05 15:47:01.767 DEBUG 13496 --- [http-nio-80-exec-8] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-05 15:47:01.767 DEBUG 13496 --- [http-nio-80-exec-8] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-05 15:47:01.793 DEBUG 13496 --- [http-nio-80-exec-8] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-05 15:47:01.794 DEBUG 13496 --- [http-nio-80-exec-8] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-05 15:47:01.844 DEBUG 13496 --- [http-nio-80-exec-8] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-05 15:47:01.844 DEBUG 13496 --- [http-nio-80-exec-8] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-05 15:47:01.871 DEBUG 13496 --- [http-nio-80-exec-8] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-05 15:47:01.872 DEBUG 13496 --- [http-nio-80-exec-8] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 2
+2021-04-05 15:47:01.873 DEBUG 13496 --- [http-nio-80-exec-8] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-05 15:47:01.873 DEBUG 13496 --- [http-nio-80-exec-8] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-05 15:47:01.895 DEBUG 13496 --- [http-nio-80-exec-8] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 2
+2021-04-05 15:47:01.896 DEBUG 13496 --- [http-nio-80-exec-8] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-05 15:47:01.896 DEBUG 13496 --- [http-nio-80-exec-8] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-05 15:47:01.925 DEBUG 13496 --- [http-nio-80-exec-8] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 3
+2021-04-05 15:47:01.946 DEBUG 13496 --- [http-nio-80-exec-8] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-05 15:47:01.947 DEBUG 13496 --- [http-nio-80-exec-8] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-05 15:47:01.979 DEBUG 13496 --- [http-nio-80-exec-8] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-05 15:47:01.982 DEBUG 13496 --- [http-nio-80-exec-8] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-05 15:47:01.983 DEBUG 13496 --- [http-nio-80-exec-8] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 44840(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-05 15:47:02.048 DEBUG 13496 --- [http-nio-80-exec-8] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-05 15:47:02.130  INFO 13496 --- [http-nio-80-exec-8] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-05 15:47:02.460  INFO 13496 --- [http-nio-80-exec-6] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com/footer/newblog', ip='127.0.0.1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-05 15:47:02.460  INFO 13496 --- [http-nio-80-exec-6] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newblogList
+2021-04-05 15:48:00.934  INFO 13496 --- [http-nio-80-exec-10] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com/blog/35', ip='127.0.0.1', classMethod='com.yi.blog.web.IndexController.blog', args=[35, {}]}
+2021-04-05 15:48:00.983 DEBUG 13496 --- [http-nio-80-exec-10] com.yi.blog.mapper.UserMapper.selectOne  : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE (id = ?) 
+2021-04-05 15:48:00.983 DEBUG 13496 --- [http-nio-80-exec-10] com.yi.blog.mapper.UserMapper.selectOne  : ==> Parameters: 1(Integer)
+2021-04-05 15:48:01.008 DEBUG 13496 --- [http-nio-80-exec-10] com.yi.blog.mapper.UserMapper.selectOne  : <==      Total: 1
+2021-04-05 15:48:01.036 DEBUG 13496 --- [http-nio-80-exec-10] c.yi.blog.mapper.BlogMapper.selectById   : ==>  Preparing: SELECT id,title,content,first_picture,stamp,views,appreciate,original,comments,published,recommend,create_time,update_time,blog_type_id,user_id FROM blog WHERE id=? 
+2021-04-05 15:48:01.037 DEBUG 13496 --- [http-nio-80-exec-10] c.yi.blog.mapper.BlogMapper.selectById   : ==> Parameters: 35(Long)
+2021-04-05 15:48:01.059 DEBUG 13496 --- [http-nio-80-exec-10] c.yi.blog.mapper.BlogMapper.selectById   : <==      Total: 1
+2021-04-05 15:48:01.062 DEBUG 13496 --- [http-nio-80-exec-10] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-05 15:48:01.062 DEBUG 13496 --- [http-nio-80-exec-10] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-05 15:48:01.089 DEBUG 13496 --- [http-nio-80-exec-10] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-05 15:48:01.095 DEBUG 13496 --- [http-nio-80-exec-10] c.yi.blog.mapper.BlogMapper.updateById   : ==>  Preparing: UPDATE blog SET title=?, content=?, stamp=?, views=?, appreciate=?, original=?, comments=?, published=?, recommend=?, create_time=?, update_time=?, blog_type_id=?, user_id=? WHERE id=? 
+2021-04-05 15:48:01.096 DEBUG 13496 --- [http-nio-80-exec-10] c.yi.blog.mapper.BlogMapper.updateById   : ==> Parameters: Spring(二)(String), # Spring：AOP
+#Spring产生一个bean的几个过程：
+1、new
+2、注入
+3、init生命周期初始化方法
+4、代理AOP
+5、put 单例池
+等等后产生bean。
+第3步，init时，有三个回调方式，分别是@PostConstruct注解、实现InitializationBean接口的afterPropertiesSet()方法、xml中的init的方式。先后顺序为：@PostConstruct->afterPropertiesSet()->xml中的init
+然后就是产生代理对象：如果AOP作用了某个对象，就改变了这个对象，底层是用的proxy，代理的方式。(通过applyBeanPostProcessorsAfterInitialization这个方法中的BeanPostProcessors来完成代理。)
+这里就解释了二级缓存的作用：
+上边那5步，假如现在创建这么一片代码，如果运行下面这行代码：
+```java
+getBean(OneService.class).getBean(TwoService.class)
+```
+按理说，OneService创建完以后，twoService并没有进行第4步，所以应该aop切不到这里，而是在第二步的时候，放入了二级缓存中，就是在此时，放进去的时候，二级缓存会做aop的处理。
+```java
+@Component
+public class OneService {
+    @Autowired
+    TwoService twoService;
+
+    public OneService() {
+        System.out.println("Construct OneService");
+    }
+
+    public void getTwoService(){
+        System.out.println(twoService);
+    }
+}
+```(String), 原创(String), 6(Integer), true(Boolean), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 2021-04-04 23:42:34.043(Timestamp), 2021-04-05 14:53:28.564(Timestamp), 14(Long), 1(Long), 35(Long)
+2021-04-05 15:48:01.148 DEBUG 13496 --- [http-nio-80-exec-10] c.yi.blog.mapper.BlogMapper.updateById   : <==    Updates: 1
+2021-04-05 15:48:01.253  INFO 13496 --- [http-nio-80-exec-10] com.yi.blog.aspect.LogAspect             : Result:archivedetails
+2021-04-05 15:48:01.664  INFO 13496 --- [http-nio-80-exec-3] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com/comments/35', ip='127.0.0.1', classMethod='com.yi.blog.web.CommentController.comments', args=[35, {}]}
+2021-04-05 15:48:01.672 DEBUG 13496 --- [http-nio-80-exec-3] c.y.b.mapper.CommentMapper.selectList    : ==>  Preparing: SELECT id,nickname,email,content,avatar,create_time,blog_id,parent_comment_id,manager_comment FROM comment WHERE (blog_id = ?) ORDER BY create_time DESC 
+2021-04-05 15:48:01.673 DEBUG 13496 --- [http-nio-80-exec-3] c.y.b.mapper.CommentMapper.selectList    : ==> Parameters: 35(Long)
+2021-04-05 15:48:01.723 DEBUG 13496 --- [http-nio-80-exec-3] c.y.b.mapper.CommentMapper.selectList    : <==      Total: 0
+2021-04-05 15:48:01.725  INFO 13496 --- [http-nio-80-exec-3] com.yi.blog.aspect.LogAspect             : Result:archivedetails :: commentList
+2021-04-05 16:11:27.751  INFO 13496 --- [Thread-13] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:11:27.752  INFO 13496 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-04-05 16:11:27.755  INFO 13496 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-04-05 16:11:33.745  INFO 13496 --- [restartedMain] com.yi.blog.BlogApplication              : Starting BlogApplication on LAPTOP-P12KV1HJ with PID 13496 (D:\blog\lyric\target\classes started by lyric in D:\blog)
+2021-04-05 16:11:33.746 DEBUG 13496 --- [restartedMain] com.yi.blog.BlogApplication              : Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2021-04-05 16:11:33.746  INFO 13496 --- [restartedMain] com.yi.blog.BlogApplication              : No active profile set, falling back to default profiles: default
+2021-04-05 16:11:34.217  INFO 13496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+2021-04-05 16:11:34.218  INFO 13496 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 16:11:34.218  INFO 13496 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2021-04-05 16:11:34.232  INFO 13496 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-04-05 16:11:34.233  INFO 13496 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 485 ms
+2021-04-05 16:11:34.351  WARN 13496 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.yi.blog.entity.BlogTags.
+2021-04-05 16:11:34.820  WARN 13496 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commentController': Unsatisfied dependency expressed through field 'randomAvatarService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.yi.blog.service.RandomAvatarService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2021-04-05 16:11:34.821  INFO 13496 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-04-05 16:11:34.826  INFO 13496 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-04-05 16:11:34.970 ERROR 13496 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field randomAvatarService in com.yi.blog.web.CommentController required a bean of type 'com.yi.blog.service.RandomAvatarService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.yi.blog.service.RandomAvatarService' in your configuration.
+
+2021-04-05 16:13:26.017  INFO 13496 --- [restartedMain] com.yi.blog.BlogApplication              : Starting BlogApplication on LAPTOP-P12KV1HJ with PID 13496 (D:\blog\lyric\target\classes started by lyric in D:\blog)
+2021-04-05 16:13:26.017 DEBUG 13496 --- [restartedMain] com.yi.blog.BlogApplication              : Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2021-04-05 16:13:26.018  INFO 13496 --- [restartedMain] com.yi.blog.BlogApplication              : No active profile set, falling back to default profiles: default
+2021-04-05 16:13:26.393  INFO 13496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2021-04-05 16:13:26.394  INFO 13496 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 16:13:26.394  INFO 13496 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2021-04-05 16:13:26.413  INFO 13496 --- [restartedMain] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-04-05 16:13:26.413  INFO 13496 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 392 ms
+2021-04-05 16:13:26.478  INFO 13496 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:13:26.491  INFO 13496 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-05 16:13:26.559  WARN 13496 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.yi.blog.entity.BlogTags.
+2021-04-05 16:13:26.902  INFO 13496 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-05 16:13:26.919  INFO 13496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2021-04-05 16:13:26.920  INFO 13496 --- [restartedMain] com.yi.blog.BlogApplication              : Started BlogApplication in 0.939 seconds (JVM running for 2461.635)
+2021-04-05 16:13:26.921  INFO 13496 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-05 16:18:57.931  INFO 13496 --- [Thread-21] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:19:02.406  INFO 13496 --- [restartedMain] com.yi.blog.BlogApplication              : Starting BlogApplication on LAPTOP-P12KV1HJ with PID 13496 (D:\blog\lyric\target\classes started by lyric in D:\blog)
+2021-04-05 16:19:02.406 DEBUG 13496 --- [restartedMain] com.yi.blog.BlogApplication              : Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2021-04-05 16:19:02.406  INFO 13496 --- [restartedMain] com.yi.blog.BlogApplication              : No active profile set, falling back to default profiles: default
+2021-04-05 16:19:02.748  INFO 13496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+2021-04-05 16:19:02.749  INFO 13496 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 16:19:02.749  INFO 13496 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2021-04-05 16:19:02.771  INFO 13496 --- [restartedMain] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-04-05 16:19:02.771  INFO 13496 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 363 ms
+2021-04-05 16:19:02.838  INFO 13496 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:19:02.853  INFO 13496 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-05 16:19:02.925  WARN 13496 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.yi.blog.entity.BlogTags.
+2021-04-05 16:19:03.266  INFO 13496 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-05 16:19:03.283  INFO 13496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8083 (http) with context path ''
+2021-04-05 16:19:03.283  INFO 13496 --- [restartedMain] com.yi.blog.BlogApplication              : Started BlogApplication in 0.906 seconds (JVM running for 2797.997)
+2021-04-05 16:19:03.284  INFO 13496 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-05 16:22:32.292  INFO 13496 --- [Thread-36] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:22:37.090  INFO 13496 --- [restartedMain] com.yi.blog.BlogApplication              : Starting BlogApplication on LAPTOP-P12KV1HJ with PID 13496 (D:\blog\lyric\target\classes started by lyric in D:\blog)
+2021-04-05 16:22:37.090 DEBUG 13496 --- [restartedMain] com.yi.blog.BlogApplication              : Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2021-04-05 16:22:37.090  INFO 13496 --- [restartedMain] com.yi.blog.BlogApplication              : No active profile set, falling back to default profiles: default
+2021-04-05 16:22:37.561  INFO 13496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-05 16:22:37.562  INFO 13496 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 16:22:37.562  INFO 13496 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2021-04-05 16:22:37.576  INFO 13496 --- [restartedMain] o.a.c.c.C.[Tomcat-5].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-04-05 16:22:37.576  INFO 13496 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 483 ms
+2021-04-05 16:22:37.666  WARN 13496 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.yi.blog.entity.BlogTags.
+2021-04-05 16:22:38.073  WARN 13496 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'archiveShowController': Unsatisfied dependency expressed through field 'blogService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.yi.blog.service.BlogService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2021-04-05 16:22:38.073  INFO 13496 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-04-05 16:22:38.077  INFO 13496 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-04-05 16:22:38.183 ERROR 13496 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field blogService in com.yi.blog.web.ArchiveShowController required a bean of type 'com.yi.blog.service.BlogService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.yi.blog.service.BlogService' in your configuration.
+
+2021-04-05 16:27:25.735  INFO 20336 --- [restartedMain] com.yi.blog.BlogApplication              : Starting BlogApplication on LAPTOP-P12KV1HJ with PID 20336 (D:\blog\lyric\target\classes started by lyric in D:\blog)
+2021-04-05 16:27:25.738 DEBUG 20336 --- [restartedMain] com.yi.blog.BlogApplication              : Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2021-04-05 16:27:25.738  INFO 20336 --- [restartedMain] com.yi.blog.BlogApplication              : No active profile set, falling back to default profiles: default
+2021-04-05 16:27:25.772  INFO 20336 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-05 16:27:25.772  INFO 20336 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-05 16:27:27.161  INFO 20336 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-05 16:27:27.181  INFO 20336 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 16:27:27.181  INFO 20336 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2021-04-05 16:27:27.270  INFO 20336 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-05 16:27:27.270  INFO 20336 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1498 ms
+2021-04-05 16:27:27.641  WARN 20336 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.yi.blog.entity.BlogTags.
+2021-04-05 16:27:28.539  INFO 20336 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:27:28.635  INFO 20336 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-05 16:27:28.924  INFO 20336 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-05 16:27:28.972  INFO 20336 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-05 16:27:28.975  INFO 20336 --- [restartedMain] com.yi.blog.BlogApplication              : Started BlogApplication in 3.736 seconds (JVM running for 4.54)
+2021-04-05 16:27:46.710  INFO 20336 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 16:27:46.711  INFO 20336 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-05 16:27:46.720  INFO 20336 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2021-04-05 16:27:46.749  INFO 20336 --- [http-nio-8080-exec-1] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com:8080/', ip='127.0.0.1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@3308f44e]}
+2021-04-05 16:27:46.783  INFO 20336 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-05 16:27:47.133  INFO 20336 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-05 16:27:47.163 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-05 16:27:47.179 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-05 16:27:47.218 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-05 16:27:47.219 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-05 16:27:47.275 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-05 16:27:47.275 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-05 16:27:47.307 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-05 16:27:47.309 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 2
+2021-04-05 16:27:47.315 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-05 16:27:47.316 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-05 16:27:47.339 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 2
+2021-04-05 16:27:47.344 DEBUG 20336 --- [http-nio-8080-exec-1] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-05 16:27:47.345 DEBUG 20336 --- [http-nio-8080-exec-1] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-05 16:27:47.370 DEBUG 20336 --- [http-nio-8080-exec-1] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 3
+2021-04-05 16:27:47.397 DEBUG 20336 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-05 16:27:47.398 DEBUG 20336 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-05 16:27:47.435 DEBUG 20336 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-05 16:27:47.448 DEBUG 20336 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-05 16:27:47.449 DEBUG 20336 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 44846(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-05 16:27:47.520 DEBUG 20336 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-05 16:27:47.586  INFO 20336 --- [http-nio-8080-exec-1] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-05 16:27:48.213  INFO 20336 --- [http-nio-8080-exec-3] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com:8080/footer/newblog', ip='127.0.0.1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-05 16:27:48.214  INFO 20336 --- [http-nio-8080-exec-3] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newblogList
+2021-04-05 16:35:29.595  INFO 20336 --- [Thread-13] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:35:29.597  INFO 20336 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-04-05 16:35:29.605  INFO 20336 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-04-05 16:35:35.095  INFO 20336 --- [restartedMain] com.yi.blog.BlogApplication              : Starting BlogApplication on LAPTOP-P12KV1HJ with PID 20336 (D:\blog\lyric\target\classes started by lyric in D:\blog)
+2021-04-05 16:35:35.095 DEBUG 20336 --- [restartedMain] com.yi.blog.BlogApplication              : Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2021-04-05 16:35:35.095  INFO 20336 --- [restartedMain] com.yi.blog.BlogApplication              : No active profile set, falling back to default profiles: default
+2021-04-05 16:35:35.454  INFO 20336 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2021-04-05 16:35:35.454  INFO 20336 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 16:35:35.455  INFO 20336 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2021-04-05 16:35:35.467  INFO 20336 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-04-05 16:35:35.467  INFO 20336 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 370 ms
+2021-04-05 16:35:35.535  INFO 20336 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:35:35.548  INFO 20336 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-05 16:35:35.622  WARN 20336 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.yi.blog.entity.BlogTags.
+2021-04-05 16:35:35.971  INFO 20336 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-05 16:35:35.997  INFO 20336 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2021-04-05 16:35:35.998  INFO 20336 --- [restartedMain] com.yi.blog.BlogApplication              : Started BlogApplication in 0.933 seconds (JVM running for 491.561)
+2021-04-05 16:35:36.002  INFO 20336 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-05 16:42:13.372  INFO 20336 --- [Thread-21] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:42:20.842  INFO 20336 --- [restartedMain] com.yi.blog.BlogApplication              : Starting BlogApplication on LAPTOP-P12KV1HJ with PID 20336 (D:\blog\lyric\target\classes started by lyric in D:\blog)
+2021-04-05 16:42:20.842 DEBUG 20336 --- [restartedMain] com.yi.blog.BlogApplication              : Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2021-04-05 16:42:20.842  INFO 20336 --- [restartedMain] com.yi.blog.BlogApplication              : No active profile set, falling back to default profiles: default
+2021-04-05 16:42:21.268  INFO 20336 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-05 16:42:21.269  INFO 20336 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 16:42:21.269  INFO 20336 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2021-04-05 16:42:21.281  INFO 20336 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-04-05 16:42:21.281  INFO 20336 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 437 ms
+2021-04-05 16:42:21.294  WARN 20336 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'loginController': Unsatisfied dependency expressed through field 'userService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.yi.blog.service.UserService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2021-04-05 16:42:21.295  INFO 20336 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-04-05 16:42:21.300  INFO 20336 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-04-05 16:42:21.486 ERROR 20336 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userService in com.yi.blog.web.manager.LoginController required a bean of type 'com.yi.blog.service.UserService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.yi.blog.service.UserService' in your configuration.
+
+2021-04-05 16:42:31.433  INFO 20336 --- [restartedMain] com.yi.blog.BlogApplication              : Starting BlogApplication on LAPTOP-P12KV1HJ with PID 20336 (D:\blog\lyric\target\classes started by lyric in D:\blog)
+2021-04-05 16:42:31.433 DEBUG 20336 --- [restartedMain] com.yi.blog.BlogApplication              : Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2021-04-05 16:42:31.433  INFO 20336 --- [restartedMain] com.yi.blog.BlogApplication              : No active profile set, falling back to default profiles: default
+2021-04-05 16:42:31.892  INFO 20336 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-05 16:42:31.892  INFO 20336 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 16:42:31.893  INFO 20336 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2021-04-05 16:42:31.908  INFO 20336 --- [restartedMain] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-04-05 16:42:31.909  INFO 20336 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 474 ms
+2021-04-05 16:42:32.017  WARN 20336 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.yi.blog.entity.BlogTags.
+2021-04-05 16:42:32.692  INFO 20336 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:42:32.764  INFO 20336 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-05 16:42:32.978  INFO 20336 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-05 16:42:33.001  INFO 20336 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-05 16:42:33.002  INFO 20336 --- [restartedMain] com.yi.blog.BlogApplication              : Started BlogApplication in 1.603 seconds (JVM running for 908.564)
+2021-04-05 16:42:33.004  INFO 20336 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-05 16:50:03.989  INFO 20336 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 16:50:03.990  INFO 20336 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-05 16:50:03.998  INFO 20336 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2021-04-05 16:50:04.007  INFO 20336 --- [http-nio-8080-exec-1] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com:8080/', ip='127.0.0.1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@7360e92f]}
+2021-04-05 16:50:04.013  INFO 20336 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2021-04-05 16:50:04.330  INFO 20336 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2021-04-05 16:50:04.332 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-05 16:50:04.332 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-05 16:50:04.367 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-05 16:50:04.367 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-05 16:50:04.451 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-05 16:50:04.451 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-05 16:50:04.479 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-05 16:50:04.480 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 2
+2021-04-05 16:50:04.485 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-05 16:50:04.485 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-05 16:50:04.523 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 2
+2021-04-05 16:50:04.527 DEBUG 20336 --- [http-nio-8080-exec-1] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-05 16:50:04.528 DEBUG 20336 --- [http-nio-8080-exec-1] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-05 16:50:04.563 DEBUG 20336 --- [http-nio-8080-exec-1] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 3
+2021-04-05 16:50:04.624 DEBUG 20336 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-05 16:50:04.624 DEBUG 20336 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-05 16:50:04.672 DEBUG 20336 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-05 16:50:04.674 DEBUG 20336 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-05 16:50:04.674 DEBUG 20336 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 44848(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-05 16:50:04.736 DEBUG 20336 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-05 16:50:04.838  INFO 20336 --- [http-nio-8080-exec-1] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-05 16:50:05.116  INFO 20336 --- [http-nio-8080-exec-5] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com:8080/footer/newblog', ip='127.0.0.1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-05 16:50:05.116  INFO 20336 --- [http-nio-8080-exec-5] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newblogList
+2021-04-05 16:50:07.620  INFO 20336 --- [http-nio-8080-exec-2] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com:8080/blog/35', ip='127.0.0.1', classMethod='com.yi.blog.web.IndexController.blog', args=[35, {}]}
+2021-04-05 16:50:07.684 DEBUG 20336 --- [http-nio-8080-exec-2] com.yi.blog.mapper.UserMapper.selectOne  : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE (id = ?) 
+2021-04-05 16:50:07.685 DEBUG 20336 --- [http-nio-8080-exec-2] com.yi.blog.mapper.UserMapper.selectOne  : ==> Parameters: 1(Integer)
+2021-04-05 16:50:07.728 DEBUG 20336 --- [http-nio-8080-exec-2] com.yi.blog.mapper.UserMapper.selectOne  : <==      Total: 1
+2021-04-05 16:50:07.761 DEBUG 20336 --- [http-nio-8080-exec-2] c.yi.blog.mapper.BlogMapper.selectById   : ==>  Preparing: SELECT id,title,content,first_picture,stamp,views,appreciate,original,comments,published,recommend,create_time,update_time,blog_type_id,user_id FROM blog WHERE id=? 
+2021-04-05 16:50:07.762 DEBUG 20336 --- [http-nio-8080-exec-2] c.yi.blog.mapper.BlogMapper.selectById   : ==> Parameters: 35(Long)
+2021-04-05 16:50:07.813 DEBUG 20336 --- [http-nio-8080-exec-2] c.yi.blog.mapper.BlogMapper.selectById   : <==      Total: 1
+2021-04-05 16:50:07.816 DEBUG 20336 --- [http-nio-8080-exec-2] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-05 16:50:07.816 DEBUG 20336 --- [http-nio-8080-exec-2] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-05 16:50:07.853 DEBUG 20336 --- [http-nio-8080-exec-2] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-05 16:50:07.858 DEBUG 20336 --- [http-nio-8080-exec-2] c.yi.blog.mapper.BlogMapper.updateById   : ==>  Preparing: UPDATE blog SET title=?, content=?, stamp=?, views=?, appreciate=?, original=?, comments=?, published=?, recommend=?, create_time=?, update_time=?, blog_type_id=?, user_id=? WHERE id=? 
+2021-04-05 16:50:07.859 DEBUG 20336 --- [http-nio-8080-exec-2] c.yi.blog.mapper.BlogMapper.updateById   : ==> Parameters: Spring(二)(String), # Spring：AOP
+#Spring产生一个bean的几个过程：
+1、new
+2、注入
+3、init生命周期初始化方法
+4、代理AOP
+5、put 单例池
+等等后产生bean。
+第3步，init时，有三个回调方式，分别是@PostConstruct注解、实现InitializationBean接口的afterPropertiesSet()方法、xml中的init的方式。先后顺序为：@PostConstruct->afterPropertiesSet()->xml中的init
+然后就是产生代理对象：如果AOP作用了某个对象，就改变了这个对象，底层是用的proxy，代理的方式。(通过applyBeanPostProcessorsAfterInitialization这个方法中的BeanPostProcessors来完成代理。)
+这里就解释了二级缓存的作用：
+上边那5步，假如现在创建这么一片代码，如果运行下面这行代码：
+```java
+getBean(OneService.class).getBean(TwoService.class)
+```
+按理说，OneService创建完以后，twoService并没有进行第4步，所以应该aop切不到这里，而是在第二步的时候，放入了二级缓存中，就是在此时，放进去的时候，二级缓存会做aop的处理。
+```java
+@Component
+public class OneService {
+    @Autowired
+    TwoService twoService;
+
+    public OneService() {
+        System.out.println("Construct OneService");
+    }
+
+    public void getTwoService(){
+        System.out.println(twoService);
+    }
+}
+```(String), 原创(String), 7(Integer), true(Boolean), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 2021-04-04 23:42:34.043(Timestamp), 2021-04-05 14:53:28.564(Timestamp), 14(Long), 1(Long), 35(Long)
+2021-04-05 16:50:07.931 DEBUG 20336 --- [http-nio-8080-exec-2] c.yi.blog.mapper.BlogMapper.updateById   : <==    Updates: 1
+2021-04-05 16:50:08.079  INFO 20336 --- [http-nio-8080-exec-2] com.yi.blog.aspect.LogAspect             : Result:archivedetails
+2021-04-05 16:50:08.509  INFO 20336 --- [http-nio-8080-exec-5] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com:8080/comments/35', ip='127.0.0.1', classMethod='com.yi.blog.web.CommentController.comments', args=[35, {}]}
+2021-04-05 16:50:08.517 DEBUG 20336 --- [http-nio-8080-exec-5] c.y.b.mapper.CommentMapper.selectList    : ==>  Preparing: SELECT id,nickname,email,content,avatar,create_time,blog_id,parent_comment_id,manager_comment FROM comment WHERE (blog_id = ?) ORDER BY create_time DESC 
+2021-04-05 16:50:08.517 DEBUG 20336 --- [http-nio-8080-exec-5] c.y.b.mapper.CommentMapper.selectList    : ==> Parameters: 35(Long)
+2021-04-05 16:50:08.552 DEBUG 20336 --- [http-nio-8080-exec-5] c.y.b.mapper.CommentMapper.selectList    : <==      Total: 0
+2021-04-05 16:50:08.553  INFO 20336 --- [http-nio-8080-exec-5] com.yi.blog.aspect.LogAspect             : Result:archivedetails :: commentList
+2021-04-05 16:50:13.305  INFO 20336 --- [http-nio-8080-exec-4] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com:8080/', ip='127.0.0.1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@41ba7e00]}
+2021-04-05 16:50:13.332 DEBUG 20336 --- [http-nio-8080-exec-4] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-05 16:50:13.332 DEBUG 20336 --- [http-nio-8080-exec-4] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-05 16:50:13.362 DEBUG 20336 --- [http-nio-8080-exec-4] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-05 16:50:13.363 DEBUG 20336 --- [http-nio-8080-exec-4] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-05 16:50:13.447 DEBUG 20336 --- [http-nio-8080-exec-4] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-05 16:50:13.447 DEBUG 20336 --- [http-nio-8080-exec-4] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-05 16:50:13.481 DEBUG 20336 --- [http-nio-8080-exec-4] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-05 16:50:13.481 DEBUG 20336 --- [http-nio-8080-exec-4] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 2
+2021-04-05 16:50:13.482 DEBUG 20336 --- [http-nio-8080-exec-4] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-05 16:50:13.483 DEBUG 20336 --- [http-nio-8080-exec-4] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-05 16:50:13.517 DEBUG 20336 --- [http-nio-8080-exec-4] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 2
+2021-04-05 16:50:13.518 DEBUG 20336 --- [http-nio-8080-exec-4] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-05 16:50:13.518 DEBUG 20336 --- [http-nio-8080-exec-4] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-05 16:50:13.550 DEBUG 20336 --- [http-nio-8080-exec-4] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 3
+2021-04-05 16:50:13.579 DEBUG 20336 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-05 16:50:13.580 DEBUG 20336 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-05 16:50:13.624 DEBUG 20336 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-05 16:50:13.625 DEBUG 20336 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-05 16:50:13.626 DEBUG 20336 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 44849(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-05 16:50:13.690 DEBUG 20336 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-05 16:50:13.792  INFO 20336 --- [http-nio-8080-exec-4] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-05 16:50:14.045  INFO 20336 --- [http-nio-8080-exec-10] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com:8080/footer/newblog', ip='127.0.0.1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-05 16:50:14.045  INFO 20336 --- [http-nio-8080-exec-10] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newblogList
+2021-04-05 16:50:15.034  INFO 20336 --- [http-nio-8080-exec-6] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com:8080/blog/34', ip='127.0.0.1', classMethod='com.yi.blog.web.IndexController.blog', args=[34, {}]}
+2021-04-05 16:50:15.103 DEBUG 20336 --- [http-nio-8080-exec-6] com.yi.blog.mapper.UserMapper.selectOne  : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE (id = ?) 
+2021-04-05 16:50:15.104 DEBUG 20336 --- [http-nio-8080-exec-6] com.yi.blog.mapper.UserMapper.selectOne  : ==> Parameters: 1(Integer)
+2021-04-05 16:50:15.139 DEBUG 20336 --- [http-nio-8080-exec-6] com.yi.blog.mapper.UserMapper.selectOne  : <==      Total: 1
+2021-04-05 16:50:15.164 DEBUG 20336 --- [http-nio-8080-exec-6] c.yi.blog.mapper.BlogMapper.selectById   : ==>  Preparing: SELECT id,title,content,first_picture,stamp,views,appreciate,original,comments,published,recommend,create_time,update_time,blog_type_id,user_id FROM blog WHERE id=? 
+2021-04-05 16:50:15.164 DEBUG 20336 --- [http-nio-8080-exec-6] c.yi.blog.mapper.BlogMapper.selectById   : ==> Parameters: 34(Long)
+2021-04-05 16:50:15.266 DEBUG 20336 --- [http-nio-8080-exec-6] c.yi.blog.mapper.BlogMapper.selectById   : <==      Total: 1
+2021-04-05 16:50:15.266 DEBUG 20336 --- [http-nio-8080-exec-6] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-05 16:50:15.267 DEBUG 20336 --- [http-nio-8080-exec-6] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-05 16:50:15.301 DEBUG 20336 --- [http-nio-8080-exec-6] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-05 16:50:15.302 DEBUG 20336 --- [http-nio-8080-exec-6] c.yi.blog.mapper.BlogMapper.updateById   : ==>  Preparing: UPDATE blog SET title=?, content=?, stamp=?, views=?, appreciate=?, original=?, comments=?, published=?, recommend=?, create_time=?, update_time=?, blog_type_id=?, user_id=? WHERE id=? 
+2021-04-05 16:50:15.304 DEBUG 20336 --- [http-nio-8080-exec-6] c.yi.blog.mapper.BlogMapper.updateById   : ==> Parameters: Spring(一)(String), # Spring:循环依赖
+## 什么是循环依赖?
+
+```java
+@ComponentScan("com.yi")
+public class MyConfig {
+
+}
+```
+```java
+@Component
+public class OneService {
+    @Autowired
+    TwoService twoService;
+
+    public OneService() {
+        System.out.println("Construct OneService");
+    }
+
+    public void getTwoService(){
+        System.out.println(twoService);
+    }
+}
+```
+```java
+@Component
+public class TwoService {
+    @Autowired
+    OneService oneService;
+
+    public TwoService() {
+        System.out.println("Construct TwoService");
+    }
+
+    public void getOneService(){
+        System.out.println(oneService);
+    }
+}
+```
+```java
+public class Test {
+    public static void main(String[] args) {
+        //初始化Spring容器
+        AnnotationConfigApplicationContext ac =
+                new AnnotationConfigApplicationContext(MyConfig.class);
+
+        ac.getBean(OneService.class).getTwoService();
+    }
+}
+```
+这四个代码片段，即展示了Spring当中的循环依赖。
+明白循环依赖，首先要明白依赖注入。
+# Spring：依赖注入
+依赖注入是在Spring容器初始化的时候完成的。这期间有一个过程：以上述代码为例，初始化`AnnotationConfigApplicationContext`容器，首先读取`MyConfig`类，扫描包下的Spring管理的注解的类，然后利用这些类的信息，进行bean的初始化。
+初始化bean：1、2、3、4、5、6、...N步,分好多步，接下来，看一下这些具体的步骤。
+## Spring bean的初始化
+普通类的初始化，简单的来说，就是.java结尾的类，在经过编译后，生成.class字节码文件，然后jvm读取这些文件，将读取的类信息，放置到方法区，等到new的时候，利用这些信息，在堆空间开辟空间，产生一个对象。
+而Spring bean的初始化，要经过更繁琐的过程。
+### scan:
+将扫描到的由Spring管理的类，生成类信息。
+### parse：
+接下来，Spring底层会解析这些类的信息，将一个一个的类，生成一个一个的`BeanDefinition`接口的实现类。
+这些`BeanDefinition`类中，保存的是扫描到的类的信息，信息大致有：beanSocpe，扫描到的类是不是单例的？isLazy，扫描到的类是不是标注了`@Lazy`注解，是不是懒加载？不同的信息，Spring将做不同的策略。
+### put map：
+接下来，把这些`BeanDefinition`对象，放置到一个map中，map的key即扫描类的类名，value即`BeanDefinition`对象。
+### 实例化：
+接下来，将遍历这个map，然后实例化。实例化出的对象，依然放到新的map当中(`@Lazy`、原型，等特殊对象，此刻不会实例化。
+#### Spring bean的生命周期
+```java
+public void refresh() throws BeansException, IllegalStateException {
+        synchronized(this.startupShutdownMonitor) {
+            StartupStep contextRefresh = this.applicationStartup.start("spring.context.refresh");
+            this.prepareRefresh();
+            ConfigurableListableBeanFactory beanFactory = this.obtainFreshBeanFactory();
+            this.prepareBeanFactory(beanFactory);
+
+            try {
+                this.postProcessBeanFactory(beanFactory);
+                StartupStep beanPostProcess = this.applicationStartup.start("spring.context.beans.post-process");
+                this.invokeBeanFactoryPostProcessors(beanFactory);
+                this.registerBeanPostProcessors(beanFactory);
+                beanPostProcess.end();
+                this.initMessageSource();
+                this.initApplicationEventMulticaster();
+                this.onRefresh();
+                this.registerListeners();
+                this.finishBeanFactoryInitialization(beanFactory);
+                this.finishRefresh();
+            } catch (BeansException var10) {
+                if (this.logger.isWarnEnabled()) {
+                    this.logger.warn("Exception encountered during context initialization - cancelling refresh attempt: " + var10);
+                }
+
+                this.destroyBeans();
+                this.cancelRefresh(var10);
+                throw var10;
+            } finally {
+                this.resetCommonCaches();
+                contextRefresh.end();
+            }
+
+        }
+    }
+```
+`this.invokeBeanFactoryPostProcessors(beanFactory);`此行完成了Spring bean的扫描，此刻，`BeanDefinition`对象已经全部加载到了map当中。
+`this.finishBeanFactoryInitialization(beanFactory);`此行完成了实例化。
+bean的生命周期，即在`this.finishBeanFactoryInitialization(beanFactory);`中。
+进入此方法：
+```java
+protected void finishBeanFactoryInitialization(ConfigurableListableBeanFactory beanFactory) {
+        if (beanFactory.containsBean("conversionService") && beanFactory.isTypeMatch("conversionService", ConversionService.class)) {
+            beanFactory.setConversionService((ConversionService)beanFactory.getBean("conversionService", ConversionService.class));
+        }
+
+        if (!beanFactory.hasEmbeddedValueResolver()) {
+            beanFactory.addEmbeddedValueResolver((strVal) -> {
+                return this.getEnvironment().resolvePlaceholders(strVal);
+            });
+        }
+
+        String[] weaverAwareNames = beanFactory.getBeanNamesForType(LoadTimeWeaverAware.class, false, false);
+        String[] var3 = weaverAwareNames;
+        int var4 = weaverAwareNames.length;
+
+        for(int var5 = 0; var5 < var4; ++var5) {
+            String weaverAwareName = var3[var5];
+            this.getBean(weaverAwareName);
+        }
+
+        beanFactory.setTempClassLoader((ClassLoader)null);
+        beanFactory.freezeConfiguration();
+        beanFactory.preInstantiateSingletons();
+    }
+```
+`beanFactory.preInstantiateSingletons();`此行实例化所有的单例，非Lazy的。
+进入此方法：
+```java
+public void preInstantiateSingletons() throws BeansException {
+        if (this.logger.isTraceEnabled()) {
+            this.logger.trace("Pre-instantiating singletons in " + this);
+        }
+
+        List<String> beanNames = new ArrayList(this.beanDefinitionNames);
+        Iterator var2 = beanNames.iterator();
+
+        while(true) {
+            String beanName;
+            Object bean;
+            do {
+                while(true) {
+                    RootBeanDefinition bd;
+                    do {
+                        do {
+                            do {
+                                if (!var2.hasNext()) {
+                                    var2 = beanNames.iterator();
+
+                                    while(var2.hasNext()) {
+                                        beanName = (String)var2.next();
+                                        Object singletonInstance = this.getSingleton(beanName);
+                                        if (singletonInstance instanceof SmartInitializingSingleton) {
+                                            StartupStep smartInitialize = this.getApplicationStartup().start("spring.beans.smart-initialize").tag("beanName", beanName);
+                                            SmartInitializingSingleton smartSingleton = (SmartInitializingSingleton)singletonInstance;
+                                            if (System.getSecurityManager() != null) {
+                                                AccessController.doPrivileged(() -> {
+                                                    smartSingleton.afterSingletonsInstantiated();
+                                                    return null;
+                                                }, this.getAccessControlContext());
+                                            } else {
+                                                smartSingleton.afterSingletonsInstantiated();
+                                            }
+
+                                            smartInitialize.end();
+                                        }
+                                    }
+
+                                    return;
+                                }
+
+                                beanName = (String)var2.next();
+                                bd = this.getMergedLocalBeanDefinition(beanName);
+                            } while(bd.isAbstract());
+                        } while(!bd.isSingleton());
+                    } while(bd.isLazyInit());
+
+                    if (this.isFactoryBean(beanName)) {
+                        bean = this.getBean("&" + beanName);
+                        break;
+                    }
+
+                    this.getBean(beanName);
+                }
+            } while(!(bean instanceof FactoryBean));
+
+            FactoryBean<?> factory = (FactoryBean)bean;
+            boolean isEagerInit;
+            if (System.getSecurityManager() != null && factory instanceof SmartFactoryBean) {
+                SmartFactoryBean var10000 = (SmartFactoryBean)factory;
+                ((SmartFactoryBean)factory).getClass();
+                isEagerInit = (Boolean)AccessController.doPrivileged(var10000::isEagerInit, this.getAccessControlContext());
+            } else {
+                isEagerInit = factory instanceof SmartFactoryBean && ((SmartFactoryBean)factory).isEagerInit();
+            }
+
+            if (isEagerInit) {
+                this.getBean(beanName);
+            }
+        }
+    }
+```
+此方法，在遍历`BeanDefinition`对象，来验证这些`BeanDefinition`对象是不是可以将这些描述的bean实例化，因为有些非单例的bean，接下来不应该实例化的，所以有这么一个校验的过程。
+接下来：进入此方法：`this.getBean(beanName);`
+最核心的方法：
+```java
+protected <T> T doGetBean(String name, @Nullable Class<T> requiredType, @Nullable Object[] args, boolean typeCheckOnly) throws BeansException {
+        String beanName = this.transformedBeanName(name);
+        Object sharedInstance = this.getSingleton(beanName);
+        Object beanInstance;
+        if (sharedInstance != null && args == null) {
+            if (this.logger.isTraceEnabled()) {
+                if (this.isSingletonCurrentlyInCreation(beanName)) {
+                    this.logger.trace("Returning eagerly cached instance of singleton bean '" + beanName + "' that is not fully initialized yet - a consequence of a circular reference");
+                } else {
+                    this.logger.trace("Returning cached instance of singleton bean '" + beanName + "'");
+                }
+            }
+
+            beanInstance = this.getObjectForBeanInstance(sharedInstance, name, beanName, (RootBeanDefinition)null);
+        } else {
+            if (this.isPrototypeCurrentlyInCreation(beanName)) {
+                throw new BeanCurrentlyInCreationException(beanName);
+            }
+
+            BeanFactory parentBeanFactory = this.getParentBeanFactory();
+            if (parentBeanFactory != null && !this.containsBeanDefinition(beanName)) {
+                String nameToLookup = this.originalBeanName(name);
+                if (parentBeanFactory instanceof AbstractBeanFactory) {
+                    return ((AbstractBeanFactory)parentBeanFactory).doGetBean(nameToLookup, requiredType, args, typeCheckOnly);
+                }
+
+                if (args != null) {
+                    return parentBeanFactory.getBean(nameToLookup, args);
+                }
+
+                if (requiredType != null) {
+                    return parentBeanFactory.getBean(nameToLookup, requiredType);
+                }
+
+                return parentBeanFactory.getBean(nameToLookup);
+            }
+
+            if (!typeCheckOnly) {
+                this.markBeanAsCreated(beanName);
+            }
+
+            StartupStep beanCreation = this.applicationStartup.start("spring.beans.instantiate").tag("beanName", name);
+
+            try {
+                if (requiredType != null) {
+                    beanCreation.tag("beanType", requiredType::toString);
+                }
+
+                RootBeanDefinition mbd = this.getMergedLocalBeanDefinition(beanName);
+                this.checkMergedBeanDefinition(mbd, beanName, args);
+                String[] dependsOn = mbd.getDependsOn();
+                String[] var12;
+                if (dependsOn != null) {
+                    var12 = dependsOn;
+                    int var13 = dependsOn.length;
+
+                    for(int var14 = 0; var14 < var13; ++var14) {
+                        String dep = var12[var14];
+                        if (this.isDependent(beanName, dep)) {
+                            throw new BeanCreationException(mbd.getResourceDescription(), beanName, "Circular depends-on relationship between '" + beanName + "' and '" + dep + "'");
+                        }
+
+                        this.registerDependentBean(dep, beanName);
+
+                        try {
+                            this.getBean(dep);
+                        } catch (NoSuchBeanDefinitionException var31) {
+                            throw new BeanCreationException(mbd.getResourceDescription(), beanName, "'" + beanName + "' depends on missing bean '" + dep + "'", var31);
+                        }
+                    }
+                }
+
+                if (mbd.isSingleton()) {
+                    sharedInstance = this.getSingleton(beanName, () -> {
+                        try {
+                            return this.createBean(beanName, mbd, args);
+                        } catch (BeansException var5) {
+                            this.destroySingleton(beanName);
+                            throw var5;
+                        }
+                    });
+                    beanInstance = this.getObjectForBeanInstance(sharedInstance, name, beanName, mbd);
+                } else if (mbd.isPrototype()) {
+                    var12 = null;
+
+                    Object prototypeInstance;
+                    try {
+                        this.beforePrototypeCreation(beanName);
+                        prototypeInstance = this.createBean(beanName, mbd, args);
+                    } finally {
+                        this.afterPrototypeCreation(beanName);
+                    }
+
+                    beanInstance = this.getObjectForBeanInstance(prototypeInstance, name, beanName, mbd);
+                } else {
+                    String scopeName = mbd.getScope();
+                    if (!StringUtils.hasLength(scopeName)) {
+                        throw new IllegalStateException("No scope name defined for bean ��" + beanName + "'");
+                    }
+
+                    Scope scope = (Scope)this.scopes.get(scopeName);
+                    if (scope == null) {
+                        throw new IllegalStateException("No Scope registered for scope name '" + scopeName + "'");
+                    }
+
+                    try {
+                        Object scopedInstance = scope.get(beanName, () -> {
+                            this.beforePrototypeCreation(beanName);
+
+                            Object var4;
+                            try {
+                                var4 = this.createBean(beanName, mbd, args);
+                            } finally {
+                                this.afterPrototypeCreation(beanName);
+                            }
+
+                            return var4;
+                        });
+                        beanInstance = this.getObjectForBeanInstance(scopedInstance, name, beanName, mbd);
+                    } catch (IllegalStateException var30) {
+                        throw new ScopeNotActiveException(beanName, scopeName, var30);
+                    }
+                }
+            } catch (BeansException var32) {
+                beanCreation.tag("exception", var32.getClass().toString());
+                beanCreation.tag("message", String.valueOf(var32.getMessage()));
+                this.cleanupAfterBeanCreationFailure(beanName);
+                throw var32;
+            } finally {
+                beanCreation.end();
+            }
+        }
+
+        return this.adaptBeanInstance(name, beanInstance, requiredType);
+    }
+```
+`String beanName = this.transformedBeanName(name);`此行，先认为它是校验bean的名字是不是合法，其实还有很多其他作用；
+`Object sharedInstance = this.getSingleton(beanName);`此行，是从一个map中尝试拿一下，这个bean，这个map是一个ConcurrentHashMap，是常说的Spring容器，但准确的应该叫Spring单例池，但此刻肯定是拿不到的，它为什么要拿一下呢?这里有个很关键的方法：`isSingletonCurrentlyInCreation(beanName)`
+```java
+String beanName = this.transformedBeanName(name);
+Object sharedInstance = this.getSingleton(beanName);
+Object beanInstance;
+if (sharedInstance != null && args == null) {
+    if (this.logger.isTraceEnabled()) {
+        if (this.isSingletonCurrentlyInCreation(beanName)) {
+            this.logger.trace("Returning eagerly cached instance of singleton bean '" + beanName + "' that is not fully initialized yet - a consequence of a circular reference");
+        } else {
+            this.logger.trace("Returning cached instance of singleton bean '" + beanName + "'");
+        }
+    }
+
+    beanInstance = this.getObjectForBeanInstance(sharedInstance, name, beanName, (RootBeanDefinition)null);
+}
+```
+至此，先跳过这部分。
+再回到doGetBean方法：来到：
+```java
+if (mbd.isSingleton()) {
+                    sharedInstance = this.getSingleton(beanName, () -> {
+                        try {
+                            return this.createBean(beanName, mbd, args);
+                        } catch (BeansException var5) {
+                            this.destroySingleton(beanName);
+                            throw var5;
+                        }
+                    });
+                    beanInstance = this.getObjectForBeanInstance(sharedInstance, name, beanName, mbd);
+                }
+```
+此处，就要进行创建对象了：
+```java
+protected Object createBean(String beanName, RootBeanDefinition mbd, @Nullable Object[] args) throws BeanCreationException {
+        if (this.logger.isTraceEnabled()) {
+            this.logger.trace("Creating instance of bean '" + beanName + "'");
+        }
+
+        RootBeanDefinition mbdToUse = mbd;
+        Class<?> resolvedClass = this.resolveBeanClass(mbd, beanName, new Class[0]);
+        if (resolvedClass != null && !mbd.hasBeanClass() && mbd.getBeanClassName() != null) {
+            mbdToUse = new RootBeanDefinition(mbd);
+            mbdToUse.setBeanClass(resolvedClass);
+        }
+
+        try {
+            mbdToUse.prepareMethodOverrides();
+        } catch (BeanDefinitionValidationException var9) {
+            throw new BeanDefinitionStoreException(mbdToUse.getResourceDescription(), beanName, "Validation of method overrides failed", var9);
+        }
+
+        Object beanInstance;
+        try {
+            beanInstance = this.resolveBeforeInstantiation(beanName, mbdToUse);
+            if (beanInstance != null) {
+                return beanInstance;
+            }
+        } catch (Throwable var10) {
+            throw new BeanCreationException(mbdToUse.getResourceDescription(), beanName, "BeanPostProcessor before instantiation of bean failed", var10);
+        }
+
+        try {
+            beanInstance = this.doCreateBean(beanName, mbdToUse, args);
+            if (this.logger.isTraceEnabled()) {
+                this.logger.trace("Finished creating instance of bean '" + beanName + "'");
+            }
+
+            return beanInstance;
+        } catch (ImplicitlyAppearedSingletonException | BeanCreationException var7) {
+            throw var7;
+        } catch (Throwable var8) {
+            throw new BeanCreationException(mbdToUse.getResourceDescription(), beanName, "Unexpected exception during bean creation", var8);
+        }
+    }
+```
+上面这段代码，可以看到，就是通过`BeanDefinition`对象拿到bean的Class类的对象出来，准备创建对象，就是拿到该类的构造器等信息，来实例化。虽然是实例化了，但并不是完整的Spring bean。如下代码片段
+```java
+@Component
+public class OneService {
+    @Autowired
+    TwoService twoService;
+
+    public OneService() {
+        System.out.println("Construct OneService");
+    }
+
+    @PostConstruct
+    public void aa(){
+        //Spring bean生命周期初始化回调方法
+        System.out.println("init");
+    }
+
+    public void getTwoService(){
+        System.out.println(twoService);
+    }
+}
+```
+它这一步，仅仅是创建了OneService的基本对象，@Autowired，还有AOP功能，@PostConstruct等等都没有做，仅仅是new出来了这个基本对象。
+在创建的过程中，进入doCreateBean方法中：
+```java
+//判断是否允许循环依赖
+//主要就是this.allowCircularReferences,而Spring关闭默认允许循环依赖的关键也就是这里
+boolean earlySingletonExposure = mbd.isSingleton() && this.allowCircularReferences && this.isSingletonCurrentlyInCreation(beanName);
+if (earlySingletonExposure) {
+    if (this.logger.isTraceEnabled()) {
+        this.logger.trace("Eagerly caching bean '" + beanName + "' to allow for resolving potential circular references");
+    }
+
+    this.addSingletonFactory(beanName, () -> {
+        return this.getEarlyBeanReference(beanName, mbd, bean);
+    });
+}
+```
+## 问题：怎么关闭Spring默认的允许循环依赖
+1、直接修改源码，赋值allowCircularReferences属性为false。
+2、手动refresh：
+```java
+//1、初始化Spring容器
+AnnotationConfigApplicationContext ac =
+	new AnnotationConfigApplicationContext(MyConfig.class);
+//2、拿到beanFactory
+AbstractAutowireCapableBeanFactory beanFactory =
+	(AbstractAutowireCapableBeanFactory) ac.getBeanFactory();
+beanFactory.setAllowCircularReferences(false);
+//但这样其实没有用,因为1、步已经完成了容器的初始化。
+```
+正确的做法：
+```java
+//初始化Spring容器
+AnnotationConfigApplicationContext ac =
+	new AnnotationConfigApplicationContext();
+//先调用默认构造器，然后自己来实现其构造器中的两个关键方法：register和refresh
+ac.register(MyConfig.class);
+//在此关闭循环依赖
+AbstractAutowireCapableBeanFactory beanFactory =
+	(AbstractAutowireCapableBeanFactory) ac.getBeanFactory();
+beanFactory.setAllowCircularReferences(false);
+ac.refresh();
+```
+回到创建过程：
+```java
+boolean earlySingletonExposure = mbd.isSingleton() && this.allowCircularReferences && this.isSingletonCurrentlyInCreation(beanName);
+if (earlySingletonExposure) {
+    if (this.logger.isTraceEnabled()) {
+        this.logger.trace("Eagerly caching bean '" + beanName + "' to allow for resolving potential circular references");
+    }
+    //在此进行第四次后置处理器，判断是否需要AOP
+    this.addSingletonFactory(beanName, () -> {
+        return this.getEarlyBeanReference(beanName, mbd, bean);
+    });
+}
+
+Object exposedObject = bean;
+
+try {
+    //填充属性，也就是常常说的自动注入
+    //里面会完成第五次和第六次后置处理器的调用
+    this.populateBean(beanName, mbd, instanceWrapper);
+    //初始化bean
+    //里面会完成第七次和第八次后置处理器的调用
+    exposedObject = this.initializeBean(beanName, exposedObject, mbd);
+} catch (Throwable var18) {
+    if (var18 instanceof BeanCreationException && beanName.equals(((BeanCreationException)var18).getBeanName())) {
+        throw (BeanCreationException)var18;
+    }
+
+    throw new BeanCreationException(mbd.getResourceDescription(), beanName, "Initialization of bean failed", var18);
+}
+```
+进入populateBean方法：
+```java
+if (hasInstAwareBpps) {
+    if (pvs == null) {
+        pvs = mbd.getPropertyValues();
+    }
+
+    PropertyValues pvsToUse;
+    for(Iterator var9 = this.getBeanPostProcessorCache().instantiationAware.iterator(); var9.hasNext(); pvs = pvsToUse) {
+        InstantiationAwareBeanPostProcessor bp = (InstantiationAwareBeanPostProcessor)var9.next();
+        pvsToUse = bp.postProcessProperties((PropertyValues)pvs, bw.getWrappedInstance(), beanName);
+        if (pvsToUse == null) {
+            if (filteredPds == null) {
+                filteredPds = this.filterPropertyDescriptorsForDependencyCheck(bw, mbd.allowCaching);
+            }
+
+            pvsToUse = bp.postProcessPropertyValues((PropertyValues)pvs, filteredPds, bw.getWrappedInstance(), beanName);
+            if (pvsToUse == null) {
+                return;
+            }
+        }
+    }
+}
+```
+此行：`pvsToUse = bp.postProcessPropertyValues((PropertyValues)pvs, filteredPds, bw.getWrappedInstance(), beanName);`完成后，完成注入，比如TwoService，这时候就注入了进来。
+注意，此处是个for循环，该循环在遍历后置处理器BeanPostProcessors，然后不同的BeanPostProcessor作不同的事情，比如常说的@Autowired注解，和@Resource注解的区别，这两个注解的组件走到这里的时候，会有不同的后置处理器来处理。
+至此，来看开始循环注入的问题：
+首先:初始化容器
+```java
+AnnotationConfigApplicationContext ac =
+                new AnnotationConfigApplicationContext(MyConfig.class);
+```
+调用refresh方法：
+```java
+this.refresh();
+```
+经过：
+```java
+this.invokeBeanFactoryPostProcessors(beanFactory);
+```
+后完成扫描。
+经过：
+```java
+this.finishBeanFactoryInitialization(beanFactory);
+```
+后完成bean的初始化。在：`this.finishBeanFactoryInitialization(beanFactory);`中，又进行了实例化所有的单例，非Lazy的bean：
+```java
+beanFactory.preInstantiateSingletons();
+```
+这里面，创建对象的过程是，先new出了基本的对象，然后接着进行属性填充：
+```java
+this.populateBean(beanName, mbd, instanceWrapper);
+```
+就是在此时，填充TwoService，这时候他会从容器中去拿TwoService这个bean，就是单例池中去拿，这时候肯定拿不到。
+这时候就到了上面提到的：去池子中拿，拿不到，这时候有一个很关键的判断：
+`if (singletonObject == null && this.isSingletonCurrentlyInCreation(beanName))`
+```java
+protected Object getSingleton(String beanName, boolean allowEarlyReference) {
+    Object singletonObject = this.singletonObjects.get(beanName);
+    if (singletonObject == null && this.isSingletonCurrentlyInCreation(beanName)) {
+        singletonObject = this.earlySingletonObjects.get(beanName);
+        if (singletonObject == null && allowEarlyReference) {
+            synchronized(this.singletonObjects) {
+                singletonObject = this.singletonObjects.get(beanName);
+                if (singletonObject == null) {
+                    singletonObject = this.earlySingletonObjects.get(beanName);
+                    if (singletonObject == null) {
+                        ObjectFactory<?> singletonFactory = (ObjectFactory)this.singletonFactories.get(beanName);
+                        if (singletonFactory != null) {
+                            singletonObject = singletonFactory.getObject();
+                            this.earlySingletonObjects.put(beanName, singletonObject);
+                            this.singletonFactories.remove(beanName);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    return singletonObject;
+}
+```
+这个判断条件是不成立的。如果该条件成立，那么就要去三级缓存中拿。
+# 循环依赖类的创建流程总结：
+OK，循环依赖的两个类加载的过程：
+调用构造方法new出OneService对象-->如果是单例，还会把自己放到一个代表正在创建中的Set集合中，如果开启了循环依赖，就会把当前的OneService的对象放到二级缓存中-->继续走，走到populateBean要进行填充TwoService-->从容器中找，这时候找不到。此刻就有上边这个判断，是不是正在创建的bean，如果此判断成功进入，就会从三级缓存中拿出来。-->拿不到，条件也没成立，这时候，就要new出TwoService来，当然此时new出的来TwoServcie对象，也要走bean的生命周期，那么它最终还是会走到populateBean这个方法，它也会去填充属性--->从容器中找OneService的bean，拿不到，所以它又要实例化一遍OneService，但这个过程中，但是此时有个判断条件却成立了，因为OneService确实是正在创建中，它从二级缓存中拿，是能拿到的，之前的过程存进去了。这时候，拿到OneService的对象，不等于null，就给TwoService注入了。
+```java
+/**
+ * 比如第一次加载OneService,就会把自己放入二级缓存，当OneService进行到populateBean时，就会准备注入TwoService，
+ * TwoService，也一样，最后进行到populateBean，从单例池中拿OneService，拿不到，继续从三级中拿，拿不到，继续从
+ * 二级中拿，拿到了，就把OneService放进三级缓存，并将二级缓存中的移除。 
+ */
+@Nullable
+protected Object getSingleton(String beanName, boolean allowEarlyReference) {
+    //一级缓存：即单例池
+    Object singletonObject = this.singletonObjects.get(beanName);
+    if (singletonObject == null && this.isSingletonCurrentlyInCreation(beanName)) {
+        //从三级缓存中拿 
+        singletonObject = this.earlySingletonObjects.get(beanName);
+        //如果拿不到
+        if (singletonObject == null && allowEarlyReference) {
+            synchronized(this.singletonObjects) {
+                singletonObject = this.singletonObjects.get(beanName);
+                if (singletonObject == null) {
+                    singletonObject = this.earlySingletonObjects.get(beanName);
+                    if (singletonObject == null) {
+                        //从二级缓存中拿
+                        ObjectFactory<?> singletonFactory = (ObjectFactory)this.singletonFactories.get(beanName);
+                        //如果拿到了 
+                        if (singletonFactory != null) {
+                            singletonObject = singletonFactory.getObject();
+                            //放入三级缓存中
+                            this.earlySingletonObjects.put(beanName, singletonObject);
+                            //将二级缓存中的移除
+                            this.singletonFactories.remove(beanName);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    return singletonObject;
+}
+```
+(String), 原创(String), 132(Integer), true(Boolean), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 2021-04-03 01:26:55.386(Timestamp), 2021-04-04 23:40:56.51(Timestamp), 14(Long), 1(Long), 34(Long)
+2021-04-05 16:50:15.421 DEBUG 20336 --- [http-nio-8080-exec-6] c.yi.blog.mapper.BlogMapper.updateById   : <==    Updates: 1
+2021-04-05 16:50:15.508  INFO 20336 --- [http-nio-8080-exec-6] com.yi.blog.aspect.LogAspect             : Result:archivedetails
+2021-04-05 16:50:16.055  INFO 20336 --- [http-nio-8080-exec-1] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com:8080/comments/34', ip='127.0.0.1', classMethod='com.yi.blog.web.CommentController.comments', args=[34, {}]}
+2021-04-05 16:50:16.082 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.mapper.CommentMapper.selectList    : ==>  Preparing: SELECT id,nickname,email,content,avatar,create_time,blog_id,parent_comment_id,manager_comment FROM comment WHERE (blog_id = ?) ORDER BY create_time DESC 
+2021-04-05 16:50:16.082 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.mapper.CommentMapper.selectList    : ==> Parameters: 34(Long)
+2021-04-05 16:50:16.128 DEBUG 20336 --- [http-nio-8080-exec-1] c.y.b.mapper.CommentMapper.selectList    : <==      Total: 0
+2021-04-05 16:50:16.128  INFO 20336 --- [http-nio-8080-exec-1] com.yi.blog.aspect.LogAspect             : Result:archivedetails :: commentList
+2021-04-05 16:54:16.943  INFO 20336 --- [Thread-30] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:54:16.944  INFO 20336 --- [Thread-30] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2021-04-05 16:54:16.952  INFO 20336 --- [Thread-30] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2021-04-05 16:54:21.244  INFO 20336 --- [restartedMain] com.yi.blog.BlogApplication              : Starting BlogApplication on LAPTOP-P12KV1HJ with PID 20336 (D:\blog\lyric\target\classes started by lyric in D:\blog)
+2021-04-05 16:54:21.244 DEBUG 20336 --- [restartedMain] com.yi.blog.BlogApplication              : Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2021-04-05 16:54:21.244  INFO 20336 --- [restartedMain] com.yi.blog.BlogApplication              : No active profile set, falling back to default profiles: default
+2021-04-05 16:54:21.691  INFO 20336 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2021-04-05 16:54:21.692  INFO 20336 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 16:54:21.693  INFO 20336 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2021-04-05 16:54:21.706  INFO 20336 --- [restartedMain] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-04-05 16:54:21.706  INFO 20336 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 460 ms
+2021-04-05 16:54:21.819  WARN 20336 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.yi.blog.entity.BlogTags.
+2021-04-05 16:54:22.427  INFO 20336 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-05 16:54:22.468  INFO 20336 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-05 16:54:22.650  INFO 20336 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-05 16:54:22.669  INFO 20336 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2021-04-05 16:54:22.670  INFO 20336 --- [restartedMain] com.yi.blog.BlogApplication              : Started BlogApplication in 1.458 seconds (JVM running for 1618.229)
+2021-04-05 16:54:22.671  INFO 20336 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-05 17:13:42.677  INFO 20336 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-05 17:13:42.677  INFO 20336 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-05 17:13:42.685  INFO 20336 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2021-04-05 17:13:42.693  INFO 20336 --- [http-nio-80-exec-1] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com/', ip='127.0.0.1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@4b3d333a]}
+2021-04-05 17:13:42.701  INFO 20336 --- [http-nio-80-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2021-04-05 17:13:43.203  INFO 20336 --- [http-nio-80-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2021-04-05 17:13:43.204 DEBUG 20336 --- [http-nio-80-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-05 17:13:43.204 DEBUG 20336 --- [http-nio-80-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-05 17:13:43.288 DEBUG 20336 --- [http-nio-80-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-05 17:13:43.288 DEBUG 20336 --- [http-nio-80-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-05 17:13:43.446 DEBUG 20336 --- [http-nio-80-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-05 17:13:43.446 DEBUG 20336 --- [http-nio-80-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-05 17:13:43.501 DEBUG 20336 --- [http-nio-80-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-05 17:13:43.501 DEBUG 20336 --- [http-nio-80-exec-1] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 2
+2021-04-05 17:13:43.514 DEBUG 20336 --- [http-nio-80-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-05 17:13:43.514 DEBUG 20336 --- [http-nio-80-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-05 17:13:43.590 DEBUG 20336 --- [http-nio-80-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 2
+2021-04-05 17:13:43.595 DEBUG 20336 --- [http-nio-80-exec-1] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-05 17:13:43.595 DEBUG 20336 --- [http-nio-80-exec-1] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-05 17:13:43.654 DEBUG 20336 --- [http-nio-80-exec-1] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 3
+2021-04-05 17:13:43.746 DEBUG 20336 --- [http-nio-80-exec-1] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-05 17:13:43.746 DEBUG 20336 --- [http-nio-80-exec-1] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-05 17:13:43.826 DEBUG 20336 --- [http-nio-80-exec-1] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-05 17:13:43.827 DEBUG 20336 --- [http-nio-80-exec-1] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-05 17:13:43.828 DEBUG 20336 --- [http-nio-80-exec-1] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 44851(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-05 17:13:43.983 DEBUG 20336 --- [http-nio-80-exec-1] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-05 17:13:44.233  INFO 20336 --- [http-nio-80-exec-1] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-05 17:13:44.575  INFO 20336 --- [http-nio-80-exec-2] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://yi.com/footer/newblog', ip='127.0.0.1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-05 17:13:44.575  INFO 20336 --- [http-nio-80-exec-2] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newblogList
+2021-04-05 17:14:07.604  INFO 20336 --- [Thread-42] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-05 17:14:07.604  INFO 20336 --- [Thread-42] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2021-04-05 17:14:07.607  INFO 20336 --- [Thread-42] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2021-04-05 17:14:12.247  INFO 20336 --- [restartedMain] com.yi.blog.BlogApplication              : Starting BlogApplication on LAPTOP-P12KV1HJ with PID 20336 (D:\blog\lyric\target\classes started by lyric in D:\blog)
+2021-04-05 17:14:12.247 DEBUG 20336 --- [restartedMain] com.yi.blog.BlogApplication              : Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2021-04-05 17:14:12.247  INFO 20336 --- [restartedMain] com.yi.blog.BlogApplication              : No active profile set, falling back to default profiles: default
+2021-04-05 17:14:12.688  INFO 20336 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-05 17:14:12.689  INFO 20336 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-05 17:14:12.689  INFO 20336 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2021-04-05 17:14:12.702  INFO 20336 --- [restartedMain] o.a.c.c.C.[Tomcat-5].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-04-05 17:14:12.702  INFO 20336 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 453 ms
+2021-04-05 17:14:12.813  WARN 20336 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.yi.blog.entity.BlogTags.
+2021-04-05 17:14:13.233  WARN 20336 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commentController': Unsatisfied dependency expressed through field 'randomAvatarService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.yi.blog.service.RandomAvatarService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2021-04-05 17:14:13.233  INFO 20336 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-04-05 17:14:13.238  INFO 20336 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-04-05 17:14:13.343 ERROR 20336 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field randomAvatarService in com.yi.blog.web.CommentController required a bean of type 'com.yi.blog.service.RandomAvatarService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.yi.blog.service.RandomAvatarService' in your configuration.
+

@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://8.136.236.82:3306/blog?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+logging:
+    level:
+      root: info
+      com.yi: debug
+    file: log/blog.log
+server:
+  port: 8060
+comment.1: /images/1.svg
+comment.2: /images/2.svg
+comment.3: /images/3.svg
+comment.4: /images/4.svg
+comment.5: /images/5.svg
+comment.6: /images/6.svg
+comment.7: /images/7.svg
+comment.8: /images/8.svg
+comment.9: /images/9.svg
+comment.10: /images/10.svg
+comment.11: /images/11.svg
+comment.12: /images/12.svg

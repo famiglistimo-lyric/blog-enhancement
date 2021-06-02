@@ -1,0 +1,518 @@
+2021-04-27 10:54:15.859  INFO 18156 --- [restartedMain] com.yi.blog.BlogApplication              : Starting BlogApplication on LAPTOP-P12KV1HJ with PID 18156 (D:\blog\lyric\target\classes started by lyric in D:\blog)
+2021-04-27 10:54:15.907 DEBUG 18156 --- [restartedMain] com.yi.blog.BlogApplication              : Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2021-04-27 10:54:15.908  INFO 18156 --- [restartedMain] com.yi.blog.BlogApplication              : No active profile set, falling back to default profiles: default
+2021-04-27 10:54:15.961  INFO 18156 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-27 10:54:15.961  INFO 18156 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-27 10:54:17.397  INFO 18156 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-27 10:54:17.416  INFO 18156 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-27 10:54:17.416  INFO 18156 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2021-04-27 10:54:17.501  INFO 18156 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-27 10:54:17.502  INFO 18156 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1541 ms
+2021-04-27 10:54:17.876  WARN 18156 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.yi.blog.entity.BlogTags.
+2021-04-27 10:54:18.728  INFO 18156 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-27 10:54:18.815  INFO 18156 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-27 10:54:19.147  INFO 18156 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-27 10:54:19.199  INFO 18156 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-27 10:54:19.202  INFO 18156 --- [restartedMain] com.yi.blog.BlogApplication              : Started BlogApplication in 3.877 seconds (JVM running for 4.73)
+2021-04-27 10:54:36.693  INFO 18156 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-27 10:54:36.693  INFO 18156 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-27 10:54:36.703  INFO 18156 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2021-04-27 10:54:36.732  INFO 18156 --- [http-nio-8080-exec-1] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@2a828095]}
+2021-04-27 10:54:36.768  INFO 18156 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-27 10:54:37.091  INFO 18156 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-27 10:54:37.121 DEBUG 18156 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-27 10:54:37.137 DEBUG 18156 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-27 10:54:37.165 DEBUG 18156 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-27 10:54:37.166 DEBUG 18156 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-27 10:54:37.199 DEBUG 18156 --- [http-nio-8080-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-27 10:54:37.199 DEBUG 18156 --- [http-nio-8080-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-27 10:54:37.210 DEBUG 18156 --- [http-nio-8080-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-27 10:54:37.213 DEBUG 18156 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 4
+2021-04-27 10:54:37.220 DEBUG 18156 --- [http-nio-8080-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-27 10:54:37.220 DEBUG 18156 --- [http-nio-8080-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-27 10:54:37.232 DEBUG 18156 --- [http-nio-8080-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 4
+2021-04-27 10:54:37.236 DEBUG 18156 --- [http-nio-8080-exec-1] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-27 10:54:37.237 DEBUG 18156 --- [http-nio-8080-exec-1] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-27 10:54:37.249 DEBUG 18156 --- [http-nio-8080-exec-1] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 5
+2021-04-27 10:54:37.268 DEBUG 18156 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-27 10:54:37.268 DEBUG 18156 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-27 10:54:37.279 DEBUG 18156 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-27 10:54:37.290 DEBUG 18156 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-27 10:54:37.292 DEBUG 18156 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 45892(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-27 10:54:37.311 DEBUG 18156 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-27 10:54:37.345  INFO 18156 --- [http-nio-8080-exec-1] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-27 10:54:38.033  INFO 18156 --- [http-nio-8080-exec-5] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/footer/newBlog', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-27 10:54:38.033  INFO 18156 --- [http-nio-8080-exec-5] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newBlogList
+2021-04-27 10:54:42.958  INFO 18156 --- [http-nio-8080-exec-7] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/archives;jsessionid=A840C5665B87318A89921BA45400E9DA', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.ArchiveShowController.archives', args=[{}]}
+2021-04-27 10:54:42.982 DEBUG 18156 --- [http-nio-8080-exec-7] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-27 10:54:42.983 DEBUG 18156 --- [http-nio-8080-exec-7] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-27 10:54:42.997 DEBUG 18156 --- [http-nio-8080-exec-7] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 4
+2021-04-27 10:54:42.999 DEBUG 18156 --- [http-nio-8080-exec-7] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-27 10:54:42.999 DEBUG 18156 --- [http-nio-8080-exec-7] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-27 10:54:43.013 DEBUG 18156 --- [http-nio-8080-exec-7] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 5
+2021-04-27 10:54:43.015 DEBUG 18156 --- [http-nio-8080-exec-7] c.y.b.mapper.BlogMapper.findGroupYear    : ==>  Preparing: SELECT DATE_FORMAT( b.update_time, '%Y' ) year FROM blog b GROUP BY DATE_FORMAT( b.update_time, '%Y' ) ORDER BY year DESC 
+2021-04-27 10:54:43.015 DEBUG 18156 --- [http-nio-8080-exec-7] c.y.b.mapper.BlogMapper.findGroupYear    : ==> Parameters: 
+2021-04-27 10:54:43.027 DEBUG 18156 --- [http-nio-8080-exec-7] c.y.b.mapper.BlogMapper.findGroupYear    : <==      Total: 1
+2021-04-27 10:54:43.028 DEBUG 18156 --- [http-nio-8080-exec-7] c.yi.blog.mapper.BlogMapper.findByYear   : ==>  Preparing: SELECT b.* FROM blog b WHERE DATE_FORMAT( b.update_time, '%Y' ) = ? 
+2021-04-27 10:54:43.028 DEBUG 18156 --- [http-nio-8080-exec-7] c.yi.blog.mapper.BlogMapper.findByYear   : ==> Parameters: 2021(String)
+2021-04-27 10:54:43.057 DEBUG 18156 --- [http-nio-8080-exec-7] c.yi.blog.mapper.BlogMapper.findByYear   : <==      Total: 4
+2021-04-27 10:54:43.058  INFO 18156 --- [http-nio-8080-exec-7] com.yi.blog.aspect.LogAspect             : Result:archives
+2021-04-27 10:54:44.840  INFO 18156 --- [http-nio-8080-exec-5] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@2a828095]}
+2021-04-27 10:54:44.889 DEBUG 18156 --- [http-nio-8080-exec-5] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-27 10:54:44.890 DEBUG 18156 --- [http-nio-8080-exec-5] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-27 10:54:44.930 DEBUG 18156 --- [http-nio-8080-exec-5] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-27 10:54:44.930 DEBUG 18156 --- [http-nio-8080-exec-5] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-27 10:54:44.996 DEBUG 18156 --- [http-nio-8080-exec-5] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-27 10:54:44.997 DEBUG 18156 --- [http-nio-8080-exec-5] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-27 10:54:45.015 DEBUG 18156 --- [http-nio-8080-exec-5] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-27 10:54:45.016 DEBUG 18156 --- [http-nio-8080-exec-5] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 4
+2021-04-27 10:54:45.017 DEBUG 18156 --- [http-nio-8080-exec-5] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-27 10:54:45.017 DEBUG 18156 --- [http-nio-8080-exec-5] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-27 10:54:45.032 DEBUG 18156 --- [http-nio-8080-exec-5] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 4
+2021-04-27 10:54:45.033 DEBUG 18156 --- [http-nio-8080-exec-5] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-27 10:54:45.034 DEBUG 18156 --- [http-nio-8080-exec-5] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-27 10:54:45.047 DEBUG 18156 --- [http-nio-8080-exec-5] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 5
+2021-04-27 10:54:45.059 DEBUG 18156 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-27 10:54:45.060 DEBUG 18156 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-27 10:54:45.073 DEBUG 18156 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-27 10:54:45.077 DEBUG 18156 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-27 10:54:45.078 DEBUG 18156 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 45893(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-27 10:54:45.098 DEBUG 18156 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-27 10:54:45.131  INFO 18156 --- [http-nio-8080-exec-5] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-27 10:54:45.373  INFO 18156 --- [http-nio-8080-exec-6] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/footer/newBlog', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-27 10:54:45.373  INFO 18156 --- [http-nio-8080-exec-6] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newBlogList
+2021-04-27 10:54:48.981  INFO 18156 --- [http-nio-8080-exec-9] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/blog/36', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.blog', args=[36, {}]}
+2021-04-27 10:54:49.009 DEBUG 18156 --- [http-nio-8080-exec-9] com.yi.blog.mapper.UserMapper.selectOne  : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE (id = ?) 
+2021-04-27 10:54:49.009 DEBUG 18156 --- [http-nio-8080-exec-9] com.yi.blog.mapper.UserMapper.selectOne  : ==> Parameters: 1(Integer)
+2021-04-27 10:54:49.019 DEBUG 18156 --- [http-nio-8080-exec-9] com.yi.blog.mapper.UserMapper.selectOne  : <==      Total: 1
+2021-04-27 10:54:49.030 DEBUG 18156 --- [http-nio-8080-exec-9] c.yi.blog.mapper.BlogMapper.selectById   : ==>  Preparing: SELECT id,title,content,first_picture,stamp,views,appreciate,original,comments,published,recommend,create_time,update_time,blog_type_id,user_id FROM blog WHERE id=? 
+2021-04-27 10:54:49.030 DEBUG 18156 --- [http-nio-8080-exec-9] c.yi.blog.mapper.BlogMapper.selectById   : ==> Parameters: 36(Long)
+2021-04-27 10:54:49.043 DEBUG 18156 --- [http-nio-8080-exec-9] c.yi.blog.mapper.BlogMapper.selectById   : <==      Total: 1
+2021-04-27 10:54:49.045 DEBUG 18156 --- [http-nio-8080-exec-9] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-27 10:54:49.046 DEBUG 18156 --- [http-nio-8080-exec-9] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-27 10:54:49.057 DEBUG 18156 --- [http-nio-8080-exec-9] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-27 10:54:49.063 DEBUG 18156 --- [http-nio-8080-exec-9] c.yi.blog.mapper.BlogMapper.updateById   : ==>  Preparing: UPDATE blog SET title=?, content=?, stamp=?, views=?, appreciate=?, original=?, comments=?, published=?, recommend=?, create_time=?, update_time=?, blog_type_id=?, user_id=? WHERE id=? 
+2021-04-27 10:54:49.064 DEBUG 18156 --- [http-nio-8080-exec-9] c.yi.blog.mapper.BlogMapper.updateById   : ==> Parameters: 业务场景-流水号(String), # 单体应用-流水号
+## 业务场景：
+- 1、单体应用
+- 2、流水号生成规则：年月(6位)+流水号(6位),流水号根据当前事件当月的数量生成。每月的一号重置。
+例如:绩优一,在2020-11-26日生成绩优一,11月已经有了5件绩优一,则流水号为:202011000006。
+绩优一,在2020-2-3日生成绩优一,2月已经有了1件绩优一,则流水号为:202002000002。
+## Spring特点：
+- 利用Spring的@Service注解天然单例的特性.
+- Spring框架中使用@PostConstruct注解 该注解的方法在整个Bean初始化中的执行顺序：Constructor(构造方法) -> @Autowired(依赖注入) -> @PostConstruct(注释的方法)
+## 利用以上两个特性：
+- 在Spring bean初始化的时候，得到一个时间，这个时间方便和下一个月的月初作对比进行重置的工作。
+- 从数据库查出当前流水号的最大数值。
+以上两个工作都是在服务初始就完成的，实际业务执行时，要保证流水号在增加的时候，保证线程安全。(JUC：AtomicInteger+双重检验锁)
+```java
+@Service
+public class SerialNumberGenerator {
+
+    @Autowired
+    private IEventGoodOneService eventGoodOneService;
+    @Autowired
+    private IEventGoodTwoService eventGoodTwoService;
+    @Autowired
+    private IEventBadOneService eventBadOneService;
+    @Autowired
+    private IEventBadTwoService eventBadTwoService;
+    @Autowired
+    private IEventAwardService eventAwardService;
+
+    private static final AtomicInteger eventBadOneSn = new AtomicInteger(1);
+    private static final AtomicInteger eventBadTwoSn = new AtomicInteger(1);
+    private static final AtomicInteger eventGoodOneSn = new AtomicInteger(1);
+    private static final AtomicInteger eventGoodTwoSn = new AtomicInteger(1);
+    private static final AtomicInteger eventAwardSn = new AtomicInteger(1);
+    private static final int ruleCapacity = 6;
+    private Date current = new Date();
+
+    @PostConstruct
+    public void init() {
+        initSn(eventGoodOneService.getMaxEventCode(), eventGoodOneSn);
+        initSn(eventGoodTwoService.getMaxEventCode(), eventGoodTwoSn);
+        initSn(eventBadOneService.getMaxEventCode(), eventBadOneSn);
+        initSn(eventBadTwoService.getMaxEventCode(), eventBadTwoSn);
+        initSn(eventAwardService.getMaxEventCode(), eventAwardSn);
+    }
+
+    public void initSn(MaxEventCode maxObj, AtomicInteger sn) {
+        if (maxObj == null) {
+            sn.set(1);
+        } else if (maxObj.getMaxEventCode().length() != 12 || maxObj.getCreateTime() == null) {
+            throw new BizException(Constant.Info.PARAM_ERR);
+        } else {
+            Calendar tempCalendar = Calendar.getInstance();
+            tempCalendar.setTime(new Date());
+            int month = tempCalendar.get(Calendar.MONTH)+1;
+            int dbTime = DateUtil.getMonth(maxObj.getCreateTime());
+            if (dbTime != month) {
+                sn.set(1);
+            } else {
+                sn.set(1+Integer.parseInt(maxObj.getMaxEventCode().substring(6)));
+            }
+        }
+    }
+
+    private String getFinalSerialNumber(String timeStr, int num, int counts) {
+        int len = Integer.toString(counts).length();
+        StringBuilder finalSerialNumber = new StringBuilder(timeStr);
+        for (int i = 0; i < num - len; i++) {
+            finalSerialNumber.append("0");
+        }
+        finalSerialNumber.append(counts);
+        return finalSerialNumber.toString();
+    }
+
+    public String getSerialNumber(int eventType) {
+        Calendar tempCalendar = Calendar.getInstance();
+        tempCalendar.setTime(new Date());
+        int month = tempCalendar.get(Calendar.MONTH)+1;
+        int currentMonth = DateUtil.getMonth(current);
+        if (currentMonth != month) {
+            synchronized (this){
+                if (DateUtil.getMonth(current) != month) {
+                    eventBadOneSn.set(1);
+                    eventBadTwoSn.set(1);
+                    eventGoodOneSn.set(1);
+                    eventGoodTwoSn.set(1);
+                    eventAwardSn.set(1);
+                    current = new Date();
+                }
+            }
+        }
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMM");
+        //将日期时间格式化
+        String timeStr = formatter.format(current);
+        String finalSerialNumber = "";
+        switch (eventType) {
+            case Constant.EventType.GOOD_ONE: {
+                finalSerialNumber = this.getFinalSerialNumber(timeStr, ruleCapacity, eventGoodOneSn.getAndIncrement());
+                break;
+            }
+            case Constant.EventType.GOOD_TWO: {
+                finalSerialNumber = this.getFinalSerialNumber(timeStr, ruleCapacity, eventGoodTwoSn.getAndIncrement());
+                break;
+            }
+            case Constant.EventType.BAD_ONE: {
+                finalSerialNumber = this.getFinalSerialNumber(timeStr, ruleCapacity, eventBadOneSn.getAndIncrement());
+                break;
+            }
+            case Constant.EventType.BAD_TWO: {
+                finalSerialNumber = this.getFinalSerialNumber(timeStr, ruleCapacity, eventBadTwoSn.getAndIncrement());
+                break;
+            }
+            case Constant.EventType.AWARD: {
+                finalSerialNumber = this.getFinalSerialNumber(timeStr, ruleCapacity, eventAwardSn.getAndIncrement());
+                break;
+            }
+            default: {
+                throw new BizException(Constant.Info.PARAM_ERR);
+            }
+        }
+        return finalSerialNumber;
+    }
+}
+```(String), 原创(String), 53(Integer), true(Boolean), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 2021-04-06 10:37:51.519(Timestamp), 2021-04-06 12:12:57.115(Timestamp), 14(Long), 1(Long), 36(Long)
+2021-04-27 10:54:49.084 DEBUG 18156 --- [http-nio-8080-exec-9] c.yi.blog.mapper.BlogMapper.updateById   : <==    Updates: 1
+2021-04-27 10:54:49.175  INFO 18156 --- [http-nio-8080-exec-9] com.yi.blog.aspect.LogAspect             : Result:archivedetails
+2021-04-27 10:54:55.694  INFO 18156 --- [http-nio-8080-exec-10] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@7ca85f02]}
+2021-04-27 10:54:55.728 DEBUG 18156 --- [http-nio-8080-exec-10] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-27 10:54:55.728 DEBUG 18156 --- [http-nio-8080-exec-10] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-27 10:54:55.749 DEBUG 18156 --- [http-nio-8080-exec-10] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-27 10:54:55.750 DEBUG 18156 --- [http-nio-8080-exec-10] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-27 10:54:55.782 DEBUG 18156 --- [http-nio-8080-exec-10] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-27 10:54:55.782 DEBUG 18156 --- [http-nio-8080-exec-10] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-27 10:54:55.796 DEBUG 18156 --- [http-nio-8080-exec-10] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-27 10:54:55.799 DEBUG 18156 --- [http-nio-8080-exec-10] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 4
+2021-04-27 10:54:55.800 DEBUG 18156 --- [http-nio-8080-exec-10] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-27 10:54:55.800 DEBUG 18156 --- [http-nio-8080-exec-10] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-27 10:54:55.815 DEBUG 18156 --- [http-nio-8080-exec-10] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 4
+2021-04-27 10:54:55.816 DEBUG 18156 --- [http-nio-8080-exec-10] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-27 10:54:55.817 DEBUG 18156 --- [http-nio-8080-exec-10] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-27 10:54:55.829 DEBUG 18156 --- [http-nio-8080-exec-10] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 5
+2021-04-27 10:54:55.840 DEBUG 18156 --- [http-nio-8080-exec-10] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-27 10:54:55.840 DEBUG 18156 --- [http-nio-8080-exec-10] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-27 10:54:55.854 DEBUG 18156 --- [http-nio-8080-exec-10] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-27 10:54:55.855 DEBUG 18156 --- [http-nio-8080-exec-10] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-27 10:54:55.855 DEBUG 18156 --- [http-nio-8080-exec-10] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 45894(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-27 10:54:55.887 DEBUG 18156 --- [http-nio-8080-exec-10] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-27 10:54:55.917  INFO 18156 --- [http-nio-8080-exec-10] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-27 10:54:56.183  INFO 18156 --- [http-nio-8080-exec-10] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/footer/newBlog', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-27 10:54:56.183  INFO 18156 --- [http-nio-8080-exec-10] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newBlogList
+2021-04-27 11:14:47.337  INFO 18156 --- [http-nio-8080-exec-7] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.ArchiveShowController.archives', args=[{}]}
+2021-04-27 11:14:47.347 DEBUG 18156 --- [http-nio-8080-exec-7] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-27 11:14:47.348 DEBUG 18156 --- [http-nio-8080-exec-7] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-27 11:14:47.358 DEBUG 18156 --- [http-nio-8080-exec-7] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 4
+2021-04-27 11:14:47.358 DEBUG 18156 --- [http-nio-8080-exec-7] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-27 11:14:47.359 DEBUG 18156 --- [http-nio-8080-exec-7] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-27 11:14:47.369 DEBUG 18156 --- [http-nio-8080-exec-7] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 5
+2021-04-27 11:14:47.380 DEBUG 18156 --- [http-nio-8080-exec-7] c.y.b.mapper.BlogMapper.findGroupYear    : ==>  Preparing: SELECT DATE_FORMAT( b.update_time, '%Y' ) year FROM blog b GROUP BY DATE_FORMAT( b.update_time, '%Y' ) ORDER BY year DESC 
+2021-04-27 11:14:47.381 DEBUG 18156 --- [http-nio-8080-exec-7] c.y.b.mapper.BlogMapper.findGroupYear    : ==> Parameters: 
+2021-04-27 11:14:47.391 DEBUG 18156 --- [http-nio-8080-exec-7] c.y.b.mapper.BlogMapper.findGroupYear    : <==      Total: 1
+2021-04-27 11:14:47.392 DEBUG 18156 --- [http-nio-8080-exec-7] c.yi.blog.mapper.BlogMapper.findByYear   : ==>  Preparing: SELECT b.* FROM blog b WHERE DATE_FORMAT( b.update_time, '%Y' ) = ? 
+2021-04-27 11:14:47.393 DEBUG 18156 --- [http-nio-8080-exec-7] c.yi.blog.mapper.BlogMapper.findByYear   : ==> Parameters: 2021(String)
+2021-04-27 11:14:47.416 DEBUG 18156 --- [http-nio-8080-exec-7] c.yi.blog.mapper.BlogMapper.findByYear   : <==      Total: 4
+2021-04-27 11:14:47.416  INFO 18156 --- [http-nio-8080-exec-7] com.yi.blog.aspect.LogAspect             : Result:archives
+2021-04-27 11:16:38.837  INFO 18156 --- [http-nio-8080-exec-2] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.ArchiveShowController.archives', args=[{}]}
+2021-04-27 11:16:38.848 DEBUG 18156 --- [http-nio-8080-exec-2] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-27 11:16:38.848 DEBUG 18156 --- [http-nio-8080-exec-2] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-27 11:16:38.858 DEBUG 18156 --- [http-nio-8080-exec-2] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 4
+2021-04-27 11:16:38.859 DEBUG 18156 --- [http-nio-8080-exec-2] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-27 11:16:38.859 DEBUG 18156 --- [http-nio-8080-exec-2] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-27 11:16:38.871 DEBUG 18156 --- [http-nio-8080-exec-2] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 5
+2021-04-27 11:16:38.872 DEBUG 18156 --- [http-nio-8080-exec-2] c.y.b.mapper.BlogMapper.findGroupYear    : ==>  Preparing: SELECT DATE_FORMAT( b.update_time, '%Y' ) year FROM blog b GROUP BY DATE_FORMAT( b.update_time, '%Y' ) ORDER BY year DESC 
+2021-04-27 11:16:38.872 DEBUG 18156 --- [http-nio-8080-exec-2] c.y.b.mapper.BlogMapper.findGroupYear    : ==> Parameters: 
+2021-04-27 11:16:38.882 DEBUG 18156 --- [http-nio-8080-exec-2] c.y.b.mapper.BlogMapper.findGroupYear    : <==      Total: 1
+2021-04-27 11:16:38.883 DEBUG 18156 --- [http-nio-8080-exec-2] c.yi.blog.mapper.BlogMapper.findByYear   : ==>  Preparing: SELECT b.* FROM blog b WHERE DATE_FORMAT( b.update_time, '%Y' ) = ? 
+2021-04-27 11:16:38.884 DEBUG 18156 --- [http-nio-8080-exec-2] c.yi.blog.mapper.BlogMapper.findByYear   : ==> Parameters: 2021(String)
+2021-04-27 11:16:38.909 DEBUG 18156 --- [http-nio-8080-exec-2] c.yi.blog.mapper.BlogMapper.findByYear   : <==      Total: 4
+2021-04-27 11:16:38.909  INFO 18156 --- [http-nio-8080-exec-2] com.yi.blog.aspect.LogAspect             : Result:archives
+2021-04-27 11:16:39.580  INFO 18156 --- [http-nio-8080-exec-4] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@2a828095]}
+2021-04-27 11:16:39.592 DEBUG 18156 --- [http-nio-8080-exec-4] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-27 11:16:39.592 DEBUG 18156 --- [http-nio-8080-exec-4] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-27 11:16:39.603 DEBUG 18156 --- [http-nio-8080-exec-4] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-27 11:16:39.604 DEBUG 18156 --- [http-nio-8080-exec-4] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-27 11:16:39.629 DEBUG 18156 --- [http-nio-8080-exec-4] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-27 11:16:39.629 DEBUG 18156 --- [http-nio-8080-exec-4] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-27 11:16:39.640 DEBUG 18156 --- [http-nio-8080-exec-4] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-27 11:16:39.641 DEBUG 18156 --- [http-nio-8080-exec-4] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 4
+2021-04-27 11:16:39.642 DEBUG 18156 --- [http-nio-8080-exec-4] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-27 11:16:39.642 DEBUG 18156 --- [http-nio-8080-exec-4] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-27 11:16:39.652 DEBUG 18156 --- [http-nio-8080-exec-4] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 4
+2021-04-27 11:16:39.654 DEBUG 18156 --- [http-nio-8080-exec-4] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-27 11:16:39.654 DEBUG 18156 --- [http-nio-8080-exec-4] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-27 11:16:39.665 DEBUG 18156 --- [http-nio-8080-exec-4] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 5
+2021-04-27 11:16:39.676 DEBUG 18156 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-27 11:16:39.676 DEBUG 18156 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-27 11:16:39.686 DEBUG 18156 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-27 11:16:39.688 DEBUG 18156 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-27 11:16:39.688 DEBUG 18156 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 45896(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-27 11:16:39.707 DEBUG 18156 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-27 11:16:39.737  INFO 18156 --- [http-nio-8080-exec-4] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-27 11:16:39.982  INFO 18156 --- [http-nio-8080-exec-4] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/footer/newBlog', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-27 11:16:39.982  INFO 18156 --- [http-nio-8080-exec-4] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newBlogList
+2021-04-27 11:59:06.178  INFO 18156 --- [Thread-16] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-27 11:59:06.180  INFO 18156 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-04-27 11:59:06.182  INFO 18156 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-04-27 19:39:05.591  INFO 10484 --- [restartedMain] com.yi.blog.BlogApplication              : Starting BlogApplication on LAPTOP-P12KV1HJ with PID 10484 (D:\blog\lyric\target\classes started by lyric in D:\blog)
+2021-04-27 19:39:05.598 DEBUG 10484 --- [restartedMain] com.yi.blog.BlogApplication              : Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+2021-04-27 19:39:05.599  INFO 10484 --- [restartedMain] com.yi.blog.BlogApplication              : No active profile set, falling back to default profiles: default
+2021-04-27 19:39:05.701  INFO 10484 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-27 19:39:05.702  INFO 10484 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-27 19:39:07.858  INFO 10484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-27 19:39:07.880  INFO 10484 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-27 19:39:07.880  INFO 10484 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2021-04-27 19:39:07.980  INFO 10484 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-27 19:39:07.980  INFO 10484 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2276 ms
+2021-04-27 19:39:08.456  WARN 10484 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.yi.blog.entity.BlogTags.
+2021-04-27 19:39:09.584  INFO 10484 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-27 19:39:09.674  INFO 10484 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-27 19:39:10.032  INFO 10484 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-27 19:39:10.096  INFO 10484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-27 19:39:10.100  INFO 10484 --- [restartedMain] com.yi.blog.BlogApplication              : Started BlogApplication in 5.691 seconds (JVM running for 7.317)
+2021-04-27 19:40:01.700  INFO 10484 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-27 19:40:01.700  INFO 10484 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-27 19:40:01.713  INFO 10484 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2021-04-27 19:40:01.751  INFO 10484 --- [http-nio-8080-exec-1] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@dce9c23]}
+2021-04-27 19:40:01.789  INFO 10484 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-27 19:40:01.989  INFO 10484 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-27 19:40:02.028 DEBUG 10484 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-27 19:40:02.045 DEBUG 10484 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-27 19:40:02.071 DEBUG 10484 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-27 19:40:02.072 DEBUG 10484 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-27 19:40:02.103 DEBUG 10484 --- [http-nio-8080-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-27 19:40:02.103 DEBUG 10484 --- [http-nio-8080-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-27 19:40:02.113 DEBUG 10484 --- [http-nio-8080-exec-1] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-27 19:40:02.116 DEBUG 10484 --- [http-nio-8080-exec-1] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 4
+2021-04-27 19:40:02.123 DEBUG 10484 --- [http-nio-8080-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-27 19:40:02.124 DEBUG 10484 --- [http-nio-8080-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-27 19:40:02.136 DEBUG 10484 --- [http-nio-8080-exec-1] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 4
+2021-04-27 19:40:02.141 DEBUG 10484 --- [http-nio-8080-exec-1] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-27 19:40:02.142 DEBUG 10484 --- [http-nio-8080-exec-1] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-27 19:40:02.154 DEBUG 10484 --- [http-nio-8080-exec-1] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 5
+2021-04-27 19:40:02.174 DEBUG 10484 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-27 19:40:02.175 DEBUG 10484 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-27 19:40:02.187 DEBUG 10484 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-27 19:40:02.199 DEBUG 10484 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-27 19:40:02.201 DEBUG 10484 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 45913(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-27 19:40:02.222 DEBUG 10484 --- [http-nio-8080-exec-1] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-27 19:40:02.279  INFO 10484 --- [http-nio-8080-exec-1] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-27 19:40:03.239  INFO 10484 --- [http-nio-8080-exec-8] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/footer/newBlog', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-27 19:40:03.240  INFO 10484 --- [http-nio-8080-exec-8] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newBlogList
+2021-04-27 19:40:24.171  INFO 10484 --- [http-nio-8080-exec-4] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@6726513]}
+2021-04-27 19:40:24.187 DEBUG 10484 --- [http-nio-8080-exec-4] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-27 19:40:24.188 DEBUG 10484 --- [http-nio-8080-exec-4] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-27 19:40:24.205 DEBUG 10484 --- [http-nio-8080-exec-4] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-27 19:40:24.206 DEBUG 10484 --- [http-nio-8080-exec-4] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-27 19:40:24.238 DEBUG 10484 --- [http-nio-8080-exec-4] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-27 19:40:24.239 DEBUG 10484 --- [http-nio-8080-exec-4] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-27 19:40:24.251 DEBUG 10484 --- [http-nio-8080-exec-4] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-27 19:40:24.257 DEBUG 10484 --- [http-nio-8080-exec-4] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 4
+2021-04-27 19:40:24.260 DEBUG 10484 --- [http-nio-8080-exec-4] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-27 19:40:24.261 DEBUG 10484 --- [http-nio-8080-exec-4] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-27 19:40:24.275 DEBUG 10484 --- [http-nio-8080-exec-4] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 4
+2021-04-27 19:40:24.278 DEBUG 10484 --- [http-nio-8080-exec-4] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-27 19:40:24.279 DEBUG 10484 --- [http-nio-8080-exec-4] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-27 19:40:24.292 DEBUG 10484 --- [http-nio-8080-exec-4] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 5
+2021-04-27 19:40:24.306 DEBUG 10484 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-27 19:40:24.307 DEBUG 10484 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-27 19:40:24.319 DEBUG 10484 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-27 19:40:24.321 DEBUG 10484 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-27 19:40:24.323 DEBUG 10484 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 45914(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-27 19:40:24.344 DEBUG 10484 --- [http-nio-8080-exec-4] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-27 19:40:24.378  INFO 10484 --- [http-nio-8080-exec-4] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-27 19:40:24.850  INFO 10484 --- [http-nio-8080-exec-8] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/footer/newBlog', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-27 19:40:24.850  INFO 10484 --- [http-nio-8080-exec-8] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newBlogList
+2021-04-27 19:40:47.965  INFO 10484 --- [http-nio-8080-exec-8] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.ArchiveShowController.archives', args=[{}]}
+2021-04-27 19:40:47.978 DEBUG 10484 --- [http-nio-8080-exec-8] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-27 19:40:47.978 DEBUG 10484 --- [http-nio-8080-exec-8] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-27 19:40:47.990 DEBUG 10484 --- [http-nio-8080-exec-8] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 4
+2021-04-27 19:40:47.990 DEBUG 10484 --- [http-nio-8080-exec-8] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-27 19:40:47.991 DEBUG 10484 --- [http-nio-8080-exec-8] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-27 19:40:48.002 DEBUG 10484 --- [http-nio-8080-exec-8] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 5
+2021-04-27 19:40:48.003 DEBUG 10484 --- [http-nio-8080-exec-8] c.y.b.mapper.BlogMapper.findGroupYear    : ==>  Preparing: SELECT DATE_FORMAT( b.update_time, '%Y' ) year FROM blog b GROUP BY DATE_FORMAT( b.update_time, '%Y' ) ORDER BY year DESC 
+2021-04-27 19:40:48.004 DEBUG 10484 --- [http-nio-8080-exec-8] c.y.b.mapper.BlogMapper.findGroupYear    : ==> Parameters: 
+2021-04-27 19:40:48.014 DEBUG 10484 --- [http-nio-8080-exec-8] c.y.b.mapper.BlogMapper.findGroupYear    : <==      Total: 1
+2021-04-27 19:40:48.016 DEBUG 10484 --- [http-nio-8080-exec-8] c.yi.blog.mapper.BlogMapper.findByYear   : ==>  Preparing: SELECT b.* FROM blog b WHERE DATE_FORMAT( b.update_time, '%Y' ) = ? 
+2021-04-27 19:40:48.016 DEBUG 10484 --- [http-nio-8080-exec-8] c.yi.blog.mapper.BlogMapper.findByYear   : ==> Parameters: 2021(String)
+2021-04-27 19:40:48.043 DEBUG 10484 --- [http-nio-8080-exec-8] c.yi.blog.mapper.BlogMapper.findByYear   : <==      Total: 4
+2021-04-27 19:40:48.044  INFO 10484 --- [http-nio-8080-exec-8] com.yi.blog.aspect.LogAspect             : Result:archives
+2021-04-27 19:40:48.709  INFO 10484 --- [http-nio-8080-exec-3] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@17faad64]}
+2021-04-27 19:40:48.721 DEBUG 10484 --- [http-nio-8080-exec-3] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-27 19:40:48.721 DEBUG 10484 --- [http-nio-8080-exec-3] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-27 19:40:48.732 DEBUG 10484 --- [http-nio-8080-exec-3] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-27 19:40:48.732 DEBUG 10484 --- [http-nio-8080-exec-3] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-27 19:40:48.759 DEBUG 10484 --- [http-nio-8080-exec-3] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-27 19:40:48.760 DEBUG 10484 --- [http-nio-8080-exec-3] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-27 19:40:48.770 DEBUG 10484 --- [http-nio-8080-exec-3] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-27 19:40:48.773 DEBUG 10484 --- [http-nio-8080-exec-3] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 4
+2021-04-27 19:40:48.774 DEBUG 10484 --- [http-nio-8080-exec-3] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-27 19:40:48.774 DEBUG 10484 --- [http-nio-8080-exec-3] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-27 19:40:48.785 DEBUG 10484 --- [http-nio-8080-exec-3] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 4
+2021-04-27 19:40:48.786 DEBUG 10484 --- [http-nio-8080-exec-3] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-27 19:40:48.786 DEBUG 10484 --- [http-nio-8080-exec-3] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-27 19:40:48.797 DEBUG 10484 --- [http-nio-8080-exec-3] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 5
+2021-04-27 19:40:48.808 DEBUG 10484 --- [http-nio-8080-exec-3] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-27 19:40:48.808 DEBUG 10484 --- [http-nio-8080-exec-3] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-27 19:40:48.818 DEBUG 10484 --- [http-nio-8080-exec-3] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-27 19:40:48.820 DEBUG 10484 --- [http-nio-8080-exec-3] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-27 19:40:48.820 DEBUG 10484 --- [http-nio-8080-exec-3] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 45915(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-27 19:40:48.839 DEBUG 10484 --- [http-nio-8080-exec-3] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-27 19:40:48.870  INFO 10484 --- [http-nio-8080-exec-3] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-27 19:40:49.200  INFO 10484 --- [http-nio-8080-exec-4] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/footer/newBlog', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-27 19:40:49.200  INFO 10484 --- [http-nio-8080-exec-4] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newBlogList
+2021-04-27 19:40:56.176  INFO 10484 --- [http-nio-8080-exec-10] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@17faad64]}
+2021-04-27 19:40:56.188 DEBUG 10484 --- [http-nio-8080-exec-10] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-27 19:40:56.189 DEBUG 10484 --- [http-nio-8080-exec-10] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-27 19:40:56.201 DEBUG 10484 --- [http-nio-8080-exec-10] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-27 19:40:56.202 DEBUG 10484 --- [http-nio-8080-exec-10] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-27 19:40:56.239 DEBUG 10484 --- [http-nio-8080-exec-10] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-27 19:40:56.240 DEBUG 10484 --- [http-nio-8080-exec-10] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-27 19:40:56.251 DEBUG 10484 --- [http-nio-8080-exec-10] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-27 19:40:56.253 DEBUG 10484 --- [http-nio-8080-exec-10] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 4
+2021-04-27 19:40:56.254 DEBUG 10484 --- [http-nio-8080-exec-10] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-27 19:40:56.255 DEBUG 10484 --- [http-nio-8080-exec-10] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-27 19:40:56.266 DEBUG 10484 --- [http-nio-8080-exec-10] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 4
+2021-04-27 19:40:56.267 DEBUG 10484 --- [http-nio-8080-exec-10] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-27 19:40:56.267 DEBUG 10484 --- [http-nio-8080-exec-10] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-27 19:40:56.279 DEBUG 10484 --- [http-nio-8080-exec-10] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 5
+2021-04-27 19:40:56.289 DEBUG 10484 --- [http-nio-8080-exec-10] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-27 19:40:56.290 DEBUG 10484 --- [http-nio-8080-exec-10] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-27 19:40:56.302 DEBUG 10484 --- [http-nio-8080-exec-10] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-27 19:40:56.303 DEBUG 10484 --- [http-nio-8080-exec-10] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-27 19:40:56.304 DEBUG 10484 --- [http-nio-8080-exec-10] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 45916(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-27 19:40:56.325 DEBUG 10484 --- [http-nio-8080-exec-10] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-27 19:40:56.359  INFO 10484 --- [http-nio-8080-exec-10] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-27 19:40:56.868  INFO 10484 --- [http-nio-8080-exec-5] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/footer/newBlog', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-27 19:40:56.868  INFO 10484 --- [http-nio-8080-exec-5] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newBlogList
+2021-04-27 19:41:02.223  INFO 10484 --- [http-nio-8080-exec-9] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@17faad64]}
+2021-04-27 19:41:02.237 DEBUG 10484 --- [http-nio-8080-exec-9] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-27 19:41:02.238 DEBUG 10484 --- [http-nio-8080-exec-9] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-27 19:41:02.249 DEBUG 10484 --- [http-nio-8080-exec-9] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-27 19:41:02.250 DEBUG 10484 --- [http-nio-8080-exec-9] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-27 19:41:02.279 DEBUG 10484 --- [http-nio-8080-exec-9] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-27 19:41:02.279 DEBUG 10484 --- [http-nio-8080-exec-9] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-27 19:41:02.289 DEBUG 10484 --- [http-nio-8080-exec-9] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-27 19:41:02.292 DEBUG 10484 --- [http-nio-8080-exec-9] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 4
+2021-04-27 19:41:02.293 DEBUG 10484 --- [http-nio-8080-exec-9] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-27 19:41:02.293 DEBUG 10484 --- [http-nio-8080-exec-9] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-27 19:41:02.304 DEBUG 10484 --- [http-nio-8080-exec-9] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 4
+2021-04-27 19:41:02.306 DEBUG 10484 --- [http-nio-8080-exec-9] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-27 19:41:02.307 DEBUG 10484 --- [http-nio-8080-exec-9] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-27 19:41:02.321 DEBUG 10484 --- [http-nio-8080-exec-9] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 5
+2021-04-27 19:41:02.332 DEBUG 10484 --- [http-nio-8080-exec-9] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-27 19:41:02.333 DEBUG 10484 --- [http-nio-8080-exec-9] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-27 19:41:02.345 DEBUG 10484 --- [http-nio-8080-exec-9] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-27 19:41:02.347 DEBUG 10484 --- [http-nio-8080-exec-9] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-27 19:41:02.348 DEBUG 10484 --- [http-nio-8080-exec-9] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 45917(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-27 19:41:02.369 DEBUG 10484 --- [http-nio-8080-exec-9] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-27 19:41:02.403  INFO 10484 --- [http-nio-8080-exec-9] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-27 19:41:02.779  INFO 10484 --- [http-nio-8080-exec-10] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/footer/newBlog', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-27 19:41:02.779  INFO 10484 --- [http-nio-8080-exec-10] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newBlogList
+2021-04-27 19:41:27.821  INFO 10484 --- [http-nio-8080-exec-5] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@6726513]}
+2021-04-27 19:41:27.833 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-27 19:41:27.834 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-27 19:41:27.847 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-27 19:41:27.848 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-27 19:41:27.875 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-27 19:41:27.875 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-27 19:41:27.885 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-27 19:41:27.885 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 4
+2021-04-27 19:41:27.886 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-27 19:41:27.886 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-27 19:41:27.896 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 4
+2021-04-27 19:41:27.897 DEBUG 10484 --- [http-nio-8080-exec-5] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-27 19:41:27.897 DEBUG 10484 --- [http-nio-8080-exec-5] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-27 19:41:27.908 DEBUG 10484 --- [http-nio-8080-exec-5] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 5
+2021-04-27 19:41:27.918 DEBUG 10484 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-27 19:41:27.919 DEBUG 10484 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-27 19:41:27.929 DEBUG 10484 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-27 19:41:27.931 DEBUG 10484 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-27 19:41:27.931 DEBUG 10484 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 45918(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-27 19:41:27.951 DEBUG 10484 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-27 19:41:27.981  INFO 10484 --- [http-nio-8080-exec-5] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-27 19:41:28.375  INFO 10484 --- [http-nio-8080-exec-2] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/footer/newBlog', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-27 19:41:28.375  INFO 10484 --- [http-nio-8080-exec-2] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newBlogList
+2021-04-27 20:11:15.516  INFO 10484 --- [http-nio-8080-exec-8] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.ArchiveShowController.archives', args=[{}]}
+2021-04-27 20:11:15.533 DEBUG 10484 --- [http-nio-8080-exec-8] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-27 20:11:15.534 DEBUG 10484 --- [http-nio-8080-exec-8] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-27 20:11:15.546 DEBUG 10484 --- [http-nio-8080-exec-8] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 4
+2021-04-27 20:11:15.547 DEBUG 10484 --- [http-nio-8080-exec-8] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-27 20:11:15.547 DEBUG 10484 --- [http-nio-8080-exec-8] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-27 20:11:15.559 DEBUG 10484 --- [http-nio-8080-exec-8] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 5
+2021-04-27 20:11:15.561 DEBUG 10484 --- [http-nio-8080-exec-8] c.y.b.mapper.BlogMapper.findGroupYear    : ==>  Preparing: SELECT DATE_FORMAT( b.update_time, '%Y' ) year FROM blog b GROUP BY DATE_FORMAT( b.update_time, '%Y' ) ORDER BY year DESC 
+2021-04-27 20:11:15.561 DEBUG 10484 --- [http-nio-8080-exec-8] c.y.b.mapper.BlogMapper.findGroupYear    : ==> Parameters: 
+2021-04-27 20:11:15.572 DEBUG 10484 --- [http-nio-8080-exec-8] c.y.b.mapper.BlogMapper.findGroupYear    : <==      Total: 1
+2021-04-27 20:11:15.573 DEBUG 10484 --- [http-nio-8080-exec-8] c.yi.blog.mapper.BlogMapper.findByYear   : ==>  Preparing: SELECT b.* FROM blog b WHERE DATE_FORMAT( b.update_time, '%Y' ) = ? 
+2021-04-27 20:11:15.574 DEBUG 10484 --- [http-nio-8080-exec-8] c.yi.blog.mapper.BlogMapper.findByYear   : ==> Parameters: 2021(String)
+2021-04-27 20:11:15.599 DEBUG 10484 --- [http-nio-8080-exec-8] c.yi.blog.mapper.BlogMapper.findByYear   : <==      Total: 4
+2021-04-27 20:11:15.600  INFO 10484 --- [http-nio-8080-exec-8] com.yi.blog.aspect.LogAspect             : Result:archives
+2021-04-27 20:11:16.384  INFO 10484 --- [http-nio-8080-exec-5] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.index', args=[{}, org.apache.catalina.connector.ResponseFacade@7c7eead7]}
+2021-04-27 20:11:16.404 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT COUNT(1) FROM blog WHERE 1 = 1 
+2021-04-27 20:11:16.405 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 
+2021-04-27 20:11:16.416 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.m.B.selectPageByTitleAndType       : ==>  Preparing: SELECT * FROM blog WHERE 1 = 1 ORDER BY update_time DESC LIMIT ?,? 
+2021-04-27 20:11:16.416 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.m.B.selectPageByTitleAndType       : ==> Parameters: 0(Long), 8(Long)
+2021-04-27 20:11:16.441 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====>  Preparing: select * from blog_type where id = ? 
+2021-04-27 20:11:16.441 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.mapper.BlogTypeMapper.getBlogType  : ====> Parameters: 14(Long)
+2021-04-27 20:11:16.451 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.mapper.BlogTypeMapper.getBlogType  : <====      Total: 1
+2021-04-27 20:11:16.452 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.m.B.selectPageByTitleAndType       : <==      Total: 4
+2021-04-27 20:11:16.452 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.m.BlogTypeMapper.listBlogType      : ==>  Preparing: SELECT bt.*, b.id b_id FROM blog_type bt LEFT JOIN blog b ON bt.id = b.blog_type_id 
+2021-04-27 20:11:16.453 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.m.BlogTypeMapper.listBlogType      : ==> Parameters: 
+2021-04-27 20:11:16.463 DEBUG 10484 --- [http-nio-8080-exec-5] c.y.b.m.BlogTypeMapper.listBlogType      : <==      Total: 4
+2021-04-27 20:11:16.464 DEBUG 10484 --- [http-nio-8080-exec-5] com.yi.blog.mapper.TagMapper.listTag     : ==>  Preparing: SELECT t.*, bt.blog_id FROM tag t LEFT JOIN blog_tags bt ON t.id = bt.tag_id 
+2021-04-27 20:11:16.465 DEBUG 10484 --- [http-nio-8080-exec-5] com.yi.blog.mapper.TagMapper.listTag     : ==> Parameters: 
+2021-04-27 20:11:16.475 DEBUG 10484 --- [http-nio-8080-exec-5] com.yi.blog.mapper.TagMapper.listTag     : <==      Total: 5
+2021-04-27 20:11:16.486 DEBUG 10484 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.selectById   : ==>  Preparing: SELECT id,nickname,username,password,qq,wechat,email,province,city,avatar,views,type,create_time,update_time,user_signature FROM user WHERE id=? 
+2021-04-27 20:11:16.486 DEBUG 10484 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.selectById   : ==> Parameters: 1(Long)
+2021-04-27 20:11:16.497 DEBUG 10484 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.selectById   : <==      Total: 1
+2021-04-27 20:11:16.498 DEBUG 10484 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.updateById   : ==>  Preparing: UPDATE user SET nickname=?, username=?, password=?, qq=?, wechat=?, email=?, province=?, city=?, avatar=?, views=?, create_time=?, update_time=?, user_signature=? WHERE id=? 
+2021-04-27 20:11:16.499 DEBUG 10484 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.updateById   : ==> Parameters: lyric(String), lyric(String), 96e79218965eb72c92a549dd5a330112(String), 2044619214(String), 17805428855(String), lyric0926@163.com(String), 浙江(String), 杭州(String), /images/user.jpg(String), 45920(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-04-02 00:55:48.5(Timestamp), 你生命中最美好的一天，就是你决定让你的人生属于你自己的那一天。(String), 1(Long)
+2021-04-27 20:11:16.518 DEBUG 10484 --- [http-nio-8080-exec-5] c.yi.blog.mapper.UserMapper.updateById   : <==    Updates: 1
+2021-04-27 20:11:16.549  INFO 10484 --- [http-nio-8080-exec-5] com.yi.blog.aspect.LogAspect             : Result:index
+2021-04-27 20:11:16.803  INFO 10484 --- [http-nio-8080-exec-8] com.yi.blog.aspect.LogAspect             : requestLog:RequestLog{uri='http://localhost:8080/footer/newBlog', ip='0:0:0:0:0:0:0:1', classMethod='com.yi.blog.web.IndexController.newblogs', args=[{}]}
+2021-04-27 20:11:16.803  INFO 10484 --- [http-nio-8080-exec-8] com.yi.blog.aspect.LogAspect             : Result:_fragments :: newBlogList
+2021-04-27 20:13:28.717  INFO 10484 --- [Thread-19] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-27 20:13:28.718  INFO 10484 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-04-27 20:13:28.724  INFO 10484 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
