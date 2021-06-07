@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2021-06-02
  */
 @RestController
-@RequestMapping("/enhancement/blog")
-public class BlogController {
+@RequestMapping("/enhancement/tag")
+public class TagController {
 
 }
