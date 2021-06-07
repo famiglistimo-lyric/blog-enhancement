@@ -1,6 +1,6 @@
 package com.yi.enhancement.service;
 
-import com.yi.enhancement.model.entity.Blog;
+import com.yi.enhancement.model.entity.ArticleTagRelation;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author lwj
  * @since 2021-06-02
  */
-public interface IBlogService extends IService<Blog> {
+public interface IArticleTagRelationService extends IService<ArticleTagRelation> {
 
 }

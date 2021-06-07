@@ -1,12 +1,14 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://8.136.236.82:3306/blog?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://8.136.236.82:3306/enhancement_blog?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
     username: root
     password: 123456
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+  thymeleaf:
+    cache: false
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:
@@ -18,7 +20,7 @@ logging:
       com.yi: debug
     file: log/blog.log
 server:
-  port: 8060
+  port: 8065
 comment.1: /images/1.svg
 comment.2: /images/2.svg
 comment.3: /images/3.svg
