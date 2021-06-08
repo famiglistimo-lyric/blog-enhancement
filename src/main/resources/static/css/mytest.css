@@ -2002,7 +2002,8 @@ body {
 
 #logo {
     line-height: 50px;
-    padding: 0 1em 0 .5em
+    padding: 0 1em 0 .5em;
+    margin-left: 50px
 }
 
 #header-search {

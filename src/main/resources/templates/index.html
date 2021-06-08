@@ -1,46 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>lyric--一个努力学习的开发人</title>
-    <link rel="stylesheet" th:href="@{/css/semantic.min.css}">
-    <link rel="stylesheet" th:href="@{/css/enhancement.css}">
-    <link rel="stylesheet" th:href="@{/css/ulola.css}">
-    <link rel="stylesheet" th:href="@{/css/mytest.css}">
+<head th:replace="_fragments :: head(~{::title})">
 </head>
 <body>
-
-    <header id="header"><a id="logo" style="margin-left: 50px"><img th:src="@{/images/yizone.png}"></a>
-        <div class="topmenu">
-            <nav class="topmenu-full">
-                <ul class="topmenu-primary">
-                    <li>
-                        <a class="latest" href=""><span>Home</span></a>
-                    </li>
-                    <li>
-                        <a class="hot" href=""><span>Place</span></a>
-                    </li>
-                    <li>
-                        <a class="toplist" href=""><span>Author</span></a>
-                    </li>
-                    <li>
-                        <a class="forums" href=""><span>Link</span></a>
-                    </li>
-                    <li>
-                        <a class="upload" href="https://github.com/famiglistimo-lyric"><span>Github</span></a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <form th:action="@{/search}" method="post" id="header-search" class="header-search-type-text">
-            <div class="header-search-input-frame">
-                <label for="header-search-text"></label>
-                <input type="search" name="q" id="header-search-text" value="" placeholder="Search...">
+<div th:replace="_fragments :: menu(1)"></div>
+    <!--分列-->
+    <div class="ui grid" style="margin: 8px auto 0">
+        <div class="ui four wide column" >
+            <div class="ui segment m-shadow-small m-background-left" style="margin-top: 50px;">
+                <img class="ui small circular image" src="" th:src="${user.avatar}" style="margin: 0 auto">
+                <div class="ui divider"></div>
+                <div class="ui center aligned">
+                    <h1 class="ui m-font-color-mainfont center aligned header m-opacity-mini m-text-thin" th:text="${user.nickname}"></h1>
+                    <div class="ui segment m-background-leftborder">
+                        <h4 class="ui m-font-color-mainfont left aligned header m-text-thin m-opacity-mini m-text-spaced" th:text="${user.userSignature}"></h4>
+                    </div>
+                    <div class="" style="margin-top: 15px">
+                        <h5 class="ui m-font-color-mainfont header m-text-clear"><div class="column m-inline-block "><i class="large map signs icon"></i></div><span th:text="${user.provinceAndCity}"></span></h5>
+                    </div>
+                    <div class="" style="margin-top: 10px">
+                        <h5 class="ui m-font-color-mainfont header m-text-clear"><div class="column m-inline-block "><i class="large eye icon"></i></div><span class="m-font-style" th:text="${user.views}"></span></h5>
+                    </div>
+                </div>
+                <div class="ui m-background-left vertical menu">
+                    <!--                    <span class="item m-font-color-mainfont m-opacity-mini m-text-thin">Archives:<span th:text="${page.total}">29</span></span>-->
+                    <div><span class="item m-font-color-mainfont m-opacity-mini m-text-thin" style="float: left">QQ:<span th:text="${user.qq}">29</span></span></div>
+                    <div><span class="item m-font-color-mainfont m-opacity-mini m-text-thin">wechat:<span th:text="${user.wechat}">29</span></span></div>
+                    <div><span class="item m-font-color-mainfont m-opacity-mini m-text-thin">email:<span th:text="${user.email}">29</span></span></div>
+                </div>
             </div>
-            <button><i class="far search icon" style="color: #a4b0be"></i></button>
-        </form>
-    </header>
+        </div>
+        <!--中间8列-->
+        <div class="ui eight wide column" >
+            <div class="ui segment m-shadow-small m-background-left" style="margin-top: 50px">
+                    <img src="https://w.wallhaven.cc/full/28/wallhaven-281d5y.png" style="width: 100%;height: 100%">
+            </div>
+        </div>
+        <!--右边4列-->
+        <div class="ui four wide column">
+            <div class="ui segment m-background-left center aligned m-shadow-small" style="margin-top: 50px">
+                <!--                        <div class="weather sunny"></div>-->
+                <!--                        <div class="weather cloudy"></div>-->
+                <div class="weather rainy"></div>
+                <!--                        <div class="weather snowy"></div>-->
+                <!--                        <div class="ui divider"></div>-->
+            </div>
+        </div>
+    </div>
 </body>
 </html>

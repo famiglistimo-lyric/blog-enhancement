@@ -1,4 +1,7 @@
 /*Yizone的页面位置*/
+.menu div{
+    float: left
+}
 .m-yizong-position{
     position: absolute;
     margin-left: 10%;
