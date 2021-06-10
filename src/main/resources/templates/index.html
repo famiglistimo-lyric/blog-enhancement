@@ -1,52 +1,230 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:rgba>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="_fragments :: head(~{::title})">
 </head>
 <body>
 <div th:replace="_fragments :: menu(1)"></div>
-    <!--分列-->
-    <div class="ui grid" style="margin: 8px auto 0">
-        <div class="ui four wide column" >
-            <div class="ui segment m-shadow-small m-background-left" style="margin-top: 50px;">
-                <img class="ui small circular image" src="" th:src="${user.avatar}" style="margin: 0 auto">
-                <div class="ui divider"></div>
-                <div class="ui center aligned">
-                    <h1 class="ui m-font-color-mainfont center aligned header m-opacity-mini m-text-thin" th:text="${user.nickname}"></h1>
-                    <div class="ui segment m-background-leftborder">
-                        <h4 class="ui m-font-color-mainfont left aligned header m-text-thin m-opacity-mini m-text-spaced" th:text="${user.userSignature}"></h4>
-                    </div>
+<!--分列-->
+<div class="ui grid" style="margin: 8px auto 0">
+    <div class="ui four wide column">
+        <div class="ui segment m-shadow-small m-background-left" style="margin-top: 50px;">
+            <img class="ui small circular image" src="" th:src="${user.avatar}" style="margin: 0 auto">
+            <div class="ui divider"></div>
+            <div class="">
+                <h1 class="ui m-font-color-mainfont header m-opacity-mini m-text-thin"
+                    th:text="${user.nickname}"></h1>
+                <div>
                     <div class="" style="margin-top: 15px">
-                        <h5 class="ui m-font-color-mainfont header m-text-clear"><div class="column m-inline-block "><i class="large map signs icon"></i></div><span th:text="${user.provinceAndCity}"></span></h5>
+                        <span class="m-text-clear">
+                           <i class="large map signs icon"></i>
+                           <span style="font-size: 15px" th:text="${user.provinceAndCity}"></span>
+                        </span>
                     </div>
                     <div class="" style="margin-top: 10px">
-                        <h5 class="ui m-font-color-mainfont header m-text-clear"><div class="column m-inline-block "><i class="large eye icon"></i></div><span class="m-font-style" th:text="${user.views}"></span></h5>
+                        <h5 class="m-text-clear">
+                            <i class="large eye icon"></i>
+                            <span class="m-font-style" style="font-size: 15px" th:text="${user.views}"></span>
+                        </h5>
                     </div>
                 </div>
-                <div class="ui m-background-left vertical menu">
-                    <!--                    <span class="item m-font-color-mainfont m-opacity-mini m-text-thin">Archives:<span th:text="${page.total}">29</span></span>-->
-                    <div><span class="item m-font-color-mainfont m-opacity-mini m-text-thin" style="float: left">QQ:<span th:text="${user.qq}">29</span></span></div>
-                    <div><span class="item m-font-color-mainfont m-opacity-mini m-text-thin">wechat:<span th:text="${user.wechat}">29</span></span></div>
-                    <div><span class="item m-font-color-mainfont m-opacity-mini m-text-thin">email:<span th:text="${user.email}">29</span></span></div>
+            </div>
+            <div class="ui m-background-left vertical menu">
+                <!--                    <span class="item m-font-color-mainfont m-opacity-mini m-text-thin">Archives:<span th:text="${page.total}">29</span></span>-->
+                <div><span class="item m-font-color-mainfont m-opacity-mini m-text-thin" style="float: left">QQ:<span
+                        th:text="${user.qq}">29</span></span></div>
+                <div><span class="item m-font-color-mainfont m-opacity-mini m-text-thin">wechat:<span
+                        th:text="${user.wechat}">29</span></span></div>
+                <div><span class="item m-font-color-mainfont m-opacity-mini m-text-thin">email:<span
+                        th:text="${user.email}">29</span></span></div>
+            </div>
+        </div>
+        <div class="ui segment m-shadow-small m-background-left">
+            <div style="text-align:center;display: flex;justify-content:center;align-items: center">
+                <img src="https://shawnzeng.com/wp-content/uploads/2018/07/IMG_1970.jpg"
+                     style="width:50px;height:50px;vertical-align:-20px;border-radius:50%;margin-right:5px;margin-bottom:5px;-webkit-box-shadow:1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);border: 2px solid #fff;"/>
+                <div class="chest">
+                    <div class="heart left sided top"></div>
+                    <div class="heart centers"></div>
+                    <div class="heart right sided"></div>
+                </div>
+                <img src="https://shawnzeng.com/wp-content/uploads/2018/07/IMG_1970.jpg"
+                     style="width:50px;height:50px;vertical-align:-20px;border-radius:50%;margin-bottom:5px;-webkit-box-shadow:1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);border: 2px solid #fff;"/><br/>
+            </div>
+            <div style="margin-top: 10px"><span id="htmer_time"></span></div>
+
+        </div>
+
+    </div>
+    <!--中间8列-->
+    <div class="ui eight wide column">
+        <div class="ui segment m-shadow-small m-background-left" style="margin-top: 50px">
+            <img src="https://w.wallhaven.cc/full/28/wallhaven-281d5y.png" style="width: 100%;height: 100%">
+            <!--下边文章具体的信息-->
+            <div class="ui top attached segment m-div-borderdisappear " style="background: transparent">
+                <div class="ui middle aligned two column grid">
+                    <div class="left aligned column">
+                        <h2 class="ui teal header m-font-style"><span class="m-font-style">Archives</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="ui attached segment m-padded-tb-large content m-div-borderdisappear " style="background: transparent">
+                <ul class="post-list">
+                    <li class="post-item" th:each="article : ${articlePage.records}">
+                        <div style="display: flex;align-items: center">
+                            <div class="meta m-font-style">
+                                <time th:text="${#temporals.format(article.updateTime,'yyyy-MM-dd')}" itemprop="datePublished"></time>
+                            </div>
+                            <div><span class="m-text-label"><a href="#" th:text="${article.title}" th:href="@{/blog/{id}(id=${article.id})}" target="_blank">Javascript 连等赋值</a></span></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="ui top attached segment m-div-borderdisappear " style="background: transparent">
+                <div class="ui middle aligned two column grid">
+                    <div class="left aligned column">
+                        <h2 class="ui teal header m-font-style"><span class="m-font-style">Projects</span></h2>
+                    </div>
                 </div>
             </div>
         </div>
-        <!--中间8列-->
-        <div class="ui eight wide column" >
-            <div class="ui segment m-shadow-small m-background-left" style="margin-top: 50px">
-                    <img src="https://w.wallhaven.cc/full/28/wallhaven-281d5y.png" style="width: 100%;height: 100%">
+
+    </div>
+    <!--右边4列-->
+    <div class="ui four wide column">
+        <div class="ui segment m-background-left center aligned m-shadow-small" style="margin-top: 50px">
+            <div class="ui segment m-background-leftborder">
+                <h4 class="ui m-font-color-mainfont left aligned header m-text-thin m-opacity-mini m-text-spaced"
+                    id="userSign">
+                    我根本没有什么力量。
+                    <br>
+                    曾经我也被黑暗吞没,让我的同伴遭受了苦难。
+                    <br>
+                    但是正因为如此,我才明白了一些道理,我只是相信着这些道理才走到了现在。
+                    <br>
+                    只要相信自己,我们就绝不是一个人,开分的同伴,给我加油的同伴,我们之间的羁绊是不会随着黑暗所消失的。
+                </h4>
             </div>
+            <!--                        <div class="weather sunny"></div>-->
+            <!--                        <div clas   s="weather cloudy"></div>-->
         </div>
-        <!--右边4列-->
-        <div class="ui four wide column">
-            <div class="ui segment m-background-left center aligned m-shadow-small" style="margin-top: 50px">
-                <!--                        <div class="weather sunny"></div>-->
-                <!--                        <div class="weather cloudy"></div>-->
-                <div class="weather rainy"></div>
-                <!--                        <div class="weather snowy"></div>-->
-                <!--                        <div class="ui divider"></div>-->
-            </div>
+        <div class="ui segment m-background-left center aligned m-shadow-small">
+            <div class="weather rainy"></div>
+        </div>
+
+
+        <!--                        <div class="weather snowy"></div>-->
+        <!--                        <div class="ui divider"></div>-->
+        <div class="ui segment m-background-left center aligned m-shadow-small" style="padding: 10px 15px">
+            <ul id="tags">
+                <li class="tag tag-sfw" id="tag-5" data-tag-id="5"><a class="tagname" rel="tag"
+                                                                      href="https://wallhaven.cc/tag/5"
+                                                                      original-title="Anime &amp; Manga > Characters">anime
+                    girls</a></li>
+                <li class="tag tag-sfw" id="tag-778" data-tag-id="778"><a class="tagname" rel="tag"
+                                                                          href="https://wallhaven.cc/tag/778"
+                                                                          original-title="Miscellaneous > Clothing">dress</a>
+                </li>
+                <li class="tag tag-sfw" id="tag-4805" data-tag-id="4805"><a class="tagname" rel="tag"
+                                                                            href="https://wallhaven.cc/tag/4805"
+                                                                            original-title="Nature">wind</a></li>
+                <li class="tag tag-sfw" id="tag-1028" data-tag-id="1028"><a class="tagname" rel="tag"
+                                                                            href="https://wallhaven.cc/tag/1028"
+                                                                            original-title="Nature">waves</a></li>
+                <li class="tag tag-sfw" id="tag-2830" data-tag-id="2830"><a class="tagname" rel="tag"
+                                                                            href="https://wallhaven.cc/tag/2830"
+                                                                            original-title="Nature > Landscapes">beach</a>
+                </li>
+                <li class="tag tag-sfw" id="tag-863" data-tag-id="863"><a class="tagname" rel="tag"
+                                                                          href="https://wallhaven.cc/tag/863"
+                                                                          original-title="People">barefoot</a></li>
+                <li class="tag tag-sfw" id="tag-77097" data-tag-id="77097"><a class="tagname" rel="tag"
+                                                                              href="https://wallhaven.cc/tag/77097"
+                                                                              original-title="Miscellaneous > Clothing">sun
+                    dress</a></li>
+                <li class="tag tag-sfw" id="tag-2629" data-tag-id="2629"><a class="tagname" rel="tag"
+                                                                            href="https://wallhaven.cc/tag/2629"
+                                                                            original-title="Miscellaneous">twintails</a>
+                </li>
+                <li class="tag tag-sfw" id="tag-3585" data-tag-id="3585"><a class="tagname" rel="tag"
+                                                                            href="https://wallhaven.cc/tag/3585"
+                                                                            original-title="People">violet hair</a></li>
+                <li class="tag tag-sfw" id="tag-119024" data-tag-id="119024"><a class="tagname" rel="tag"
+                                                                                href="https://wallhaven.cc/tag/119024"
+                                                                                original-title="People > Artists">Gawain</a>
+                </li>
+                <li class="tag tag-sfw" id="tag-94084" data-tag-id="94084"><a class="tagname" rel="tag"
+                                                                              href="https://wallhaven.cc/tag/94084"
+                                                                              original-title="People > Fictional Characters">Minato
+                    Aqua</a></li>
+                <li class="tag tag-sfw" id="tag-86347" data-tag-id="86347"><a class="tagname" rel="tag"
+                                                                              href="https://wallhaven.cc/tag/86347"
+                                                                              original-title="Anime &amp; Manga > Series">Hololive</a>
+                </li>
+                <li class="tag tag-sfw" id="tag-71939" data-tag-id="71939"><a class="tagname" rel="tag"
+                                                                              href="https://wallhaven.cc/tag/71939"
+                                                                              original-title="Entertainment">Virtual
+                    Youtuber</a></li>
+                <li class="tag tag-sfw" id="tag-903" data-tag-id="903"><a class="tagname" rel="tag"
+                                                                          href="https://wallhaven.cc/tag/903"
+                                                                          original-title="Vehicles > Ships">boat</a>
+                </li>
+                <li class="tag tag-sfw" id="tag-307" data-tag-id="307"><a class="tagname" rel="tag"
+                                                                          href="https://wallhaven.cc/tag/307"
+                                                                          original-title="Nature > Landscapes">sea</a>
+                </li>
+                <li class="tag tag-sfw" id="tag-6978" data-tag-id="6978"><a class="tagname" rel="tag"
+                                                                            href="https://wallhaven.cc/tag/6978"
+                                                                            original-title="Miscellaneous > Clothing">hat</a>
+                </li>
+                <li class="tag tag-sfw" id="tag-54626" data-tag-id="54626"><a class="tagname" rel="tag"
+                                                                              href="https://wallhaven.cc/tag/54626"
+                                                                              original-title="Art &amp; Design > Traditional">ribbons</a>
+                </li>
+            </ul>
         </div>
     </div>
+</div>
 </body>
 </html>
+
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2021, 01, 08, 9, 21, 0)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = currentTime[0] + ' 年 ' + currentTime[1] + ' 天 '
+            + currentTime[2] + ' 时 ' + currentTime[3] + ' 分 ' + currentTime[4]
+            + ' 秒 ';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }
+
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }
+
+    setInterval(setTime, 1000);
+</script>

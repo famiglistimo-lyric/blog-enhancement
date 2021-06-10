@@ -2003,7 +2003,8 @@ body {
 #logo {
     line-height: 50px;
     padding: 0 1em 0 .5em;
-    margin-left: 50px
+    margin-left: 50px;
+    margin-right: 40px
 }
 
 #header-search {

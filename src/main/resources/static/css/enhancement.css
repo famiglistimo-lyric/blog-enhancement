@@ -178,10 +178,10 @@
     opacity: 0.6 !important;
 }
 .m-text-clear {
-    letter-spacing: 1px !important;
-    font-weight: 100 !important;
-    line-height: 1.8 !important;
-    opacity: 0.8 !important;
+    letter-spacing: 1px;
+    font-weight: 100;
+    line-height: 1.8;
+    opacity: 0.8;
 }
 .m-text-label {
     letter-spacing: 1px !important;
@@ -380,4 +380,62 @@
 }
 .search-box:hover > .search-btn {
     background: white;
+}
+.inline div {
+    display: inline;
+}
+.inline img {
+    display: inline;
+}
+
+.chest {
+    width:50px;
+    height:50px;
+    margin:0 12px;
+    position:relative;
+}
+.heart {
+    position:absolute;
+    z-index:2;
+    background:linear-gradient(-90deg,#F50A45 0%,#d5093c 40%);
+    animation:beat 0.7s ease 0s infinite normal;
+}
+.heart.centers {
+    background:linear-gradient(-45deg,#B80734 0%,#d5093c 40%);
+}
+.heart.top {
+    z-index:3;
+}
+.sided {
+    top:10px;
+    width:22px;
+    height:22px;
+    border-radius:11px;
+}
+.centers {
+    width:21px;
+    height:21px;
+    bottom:10px;
+    left:15px;
+    transform:rotateZ(225deg);
+}
+.left {
+    left:6px;
+}
+.right {
+    right:6px;
+}
+@keyframes beat {
+    0% {
+        transform:scale(1) rotate(225deg);
+        box-shadow:0 0 40px #d5093c;
+    }
+    50% {
+        transform:scale(1.1) rotate(225deg);
+        box-shadow:0 0 70px #d5093c;
+    }
+    100% {
+        transform:scale(1) rotate(225deg);
+        box-shadow:0 0 40px #d5093c;
+    }
 }
