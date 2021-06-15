@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>lyric--一个努力学习的开发人</title>
+    <link rel="stylesheet" th:href="@{/css/semantic.min.css}">
+    <link rel="stylesheet" th:href="@{/css/enhancement.css}">
+    <link rel="stylesheet" th:href="@{/css/ulola.css}">
+    <link rel="stylesheet" th:href="@{/css/wallhaven.css}">
+</head>
+<body>
+<div th:replace="_fragments :: menu(2)"></div>
+<div class="ui grid" style="margin:auto">
+    <div class="ui three wide column mobile-hidden" style="margin-top: 50px">
+        <div class="ui segment left aligned m-shadow m-block-display-color">
+            <div class="ui two column grid" style="margin-bottom: 1px">
+                <div class="ui column">
+                    <h2 class="ui teal header"><span class="m-font-style">Categories</span></h2>
+                </div>
+            </div>
+            <ul id="categories">
+                <li class="tag tag-nsfw" id="tag-2626" data-tag-id="2629"><a class="tag-name" rel="tag"
+                                                                             href="https://wallhaven.cc/tag/2629"
+                                                                             original-title="Miscellaneous">技术</a>
+                </li>
+                <li class="tag tag-nsfw" id="tag-2633" data-tag-id="2629"><a class="tag-name" rel="tag"
+                                                                             href="https://wallhaven.cc/tag/2629"
+                                                                             original-title="Miscellaneous">技术</a>
+                </li>
+                <li class="tag tag-nsfw" id="tag-2634" data-tag-id="2629"><a class="tag-name" rel="tag"
+                                                                             href="https://wallhaven.cc/tag/2629"
+                                                                             original-title="Miscellaneous">技术</a>
+                </li>
+                <li class="tag tag-nsfw" id="tag-2637" data-tag-id="2629"><a class="tag-name" rel="tag"
+                                                                             href="https://wallhaven.cc/tag/2629"
+                                                                             original-title="Miscellaneous">技术</a>
+                </li>
+                <li class="tag tag-nsfw" id="tag-2639" data-tag-id="2629"><a class="tag-name" rel="tag"
+                                                                             href="https://wallhaven.cc/tag/2629"
+                                                                             original-title="Miscellaneous">技术</a>
+                </li>
+                <li class="tag tag-nsfw" id="tag-2638" data-tag-id="2629"><a class="tag-name" rel="tag"
+                                                                             href="https://wallhaven.cc/tag/2629"
+                                                                             original-title="Miscellaneous">技术</a>
+                </li>
+            </ul>
+        </div>
+        <div class="ui segment left aligned m-shadow m-block-display-color">
+            <div class="ui two column grid" style="margin-bottom: 1px">
+                <div class="ui column">
+                    <h2 class="ui teal header"><span class="m-font-style">Tags</span></h2>
+                </div>
+            </div>
+            <ul id="tags">
+                <li class="tag tag-sfw" id="tag-2622" data-tag-id="2629"><a class="tag-name" rel="tag"
+                                                                            href="https://wallhaven.cc/tag/2629"
+                                                                            original-title="Miscellaneous">技术</a>
+                </li>
+                <li class="tag tag-sfw" id="tag-2623" data-tag-id="2629"><a class="tag-name" rel="tag"
+                                                                            href="https://wallhaven.cc/tag/2629"
+                                                                            original-title="Miscellaneous">技术</a>
+                </li>
+                <li class="tag tag-sfw" id="tag-2624" data-tag-id="2629"><a class="tag-name" rel="tag"
+                                                                            href="https://wallhaven.cc/tag/2629"
+                                                                            original-title="Miscellaneous">技术</a>
+                </li>
+                <li class="tag tag-sfw" id="tag-2625" data-tag-id="2629"><a class="tag-name" rel="tag"
+                                                                            href="https://wallhaven.cc/tag/2629"
+                                                                            original-title="Miscellaneous">技术</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ui eleven wide column" style="margin-top: 50px;">
+        <div class="ui container m-shadow">
+            <div class="ui segment" style="background: inherit">
+                <div style="display: flex;justify-content: flex-start;align-items: center;">
+                    <img class="ui small circular image" th:src="${user.avatar}" style="width: 50px;margin-left: 20px">
+                    <div style="font-size: 25px;margin-left: 20px" th:text="${user.nickname}"><p></p></div>
+                    <div style="margin-left: 20px">
+                        <i class="calendar icon"></i><span th:text="${#temporals.format(article.updateTime,'yyyy-MM-dd')}"></span>
+                    </div>
+                    <div style="margin-left: 20px">
+                        <i class="eye icon"></i><span th:text="${article.views}"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

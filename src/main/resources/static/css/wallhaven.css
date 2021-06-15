@@ -376,7 +376,7 @@ header .latest {
     color: #ad3
 }
 
-header .toplist {
+header .top-list {
     color: #b760f0
 }
 
@@ -482,7 +482,7 @@ header .logout {
     content: "@"
 }
 
-.text .tagname::before, .textbox .tagname::before, .textpage .tagname::before {
+.text .tag-name::before, .textbox .tag-name::before, .textpage .tag-name::before {
     content: "#";
     opacity: .6
 }
@@ -2066,7 +2066,7 @@ body {
     display: none
 }
 
-.topmenu {
+.top-menu {
     position: relative;
     font-family: Montserrat, 'Source Sans Pro', Arial, sans;
     font-variant: small-caps;
@@ -2076,34 +2076,34 @@ body {
     text-align: center
 }
 
-.topmenu a {
+.top-menu a {
     position: relative;
     padding: 0 .5em
 }
 
-.topmenu .topmenu-toggle, .topmenu a, .topmenu li, .topmenu ul {
+.top-menu .top-menu-toggle, .top-menu a, .top-menu li, .top-menu ul {
     display: inline-block;
     line-height: inherit
 }
 
-.topmenu .fa-sub::before {
+.top-menu .fa-sub::before {
     font-size: .5em
 }
 
-.topmenu .uploads-pending {
+.top-menu .uploads-pending {
     color: #6d0
 }
 
-.topmenu .topmenu-toggle {
+.top-menu .top-menu-toggle {
     float: right;
     line-height: 50px
 }
 
-.topmenu .topmenu-primary {
+.top-menu .top-menu-primary {
     line-height: 50px
 }
 
-.topmenu .topmenu-secondary {
+.top-menu .top-menu-secondary {
     display: block;
     line-height: 1.3em;
     padding: .5em;
@@ -2115,33 +2115,33 @@ body {
     white-space: normal
 }
 
-.topmenu .topmenu-secondary li {
+.top-menu .top-menu-secondary li {
     display: inline-block;
     text-align: center;
     width: 6.5em;
     padding: .25em
 }
 
-.topmenu .topmenu-secondary a {
+.top-menu .top-menu-secondary a {
     padding: .75em .25em;
     display: block
 }
 
-.topmenu .topmenu-secondary span {
+.top-menu .top-menu-secondary span {
     display: block;
     margin: .25em 0 0 0
 }
 
-.topmenu .topmenu-secondary .far {
+.top-menu .top-menu-secondary .far {
     font-size: 1.25em
 }
 
-.topmenu .topmenu-secondary a:active, .topmenu .topmenu-secondary a:focus, .topmenu .topmenu-secondary a:hover {
+.top-menu .top-menu-secondary a:active, .top-menu .top-menu-secondary a:focus, .top-menu .top-menu-secondary a:hover {
     background-color: #333;
     border-radius: 2px
 }
 
-.topmenu .topmenu-secondary a > .far:not(.fa-sub) {
+.top-menu .top-menu-secondary a > .far:not(.fa-sub) {
     width: 2em;
     height: 2em;
     line-height: 2em;
@@ -2151,15 +2151,15 @@ body {
 }
 
 @media (min-width: 1100px) {
-    .topmenu-primary span, .topmenu-toggle span {
+    .top-menu-primary span, .top-menu-toggle span {
         margin: 0 .5em
     }
 
-    .topmenu-primary .far, .topmenu-toggle .far {
+    .top-menu-primary .far, .top-menu-toggle .far {
         display: none
     }
 
-    .topmenu-primary .fa-sub, .topmenu-toggle .fa-sub {
+    .top-menu-primary .fa-sub, .top-menu-toggle .fa-sub {
         display: inline-block;
         position: absolute;
         left: auto;
@@ -2167,11 +2167,11 @@ body {
         bottom: 1em
     }
 
-    .topmenu-full {
+    .top-menu-full {
         display: inline-block
     }
 
-    .topmenu-partial {
+    .top-menu-partial {
         position: absolute;
         top: 50px;
         line-height: 1.3em;
@@ -2183,15 +2183,15 @@ body {
         right: 0
     }
 
-    .collapsed .topmenu-partial {
+    .collapsed .top-menu-partial {
         animation: .15s forwards disappear
     }
 
-    .extended .topmenu-partial {
+    .extended .top-menu-partial {
         animation: .2s forwards appear
     }
 
-    .topmenu-partial::before {
+    .top-menu-partial::before {
         content: "";
         position: absolute;
         top: -20px;
@@ -2199,17 +2199,17 @@ body {
         border-bottom-color: #2c2c2c
     }
 
-    .topmenu-partial::before {
+    .top-menu-partial::before {
         right: 1.66em
     }
 }
 
 @media (max-width: 1400px) {
-    .topmenu-primary span {
+    .top-menu-primary span {
         display: none
     }
 
-    .topmenu-primary .far {
+    .top-menu-primary .far {
         display: inline-block;
         font-size: 1.2em;
         margin: 0 .5em
@@ -2217,21 +2217,21 @@ body {
 }
 
 @media (max-width: 1099px) {
-    .topmenu-toggle {
+    .top-menu-toggle {
         width: 50px
     }
 
-    .topmenu-toggle > .far::before {
+    .top-menu-toggle > .far::before {
         font-size: 24px;
         vertical-align: middle;
         line-height: 50px
     }
 
-    .topmenu-toggle > span {
+    .top-menu-toggle > span {
         display: none
     }
 
-    .topmenu-full {
+    .top-menu-full {
         position: absolute;
         top: 50px;
         line-height: 1.3em;
@@ -2243,15 +2243,15 @@ body {
         left: 0
     }
 
-    .collapsed .topmenu-full {
+    .collapsed .top-menu-full {
         animation: .15s forwards disappear
     }
 
-    .extended .topmenu-full {
+    .extended .top-menu-full {
         animation: .2s forwards appear
     }
 
-    .topmenu-full::before {
+    .top-menu-full::before {
         content: "";
         position: absolute;
         top: -20px;
@@ -2259,11 +2259,11 @@ body {
         border-bottom-color: #2c2c2c
     }
 
-    .topmenu-full::before {
+    .top-menu-full::before {
         left: 15px
     }
 
-    .topmenu .topmenu-primary {
+    .top-menu .top-menu-primary {
         display: block;
         line-height: 1.3em;
         padding: .5em;
@@ -2275,33 +2275,33 @@ body {
         white-space: normal
     }
 
-    .topmenu .topmenu-primary li {
+    .top-menu .top-menu-primary li {
         display: inline-block;
         text-align: center;
         width: 6.5em;
         padding: .25em
     }
 
-    .topmenu .topmenu-primary a {
+    .top-menu .top-menu-primary a {
         padding: .75em .25em;
         display: block
     }
 
-    .topmenu .topmenu-primary span {
+    .top-menu .top-menu-primary span {
         display: block;
         margin: .25em 0 0 0
     }
 
-    .topmenu .topmenu-primary .far {
+    .top-menu .top-menu-primary .far {
         font-size: 1.5em
     }
 
-    .topmenu .topmenu-primary a:active, .topmenu .topmenu-primary a:focus, .topmenu .topmenu-primary a:hover {
+    .top-menu .top-menu-primary a:active, .top-menu .top-menu-primary a:focus, .top-menu .top-menu-primary a:hover {
         background-color: #333;
         border-radius: 2px
     }
 
-    .topmenu .topmenu-primary a > .far:not(.fa-sub) {
+    .top-menu .top-menu-primary a > .far:not(.fa-sub) {
         width: 2em;
         height: 2em;
         line-height: 2em;
@@ -2311,17 +2311,17 @@ body {
     }
 }
 
-.topmenu .topmenu-social {
+.top-menu .top-menu-social {
     display: block;
     background-color: #1c1c1c;
     text-align: center
 }
 
-.topmenu .topmenu-social > li {
+.top-menu .top-menu-social > li {
     width: 25%
 }
 
-.topmenu .topmenu-social a {
+.top-menu .top-menu-social a {
     box-shadow: inset 0 5px 5px -5px rgba(0, 0, 0, .33);
     vertical-align: middle;
     line-height: 2.5em;
@@ -2331,58 +2331,53 @@ body {
     background-image: linear-gradient(to right, #1c1c1c 0, #141414 100%)
 }
 
-.topmenu .topmenu-social a:active, .topmenu .topmenu-social a:focus, .topmenu .topmenu-social a:hover {
+.top-menu .top-menu-social a:active, .top-menu .top-menu-social a:focus, .top-menu .top-menu-social a:hover {
     background: #333
 }
 
-.topmenu .topmenu-social span {
+.top-menu .top-menu-social span {
     display: none
 }
 
-.topmenu {
-    border-left: 1px solid rgba(0, 0, 0, .5);
-    border-right: 1px solid rgba(255, 255, 255, .05)
-}
-
-.topmenu a.latest:active, .topmenu a.latest:focus, .topmenu a.latest:hover {
+.top-menu a.latest:active, .top-menu a.latest:focus, .top-menu a.latest:hover {
     background-color: rgba(170, 221, 51, .1)
 }
 
-.topmenu a.hot:active, .topmenu a.hot:focus, .topmenu a.hot:hover {
+.top-menu a.hot:active, .top-menu a.hot:focus, .top-menu a.hot:hover {
     background-color: rgba(255, 68, 51, .1)
 }
 
-.topmenu a.toplist:active, .topmenu a.toplist:focus, .topmenu a.toplist:hover {
+.top-menu a.top-list:active, .top-menu a.top-list:focus, .top-menu a.top-list:hover {
     background-color: rgba(183, 96, 240, .1)
 }
 
-.topmenu a.random:active, .topmenu a.random:focus, .topmenu a.random:hover {
+.top-menu a.random:active, .top-menu a.random:focus, .top-menu a.random:hover {
     background-color: rgba(238, 119, 51, .1)
 }
 
-.topmenu a.upload:active, .topmenu a.upload:focus, .topmenu a.upload:hover {
+.top-menu a.upload:active, .top-menu a.upload:focus, .top-menu a.upload:hover {
     background-color: rgba(221, 85, 85, .1)
 }
 
-.topmenu a.forums:active, .topmenu a.forums:focus, .topmenu a.forums:hover {
+.top-menu a.forums:active, .top-menu a.forums:focus, .top-menu a.forums:hover {
     background-color: rgba(255, 187, 51, .1)
 }
 
-.topmenu a.topmenu-toggle {
+.top-menu a.top-menu-toggle {
     color: #49f
 }
 
-.topmenu a.topmenu-toggle:active, .topmenu a.topmenu-toggle:focus, .topmenu a.topmenu-toggle:hover {
+.top-menu a.top-menu-toggle:active, .top-menu a.top-menu-toggle:focus, .top-menu a.top-menu-toggle:hover {
     background-color: rgba(68, 153, 255, .1)
 }
 
-.topmenu .topmenu-toggle {
+.top-menu .top-menu-toggle {
     border-right: 1px solid rgba(0, 0, 0, .5);
     border-left: 1px solid rgba(255, 255, 255, .05)
 }
 
 @media (min-width: 1100px) {
-    .topmenu .topmenu-primary li {
+    .top-menu .top-menu-primary li {
         border-right: 1px solid rgba(0, 0, 0, .5);
         border-left: 1px solid rgba(255, 255, 255, .05)
     }
@@ -4199,7 +4194,7 @@ img.lazyload.loaded {
     font-weight: 700
 }
 
-.listing-header .related-tags .tagname::before {
+.listing-header .related-tags .tag-name::before {
     content: "#";
     opacity: .6
 }
@@ -4234,13 +4229,13 @@ img.lazyload.loaded {
     text-align: center
 }
 
-.listing-header .toplist-range {
+.listing-header .top-list-range {
     display: inline-block;
     border-bottom: 1px dotted #595959;
     cursor: pointer
 }
 
-.listing-header .toplist-range-options {
+.listing-header .top-list-range-options {
     cursor: default;
     text-align: center;
     z-index: 999;
@@ -4252,7 +4247,7 @@ img.lazyload.loaded {
     padding: 5px 5px
 }
 
-.listing-header .toplist-range-options ul > li {
+.listing-header .top-list-range-options ul > li {
     font-size: .85em;
     margin: 5px 0;
     background-image: linear-gradient(to bottom, #404040 0, #292929 100%);
@@ -4260,12 +4255,12 @@ img.lazyload.loaded {
     border-radius: 2px
 }
 
-.listing-header .toplist-range-options ul > li a {
+.listing-header .top-list-range-options ul > li a {
     display: block;
     padding: 8px 4px
 }
 
-.listing-header .toplist-range:hover .toplist-range-options {
+.listing-header .top-list-range:hover .top-list-range-options {
     display: block
 }
 
@@ -4945,7 +4940,7 @@ input:checked + label.purity.nsfw {
     color: #94db94
 }
 
-.tag.tag-sfw > .tagname:hover {
+.tag.tag-sfw > .tag-name:hover {
     color: #9f9;
     background-color: #3d5c3d
 }
@@ -4954,7 +4949,7 @@ input:checked + label.purity.nsfw {
     color: #dbdb94
 }
 
-.tag.tag-sketchy > .tagname:hover {
+.tag.tag-sketchy > .tag-name:hover {
     color: #ff9;
     background-color: #5c5c3d
 }
@@ -4963,7 +4958,7 @@ input:checked + label.purity.nsfw {
     color: #db9494
 }
 
-.tag.tag-nsfw > .tagname:hover {
+.tag.tag-nsfw > .tag-name:hover {
     color: #f99;
     background-color: #5c3d3d
 }
@@ -4983,20 +4978,20 @@ input:checked + label.purity.nsfw {
     color: #ccc
 }
 
-.tag > .tag-rm + .tagname {
+.tag > .tag-rm + .tag-name {
     padding-right: 2.5em
 }
 
-.tag > .tag-rm:hover + .tagname {
+.tag > .tag-rm:hover + .tag-name {
     color: #daa;
     background-color: #633
 }
 
-.tag > .tag-rm:hover + .tagname {
+.tag > .tag-rm:hover + .tag-name {
     text-decoration: line-through
 }
 
-.tagname .deleted, .tagname.deleted, .username .deleted, .username.deleted {
+.tag-name .deleted, .tag-name.deleted, .username .deleted, .username.deleted {
     text-decoration: line-through
 }
 
@@ -5816,7 +5811,11 @@ input:checked + label.purity.nsfw {
     padding-top: 5px
 }
 
-.button .tagname {
+.sidebar-section #categories {
+    padding-top: 5px
+}
+
+.button .tag-name {
     font-weight: 700
 }
 
@@ -5872,19 +5871,19 @@ input:checked + label.purity.nsfw {
     text-decoration: underline
 }
 
-.tagname {
+.tag-name {
     word-wrap: break-word
 }
 
-.tagname .purity-sfw, .tagname .sfw, .tagname.purity-sfw, .tagname.sfw {
+.tag-name .purity-sfw, .tag-name .sfw, .tag-name.purity-sfw, .tag-name.sfw {
     color: #9f9 !important
 }
 
-.tagname .purity-sketchy, .tagname .sketchy, .tagname.purity-sketchy, .tagname.sketchy {
+.tag-name .purity-sketchy, .tag-name .sketchy, .tag-name.purity-sketchy, .tag-name.sketchy {
     color: #ff9 !important
 }
 
-.tagname .nsfw, .tagname .purity-nsfw, .tagname.nsfw, .tagname.purity-nsfw {
+.tag-name .nsfw, .tag-name .purity-nsfw, .tag-name.nsfw, .tag-name.purity-nsfw {
     color: #f99 !important
 }
 
@@ -5915,7 +5914,7 @@ input:checked + label.purity.nsfw {
     box-shadow: 1px 1px 5px rgba(0, 0, 0, .33), inset 0 0 50px rgba(255, 255, 255, .2)
 }
 
-#tag-header .tagname::before {
+#tag-header .tag-name::before {
     content: "#";
     opacity: .6
 }
@@ -6187,7 +6186,7 @@ input:checked + label.purity.nsfw {
     color: #f99 !important
 }
 
-#tag-create-form .tagname {
+#tag-create-form .tag-name {
     font-weight: 700
 }
 

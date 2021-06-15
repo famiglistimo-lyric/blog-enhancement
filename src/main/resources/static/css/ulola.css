@@ -3,11 +3,6 @@
     font-family: "Meslo LG";
     src: local("Meslo LG S"), url(../fonts/MesloLGS-Regular-25.ttf) format("truetype")
 }
-/*字体设置*/
-.m-font-style{
-    font-family: Menlo,"Meslo LG",monospace;
-    text-rendering: geometricPrecision;
-}
 
 div.bandage-container {
     overflow: hidden
@@ -131,7 +126,8 @@ body ol {
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 100%
+    min-height: 100%;
+    margin: auto 0;
 }
 
 .content p {

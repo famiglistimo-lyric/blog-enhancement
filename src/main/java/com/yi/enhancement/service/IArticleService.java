@@ -22,4 +22,11 @@ public interface IArticleService extends IService<Article> {
      * @return 文章列表
      */
     IPage<ArticleDTO> pageArticleDTO(int currentPage, int size);
+
+    /**
+     * 根据id查到文章内容,并转换为markdown形式
+     * @param id:文章id
+     * @return 文章内容
+     */
+    Object getAndConvert(Long id);
 }
