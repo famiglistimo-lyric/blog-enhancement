@@ -30,10 +30,14 @@
                 </div>
             </div>
             <div class="ui fluid vertical menu m-signature-background-color" style="text-align: left;">
-                <span class="item m-font-pattern m-opacity-mini m-font-style">Archives:<span th:text="${articlePage.total}">29</span></span>
-                <span class="item m-font-pattern m-opacity-mini m-font-style">QQ:<span th:text="${user.qq}">29</span></span>
-                <span class="item m-font-pattern m-opacity-mini m-font-style">wechat:<span th:text="${user.wechat}">29</span></span>
-                <span class="item m-font-pattern m-opacity-mini m-font-style">email:<span th:text="${user.email}">29</span></span>
+                <span class="item m-font-pattern m-opacity-mini m-font-style">Archives:<span
+                        th:text="${articlePage.total}">29</span></span>
+                <span class="item m-font-pattern m-opacity-mini m-font-style">QQ:<span
+                        th:text="${user.qq}">29</span></span>
+                <span class="item m-font-pattern m-opacity-mini m-font-style">wechat:<span
+                        th:text="${user.wechat}">29</span></span>
+                <span class="item m-font-pattern m-opacity-mini m-font-style">email:<span
+                        th:text="${user.email}">29</span></span>
             </div>
         </div>
         <div class="ui segment m-shadow m-block-display-color">
@@ -51,7 +55,7 @@
             <div style="margin-top: 10px"><span id="love_time"></span></div>
         </div>
     </div>
-    <div class="ui eight wide column" style="margin-top: 50px">
+    <div class="ui eight wide column" style="margin-top: 50px;">
         <div class="ui segment m-shadow m-block-display-color">
             <img src="https://w.wallhaven.cc/full/28/wallhaven-281d5y.png" style="width: 100%;height: 100%">
             <div class="ui top attached segment m-border-none" style="background: inherit">
@@ -61,14 +65,18 @@
                     </div>
                 </div>
             </div>
-            <div class="ui attached segment m-padding-top-bottom-large content m-border-none" style="background: inherit">
+            <div class="ui attached segment m-padding-top-bottom-large content m-border-none"
+                 style="background: inherit">
                 <ul class="post-list">
                     <li class="post-item" th:each="article : ${articlePage.records}">
                         <div style="display: flex;align-items: center">
                             <div class="meta m-font-style">
-                                <time th:text="${#temporals.format(article.updateTime,'yyyy-MM-dd')}" itemprop="datePublished"></time>
+                                <time th:text="${#temporals.format(article.updateTime,'yyyy-MM-dd')}"
+                                      itemprop="datePublished"></time>
                             </div>
-                            <div><span class="m-article-title"><a href="#" th:text="${article.title}" th:href="@{/article/{id}(id=${article.id})}" target="_blank">Javascript 连等赋值</a></span></div>
+                            <div><span class="m-article-title"><a href="#" th:text="${article.title}"
+                                                                  th:href="@{/article/{id}(id=${article.id})}"
+                                                                  target="_blank">Javascript 连等赋值</a></span></div>
                         </div>
                     </li>
                 </ul>
@@ -164,8 +172,9 @@
             </ul>
         </div>
     </div>
-    </div>
 </div>
+
+
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
