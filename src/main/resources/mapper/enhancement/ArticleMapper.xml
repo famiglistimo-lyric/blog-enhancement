@@ -4,11 +4,24 @@
     <select id="pageArticleDTO" resultType="com.yi.enhancement.model.dto.ArticleDTO">
         SELECT
             id,
+            title,
+            stamp,
+            comments,
+            original,
+            published,
+            recommend,
+            appreciate,
+            views,
             create_time,
             update_time,
-            title
+            category_id,
+            user_id
         FROM
             article
+        where 1 = 1
+        <if test="title != null and title != ''">
+            and title like CONCAT('%', #{title},'%')
+        </if>
         ORDER BY
         update_time DESC
     </select>

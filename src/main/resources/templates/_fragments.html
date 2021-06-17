@@ -11,11 +11,12 @@
     <link rel="stylesheet" th:href="@{/css/wallhaven.css}">
     <link rel="stylesheet" th:href="@{/css/weather.css}">
     <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}"/>
 </head>
 <body>
 <!--顶部导航-->
 <div th:fragment="menu(n)">
-    <header id="header">
+    <header id="header" class="animate__animated animate__slideInDown">
         <a id="logo"><h2 class="ui teal header"><span class="m-font-style">Yizone</span></h2></a>
         <div class="top-menu extended">
             <a id="menu-toggle" class="top-menu-toggle extended"><i class="far fa-bars icon"></i></a>

@@ -7,7 +7,7 @@
 <div th:replace="_fragments :: menu(1)"></div>
 <!--中间部分-->
 <div class="ui grid" style="margin:auto">
-    <div class="ui four wide column mobile-hidden" style="margin-top: 50px">
+    <div class="ui four wide column mobile-hidden animate__animated animate__fadeIn"style="margin-top: 50px">
         <div class="ui segment m-shadow m-block-display-color">
             <img class="ui small circular image" src="" th:src="${user.avatar}" style="margin: auto">
             <div class="ui divider"></div>
@@ -30,13 +30,17 @@
                 </div>
             </div>
             <div class="ui fluid vertical menu m-signature-background-color" style="text-align: left;">
-                <span class="item m-font-pattern m-opacity-mini m-font-style">Archives:<span th:text="${articlePage.total}">29</span></span>
-                <span class="item m-font-pattern m-opacity-mini m-font-style">QQ:<span th:text="${user.qq}">29</span></span>
-                <span class="item m-font-pattern m-opacity-mini m-font-style">wechat:<span th:text="${user.wechat}">29</span></span>
-                <span class="item m-font-pattern m-opacity-mini m-font-style">email:<span th:text="${user.email}">29</span></span>
+                <span class="item m-font-pattern m-opacity-mini m-font-style">Archives:<span
+                        th:text="${articlePage.total}">29</span></span>
+                <span class="item m-font-pattern m-opacity-mini m-font-style">QQ:<span
+                        th:text="${user.qq}">29</span></span>
+                <span class="item m-font-pattern m-opacity-mini m-font-style">wechat:<span
+                        th:text="${user.wechat}">29</span></span>
+                <span class="item m-font-pattern m-opacity-mini m-font-style">email:<span
+                        th:text="${user.email}">29</span></span>
             </div>
         </div>
-        <div class="ui segment m-shadow m-block-display-color">
+        <div class="ui segment m-shadow m-block-display-color animate__animated animate__fadeIn">
             <div style="display: flex;justify-content:center;">
                 <img src="https://shawnzeng.com/wp-content/uploads/2018/07/IMG_1970.jpg"
                      style="width:50px;height:50px;vertical-align:-20px;border-radius:50%;margin-right:5px;margin-bottom:5px;-webkit-box-shadow:1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);border: 2px solid #fff;"/>
@@ -51,7 +55,7 @@
             <div style="margin-top: 10px"><span id="love_time"></span></div>
         </div>
     </div>
-    <div class="ui eight wide column" style="margin-top: 50px">
+    <div class="ui eight wide column animate__animated animate__fadeIn" style="margin-top: 50px;">
         <div class="ui segment m-shadow m-block-display-color">
             <img src="https://w.wallhaven.cc/full/28/wallhaven-281d5y.png" style="width: 100%;height: 100%">
             <div class="ui top attached segment m-border-none" style="background: inherit">
@@ -61,21 +65,25 @@
                     </div>
                 </div>
             </div>
-            <div class="ui attached segment m-padding-top-bottom-large content m-border-none" style="background: inherit">
+            <div class="ui attached segment m-padding-top-bottom-large content m-border-none"
+                 style="background: inherit">
                 <ul class="post-list">
                     <li class="post-item" th:each="article : ${articlePage.records}">
                         <div style="display: flex;align-items: center">
                             <div class="meta m-font-style">
-                                <time th:text="${#temporals.format(article.updateTime,'yyyy-MM-dd')}" itemprop="datePublished"></time>
+                                <time th:text="${#temporals.format(article.updateTime,'yyyy-MM-dd')}"
+                                      itemprop="datePublished"></time>
                             </div>
-                            <div><span class="m-article-title"><a href="#" th:text="${article.title}" th:href="@{/article/{id}(id=${article.id})}" target="_blank">Javascript 连等赋值</a></span></div>
+                            <div><span class="m-article-title"><a href="#" th:text="${article.title}"
+                                                                  th:href="@{/article/{id}(id=${article.id})}"
+                                                                  target="_blank">Javascript 连等赋值</a></span></div>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="ui four wide column mobile-hidden" style="margin-top: 50px">
+    <div class="ui four wide column mobile-hidden animate__animated animate__fadeIn" style="margin-top: 50px">
         <div class="ui segment m-shadow m-block-display-color">
             <div class="ui segment m-signature-background-color">
                 <h4 class="ui left aligned header m-font-pattern m-opacity-mini m-font-spaced"
@@ -87,15 +95,17 @@
                     但是正因为如此,我才明白了一些道理,我只是相信着这些道理才走到了现在。
                     <br>
                     只要相信自己,我们就绝不是一个人,开分的同伴,给我加油的同伴,我们之间的羁绊是不会随着黑暗所消失的。
+                    <br>
+                    技术支持:Not Found/小公举~/@ 78/摩挲素月
                 </h4>
             </div>
         </div>
-        <div class="ui segment center aligned m-block-display-color m-shadow">
+        <div class="ui segment center aligned m-block-display-color m-shadow animate__animated animate__fadeIn">
             <!--                        <div class="weather sunny"></div>-->
             <!--                        <div clas   s="weather cloudy"></div>-->
             <div class="weather rainy"></div>
         </div>
-        <div class="ui segment left aligned m-block-display-color m-shadow" style="padding: 10px 15px">
+        <div class="ui segment left aligned m-block-display-color m-shadow animate__animated animate__fadeIn" style="padding: 10px 15px">
             <ul id="tags">
                 <li class="tag tag-sfw" id="tag-5" data-tag-id="5"><a class="tag-name" rel="tag"
                                                                       href="https://wallhaven.cc/tag/5"
@@ -164,8 +174,9 @@
             </ul>
         </div>
     </div>
-    </div>
 </div>
+
+
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
@@ -174,7 +185,6 @@
     $('#menu-toggle').click(function () {
         $('.top-menu-full').toggleClass('mobile-hidden');
     })
-
     function setTime() {
         var createTime = Math.round(new Date(Date.UTC(2021, 01, 08, 9, 21, 0)).getTime() / 1000);
         var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);

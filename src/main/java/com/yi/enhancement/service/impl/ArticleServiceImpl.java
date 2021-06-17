@@ -6,11 +6,8 @@ import com.yi.enhancement.exception.IndexNotFoundException;
 import com.yi.enhancement.model.dto.ArticleDTO;
 import com.yi.enhancement.model.entity.Article;
 import com.yi.enhancement.mapper.ArticleMapper;
-import com.yi.enhancement.model.entity.User;
 import com.yi.enhancement.service.IArticleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.yi.enhancement.service.ICategoryService;
-import com.yi.enhancement.service.ITagService;
 import com.yi.enhancement.service.IUserService;
 import com.yi.enhancement.util.MarkdownUtils;
 import org.springframework.beans.BeanUtils;
@@ -29,14 +26,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
     private final IUserService userService;
 
-    public ArticleServiceImpl(IUserService userService){
+    public ArticleServiceImpl(IUserService userService) {
         this.userService = userService;
-    }
-
-    @Override
-    public IPage<ArticleDTO> pageArticleDTO(int currentPage, int size) {
-        Page<ArticleDTO> pageCondition = new Page<>(currentPage, size);
-        return this.baseMapper.pageArticleDTO(pageCondition);
     }
 
     @Override
@@ -54,5 +45,17 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         String content = articleVo.getContent();
         articleVo.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
         return articleVo;
+    }
+
+    @Override
+    public IPage<ArticleDTO> pageArticle(String title, Integer page, Integer pageSize) {
+        if (page == null) {
+            page = 1;
+        }
+        if (pageSize == null) {
+            pageSize = 10;
+        }
+        Page<ArticleDTO> pageCondition = new Page<>(page, pageSize);
+        return this.baseMapper.pageArticleDTO(pageCondition, title);
     }
 }

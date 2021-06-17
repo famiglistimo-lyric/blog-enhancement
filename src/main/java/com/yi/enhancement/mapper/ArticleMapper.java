@@ -20,8 +20,9 @@ public interface ArticleMapper extends BaseMapper<Article> {
 
     /**
      * 文章分页
-     * @param pageCondition :分页条件
+     * @param pageCondition 分页条件
+     * @param title 查询条件:标题
      * @return 文章列表
      */
-    IPage<ArticleDTO> pageArticleDTO(Page<ArticleDTO> pageCondition);
+    IPage<ArticleDTO> pageArticleDTO(Page<ArticleDTO> pageCondition, String title);
 }

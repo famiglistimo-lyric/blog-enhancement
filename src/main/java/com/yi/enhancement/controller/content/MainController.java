@@ -45,8 +45,8 @@ public class MainController {
     public String index(Model model, HttpServletResponse response) {
         Long userId = 1L;
         int currentPage = 1;
-        int size = 8;
-        model.addAttribute("articlePage",articleService.pageArticleDTO(currentPage,size));
+        int pageSize = 8;
+        model.addAttribute("articlePage",articleService.pageArticle(null,currentPage,pageSize));
         model.addAttribute("categoryList", categoryService.listCategoryDTO());
         model.addAttribute("tagList", tagService.listTagDTO());
         model.addAttribute("user", userService.updateViews(userId));
