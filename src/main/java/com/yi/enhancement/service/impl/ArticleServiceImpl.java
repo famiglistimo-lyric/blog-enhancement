@@ -8,10 +8,13 @@ import com.yi.enhancement.model.entity.Article;
 import com.yi.enhancement.mapper.ArticleMapper;
 import com.yi.enhancement.service.IArticleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.yi.enhancement.service.IArticleTagRelationService;
 import com.yi.enhancement.service.IUserService;
 import com.yi.enhancement.util.MarkdownUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -26,7 +29,10 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
     private final IUserService userService;
 
-    public ArticleServiceImpl(IUserService userService) {
+    private final IArticleTagRelationService articleTagRelationService;
+
+    public ArticleServiceImpl(IUserService userService,IArticleTagRelationService articleTagRelationService) {
+        this.articleTagRelationService = articleTagRelationService;
         this.userService = userService;
     }
 
@@ -48,7 +54,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public IPage<ArticleDTO> pageArticle(String title, Integer page, Integer pageSize) {
+    public IPage<ArticleDTO> pageArticle(String title, Integer status, Integer categoryId, Integer tagId, Integer page, Integer pageSize) {
         if (page == null) {
             page = 1;
         }
@@ -56,6 +62,22 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
             pageSize = 10;
         }
         Page<ArticleDTO> pageCondition = new Page<>(page, pageSize);
-        return this.baseMapper.pageArticleDTO(pageCondition, title);
+        List<Long> articleIdList = null;
+        if(tagId != null){
+            articleIdList = articleTagRelationService.listArticleId(tagId);
+        }
+        return this.baseMapper.pageArticleDTO(pageCondition, title, status, categoryId, articleIdList);
+    }
+
+    @Override
+    public IPage<ArticleDTO> pageArticleWeb(Integer page, Integer pageSize) {
+        if (page == null) {
+            page = 1;
+        }
+        if (pageSize == null) {
+            pageSize = 10;
+        }
+        Page<ArticleDTO> pageCondition = new Page<>(page, pageSize);
+        return this.baseMapper.pageArticleDTOWeb(pageCondition);
     }
 }

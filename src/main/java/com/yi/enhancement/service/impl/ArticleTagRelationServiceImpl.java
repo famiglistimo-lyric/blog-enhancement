@@ -6,6 +6,8 @@ import com.yi.enhancement.service.IArticleTagRelationService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务实现类
@@ -17,4 +19,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class ArticleTagRelationServiceImpl extends ServiceImpl<ArticleTagRelationMapper, ArticleTagRelation> implements IArticleTagRelationService {
 
+    @Override
+    public List<Long> listArticleId(Integer tagId) {
+        return this.baseMapper.listArticleId(tagId);
+    }
 }

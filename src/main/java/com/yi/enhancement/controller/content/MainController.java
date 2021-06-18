@@ -46,7 +46,7 @@ public class MainController {
         Long userId = 1L;
         int currentPage = 1;
         int pageSize = 8;
-        model.addAttribute("articlePage",articleService.pageArticle(null,currentPage,pageSize));
+        model.addAttribute("articlePage",articleService.pageArticleWeb(currentPage,pageSize));
         model.addAttribute("categoryList", categoryService.listCategoryDTO());
         model.addAttribute("tagList", tagService.listTagDTO());
         model.addAttribute("user", userService.updateViews(userId));

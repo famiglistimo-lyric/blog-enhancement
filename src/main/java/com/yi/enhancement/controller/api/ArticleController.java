@@ -26,7 +26,7 @@ public class ArticleController {
     }
 
     @GetMapping("/pageArticle")
-    public IPage<ArticleDTO> pageArticle(String title, Integer page, Integer pageSize) {
-        return articleService.pageArticle(title, page, pageSize);
+    public IPage<ArticleDTO> pageArticle(String title, Integer status, Integer categoryId, Integer tagId, Integer page, Integer pageSize) {
+        return articleService.pageArticle(title, status, categoryId, tagId, page, pageSize);
     }
 }

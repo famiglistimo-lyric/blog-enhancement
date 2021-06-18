@@ -17,6 +17,7 @@ public interface IArticleService extends IService<Article> {
 
     /**
      * 根据id查到文章内容,并转换为markdown形式
+     *
      * @param id 文章id
      * @return 文章内容
      */
@@ -25,9 +26,20 @@ public interface IArticleService extends IService<Article> {
     /**
      * 文章分页
      * @param title 查询条件:标题
+     * @param status 查询条件:状态
+     * @param categoryId 查询条件:分类Id
+     * @param tagId 查询条件:标签Id
      * @param page 当前页
      * @param pageSize 每页数据量
      * @return 文章列表
      */
-    IPage<ArticleDTO> pageArticle(String title, Integer page, Integer pageSize);
+    IPage<ArticleDTO> pageArticle(String title, Integer status, Integer categoryId, Integer tagId, Integer page, Integer pageSize);
+
+    /**
+     * 文章分页
+     * @param page     当前页
+     * @param pageSize 每页数据量
+     * @return 文章列表
+     */
+    IPage<ArticleDTO> pageArticleWeb(Integer page, Integer pageSize);
 }

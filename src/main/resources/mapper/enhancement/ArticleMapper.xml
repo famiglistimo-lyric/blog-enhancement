@@ -22,6 +22,29 @@
         <if test="title != null and title != ''">
             and title like CONCAT('%', #{title},'%')
         </if>
+        <if test="status != null">
+            and status = #{status}
+        </if>
+        <if test="categoryId != null">
+            and category_id = #{categoryId}
+        </if>
+        <if test="articleIdList != null">
+            and id in
+            <foreach collection="articleIdList" item="id" open="(" close=")" separator=",">
+                #{id}
+            </foreach>
+        </if>
+        ORDER BY
+        update_time DESC
+    </select>
+    <select id="pageArticleDTOWeb" resultType="com.yi.enhancement.model.dto.ArticleDTO">
+        SELECT
+        id,
+        title,
+        create_time,
+        update_time
+        FROM
+        article
         ORDER BY
         update_time DESC
     </select>
