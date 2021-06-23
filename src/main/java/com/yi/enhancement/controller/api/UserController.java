@@ -16,7 +16,7 @@ import static org.apache.logging.log4j.message.MapMessage.MapFormat.JSON;
  * @since 2021-06-02
  */
 @RestController
-@RequestMapping("/enhancement/user")
+@RequestMapping("/api/user")
 public class UserController {
 
 }

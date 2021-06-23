@@ -29,4 +29,8 @@ public class ArticleController {
     public IPage<ArticleDTO> pageArticle(String title, Integer status, Integer categoryId, Integer tagId, Integer page, Integer pageSize) {
         return articleService.pageArticle(title, status, categoryId, tagId, page, pageSize);
     }
+    @GetMapping("/getArticle")
+    public ArticleDTO getArticle(Long id) {
+        return articleService.getArticle(id);
+    }
 }

@@ -1,14 +1,17 @@
 package com.yi.enhancement.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yi.enhancement.exception.IndexNotFoundException;
 import com.yi.enhancement.model.dto.ArticleDTO;
 import com.yi.enhancement.model.entity.Article;
 import com.yi.enhancement.mapper.ArticleMapper;
+import com.yi.enhancement.model.entity.Tag;
 import com.yi.enhancement.service.IArticleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yi.enhancement.service.IArticleTagRelationService;
+import com.yi.enhancement.service.ITagService;
 import com.yi.enhancement.service.IUserService;
 import com.yi.enhancement.util.MarkdownUtils;
 import org.springframework.beans.BeanUtils;
@@ -31,7 +34,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
     private final IArticleTagRelationService articleTagRelationService;
 
-    public ArticleServiceImpl(IUserService userService,IArticleTagRelationService articleTagRelationService) {
+    public ArticleServiceImpl(IUserService userService,
+                              IArticleTagRelationService articleTagRelationService) {
         this.articleTagRelationService = articleTagRelationService;
         this.userService = userService;
     }
@@ -79,5 +83,10 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         }
         Page<ArticleDTO> pageCondition = new Page<>(page, pageSize);
         return this.baseMapper.pageArticleDTOWeb(pageCondition);
+    }
+
+    @Override
+    public ArticleDTO getArticle(Long id) {
+        return this.baseMapper.getArticle(id);
     }
 }

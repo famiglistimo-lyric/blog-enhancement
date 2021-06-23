@@ -42,4 +42,11 @@ public interface IArticleService extends IService<Article> {
      * @return 文章列表
      */
     IPage<ArticleDTO> pageArticleWeb(Integer page, Integer pageSize);
+
+    /**
+     * 根据文章id获得文章详情
+     * @param id 文章id
+     * @return 文章详情
+     */
+    ArticleDTO getArticle(Long id);
 }

@@ -1,8 +1,12 @@
 package com.yi.enhancement.model.dto;
 
 import com.yi.enhancement.model.entity.Article;
+import com.yi.enhancement.model.entity.Category;
+import com.yi.enhancement.model.entity.Tag;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.util.List;
 
 /**
  * @author: lyric
@@ -12,4 +16,9 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class ArticleDTO extends Article {
+    private List<Tag> tagList;
+    /**
+     * 评论量
+     */
+    private Integer commentCounts;
 }
