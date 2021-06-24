@@ -23,7 +23,7 @@
                     select="com.yi.enhancement.mapper.ArticleTagRelationMapper.listTagByArticleId">
         </collection>
     </resultMap>
-    <select id="pageArticleDTO" resultMap="ArticleDTO">
+    <select id="pageArticleDTO" resultType="com.yi.enhancement.model.dto.ArticleDTO">
         SELECT
         t1.id,
         t1.title,

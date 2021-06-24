@@ -1,9 +1,11 @@
 package com.yi.enhancement.mapper;
 
+import com.yi.enhancement.model.dto.ArticleTagRelationDTO;
 import com.yi.enhancement.model.entity.ArticleTagRelation;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yi.enhancement.model.entity.Tag;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -31,4 +33,11 @@ public interface ArticleTagRelationMapper extends BaseMapper<ArticleTagRelation>
      * @return tag列表
      */
     List<Tag> listTagByArticleId(Long articleId);
+
+    /**
+     * 根据文章Id查出所有的文章标签
+     * @param articleIds 文章id
+     * @return 文章和标签的关系DTO
+     */
+    List<ArticleTagRelationDTO> listArticleTagRelation(@Param("articleIds") List<Long> articleIds);
 }

@@ -1,5 +1,6 @@
 package com.yi.enhancement.service;
 
+import com.yi.enhancement.model.dto.ArticleTagRelationDTO;
 import com.yi.enhancement.model.entity.ArticleTagRelation;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -21,4 +22,11 @@ public interface IArticleTagRelationService extends IService<ArticleTagRelation>
      * @return 所有文章Id
      */
     List<Long> listArticleId(Integer tagId);
+
+    /**
+     * 根据文章Id查出所有的文章标签
+     * @param articleIds 文章id
+     * @return 文章和标签的关系DTO
+     */
+    List<ArticleTagRelationDTO> listArticleTagRelation(List<Long> articleIds);
 }

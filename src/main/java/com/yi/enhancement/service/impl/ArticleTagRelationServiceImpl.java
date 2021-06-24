@@ -1,5 +1,6 @@
 package com.yi.enhancement.service.impl;
 
+import com.yi.enhancement.model.dto.ArticleTagRelationDTO;
 import com.yi.enhancement.model.entity.ArticleTagRelation;
 import com.yi.enhancement.mapper.ArticleTagRelationMapper;
 import com.yi.enhancement.service.IArticleTagRelationService;
@@ -22,5 +23,10 @@ public class ArticleTagRelationServiceImpl extends ServiceImpl<ArticleTagRelatio
     @Override
     public List<Long> listArticleId(Integer tagId) {
         return this.baseMapper.listArticleId(tagId);
+    }
+
+    @Override
+    public List<ArticleTagRelationDTO> listArticleTagRelation(List<Long> articleIds) {
+        return this.baseMapper.listArticleTagRelation(articleIds);
     }
 }
