@@ -1,6 +1,7 @@
 package com.yi.enhancement.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.yi.enhancement.exception.CustomException;
 import com.yi.enhancement.model.dto.ArticleDTO;
 import com.yi.enhancement.model.entity.Article;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -21,7 +22,7 @@ public interface IArticleService extends IService<Article> {
      * @param id 文章id
      * @return 文章内容
      */
-    Object getAndConvert(Long id);
+    Object getAndConvert(Long id) throws CustomException;
 
     /**
      * 文章分页
@@ -49,4 +50,11 @@ public interface IArticleService extends IService<Article> {
      * @return 文章详情
      */
     ArticleDTO getArticle(Long id);
+
+    /**
+     * 保存文章的相关信息
+     * @param articleDTO 文章DTO
+     * @return 是否成功
+     */
+    boolean saveArticle(ArticleDTO articleDTO);
 }

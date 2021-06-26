@@ -2,6 +2,7 @@ package com.yi.enhancement.controller.api;
 
 
 import com.yi.enhancement.model.dto.CategoryDTO;
+import com.yi.enhancement.model.result.JsonResult;
 import com.yi.enhancement.service.IArticleService;
 import com.yi.enhancement.service.ICategoryService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +30,10 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
     @GetMapping("/listCategory")
-    public List<CategoryDTO> listCategoryDTO(){
-        return categoryService.listCategoryDTO();
+    public JsonResult listCategoryDTO(){
+        JsonResult jsonResult = new JsonResult();
+        jsonResult.setSuccess(true);
+        jsonResult.setObj(categoryService.listCategoryDTO());
+        return jsonResult;
     }
 }

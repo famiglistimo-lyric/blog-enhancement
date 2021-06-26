@@ -18,12 +18,38 @@
         <result column="category_id" property="categoryId"/>
         <result column="user_id" property="userId"/>
         <result column="comment_counts" property="commentCounts"/>
+        <association property="category">
+            <result column="category_id" property="id"/>
+            <result column="category_name" property="name"/>
+        </association>
+    </resultMap>
+    <resultMap id="singleArticleDTO" type="com.yi.enhancement.model.dto.ArticleDTO">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="first_picture" property="firstPicture"/>
+        <result column="stamp" property="stamp"/>
+        <result column="comments" property="comments"/>
+        <result column="original" property="original"/>
+        <result column="status" property="status"/>
+        <result column="recommend" property="recommend"/>
+        <result column="appreciate" property="appreciate"/>
+        <result column="views" property="views"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="user_id" property="userId"/>
+        <result column="comment_counts" property="commentCounts"/>
+        <association property="category">
+            <result column="category_id" property="id"/>
+            <result column="category_name" property="name"/>
+        </association>
         <collection property="tagList"
                     column="id"
                     select="com.yi.enhancement.mapper.ArticleTagRelationMapper.listTagByArticleId">
         </collection>
     </resultMap>
-    <select id="pageArticleDTO" resultType="com.yi.enhancement.model.dto.ArticleDTO">
+    <select id="pageArticleDTO" resultMap="ArticleDTO">
         SELECT
         t1.id,
         t1.title,
@@ -75,7 +101,7 @@
         ORDER BY
         update_time DESC
     </select>
-    <select id="getArticle" resultMap="ArticleDTO">
+    <select id="getArticle" resultMap="singleArticleDTO">
         SELECT
         t1.id,
         t1.title,

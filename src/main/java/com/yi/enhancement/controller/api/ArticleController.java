@@ -1,13 +1,12 @@
 package com.yi.enhancement.controller.api;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.yi.enhancement.constant.Constant;
+import com.yi.enhancement.exception.CustomException;
 import com.yi.enhancement.model.dto.ArticleDTO;
+import com.yi.enhancement.model.result.JsonResult;
 import com.yi.enhancement.service.IArticleService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author: lyric
@@ -26,11 +25,27 @@ public class ArticleController {
     }
 
     @GetMapping("/pageArticle")
-    public IPage<ArticleDTO> pageArticle(String title, Integer status, Integer categoryId, Integer tagId, Integer page, Integer pageSize) {
-        return articleService.pageArticle(title, status, categoryId, tagId, page, pageSize);
+    public JsonResult pageArticle(String title, Integer status, Integer categoryId, Integer tagId, Integer page, Integer pageSize) {
+        JsonResult jsonResult = new JsonResult();
+        jsonResult.setSuccess(true);
+        jsonResult.setObj(articleService.pageArticle(title, status, categoryId, tagId, page, pageSize));
+        return jsonResult;
     }
+
     @GetMapping("/getArticle")
-    public ArticleDTO getArticle(Long id) {
-        return articleService.getArticle(id);
+    public JsonResult getArticle(Long id) {
+        JsonResult jsonResult = new JsonResult();
+        jsonResult.setSuccess(true);
+        jsonResult.setObj(articleService.getArticle(id));
+        return jsonResult;
+    }
+
+    @PostMapping("/saveArticle")
+    public JsonResult saveArticle(@RequestBody ArticleDTO articleDTO){
+        articleService.saveArticle(articleDTO);
+        JsonResult jsonResult = new JsonResult();
+        jsonResult.setSuccess(true);
+        jsonResult.setMsg(Constant.HANDLE_SUCCESS);
+        return jsonResult;
     }
 }

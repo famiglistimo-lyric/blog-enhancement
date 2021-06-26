@@ -16,7 +16,14 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class ArticleDTO extends Article {
+    /**
+     * 文章标签列表
+     */
     private List<Tag> tagList;
+    /**
+     * 文章分类
+     */
+    private Category category;
     /**
      * 评论量
      */

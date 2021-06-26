@@ -3,7 +3,8 @@ package com.yi.enhancement.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.yi.enhancement.exception.IndexNotFoundException;
+import com.yi.enhancement.exception.CustomException;
+import com.yi.enhancement.exception.ExceptionCodeEnum;
 import com.yi.enhancement.model.dto.ArticleDTO;
 import com.yi.enhancement.model.dto.ArticleTagRelationDTO;
 import com.yi.enhancement.model.entity.Article;
@@ -18,13 +19,13 @@ import com.yi.enhancement.service.IUserService;
 import com.yi.enhancement.util.MarkdownUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * <p>
@@ -39,19 +40,23 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
     private final IUserService userService;
 
+    private final ITagService tagService;
+
     private final IArticleTagRelationService articleTagRelationService;
 
     public ArticleServiceImpl(IUserService userService,
-                              IArticleTagRelationService articleTagRelationService) {
+                              IArticleTagRelationService articleTagRelationService,
+                              ITagService tagService) {
         this.articleTagRelationService = articleTagRelationService;
         this.userService = userService;
+        this.tagService = tagService;
     }
 
     @Override
-    public Article getAndConvert(Long id) {
+    public Article getAndConvert(Long id) throws CustomException {
         Article article = this.baseMapper.selectById(id);
         if (article == null) {
-            throw new IndexNotFoundException("该博客不存在");
+            throw new CustomException(ExceptionCodeEnum.BLOG_NOT_EXIST_EXCEPTION.getMessage());
         }
         Integer views = article.getViews();
         views = views + 1;
@@ -72,18 +77,17 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         if (pageSize == null) {
             pageSize = 10;
         }
-        long startTime=System.currentTimeMillis();//记录开始时间
         Page<ArticleDTO> pageCondition = new Page<>(page, pageSize);
         List<Long> articleIdList = null;
         if (tagId != null) {
             articleIdList = articleTagRelationService.listArticleId(tagId);
         }
-        IPage<ArticleDTO> articleDTOIPage = this.baseMapper.pageArticleDTO(pageCondition, title, status, categoryId, articleIdList);
+        IPage<ArticleDTO> articleIPage = this.baseMapper.pageArticleDTO(pageCondition, title, status, categoryId, articleIdList);
         // key:文章id;value:文章的tagList
         Map<Long, List<Tag>> articleTagListMap = new HashMap<>(16);
-        List<ArticleDTO> records = articleDTOIPage.getRecords();
+        List<ArticleDTO> records = articleIPage.getRecords();
         for (ArticleDTO record : records) {
-            articleTagListMap.put(record.getId(),new ArrayList<>());
+            articleTagListMap.put(record.getId(), new ArrayList<>());
         }
         List<Long> articleIds = records.stream().map(Article::getId).collect(Collectors.toList());
         List<ArticleTagRelationDTO> articleTagRelationDTOList = articleTagRelationService.listArticleTagRelation(articleIds);
@@ -98,10 +102,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
             Long id = record.getId();
             record.setTagList(articleTagListMap.get(id));
         }
-        long endTime=System.currentTimeMillis();//记录结束时间
-        float excTime=(float)(endTime-startTime);
-        System.out.println("执行时间1："+excTime);
-        return articleDTOIPage;
+        return articleIPage;
     }
 
     @Override
@@ -119,5 +120,37 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     @Override
     public ArticleDTO getArticle(Long id) {
         return this.baseMapper.getArticle(id);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public boolean saveArticle(ArticleDTO articleDTO) {
+        Article article = new Article();
+        BeanUtils.copyProperties(articleDTO, article);
+        this.saveOrUpdate(article);
+        List<Tag> tagList = articleDTO.getTagList();
+        // 将新标签插入数据库
+        List<Tag> willInsertTagList = tagList.stream().filter((item) -> item.getId() == null).collect(Collectors.toList());
+        tagService.saveBatch(willInsertTagList);
+        List<ArticleTagRelation> willInsertArticleTagRelationList = new ArrayList<>();
+        for (Tag tag : willInsertTagList) {
+            ArticleTagRelation articleTagRelation = new ArticleTagRelation();
+            articleTagRelation.setTagId(tag.getId());
+            articleTagRelation.setArticleId(article.getId());
+            willInsertArticleTagRelationList.add(articleTagRelation);
+        }
+        // 数据库中已经存在的标签
+        List<Tag> existTagList = tagList.stream().filter((item) -> item.getId() != null).collect(Collectors.toList());
+        for (Tag tag : existTagList) {
+            ArticleTagRelation articleTagRelation = new ArticleTagRelation();
+            articleTagRelation.setTagId(tag.getId());
+            articleTagRelation.setArticleId(article.getId());
+            willInsertArticleTagRelationList.add(articleTagRelation);
+        }
+        QueryWrapper<ArticleTagRelation> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("article_id",article.getId());
+        articleTagRelationService.remove(queryWrapper);
+        articleTagRelationService.saveBatch(willInsertArticleTagRelationList);
+        return true;
     }
 }
