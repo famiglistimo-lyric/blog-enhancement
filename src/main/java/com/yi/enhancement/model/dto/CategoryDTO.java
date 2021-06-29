@@ -12,4 +12,8 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class CategoryDTO extends Category {
+    /**
+     * 文章数
+     */
+    private Integer articleCounts;
 }

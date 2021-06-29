@@ -3,7 +3,7 @@ package com.yi.enhancement.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.yi.enhancement.exception.CustomException;
+import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.exception.ExceptionCodeEnum;
 import com.yi.enhancement.model.dto.ArticleDTO;
 import com.yi.enhancement.model.dto.ArticleTagRelationDTO;

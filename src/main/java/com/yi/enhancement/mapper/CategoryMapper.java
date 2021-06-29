@@ -1,5 +1,7 @@
 package com.yi.enhancement.mapper;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yi.enhancement.model.dto.CategoryDTO;
 import com.yi.enhancement.model.entity.Category;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -23,4 +25,11 @@ public interface CategoryMapper extends BaseMapper<Category> {
      * @return 文章分类List
      */
     List<CategoryDTO> listCategoryDTO();
+
+    /**
+     * 分类分页
+     * @param pageCondition 分页条件
+     * @return 分类列表
+     */
+    IPage<CategoryDTO> pageCategory(Page<CategoryDTO> pageCondition);
 }

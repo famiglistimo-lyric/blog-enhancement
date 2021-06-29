@@ -1,5 +1,6 @@
 package com.yi.enhancement.exception;
 
+import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.model.result.JsonResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -18,9 +19,12 @@ public class ExceptionControllerAdvice {
      * 自定义异常
      */
     @ExceptionHandler(value = CustomException.class)
-    public JsonResult handleArticleExistException(CustomException e) {
+    public JsonResult handleCustomException(CustomException e) {
         log.error(e.getMessage());
-        return null;
+        JsonResult jsonResult = new JsonResult();
+        jsonResult.setSuccess(false);
+        jsonResult.setMsg(e.getMessage());
+        return jsonResult;
     }
 
     /**

@@ -1,7 +1,7 @@
 package com.yi.enhancement.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.yi.enhancement.exception.CustomException;
+import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.model.dto.ArticleDTO;
 import com.yi.enhancement.model.entity.Article;
 import com.baomidou.mybatisplus.extension.service.IService;

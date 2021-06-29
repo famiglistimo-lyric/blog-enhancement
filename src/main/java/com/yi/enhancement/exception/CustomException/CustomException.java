@@ -1,4 +1,4 @@
-package com.yi.enhancement.exception;
+package com.yi.enhancement.exception.CustomException;
 
 /**
  * @author: lyric

@@ -1,7 +1,7 @@
 package com.yi.enhancement.controller.content;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.yi.enhancement.exception.CustomException;
+import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.model.entity.User;
 import com.yi.enhancement.service.IArticleService;
 import com.yi.enhancement.service.ICategoryService;
