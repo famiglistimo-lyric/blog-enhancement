@@ -33,6 +33,9 @@ public class ExceptionControllerAdvice {
     @ExceptionHandler(value = Exception.class)
     public JsonResult handleException(Exception e) {
         log.error(e.getMessage());
-        return null;
+        JsonResult jsonResult = new JsonResult();
+        jsonResult.setSuccess(false);
+        jsonResult.setMsg(e.getMessage());
+        return jsonResult;
     }
 }

@@ -22,6 +22,7 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements ITagS
 
     @Override
     public List<TagDTO> listTagDTO() {
-        return this.baseMapper.listCategoryDTO();
+        List<TagDTO> tagDTOS = this.baseMapper.listCategoryDTO();
+        return tagDTOS;
     }
 }

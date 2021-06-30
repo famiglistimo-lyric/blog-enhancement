@@ -1,5 +1,6 @@
 package com.yi.enhancement.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yi.enhancement.exception.CustomException.CustomException;
@@ -52,6 +53,12 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         } catch (DuplicateKeyException e) {
             throw new CustomException(ExceptionCodeEnum.CATEGORY_EXISTED_EXCEPTION.getMessage());
         }
+        return true;
+    }
+
+    @Override
+    public boolean deleteCategory(Long id) {
+        this.removeById(id);
         return true;
     }
 }

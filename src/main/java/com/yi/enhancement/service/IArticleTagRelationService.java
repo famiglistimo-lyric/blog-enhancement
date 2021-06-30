@@ -21,7 +21,7 @@ public interface IArticleTagRelationService extends IService<ArticleTagRelation>
      * @param tagId 标签Id
      * @return 所有文章Id
      */
-    List<Long> listArticleId(Integer tagId);
+    List<Long> listArticleId(Long tagId);
 
     /**
      * 根据文章Id查出所有的文章标签

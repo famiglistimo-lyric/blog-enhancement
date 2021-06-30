@@ -21,7 +21,7 @@ import java.util.List;
 public class ArticleTagRelationServiceImpl extends ServiceImpl<ArticleTagRelationMapper, ArticleTagRelation> implements IArticleTagRelationService {
 
     @Override
-    public List<Long> listArticleId(Integer tagId) {
+    public List<Long> listArticleId(Long tagId) {
         return this.baseMapper.listArticleId(tagId);
     }
 

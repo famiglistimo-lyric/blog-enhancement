@@ -25,7 +25,7 @@ public interface ArticleTagRelationMapper extends BaseMapper<ArticleTagRelation>
      * @param tagId 标签Id
      * @return 所有文章Id
      */
-    List<Long> listArticleId(Integer tagId);
+    List<Long> listArticleId(Long tagId);
 
     /**
      * 根据文章id获取该文章的所有标签

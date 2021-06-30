@@ -34,7 +34,7 @@ public interface IArticleService extends IService<Article> {
      * @param pageSize 每页数据量
      * @return 文章列表
      */
-    IPage<ArticleDTO> pageArticle(String title, Integer status, Integer categoryId, Integer tagId, Integer page, Integer pageSize);
+    IPage<ArticleDTO> pageArticle(String title, Integer status, Long categoryId, Long tagId, Integer page, Integer pageSize);
 
     /**
      * 文章分页

@@ -38,4 +38,11 @@ public interface ICategoryService extends IService<Category> {
      * @return 是否成功
      */
     boolean saveCategory(CategoryDTO categoryDTO) throws CustomException;
+
+    /**
+     * 删除分类
+     * @param id 文章分类id
+     * @return 是否成功
+     */
+    boolean deleteCategory(Long id);
 }

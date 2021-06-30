@@ -54,4 +54,14 @@ public class CategoryController {
         jsonResult.setMsg(Constant.HANDLE_SUCCESS);
         return jsonResult;
     }
+
+    @GetMapping("/deleteCategory")
+    public JsonResult deleteCategory(Long id){
+        categoryService.deleteCategory(id);
+        JsonResult jsonResult = new JsonResult();
+        jsonResult.setSuccess(true);
+        jsonResult.setMsg(Constant.HANDLE_SUCCESS);
+        return jsonResult;
+    }
+
 }

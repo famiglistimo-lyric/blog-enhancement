@@ -24,7 +24,7 @@ public class ArticleController {
     }
 
     @GetMapping("/pageArticle")
-    public JsonResult pageArticle(String title, Integer status, Integer categoryId, Integer tagId, Integer page, Integer pageSize) {
+    public JsonResult pageArticle(String title, Integer status, Long categoryId, Long tagId, Integer page, Integer pageSize) {
         JsonResult jsonResult = new JsonResult();
         jsonResult.setSuccess(true);
         jsonResult.setObj(articleService.pageArticle(title, status, categoryId, tagId, page, pageSize));

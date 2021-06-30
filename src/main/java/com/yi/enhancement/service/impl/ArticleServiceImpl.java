@@ -70,7 +70,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public IPage<ArticleDTO> pageArticle(String title, Integer status, Integer categoryId, Integer tagId, Integer page, Integer pageSize) {
+    public IPage<ArticleDTO> pageArticle(String title, Integer status, Long categoryId, Long tagId, Integer page, Integer pageSize) {
         if (page == null) {
             page = 1;
         }
@@ -133,15 +133,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         List<Tag> willInsertTagList = tagList.stream().filter((item) -> item.getId() == null).collect(Collectors.toList());
         tagService.saveBatch(willInsertTagList);
         List<ArticleTagRelation> willInsertArticleTagRelationList = new ArrayList<>();
-        for (Tag tag : willInsertTagList) {
-            ArticleTagRelation articleTagRelation = new ArticleTagRelation();
-            articleTagRelation.setTagId(tag.getId());
-            articleTagRelation.setArticleId(article.getId());
-            willInsertArticleTagRelationList.add(articleTagRelation);
-        }
-        // 数据库中已经存在的标签
-        List<Tag> existTagList = tagList.stream().filter((item) -> item.getId() != null).collect(Collectors.toList());
-        for (Tag tag : existTagList) {
+        for (Tag tag : tagList) {
             ArticleTagRelation articleTagRelation = new ArticleTagRelation();
             articleTagRelation.setTagId(tag.getId());
             articleTagRelation.setArticleId(article.getId());

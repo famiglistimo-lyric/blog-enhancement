@@ -30,7 +30,7 @@ public interface ArticleMapper extends BaseMapper<Article> {
      * @param articleIdList 查询条件:根据标签筛选出来的文章id
      * @return 文章列表
      */
-    IPage<ArticleDTO> pageArticleDTO(Page<ArticleDTO> pageCondition, String title, Integer status, Integer categoryId,
+    IPage<ArticleDTO> pageArticleDTO(Page<ArticleDTO> pageCondition, String title, Integer status, Long categoryId,
                                      @Param("articleIdList") List<Long> articleIdList);
 
     /**
