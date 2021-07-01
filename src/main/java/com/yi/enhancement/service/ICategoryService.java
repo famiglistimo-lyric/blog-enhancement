@@ -36,7 +36,7 @@ public interface ICategoryService extends IService<Category> {
      * 保存文章分类
      * @param categoryDTO 文章分类DTO
      * @return 是否成功
-     * @throws CustomException
+     * @throws CustomException 自定义异常
      */
     boolean saveCategory(CategoryDTO categoryDTO) throws CustomException;
 

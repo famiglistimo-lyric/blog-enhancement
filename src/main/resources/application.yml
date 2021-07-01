@@ -1,3 +1,5 @@
+server:
+  port: 8065
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -22,8 +24,6 @@ logging:
       root: info
       com.yi: debug
     file: log/blog.log
-server:
-  port: 8065
 comment.1: /images/1.svg
 comment.2: /images/2.svg
 comment.3: /images/3.svg

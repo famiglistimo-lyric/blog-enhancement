@@ -20,7 +20,12 @@ public enum ExceptionCodeEnum {
     /**
      * 分类名已存在
      */
-    CATEGORY_EXISTED_EXCEPTION(10002,"分类名已存在");
+    CATEGORY_EXISTED_EXCEPTION(10002,"分类名已存在"),
+
+    /**
+     * 标签名已存在
+     */
+    TAG_EXISTED_EXCEPTION(10003,"标签名已存在");
 
     private final int code;
     private final String message;

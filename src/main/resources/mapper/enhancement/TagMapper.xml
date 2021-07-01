@@ -5,4 +5,13 @@
     <select id="listCategoryDTO" resultType="com.yi.enhancement.model.dto.TagDTO">
         select * from tag where deleted = 0
     </select>
+    <select id="pageTag" resultType="com.yi.enhancement.model.dto.TagDTO">
+        SELECT
+            id,
+            NAME
+        FROM
+            tag
+            where deleted = 0
+            order by update_time desc
+    </select>
 </mapper>

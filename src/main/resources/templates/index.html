@@ -71,7 +71,7 @@
                     <li class="post-item" th:each="article : ${articlePage.records}">
                         <div style="display: flex;align-items: center">
                             <div class="meta m-font-style">
-                                <time th:text="${#temporals.format(article.updateTime,'yyyy-MM-dd')}"
+                                <time th:text="${#dates.format(article.updateTime,'yyyy-MM-dd')}"
                                       itemprop="datePublished"></time>
                             </div>
                             <div><span class="m-article-title"><a href="#" th:text="${article.title}"
