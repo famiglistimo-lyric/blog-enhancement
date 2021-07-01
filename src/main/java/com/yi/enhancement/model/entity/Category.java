@@ -38,5 +38,11 @@ public class Category implements Serializable {
     @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
+    /**
+     * 逻辑删除
+     */
+    @TableField(value = "deleted", fill = FieldFill.INSERT)
+    private Integer deleted;
+
 
 }

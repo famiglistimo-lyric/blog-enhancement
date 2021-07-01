@@ -3,6 +3,6 @@
 <mapper namespace="com.yi.enhancement.mapper.TagMapper">
 
     <select id="listCategoryDTO" resultType="com.yi.enhancement.model.dto.TagDTO">
-        select * from tag
+        select * from tag where deleted = 0
     </select>
 </mapper>

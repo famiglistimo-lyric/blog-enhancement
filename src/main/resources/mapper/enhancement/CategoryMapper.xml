@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yi.enhancement.mapper.CategoryMapper">
     <select id="listCategoryDTO" resultType="com.yi.enhancement.model.dto.CategoryDTO">
-        select * from category
+        select * from category where deleted = 0
     </select>
     <select id="pageCategory" resultType="com.yi.enhancement.model.dto.CategoryDTO">
         SELECT
@@ -12,6 +12,7 @@
         FROM
             category t1
             LEFT JOIN article t2 ON t1.id = t2.category_id
+            where t1.deleted = 0
             GROUP BY t1.id
             order by t1.update_time desc
     </select>
