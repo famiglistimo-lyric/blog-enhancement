@@ -7,11 +7,14 @@
     </select>
     <select id="pageTag" resultType="com.yi.enhancement.model.dto.TagDTO">
         SELECT
-            id,
-            NAME
+            t1.*,
+            COUNT(t2.article_id) article_counts
         FROM
-            tag
-            where deleted = 0
+            tag t1
+            LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id
+        WHERE
+            t1.deleted = 0
+            GROUP BY t1.id
             order by update_time desc
     </select>
 </mapper>

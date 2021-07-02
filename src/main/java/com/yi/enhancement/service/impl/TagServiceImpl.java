@@ -43,8 +43,6 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements ITagS
             pageSize = 10;
         }
         Page<TagDTO> pageCondition = new Page<>(page, pageSize);
-
-        // TODO 别忘了如果文章数是0的话 给他加一个0
         return this.baseMapper.pageTag(pageCondition);
     }
 

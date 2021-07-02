@@ -12,5 +12,8 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class TagDTO extends Tag {
-
+    /**
+     * 文章数
+     */
+    private Integer articleCounts;
 }
