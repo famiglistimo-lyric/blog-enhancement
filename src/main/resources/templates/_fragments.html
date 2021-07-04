@@ -12,6 +12,8 @@
     <link rel="stylesheet" th:href="@{/css/weather.css}">
     <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
     <link rel="stylesheet" th:href="@{/css/animate.css}"/>
+    <link rel='stylesheet' th:href="@{/lib/nprogress/nprogress.css}"/>
+    <link rel="stylesheet" th:href="@{/lib/prism/prism.css}">
 </head>
 <body>
 <!--顶部导航-->
@@ -35,7 +37,8 @@
                         <a class="forums" href=""><span>Link</span></a>
                     </li>
                     <li>
-                        <a class="upload" href="https://github.com/famiglistimo-lyric" target="_blank"><span>Github</span></a>
+                        <a class="upload" href="https://github.com/famiglistimo-lyric"
+                           target="_blank"><span>Github</span></a>
                     </li>
                 </ul>
             </nav>
@@ -49,5 +52,17 @@
         </form>
     </header>
 </div>
+<!--script-->
+<th:block th:fragment="script">
+    <script th:src="@{/lib/nprogress/nprogress.js}"></script>
+    <script>
+        NProgress.set(0.0);
+        NProgress.set(0.8);
+        setTimeout(after, 400);
+        function after() {
+            NProgress.set(1.0);
+        }
+    </script>
+</th:block>
 </body>
 </html>

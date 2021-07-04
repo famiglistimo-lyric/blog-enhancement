@@ -11,6 +11,8 @@
     <link rel="stylesheet" th:href="@{/css/wallhaven.css}">
     <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
     <link rel="stylesheet" th:href="@{/css/animate.css}"/>
+    <link rel='stylesheet' th:href="@{/lib/nprogress/nprogress.css}"/>
+    <link rel="stylesheet" th:href="@{/lib/prism/prism.css}">
 </head>
 <body>
 <div th:replace="_fragments :: menu(2)"></div>
@@ -83,18 +85,31 @@
                         <img class="ui small circular image" th:src="${user.avatar}" style="width: 50px;margin-left: 20px">
                         <div style="font-size: 25px;margin-left: 20px" th:text="${user.nickname}"><p></p></div>
                         <div class="" style="margin-left: 20px">
-                            <i class="ui calendar icon"></i><span th:text="${#temporals.format(article.updateTime,'yyyy-MM-dd')}"></span>
+                            <i class="ui calendar icon"></i><span th:text="${#dates.format(article.updateTime,'yyyy-MM-dd')}"></span>
                         </div>
                         <div style="margin-left: 20px">
                             <i class="ui eye icon"></i><span th:text="${article.views}"></span>
                         </div>
-                        <div class="ui inverted teal basic button" style="margin-left:auto" th:text="${article.stamp}">待填充</div>
+                        <div class="ui inverted teal basic button" style="margin-left:auto" th:text="${article.stampString}">待填充</div>
+                    </div>
+                    <div class="ui">
+                        <h2 class="ui center aligned header m-font-pattern" th:text="${article.title}">待填充</h2>
+                        <br>
+                    </div>
+                    <!--文章真正的内容-->
+                    <div style="padding: 0 30px 0 30px ">
+                        <div id="content" class="enhancement-content" style="text-align: left;margin-top: 20px;" th:utext="${article.content}">
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script th:src="@{/lib/prism/prism.js}"></script>
+<th:block th:replace="_fragments :: script">
 
+</th:block>
 </body>
 </html>

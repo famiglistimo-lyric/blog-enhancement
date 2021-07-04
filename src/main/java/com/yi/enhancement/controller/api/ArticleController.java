@@ -1,6 +1,7 @@
 package com.yi.enhancement.controller.api;
 
 import com.yi.enhancement.constant.Constant;
+import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.model.dto.ArticleDTO;
 import com.yi.enhancement.model.result.JsonResult;
 import com.yi.enhancement.service.IArticleService;
@@ -40,7 +41,7 @@ public class ArticleController {
     }
 
     @PostMapping("/saveArticle")
-    public JsonResult saveArticle(@RequestBody ArticleDTO articleDTO){
+    public JsonResult saveArticle(@RequestBody ArticleDTO articleDTO) throws CustomException {
         articleService.saveArticle(articleDTO);
         JsonResult jsonResult = new JsonResult();
         jsonResult.setSuccess(true);

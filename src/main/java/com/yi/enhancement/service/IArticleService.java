@@ -56,5 +56,5 @@ public interface IArticleService extends IService<Article> {
      * @param articleDTO 文章DTO
      * @return 是否成功
      */
-    boolean saveArticle(ArticleDTO articleDTO);
+    boolean saveArticle(ArticleDTO articleDTO) throws CustomException;
 }

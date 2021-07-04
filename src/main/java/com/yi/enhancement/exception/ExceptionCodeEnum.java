@@ -1,5 +1,7 @@
 package com.yi.enhancement.exception;
 
+import javax.swing.border.TitledBorder;
+
 /**
  * @author: lyric
  * @date: 2021/6/26 15:51
@@ -25,7 +27,12 @@ public enum ExceptionCodeEnum {
     /**
      * 标签名已存在
      */
-    TAG_EXISTED_EXCEPTION(10003,"标签名已存在");
+    TAG_EXISTED_EXCEPTION(10003,"标签名已存在"),
+
+    /**
+     * 标题名已存在
+     */
+    TITLE_EXISTED_EXCEPTION(10004,"标题名已存在");
 
     private final int code;
     private final String message;

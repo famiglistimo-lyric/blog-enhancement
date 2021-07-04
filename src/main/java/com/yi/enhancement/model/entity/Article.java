@@ -79,6 +79,7 @@ public class Article implements Serializable {
     /**
      * 浏览次数
      */
+    @TableField(value = "views", fill = FieldFill.INSERT)
     private Integer views;
 
     /**
@@ -94,7 +95,6 @@ public class Article implements Serializable {
      */
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
-    @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
     /**

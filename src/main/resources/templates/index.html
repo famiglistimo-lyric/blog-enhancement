@@ -151,6 +151,9 @@
 </html>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+<th:block th:replace="_fragments :: script">
+
+</th:block>
 <script>
     $('#menu-toggle').click(function () {
         $('.top-menu-full').toggleClass('mobile-hidden');

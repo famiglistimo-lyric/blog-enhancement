@@ -11,20 +11,20 @@ import com.yi.enhancement.model.entity.Article;
 import com.yi.enhancement.mapper.ArticleMapper;
 import com.yi.enhancement.model.entity.ArticleTagRelation;
 import com.yi.enhancement.model.entity.Tag;
+import com.yi.enhancement.model.vo.ArticleVo;
 import com.yi.enhancement.service.IArticleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yi.enhancement.service.IArticleTagRelationService;
 import com.yi.enhancement.service.ITagService;
 import com.yi.enhancement.service.IUserService;
 import com.yi.enhancement.util.MarkdownUtils;
+import freemarker.template.utility.DateUtil;
 import org.springframework.beans.BeanUtils;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -62,10 +62,15 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         views = views + 1;
         article.setViews(views);
         this.baseMapper.updateById(article);
-        Article articleVo = new Article();
+        ArticleVo articleVo = new ArticleVo();
         BeanUtils.copyProperties(article, articleVo);
         String content = articleVo.getContent();
         articleVo.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
+        if (articleVo.getStamp()) {
+            articleVo.setStampString("原创");
+        } else {
+            articleVo.setStampString("转载");
+        }
         return articleVo;
     }
 
@@ -124,10 +129,15 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public boolean saveArticle(ArticleDTO articleDTO) {
+    public boolean saveArticle(ArticleDTO articleDTO) throws CustomException {
         Article article = new Article();
         BeanUtils.copyProperties(articleDTO, article);
-        this.saveOrUpdate(article);
+        try {
+            article.setUpdateTime(new Date());
+            this.saveOrUpdate(article);
+        } catch (DuplicateKeyException e) {
+            throw new CustomException(ExceptionCodeEnum.TITLE_EXISTED_EXCEPTION.getMessage());
+        }
         List<Tag> tagList = articleDTO.getTagList();
         // 将新标签插入数据库
         List<Tag> willInsertTagList = tagList.stream().filter((item) -> item.getId() == null).collect(Collectors.toList());
