@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.model.dto.ArticleDTO;
+import com.yi.enhancement.model.dto.UserDTO;
 import com.yi.enhancement.model.entity.User;
 import com.yi.enhancement.service.IArticleService;
 import com.yi.enhancement.service.ICategoryService;
@@ -49,7 +50,6 @@ public class MainController {
         Long userId = 1L;
         int currentPage = 1;
         int pageSize = 8;
-        IPage<ArticleDTO> articleDTOIPage = articleService.pageArticleWeb(currentPage, pageSize);
         model.addAttribute("articlePage",articleService.pageArticleWeb(currentPage,pageSize));
         model.addAttribute("categoryList", categoryService.listCategoryDTO());
         model.addAttribute("tagList", tagService.listTagDTO());
@@ -59,9 +59,7 @@ public class MainController {
 
     @GetMapping("/article/{id}")
     public String blog(@PathVariable Long id, Model model) throws CustomException {
-        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("id",1);
-        User user = userService.getOne(queryWrapper);
+        UserDTO user = userService.getUser(1L);
         model.addAttribute("user", user);
         model.addAttribute("article", articleService.getAndConvert(id));
         return "article";

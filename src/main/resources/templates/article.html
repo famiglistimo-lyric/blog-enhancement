@@ -13,6 +13,7 @@
     <link rel="stylesheet" th:href="@{/css/animate.css}"/>
     <link rel='stylesheet' th:href="@{/lib/nprogress/nprogress.css}"/>
     <link rel="stylesheet" th:href="@{/lib/prism/prism.css}">
+    <link rel="stylesheet" th:href="@{/css/typo.css}">
 </head>
 <body>
 <div th:replace="_fragments :: menu(2)"></div>
@@ -82,15 +83,19 @@
             <div class="m-shadow">
                 <div class="ui segment" style="background: inherit">
                     <div style="display: flex;justify-content: flex-start;align-items: center;">
-                        <img class="ui small circular image" th:src="${user.avatar}" style="width: 50px;margin-left: 20px">
+                        <img class="ui small circular image" th:src="${user.avatar}"
+                             style="width: 50px;margin-left: 20px">
                         <div style="font-size: 25px;margin-left: 20px" th:text="${user.nickname}"><p></p></div>
                         <div class="" style="margin-left: 20px">
-                            <i class="ui calendar icon"></i><span th:text="${#dates.format(article.updateTime,'yyyy-MM-dd')}"></span>
+                            <i class="ui calendar icon"></i><span
+                                th:text="${#dates.format(article.updateTime,'yyyy-MM-dd')}"></span>
                         </div>
                         <div style="margin-left: 20px">
                             <i class="ui eye icon"></i><span th:text="${article.views}"></span>
                         </div>
-                        <div class="ui inverted teal basic button" style="margin-left:auto" th:text="${article.stampString}">待填充</div>
+                        <div class="ui inverted teal basic button" style="margin-left:auto"
+                             th:text="${article.stampString}">待填充
+                        </div>
                     </div>
                     <div class="ui">
                         <h2 class="ui center aligned header m-font-pattern" th:text="${article.title}">待填充</h2>
@@ -98,7 +103,8 @@
                     </div>
                     <!--文章真正的内容-->
                     <div style="padding: 0 30px 0 30px ">
-                        <div id="content" class="enhancement-content" style="text-align: left;margin-top: 20px;" th:utext="${article.content}">
+                        <div id="content" class="enhancement-content markdown "
+                             style="text-align: left;margin-top: 20px;" th:utext="${article.content}">
 
                         </div>
                     </div>
@@ -111,5 +117,30 @@
 <th:block th:replace="_fragments :: script">
 
 </th:block>
+<script>
+    /*节流*/
+    let timer = 0;
+    window.addEventListener('scroll',
+        () => {
+            if (!timer) {
+                timer = setTimeout(() => {
+                    this.handleScroll()
+                    timer = 0
+                }, 250)
+            }
+        })
+    function handleScroll() {
+        // 屏幕剩余的高度
+        let surplus =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+        // 当前滑动高度
+        let scrollY = document.documentElement.scrollTop;
+        // 当前位置百分比小数
+        let coorY = scrollY / surplus;
+        // 设置导航栏，这里使用NProgress.set() 动态更改进度条
+        NProgress.set(coorY);
+    }
+</script>
 </body>
 </html>

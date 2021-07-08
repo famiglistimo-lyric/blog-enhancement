@@ -1,6 +1,5 @@
 package com.yi.enhancement.model.entity;
 
-import java.time.LocalDateTime;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -88,6 +87,12 @@ public class User implements Serializable {
 
     @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
+
+    /**
+     * 逻辑删除
+     */
+    @TableField(value = "deleted", fill = FieldFill.INSERT)
+    private Integer deleted;
 
     @TableField(exist = false)
     private StringBuilder provinceAndCity;

@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 /**
  * @author: lyric
  * @date: 2021/6/24 13:52
- * @description:
+ * @description: 文章与标签关系DTO
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

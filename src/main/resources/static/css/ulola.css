@@ -45,24 +45,84 @@ div.bandage-container.bandage-container-tag > a.bandage-link .text {
 div.bandage-container.bandage-container-tag > a.bandage-link .count {
     background: linear-gradient(to bottom, #a5c54a 0, #9cbd42 50%, #93b338 100%)
 }
-body .h1, body h1 {
+body h1 {
     display: block;
-    margin-top: 3rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     color: #2bbc8a;
     letter-spacing: .01em;
-    font-weight: 700;
+    font-weight: 600;
     font-style: normal;
-    font-size: 1.5em;
+    font-size: 1.6em;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased
 }
-body h3 {
-    color: #eee;
-    text-decoration: underline;
-    font-weight: 700;
-    font-size: .9rem
+
+body h2 {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: #2bbc8a;
+    letter-spacing: .01em;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.4em;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased
 }
+
+body h3 {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: #2bbc8a;
+    letter-spacing: .01em;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.2em;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased
+}
+
+body h4 {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1rem;
+    color: #2bbc8a;
+    letter-spacing: .01em;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1em;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased
+}
+
+body h5 {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: #2bbc8a;
+    letter-spacing: .01em;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 0.8em;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased
+}
+
+body h6 {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: #2bbc8a;
+    letter-spacing: .01em;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 0.6em;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased
+}
+
 body h3, body h4, body h5, body h6 {
     margin-top: .9rem;
     margin-bottom: .5rem

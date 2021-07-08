@@ -147,7 +147,6 @@ a, article, aside, b, body, button, code, dd, div, dl, dt, em, fieldset, footer,
     font-family: inherit;
     text-decoration: none;
     font-style: normal;
-    text-overflow: ellipsis;
     color: inherit;
     box-sizing: border-box;
     -webkit-backface-visibility: hidden
@@ -211,16 +210,6 @@ strong {
 
 em {
     font-style: italic
-}
-
-h2 {
-    font-weight: 700;
-    margin: 1.5em 0 1em;
-    padding: .25em;
-    color: #8cc;
-    border-style: dotted;
-    border-color: #333;
-    border-width: 0 0 1px 0
 }
 
 h2 a {
@@ -5321,122 +5310,6 @@ input:checked + label.purity.nsfw {
 .userlist li .avatar-32 {
     margin-right: .5em;
     vertical-align: middle
-}
-
-.comment {
-    position: relative;
-    margin: 1em 0;
-    padding: .5em;
-    border-radius: 3px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, .33);
-    text-align: left;
-    background-color: #232323
-}
-
-.comment .avatar {
-    float: left
-}
-
-.comment .buttons-row .button, .comment .buttons-row label {
-    padding: 0 .66em !important;
-    height: 1.66em;
-    line-height: 1.66em;
-    vertical-align: middle
-}
-
-.comment-body, .comment-footer, .comment-header, .pm-body, .pm-body-toggle {
-    margin: 0 5px 0 37px;
-    padding: .25em 0
-}
-
-.comment-header {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    border-bottom: 1px dotted #555
-}
-
-.comment-header small, .comment-header time {
-    font-size: .9em;
-    color: #b7b7b7
-}
-
-.comment-footer {
-    padding: 0
-}
-
-.comment-footer small {
-    font-size: .85em;
-    color: #777
-}
-
-.comment-footer small a {
-    color: inherit;
-    transition-property: color, text-shadow;
-    transition-duration: .25s
-}
-
-.comment-footer small a:active, .comment-footer small a:focus, .comment-footer small a:hover {
-    color: #aaa
-}
-
-.comment-has-replies, .comment-is-reply {
-    margin: .5em 0
-}
-
-.comment-replies {
-    margin: 0 0 1em 1.5em;
-    padding-left: 1.5em;
-    border-left: 2px solid #393939
-}
-
-.pending .toggle-comment-replies {
-    opacity: .5
-}
-
-.pending .toggle-comment-replies .fa {
-    font-size: 1em
-}
-
-.comment-author {
-    -ms-flex-positive: 1;
-    flex-grow: 1
-}
-
-.comment-buttons {
-    margin: 0 .5em;
-    font-size: .9em;
-    opacity: .25;
-    transition: .25s opacity
-}
-
-.comment:hover .comment-buttons {
-    opacity: 1
-}
-
-.comment-buttons > a {
-    display: inline-block;
-    margin: 0 .25em;
-    color: #85d6dd
-}
-
-.comment-reply-button {
-    font-weight: 700
-}
-
-.comment-is-locked .comment-lock-button {
-    color: orange
-}
-
-.comment-header .comment-id {
-    font-size: .85em;
-    color: #848484;
-    font-weight: 700
-}
-
-.comment-header .comment-id a::before {
-    content: "#"
 }
 
 .notifications {

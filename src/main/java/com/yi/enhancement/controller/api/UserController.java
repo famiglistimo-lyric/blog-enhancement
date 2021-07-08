@@ -1,9 +1,12 @@
 package com.yi.enhancement.controller.api;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import com.yi.enhancement.constant.Constant;
+import com.yi.enhancement.model.dto.UserDTO;
+import com.yi.enhancement.model.result.JsonResult;
+import com.yi.enhancement.service.ITagService;
+import com.yi.enhancement.service.IUserService;
+import org.springframework.web.bind.annotation.*;
 
 import static org.apache.logging.log4j.message.MapMessage.MapFormat.JSON;
 
@@ -19,4 +22,27 @@ import static org.apache.logging.log4j.message.MapMessage.MapFormat.JSON;
 @RequestMapping("/api/user")
 public class UserController {
 
+    private final IUserService userService;
+
+    public UserController(IUserService userService) {
+        this.userService = userService;
+    }
+
+    @GetMapping("/getUser")
+    public JsonResult getUser(Long id) {
+        JsonResult jsonResult = new JsonResult();
+        jsonResult.setSuccess(true);
+        jsonResult.setMsg(Constant.HANDLE_SUCCESS);
+        jsonResult.setObj(userService.getUser(id));
+        return jsonResult;
+    }
+
+    @PostMapping("/saveUser")
+    public JsonResult saveUser(@RequestBody UserDTO userDTO){
+        userService.saveUser(userDTO);
+        JsonResult jsonResult = new JsonResult();
+        jsonResult.setSuccess(true);
+        jsonResult.setMsg(Constant.HANDLE_SUCCESS);
+        return jsonResult;
+    }
 }

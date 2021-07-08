@@ -18,7 +18,8 @@
                     <div style="margin-top: 15px">
                         <span class="m-font-pattern m-opacity-mini m-font-spaced">
                            <i class="fa fa-map-marker fa-lg" style="margin-right: 5px"></i>
-                           <span style="font-size: 15px" th:text="${user.provinceAndCity}"></span>
+                           <span style="font-size: 15px" th:text="${user.geographic.province}"></span>
+                           <span style="font-size: 15px" th:text="${user.geographic.city}"></span>
                         </span>
                     </div>
                     <div class="" style="margin-top: 5px">
@@ -86,18 +87,9 @@
     <div class="ui four wide column mobile-hidden animate__animated animate__fadeIn" style="margin-top: 50px">
         <div class="ui segment m-shadow m-block-display-color">
             <div class="ui segment m-signature-background-color">
-                <h4 class="ui left aligned header m-font-pattern m-opacity-mini m-font-spaced"
-                    id="userSign">
-                    我根本没有什么力量。
-                    <br>
-                    曾经我也被黑暗吞没,让我的同伴遭受了苦难。
-                    <br>
-                    但是正因为如此,我才明白了一些道理,我只是相信着这些道理才走到了现在。
-                    <br>
-                    只要相信自己,我们就绝不是一个人,开分的同伴,给我加油的同伴,我们之间的羁绊是不会随着黑暗所消失的。
-                    <br>
-                    技术支持:Not Found/小公举~/@ 78/摩挲素月
-                </h4>
+                <div th:text="${user.userSignature}">
+
+                </div>
             </div>
         </div>
         <div class="ui segment center aligned m-block-display-color m-shadow animate__animated animate__fadeIn">

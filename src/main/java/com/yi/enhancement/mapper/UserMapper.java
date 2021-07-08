@@ -1,5 +1,6 @@
 package com.yi.enhancement.mapper;
 
+import com.yi.enhancement.model.dto.UserDTO;
 import com.yi.enhancement.model.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
@@ -15,4 +16,11 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
 
+    /**
+     * 查询用户信息
+     *
+     * @param id 用户id
+     * @return 用户信息
+     */
+    UserDTO getUser(Long id);
 }
