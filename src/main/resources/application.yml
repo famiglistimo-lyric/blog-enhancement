@@ -11,6 +11,13 @@ spring:
     time-zone: GMT+8
   thymeleaf:
     cache: false
+  cloud:
+    alicloud:
+      access-key: LTAI5tFSRXuZ3c4Gs7iNVExb
+      secret-key: GMDSlkxpvqD00H3vrYmKxQ3D9a2lTm
+      oss:
+        endpoint: oss-cn-hangzhou.aliyuncs.com
+        bucket: yi-blog
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:

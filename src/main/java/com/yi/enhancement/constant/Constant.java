@@ -9,5 +9,6 @@ public class Constant {
 
     public static String HANDLE_SUCCESS = "操作成功";
     public static String HANDLE_FAIL = "操作失败";
+    public static String POLICY_FAIL = "获取签名失败";
 
 }
