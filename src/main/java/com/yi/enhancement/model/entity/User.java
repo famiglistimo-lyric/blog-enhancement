@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 用户表	
+ * 用户表
  * </p>
  *
  * @author lwj
@@ -68,6 +68,11 @@ public class User implements Serializable {
     private String avatar;
 
     /**
+     * 首页图片地址
+     */
+    private String banner;
+
+    /**
      * 用户昵称
      */
     private String nickname;
@@ -93,17 +98,6 @@ public class User implements Serializable {
      */
     @TableField(value = "deleted", fill = FieldFill.INSERT)
     private Integer deleted;
-
-    @TableField(exist = false)
-    private StringBuilder provinceAndCity;
-
-    public StringBuilder getProvinceAndCity() {
-        StringBuilder provinceAndCity = new StringBuilder();
-        provinceAndCity.append(this.province);
-        provinceAndCity.append(" ");
-        provinceAndCity.append(this.city);
-        return provinceAndCity;
-    }
 
 
 }

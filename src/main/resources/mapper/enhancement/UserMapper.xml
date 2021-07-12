@@ -7,6 +7,7 @@
         <result column="email" property="email"/>
         <result column="wechat" property="wechat"/>
         <result column="avatar" property="avatar"/>
+        <result column="banner" property="banner"/>
         <result column="nickname" property="nickname"/>
         <result column="user_signature" property="userSignature"/>
         <result column="views" property="views"/>
