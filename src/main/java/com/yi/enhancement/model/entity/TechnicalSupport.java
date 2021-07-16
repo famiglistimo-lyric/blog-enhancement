@@ -7,32 +7,72 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * <p>
- * 标签表
+ * 技术支持表
  * </p>
  *
  * @author lwj
- * @since 2021-06-02
+ * @since 2021-07-15
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Tag implements Serializable {
+public class TechnicalSupport implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
-    private String name;
+    /**
+     * 真实姓名
+     */
+    private String realName;
 
+    /**
+     * 昵称
+     */
+    private String nickname;
+
+    /**
+     * 头像地址
+     */
+    private String avatar;
+
+    /**
+     * 备注
+     */
+    private String remarks;
+
+    /**
+     * 职业
+     */
+    private String profession;
+
+    /**
+     * 联系方式
+     */
+    private String contact;
+
+    /**
+     * 创建时间
+     */
     @TableField(value = "create_time", fill = FieldFill.INSERT)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone="GMT+8")
     private Date createTime;
 
+    /**
+     * 更新时间
+     */
     @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone="GMT+8")
     private Date updateTime;
 
     /**
@@ -40,5 +80,6 @@ public class Tag implements Serializable {
      */
     @TableField(value = "deleted", fill = FieldFill.INSERT)
     private Integer deleted;
+
 
 }

@@ -21,23 +21,26 @@ public interface IArticleService extends IService<Article> {
      *
      * @param id 文章id
      * @return 文章内容
+     * @throws CustomException 异常
      */
     Object getAndConvert(Long id) throws CustomException;
 
     /**
      * 文章分页
-     * @param title 查询条件:标题
-     * @param status 查询条件:状态
+     *
+     * @param title      查询条件:标题
+     * @param status     查询条件:状态
      * @param categoryId 查询条件:分类Id
-     * @param tagId 查询条件:标签Id
-     * @param page 当前页
-     * @param pageSize 每页数据量
+     * @param tagId      查询条件:标签Id
+     * @param page       当前页
+     * @param pageSize   每页数据量
      * @return 文章列表
      */
     IPage<ArticleDTO> pageArticle(String title, Integer status, Long categoryId, Long tagId, Integer page, Integer pageSize);
 
     /**
      * 文章分页
+     *
      * @param page     当前页
      * @param pageSize 每页数据量
      * @return 文章列表
@@ -46,6 +49,7 @@ public interface IArticleService extends IService<Article> {
 
     /**
      * 根据文章id获得文章详情
+     *
      * @param id 文章id
      * @return 文章详情
      */
@@ -53,8 +57,10 @@ public interface IArticleService extends IService<Article> {
 
     /**
      * 保存文章的相关信息
+     *
      * @param articleDTO 文章DTO
      * @return 是否成功
+     * @throws CustomException 异常
      */
     boolean saveArticle(ArticleDTO articleDTO) throws CustomException;
 }

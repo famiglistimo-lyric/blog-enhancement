@@ -38,17 +38,13 @@ import java.util.stream.Collectors;
 @Service
 public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> implements IArticleService {
 
-    private final IUserService userService;
-
     private final ITagService tagService;
 
     private final IArticleTagRelationService articleTagRelationService;
 
-    public ArticleServiceImpl(IUserService userService,
-                              IArticleTagRelationService articleTagRelationService,
+    public ArticleServiceImpl(IArticleTagRelationService articleTagRelationService,
                               ITagService tagService) {
         this.articleTagRelationService = articleTagRelationService;
-        this.userService = userService;
         this.tagService = tagService;
     }
 
