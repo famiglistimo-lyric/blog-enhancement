@@ -54,4 +54,9 @@ public class TechnicalSupportServiceImpl extends ServiceImpl<TechnicalSupportMap
         this.removeById(id);
         return true;
     }
+
+    @Override
+    public TechnicalSupportDTO getTechnicalSupport(Long id) {
+        return this.baseMapper.getTechnicalSupport(id);
+    }
 }

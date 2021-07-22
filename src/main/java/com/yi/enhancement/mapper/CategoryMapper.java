@@ -6,6 +6,7 @@ import com.yi.enhancement.model.dto.CategoryDTO;
 import com.yi.enhancement.model.entity.Category;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ import java.util.List;
  * @since 2021-06-02
  */
 @Mapper
+@Repository
 public interface CategoryMapper extends BaseMapper<Category> {
 
     /**

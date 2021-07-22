@@ -7,6 +7,7 @@ import com.yi.enhancement.model.dto.TagDTO;
 import com.yi.enhancement.model.entity.Tag;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ import java.util.List;
  * @since 2021-06-02
  */
 @Mapper
+@Repository
 public interface TagMapper extends BaseMapper<Tag> {
 
     /**

@@ -19,9 +19,12 @@ import com.yi.enhancement.service.ITagService;
 import com.yi.enhancement.service.IUserService;
 import com.yi.enhancement.util.MarkdownUtils;
 import freemarker.template.utility.DateUtil;
+import org.springframework.aop.framework.AopContext;
 import org.springframework.beans.BeanUtils;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
@@ -146,9 +149,10 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
             willInsertArticleTagRelationList.add(articleTagRelation);
         }
         QueryWrapper<ArticleTagRelation> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("article_id",article.getId());
+        queryWrapper.eq("article_id", article.getId());
         articleTagRelationService.remove(queryWrapper);
         articleTagRelationService.saveBatch(willInsertArticleTagRelationList);
         return true;
     }
+
 }

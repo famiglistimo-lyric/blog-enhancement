@@ -29,6 +29,7 @@ public interface ITechnicalSupportService extends IService<TechnicalSupport> {
 
     /**
      * 保存技术支持的相关信息
+     *
      * @param technicalSupportDTO 文章DTO
      * @return 是否成功
      * @throws CustomException 异常
@@ -42,4 +43,12 @@ public interface ITechnicalSupportService extends IService<TechnicalSupport> {
      * @return 是否成功
      */
     boolean deleteTechnicalSupport(Long id);
+
+    /**
+     * 根据技术支持id获得技术支持DTO
+     *
+     * @param id 技术支持id
+     * @return 技术支持DTO
+     */
+    TechnicalSupportDTO getTechnicalSupport(Long id);
 }

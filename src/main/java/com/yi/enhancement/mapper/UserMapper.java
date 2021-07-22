@@ -4,6 +4,7 @@ import com.yi.enhancement.model.dto.UserDTO;
 import com.yi.enhancement.model.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
@@ -14,6 +15,7 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2021-06-02
  */
 @Mapper
+@Repository
 public interface UserMapper extends BaseMapper<User> {
 
     /**

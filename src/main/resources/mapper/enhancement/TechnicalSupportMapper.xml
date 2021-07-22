@@ -4,14 +4,22 @@
 
     <select id="pageTechnicalSupportDTO" resultType="com.yi.enhancement.model.dto.TechnicalSupportDTO">
         SELECT
-            *
+        *
         FROM
-            technical_support
+        technical_support
         WHERE
-            deleted = 0
-            <if test="realName != null and realName != ''">
-                and real_name like CONCAT('%', #{realName},'%')
-            </if>
-            order by create_time desc
+        deleted = 0
+        <if test="realName != null and realName != ''">
+            and real_name like CONCAT('%', #{realName},'%')
+        </if>
+        order by create_time desc
+    </select>
+    <select id="getTechnicalSupport" resultType="com.yi.enhancement.model.dto.TechnicalSupportDTO">
+        SELECT
+        *
+        FROM
+        technical_support
+        where deleted = 0
+        and id = #{id}
     </select>
 </mapper>

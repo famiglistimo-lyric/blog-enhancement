@@ -3,6 +3,7 @@ package com.yi.enhancement.mapper;
 import com.yi.enhancement.model.entity.Comment;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
@@ -13,6 +14,7 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2021-06-20
  */
 @Mapper
+@Repository
 public interface CommentMapper extends BaseMapper<Comment> {
 
 }

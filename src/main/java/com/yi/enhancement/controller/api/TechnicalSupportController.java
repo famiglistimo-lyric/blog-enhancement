@@ -51,4 +51,13 @@ public class TechnicalSupportController {
         jsonResult.setMsg(Constant.HANDLE_SUCCESS);
         return jsonResult;
     }
+
+    @GetMapping("/getTechnicalSupport")
+    public JsonResult getTechnicalSupport(Long id) {
+        JsonResult jsonResult = new JsonResult();
+        jsonResult.setSuccess(true);
+        jsonResult.setObj(technicalSupportService.getTechnicalSupport(id));
+        jsonResult.setMsg(Constant.HANDLE_SUCCESS);
+        return jsonResult;
+    }
 }

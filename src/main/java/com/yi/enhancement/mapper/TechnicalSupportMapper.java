@@ -6,6 +6,7 @@ import com.yi.enhancement.model.dto.TechnicalSupportDTO;
 import com.yi.enhancement.model.entity.TechnicalSupport;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
@@ -16,6 +17,7 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2021-07-15
  */
 @Mapper
+@Repository
 public interface TechnicalSupportMapper extends BaseMapper<TechnicalSupport> {
 
     /**
@@ -26,4 +28,11 @@ public interface TechnicalSupportMapper extends BaseMapper<TechnicalSupport> {
      * @return 技术支持列表
      */
     IPage<TechnicalSupportDTO> pageTechnicalSupportDTO(Page<TechnicalSupportDTO> pageCondition, String realName);
+
+    /**
+     * 根据技术支持id获得技术支持DTO
+     * @param id 技术支持id
+     * @return 技术支持DTO
+     */
+    TechnicalSupportDTO getTechnicalSupport(Long id);
 }

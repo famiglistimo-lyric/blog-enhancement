@@ -23,7 +23,7 @@ public interface IArticleService extends IService<Article> {
      * @return 文章内容
      * @throws CustomException 异常
      */
-    Object getAndConvert(Long id) throws CustomException;
+    Article getAndConvert(Long id) throws CustomException;
 
     /**
      * 文章分页
