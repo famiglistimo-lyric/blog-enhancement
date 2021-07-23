@@ -11,6 +11,19 @@
     height: auto
 }
 
+.technical-support-avatar {
+    margin-right: 8px;
+    margin-bottom: 8px;
+    background: transparent;
+    border-radius:50%;
+    width: 40px;
+}
+
+.contributors-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .m-shadow{
     -webkit-box-shadow: 0 4px 8px rgba(0,0,0,1) !important;
     box-shadow: 0 4px 8px rgba(0,0,0,1) !important;
@@ -89,10 +102,10 @@
     left:14.6px;
     transform:rotateZ(225deg);
 }
-.left {
+.chest .left {
     left:6.2px;
 }
-.right {
+.chest .right {
     right:6.2px;
 }
 @keyframes beat {

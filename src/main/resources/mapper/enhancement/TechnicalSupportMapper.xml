@@ -22,4 +22,11 @@
         where deleted = 0
         and id = #{id}
     </select>
+    <select id="listTechnicalSupportVo" resultType="com.yi.enhancement.model.vo.TechnicalSupportVo">
+        SELECT
+        *
+        FROM
+        technical_support
+        where deleted = 0
+    </select>
 </mapper>

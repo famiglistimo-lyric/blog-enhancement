@@ -5,8 +5,11 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yi.enhancement.model.dto.TechnicalSupportDTO;
 import com.yi.enhancement.model.entity.TechnicalSupport;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.yi.enhancement.model.vo.TechnicalSupportVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * <p>
@@ -35,4 +38,11 @@ public interface TechnicalSupportMapper extends BaseMapper<TechnicalSupport> {
      * @return 技术支持DTO
      */
     TechnicalSupportDTO getTechnicalSupport(Long id);
+
+    /**
+     * 获得技术支持Vo的list
+     *
+     * @return 技术支持Vo的list
+     */
+    List<TechnicalSupportVo> listTechnicalSupportVo();
 }

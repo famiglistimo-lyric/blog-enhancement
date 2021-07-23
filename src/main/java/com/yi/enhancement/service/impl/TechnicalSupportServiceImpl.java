@@ -8,11 +8,14 @@ import com.yi.enhancement.model.dto.ArticleDTO;
 import com.yi.enhancement.model.dto.TechnicalSupportDTO;
 import com.yi.enhancement.model.entity.TechnicalSupport;
 import com.yi.enhancement.mapper.TechnicalSupportMapper;
+import com.yi.enhancement.model.vo.TechnicalSupportVo;
 import com.yi.enhancement.service.ITechnicalSupportService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -58,5 +61,10 @@ public class TechnicalSupportServiceImpl extends ServiceImpl<TechnicalSupportMap
     @Override
     public TechnicalSupportDTO getTechnicalSupport(Long id) {
         return this.baseMapper.getTechnicalSupport(id);
+    }
+
+    @Override
+    public List<TechnicalSupportVo> listTechnicalSupportVo() {
+        return this.baseMapper.listTechnicalSupportVo();
     }
 }

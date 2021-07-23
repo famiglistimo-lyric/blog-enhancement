@@ -45,6 +45,11 @@ public class TechnicalSupport implements Serializable {
     private String avatar;
 
     /**
+     * 技术支持者的个人网站地址
+     */
+    private String technicalSupportWebsite;
+
+    /**
      * 备注
      */
     private String remarks;

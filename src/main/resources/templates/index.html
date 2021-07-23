@@ -7,7 +7,7 @@
 <div th:replace="_fragments :: menu(1)"></div>
 <!--中间部分-->
 <div class="ui grid" style="margin:auto">
-    <div class="ui four wide column mobile-hidden animate__animated animate__fadeIn"style="margin-top: 50px">
+    <div class="ui four wide column mobile-hidden animate__animated animate__fadeIn" style="margin-top: 50px">
         <div class="ui segment m-shadow m-block-display-color">
             <img class="ui small circular image" src="" th:src="${user.avatar}" style="margin: auto">
             <div class="ui divider"></div>
@@ -87,7 +87,8 @@
     <div class="ui four wide column mobile-hidden animate__animated animate__fadeIn" style="margin-top: 50px">
         <div class="ui segment m-shadow m-block-display-color">
             <div class="ui segment m-signature-background-color">
-                <div th:text="${user.userSignature}" style="word-wrap:break-word;text-align: left;white-space: pre-line;">
+                <div th:text="${user.userSignature}"
+                     style="word-wrap:break-word;text-align: left;white-space: pre-line;">
                 </div>
             </div>
         </div>
@@ -96,42 +97,23 @@
             <!--                        <div clas   s="weather cloudy"></div>-->
             <div class="weather rainy"></div>
         </div>
-        <div class="ui segment left aligned m-block-display-color m-shadow animate__animated animate__fadeIn" style="padding: 10px 15px">
+        <div class="ui segment left aligned m-block-display-color m-shadow animate__animated animate__fadeIn"
+             style="padding: 10px 15px">
             <ul id="tags">
-
-                <li class="tag tag-sfw" id="tag-1" data-tag-id="2629"><a class="tag-name" rel="tag"
-                                                                            href=""
-                                                                            original-title="Miscellaneous">技术fafs</a>
+                <li class="tag tag-sfw" th:each="tag : ${tagList}">
+                    <a class="tag-name" href="" th:text="${tag.name}"></a>
                 </li>
-                <li class="tag tag-sfw" id="tag-2" data-tag-id="2629"><a class="tag-name" rel="tag"
-                                                                            href=""
-                                                                            original-title="Miscellaneous">技术asdasd</a>
-                </li>
-                <li class="tag tag-sfw" id="tag-3" data-tag-id="2629"><a class="tag-name" rel="tag"
-                                                                            href=""
-                                                                            original-title="Miscellaneous">技术asdasd</a>
-                </li>
-                <li class="tag tag-sfw" id="tag-4" data-tag-id="2629"><a class="tag-name" rel="tag"
-                                                                            href=""
-                                                                            original-title="Miscellaneous">技术asdasd</a>
-                </li>
-                <li class="tag tag-sfw" id="tag-5" data-tag-id="2629"><a class="tag-name" rel="tag"
-                                                                         href=""
-                                                                         original-title="Miscellaneous">技术asdasd</a>
-                </li>
-                <li class="tag tag-sfw" id="tag-6" data-tag-id="2629"><a class="tag-name" rel="tag"
-                                                                         href=""
-                                                                         original-title="Miscellaneous">技术asdasd</a>
-                </li>
-                <li class="tag tag-sfw" id="tag-7" data-tag-id="2629"><a class="tag-name" rel="tag"
-                                                                         href=""
-                                                                         original-title="Miscellaneous">技术111</a>
-                </li>
-                <li class="tag tag-sfw" id="tag-8" data-tag-id="2629"><a class="tag-name" rel="tag"
-                                                                         href=""
-                                                                         original-title="Miscellaneous">技术</a>
-                </li>
-
+            </ul>
+        </div>
+        <div class="ui segment left aligned m-block-display-color m-shadow animate__animated animate__fadeIn large very relaxed list"
+             style="padding: 20px 30px">
+            <ul class="contributors-list"
+                style="display: flex">
+                <div th:each="technicalSupport : ${technicalSupportList}">
+                    <a th:href="${technicalSupport.technicalSupportWebsite}?:'#'" target="_blank" >
+                        <img class="technical-support-avatar" th:attr="data-content='技术支持者:'+${technicalSupport.nickname}" th:src="${technicalSupport.avatar}">
+                    </a>
+                </div>
             </ul>
         </div>
     </div>
@@ -146,11 +128,17 @@
 
 </th:block>
 <script>
+    $('.technical-support-avatar')
+        .popup()
+    ;
     $('#menu-toggle').click(function () {
         $('.top-menu-full').toggleClass('mobile-hidden');
     })
+
     function setTime() {
-        var createTime = Math.round(new Date(Date.UTC(2021, 01, 08, 9, 21, 0)).getTime() / 1000);
+        var createTime = Math.round(new Date(Date.UTC(2021, 01, 08, 9, 21, 0)).getTime() / 1000
+    )
+        ;
         var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
         currentTime = secondToDate((timestamp - createTime));
         currentTimeHtml = currentTime[0] + ' 年 ' + currentTime[1] + ' 天 '

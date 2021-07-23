@@ -5,8 +5,10 @@ import com.yi.enhancement.model.entity.User;
 import com.yi.enhancement.mapper.UserMapper;
 import com.yi.enhancement.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.aop.framework.AopContext;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;

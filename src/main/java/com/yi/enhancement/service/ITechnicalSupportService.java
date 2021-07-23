@@ -6,6 +6,9 @@ import com.yi.enhancement.model.dto.ArticleDTO;
 import com.yi.enhancement.model.dto.TechnicalSupportDTO;
 import com.yi.enhancement.model.entity.TechnicalSupport;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.yi.enhancement.model.vo.TechnicalSupportVo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -51,4 +54,11 @@ public interface ITechnicalSupportService extends IService<TechnicalSupport> {
      * @return 技术支持DTO
      */
     TechnicalSupportDTO getTechnicalSupport(Long id);
+
+    /**
+     * 获得技术支持Vo的list
+     *
+     * @return 技术支持Vo的list
+     */
+    List<TechnicalSupportVo> listTechnicalSupportVo();
 }

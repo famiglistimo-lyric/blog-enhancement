@@ -6,10 +6,7 @@ import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.model.dto.ArticleDTO;
 import com.yi.enhancement.model.dto.UserDTO;
 import com.yi.enhancement.model.entity.User;
-import com.yi.enhancement.service.IArticleService;
-import com.yi.enhancement.service.ICategoryService;
-import com.yi.enhancement.service.ITagService;
-import com.yi.enhancement.service.IUserService;
+import com.yi.enhancement.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,14 +32,18 @@ public class MainController {
 
     private final IUserService userService;
 
+    private final ITechnicalSupportService technicalSupportService;
+
     public MainController(IArticleService articleService,
                           ICategoryService categoryService,
                           ITagService tagService,
-                          IUserService userService){
+                          IUserService userService,
+                          ITechnicalSupportService technicalSupportService) {
         this.articleService = articleService;
         this.categoryService = categoryService;
         this.tagService = tagService;
         this.userService = userService;
+        this.technicalSupportService = technicalSupportService;
     }
 
     @GetMapping("/")
@@ -50,10 +51,11 @@ public class MainController {
         Long userId = 1L;
         int currentPage = 1;
         int pageSize = 8;
-        model.addAttribute("articlePage",articleService.pageArticleWeb(currentPage,pageSize));
+        model.addAttribute("articlePage", articleService.pageArticleWeb(currentPage, pageSize));
         model.addAttribute("categoryList", categoryService.listCategoryDTO());
         model.addAttribute("tagList", tagService.listTagDTO());
         model.addAttribute("user", userService.updateViews(userId));
+        model.addAttribute("technicalSupportList", technicalSupportService.listTechnicalSupportVo());
         return "index";
     }
 
