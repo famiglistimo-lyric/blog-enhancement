@@ -10,7 +10,6 @@
     max-width: 100%;
     height: auto
 }
-
 .technical-support-avatar {
     margin-right: 8px;
     margin-bottom: 8px;
@@ -55,13 +54,15 @@
     font-family: Menlo,"Meslo LG",monospace;
     text-rendering: geometricPrecision;
 }
+.m-special-font-style {
+    color: #34e7e4;
+}
 
 .m-border-none {
     border: none !important;
 }
 
 .m-padding-top-bottom-large {
-    padding-top: 2em !important;
     padding-bottom: 2em !important;
 }
 

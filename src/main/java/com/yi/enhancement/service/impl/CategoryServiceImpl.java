@@ -1,13 +1,15 @@
 package com.yi.enhancement.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.exception.ExceptionCodeEnum;
 import com.yi.enhancement.model.dto.CategoryDTO;
+import com.yi.enhancement.model.entity.Article;
 import com.yi.enhancement.model.entity.Category;
 import com.yi.enhancement.mapper.CategoryMapper;
+import com.yi.enhancement.model.vo.CategoryVo;
+import com.yi.enhancement.service.IArticleService;
 import com.yi.enhancement.service.ICategoryService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
@@ -15,6 +17,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -27,9 +30,35 @@ import java.util.List;
 @Service
 public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> implements ICategoryService {
 
+    private final IArticleService articleService;
+
+    public CategoryServiceImpl(IArticleService articleService) {
+        this.articleService = articleService;
+    }
+
     @Override
     public List<CategoryDTO> listCategoryDTO() {
         return this.baseMapper.listCategoryDTO();
+    }
+
+    @Override
+    public List<CategoryVo> listCategoryVo() {
+        return this.baseMapper.listCategoryVo();
+    }
+
+    @Override
+    public List<CategoryVo> listCategoryVoHit(Long articleId) {
+        List<CategoryVo> categoryVos = this.baseMapper.listCategoryVo();
+        Article article = articleService.getById(articleId);
+        Long categoryId = article.getCategoryId();
+        for (CategoryVo categoryVo : categoryVos) {
+            Long id = categoryVo.getId();
+            if(id.equals(categoryId)){
+                categoryVo.setHit(true);
+                break;
+            }
+        }
+        return categoryVos;
     }
 
     @Override

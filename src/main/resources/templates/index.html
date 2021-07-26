@@ -6,118 +6,163 @@
 <body>
 <div th:replace="_fragments :: menu(1)"></div>
 <!--中间部分-->
-<div class="ui grid" style="margin:auto">
-    <div class="ui four wide column mobile-hidden animate__animated animate__fadeIn" style="margin-top: 50px">
-        <div class="ui segment m-shadow m-block-display-color">
-            <img class="ui small circular image" src="" th:src="${user.avatar}" style="margin: auto">
-            <div class="ui divider"></div>
-            <div>
-                <h1 class="ui m-font-pattern header m-opacity-mini"
-                    th:text="${user.nickname}"></h1>
+
+    <div class="ui grid" style="margin:auto">
+        <div class="ui four wide column mobile-hidden animate__animated animate__fadeIn" style="margin-top: 50px">
+            <div class="ui segment m-shadow m-block-display-color">
+                <img class="ui small circular image" src="" th:src="${user.avatar}" style="margin: auto">
+                <div class="ui divider"></div>
                 <div>
-                    <div style="margin-top: 15px">
+                    <h1 class="ui m-font-pattern header m-opacity-mini"
+                        th:text="${user.nickname}"></h1>
+                    <div>
+                        <div style="margin-top: 15px">
                         <span class="m-font-pattern m-opacity-mini m-font-spaced">
-                           <i class="fa fa-map-marker fa-lg" style="margin-right: 5px"></i>
-                           <span style="font-size: 15px" th:text="${user.geographic.province}"></span>
-                           <span style="font-size: 15px" th:text="${user.geographic.city}"></span>
+                           <i class="iconfont icon-location" style="margin-right: 5px"></i>
+                           <span style="font-weight: normal;font-size: 15px" th:text="${user.geographic.province}"></span>
+                           <span style="font-weight: normal;font-size: 15px" th:text="${user.geographic.city}"></span>
                         </span>
-                    </div>
-                    <div class="" style="margin-top: 5px">
-                        <h5 class="m-font-pattern m-opacity-mini m-font-spaced">
-                            <i class="fa fa-eye fa-lg" style="margin-right: 5px"></i>
-                            <span class="m-font-style" style="font-size: 14px" th:text="${user.views}"></span>
-                        </h5>
+                        </div>
+                        <div class="" style="margin-top: 5px">
+                            <h5 class="m-font-pattern m-opacity-mini m-font-spaced">
+                                <div style="display: flex;align-items: center;justify-content: center">
+                                    <i class="iconfont icon-eye" style="margin-right: 5px"></i>
+                                    <span class="m-font-style" style="font-size: 14px" th:text="${user.views}"></span>
+                                </div>
+                            </h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ui fluid vertical menu m-signature-background-color" style="text-align: left;">
+                <div class="ui fluid vertical menu m-signature-background-color" style="text-align: left;">
                 <span class="item m-font-pattern m-opacity-mini m-font-style">Archives:<span
                         th:text="${articlePage.total}">29</span></span>
-                <span class="item m-font-pattern m-opacity-mini m-font-style">QQ:<span
-                        th:text="${user.qq}">29</span></span>
-                <span class="item m-font-pattern m-opacity-mini m-font-style">wechat:<span
-                        th:text="${user.wechat}">29</span></span>
-                <span class="item m-font-pattern m-opacity-mini m-font-style">email:<span
-                        th:text="${user.email}">29</span></span>
-            </div>
-        </div>
-        <div class="ui segment m-shadow m-block-display-color animate__animated animate__fadeIn">
-            <div style="display: flex;justify-content:center;">
-                <img src="https://shawnzeng.com/wp-content/uploads/2018/07/IMG_1970.jpg"
-                     style="width:50px;height:50px;vertical-align:-20px;border-radius:50%;margin-right:5px;margin-bottom:5px;-webkit-box-shadow:1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);border: 2px solid #fff;"/>
-                <div class="chest">
-                    <div class="heart left sided top"></div>
-                    <div class="heart centers"></div>
-                    <div class="heart right sided"></div>
+                    <span class="item m-font-pattern m-opacity-mini m-font-style">QQ:<span
+                            th:text="${user.qq}">29</span></span>
+                    <span class="item m-font-pattern m-opacity-mini m-font-style">wechat:<span
+                            th:text="${user.wechat}">29</span></span>
+                    <span class="item m-font-pattern m-opacity-mini m-font-style">email:<span
+                            th:text="${user.email}">29</span></span>
                 </div>
-                <img src="https://shawnzeng.com/wp-content/uploads/2018/07/IMG_1970.jpg"
-                     style="width:50px;height:50px;vertical-align:-20px;border-radius:50%;margin-bottom:5px;-webkit-box-shadow:1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);border: 2px solid #fff;"/><br/>
             </div>
-            <div style="margin-top: 10px"><span id="love_time"></span></div>
+            <div class="ui segment m-shadow m-block-display-color animate__animated animate__fadeIn">
+                <div style="display: flex;justify-content:center;">
+                    <img src="https://shawnzeng.com/wp-content/uploads/2018/07/IMG_1970.jpg"
+                         style="width:50px;height:50px;vertical-align:-20px;border-radius:50%;margin-right:5px;margin-bottom:5px;-webkit-box-shadow:1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);border: 2px solid #fff;"/>
+                    <div class="chest">
+                        <div class="heart left sided top"></div>
+                        <div class="heart centers"></div>
+                        <div class="heart right sided"></div>
+                    </div>
+                    <img src="https://shawnzeng.com/wp-content/uploads/2018/07/IMG_1970.jpg"
+                         style="width:50px;height:50px;vertical-align:-20px;border-radius:50%;margin-bottom:5px;-webkit-box-shadow:1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);border: 2px solid #fff;"/><br/>
+                </div>
+                <div style="margin-top: 10px"><span id="love_time"></span></div>
+            </div>
         </div>
-    </div>
-    <div class="ui eight wide column animate__animated animate__fadeIn" style="margin-top: 50px;">
-        <div class="ui segment m-shadow m-block-display-color">
-            <img th:src="${user.banner}" style="width: 100%;height: 100%">
-            <div class="ui top attached segment m-border-none" style="background: inherit">
-                <div class="ui two column grid">
-                    <div class="ui left aligned column">
-                        <h2 class="ui teal header"><span class="m-font-style">Archives</span></h2>
+        <div class="ui eight wide column animate__animated animate__fadeIn" style="margin-top: 50px;">
+            <div class="ui segment m-shadow m-block-display-color">
+                <img th:src="${user.banner}" style="width: 100%;height: 100%">
+                <div class="ui top attached segment m-border-none" style="background: inherit">
+                    <div class="ui two column grid">
+                        <div class="ui left aligned column">
+                            <h2 class="ui header"><span class="m-font-style m-special-font-style">Archives</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui attached segment m-padding-top-bottom-large content m-border-none"
+                     style="background: inherit">
+                    <ul class="post-list">
+                        <li class="post-item" th:each="article : ${articlePage.records}">
+                            <div style="display: flex;align-items: center">
+                                <div class="meta m-font-style">
+                                    <time th:text="${#dates.format(article.updateTime,'yyyy-MM-dd')}"
+                                          itemprop="datePublished"></time>
+                                </div>
+                                <div>
+                                    <span class="m-article-title">
+                                        <a href="#" th:text="${article.title}" th:href="@{/article/{id}(id=${article.id})}">Javascript 连等赋值</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="ui attached segment m-border-none m-pagination"
+                     style="background: transparent;margin-top: -50px">
+                    <ul style="display: flex">
+                        <li><a href="#"><</a></li>
+                        <li><a href="#" class="active">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="ui four wide column mobile-hidden animate__animated animate__fadeIn" style="margin-top: 50px">
+            <div class="ui segment m-shadow m-block-display-color">
+                <div class="ui segment m-signature-background-color">
+                    <div th:text="${user.userSignature}"
+                         style="word-wrap:break-word;text-align: left;white-space: pre-line;">
                     </div>
                 </div>
             </div>
-            <div class="ui attached segment m-padding-top-bottom-large content m-border-none"
-                 style="background: inherit">
-                <ul class="post-list">
-                    <li class="post-item" th:each="article : ${articlePage.records}">
-                        <div style="display: flex;align-items: center">
-                            <div class="meta m-font-style">
-                                <time th:text="${#dates.format(article.updateTime,'yyyy-MM-dd')}"
-                                      itemprop="datePublished"></time>
-                            </div>
-                            <div><span class="m-article-title"><a href="#" th:text="${article.title}"
-                                                                  th:href="@{/article/{id}(id=${article.id})}"
-                                                                  target="_blank">Javascript 连等赋值</a></span></div>
+            <div class="ui segment center aligned m-block-display-color m-shadow animate__animated animate__fadeIn">
+                <!--                        <div class="weather sunny"></div>-->
+                <!--                        <div clas   s="weather cloudy"></div>-->
+                <div class="weather rainy"></div>
+            </div>
+            <div class="ui segment left aligned m-shadow m-block-display-color animate__animated animate__fadeIn">
+                <div style="padding: 5px 15px">
+                    <div style="display: flex;align-items: flex-start;justify-content: flex-start">
+                        <i class="m-special-font-style m-big-iconfont icon-file-copy"></i>
+                        <span class="m-special-font-style" style="font-weight: normal;font-size: 20px;margin-left: 5px">文章分类</span>
+                    </div>
+                    <ul id="categories">
+                        <li class="tag tag-nsfw" th:each="category : ${categoryList}">
+                            <a class="tag-name" href="" th:if="${category.hit == false}" th:text="${category.name}+' ('+${category.articleCounts}+')'"></a>
+                            <a class="tag-name" style="background-color: #5c3d3d" href="" th:if="${category.hit == true}" th:text="${category.name}+' ('+${category.articleCounts}+')'"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ui segment left aligned m-shadow m-block-display-color animate__animated animate__fadeIn">
+                <div style="padding: 5px 15px">
+                    <div style="display: flex;align-items: flex-start;justify-content: flex-start">
+                        <i class="m-special-font-style m-big-iconfont icon-tags"></i>
+                        <span class="m-special-font-style" style="font-weight: normal;font-size: 20px;margin-left: 5px">文章标签</span>
+                    </div>
+                    <ul id="tags">
+                        <li class="tag tag-sfw" th:each="tag : ${tagList}">
+                            <a class="tag-name" href="" th:if="${tag.hit == false}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'"></a>
+                            <a class="tag-name" style="background-color: #3d5c3d" href="" th:if="${tag.hit == true}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ui segment left aligned m-block-display-color m-shadow animate__animated animate__fadeIn">
+                <div style="padding: 5px 15px">
+                    <div style="display: flex;align-items: flex-start;justify-content: flex-start">
+                        <i class="m-special-font-style m-big-iconfont icon-reddit"></i>
+                        <span class="m-special-font-style" style="font-size: 20px;margin-left: 5px">技术支持</span>
+                    </div>
+                    <ul class="contributors-list"
+                        style="display: flex">
+                        <div th:each="technicalSupport : ${technicalSupportList}">
+                            <a th:href="${technicalSupport.technicalSupportWebsite}?:'#'" target="_blank" >
+                                <img class="technical-support-avatar" th:attr="data-content='技术支持者:'+${technicalSupport.nickname}" th:src="${technicalSupport.avatar}">
+                            </a>
                         </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="ui four wide column mobile-hidden animate__animated animate__fadeIn" style="margin-top: 50px">
-        <div class="ui segment m-shadow m-block-display-color">
-            <div class="ui segment m-signature-background-color">
-                <div th:text="${user.userSignature}"
-                     style="word-wrap:break-word;text-align: left;white-space: pre-line;">
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="ui segment center aligned m-block-display-color m-shadow animate__animated animate__fadeIn">
-            <!--                        <div class="weather sunny"></div>-->
-            <!--                        <div clas   s="weather cloudy"></div>-->
-            <div class="weather rainy"></div>
-        </div>
-        <div class="ui segment left aligned m-block-display-color m-shadow animate__animated animate__fadeIn"
-             style="padding: 10px 15px">
-            <ul id="tags">
-                <li class="tag tag-sfw" th:each="tag : ${tagList}">
-                    <a class="tag-name" href="" th:text="${tag.name}"></a>
-                </li>
-            </ul>
-        </div>
-        <div class="ui segment left aligned m-block-display-color m-shadow animate__animated animate__fadeIn large very relaxed list"
-             style="padding: 20px 30px">
-            <ul class="contributors-list"
-                style="display: flex">
-                <div th:each="technicalSupport : ${technicalSupportList}">
-                    <a th:href="${technicalSupport.technicalSupportWebsite}?:'#'" target="_blank" >
-                        <img class="technical-support-avatar" th:attr="data-content='技术支持者:'+${technicalSupport.nickname}" th:src="${technicalSupport.avatar}">
-                    </a>
-                </div>
-            </ul>
-        </div>
     </div>
-</div>
+
+
 
 
 </body>

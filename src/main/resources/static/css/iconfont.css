@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url('iconfont.ttf?t=1627131793383') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-eye:before {
+  content: "\e78f";
+}
+
+.icon-location:before {
+  content: "\e790";
+}
+
+.icon-file-copy:before {
+  content: "\e7bc";
+}
+
+.icon-tag:before {
+  content: "\e7e4";
+}
+
+.icon-tags:before {
+  content: "\e7e5";
+}
+
+.icon-reddit:before {
+  content: "\e87f";
+}
+
+.m-big-iconfont {
+  font-family: "iconfont" !important;
+  font-size: 22px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+

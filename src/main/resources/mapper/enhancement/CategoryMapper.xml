@@ -12,8 +12,21 @@
         FROM
             category t1
             LEFT JOIN article t2 ON t1.id = t2.category_id
+            and t2.deleted = 0
             where t1.deleted = 0
             GROUP BY t1.id
             order by t1.update_time desc
+    </select>
+    <select id="listCategoryVo" resultType="com.yi.enhancement.model.vo.CategoryVo">
+        SELECT
+            t1.id,
+            t1.NAME,
+            COUNT(t2.category_id) article_counts
+        FROM
+            category t1
+            LEFT JOIN article t2 ON t1.id = t2.category_id
+            and t2.deleted = 0
+            where t1.deleted = 0
+            GROUP BY t1.id
     </select>
 </mapper>

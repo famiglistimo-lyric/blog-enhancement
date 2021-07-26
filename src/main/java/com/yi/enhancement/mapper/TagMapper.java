@@ -6,6 +6,7 @@ import com.yi.enhancement.model.dto.CategoryDTO;
 import com.yi.enhancement.model.dto.TagDTO;
 import com.yi.enhancement.model.entity.Tag;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.yi.enhancement.model.vo.TagVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -27,7 +28,13 @@ public interface TagMapper extends BaseMapper<Tag> {
      * 查询全部的文章标签
      * @return 文章标签List
      */
-    List<TagDTO> listCategoryDTO();
+    List<TagDTO> listTagDTO();
+
+    /**
+     * 查询全部的文章标签
+     * @return 文章标签List
+     */
+    List<TagVo> listTagVo();
 
     /**
      * 标签分页

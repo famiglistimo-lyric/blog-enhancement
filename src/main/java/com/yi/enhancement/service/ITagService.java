@@ -5,6 +5,7 @@ import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.model.dto.TagDTO;
 import com.yi.enhancement.model.entity.Tag;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.yi.enhancement.model.vo.TagVo;
 
 import java.util.List;
 
@@ -23,6 +24,19 @@ public interface ITagService extends IService<Tag> {
      * @return 文章标签List
      */
     List<TagDTO> listTagDTO();
+
+    /**
+     * 查询全部的文章标签
+     * @return 文章标签List
+     */
+    List<TagVo> listTagVo();
+
+    /**
+     * 查询全部的文章标签并且标识该文章所属的标签
+     * @param articleId 文章id
+     * @return 文章标签List
+     */
+    List<TagVo> listTagVoHit(Long articleId);
 
     /**
      * 标签分页
@@ -46,4 +60,6 @@ public interface ITagService extends IService<Tag> {
      * @return 是否成功
      */
     boolean deleteTag(Long id);
+
+
 }

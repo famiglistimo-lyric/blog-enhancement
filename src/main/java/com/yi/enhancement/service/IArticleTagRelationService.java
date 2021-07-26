@@ -29,4 +29,11 @@ public interface IArticleTagRelationService extends IService<ArticleTagRelation>
      * @return 文章和标签的关系DTO
      */
     List<ArticleTagRelationDTO> listArticleTagRelation(List<Long> articleIds);
+
+    /**
+     * 根绝文章Id查出所有的文章标签
+     * @param articleId 文章id
+     * @return 文章和标签的关系
+     */
+    List<ArticleTagRelation> listArticleTagRelationByArticleId(Long articleId);
 }

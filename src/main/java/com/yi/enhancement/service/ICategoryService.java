@@ -5,6 +5,7 @@ import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.model.dto.CategoryDTO;
 import com.yi.enhancement.model.entity.Category;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.yi.enhancement.model.vo.CategoryVo;
 
 import java.util.List;
 
@@ -23,6 +24,19 @@ public interface ICategoryService extends IService<Category> {
      * @return 文章分类List
      */
     List<CategoryDTO> listCategoryDTO();
+
+    /**
+     * 查询全部的文章分类
+     * @return 文章分类List
+     */
+    List<CategoryVo> listCategoryVo();
+
+    /**
+     * 查询全部的文章分类并且标识该文章所属的分类
+     * @param articleId 文章id
+     * @return 文章分类List
+     */
+    List<CategoryVo> listCategoryVoHit(Long articleId);
 
     /**
      * 分类分页

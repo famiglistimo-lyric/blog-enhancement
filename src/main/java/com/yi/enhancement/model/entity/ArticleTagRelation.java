@@ -2,7 +2,9 @@ package com.yi.enhancement.model.entity;
 
 import java.io.Serializable;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
@@ -34,6 +36,12 @@ public class ArticleTagRelation implements Serializable {
      * 文章标签id
      */
     private Long tagId;
+
+    /**
+     * 逻辑删除:1:已删除;0:未删除
+     */
+    @TableField(value = "deleted", fill = FieldFill.INSERT)
+    private Integer deleted;
 
 
 }

@@ -29,4 +29,9 @@ public class ArticleTagRelationServiceImpl extends ServiceImpl<ArticleTagRelatio
     public List<ArticleTagRelationDTO> listArticleTagRelation(List<Long> articleIds) {
         return this.baseMapper.listArticleTagRelation(articleIds);
     }
+
+    @Override
+    public List<ArticleTagRelation> listArticleTagRelationByArticleId(Long articleId) {
+        return this.baseMapper.listArticleTagRelationByArticleId(articleId);
+    }
 }

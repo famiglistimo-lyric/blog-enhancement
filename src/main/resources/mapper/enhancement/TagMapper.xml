@@ -2,8 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yi.enhancement.mapper.TagMapper">
 
-    <select id="listCategoryDTO" resultType="com.yi.enhancement.model.dto.TagDTO">
+    <select id="listTagDTO" resultType="com.yi.enhancement.model.dto.TagDTO">
         select * from tag where deleted = 0
+    </select>
+    <select id="listTagVo" resultType="com.yi.enhancement.model.vo.TagVo">
+        SELECT
+            t1.*,
+            COUNT(t2.article_id) article_counts
+        FROM
+            tag t1
+            LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id
+            and t2.deleted = 0
+        WHERE
+            t1.deleted = 0
+            GROUP BY t1.id
     </select>
     <select id="pageTag" resultType="com.yi.enhancement.model.dto.TagDTO">
         SELECT
@@ -12,6 +24,7 @@
         FROM
             tag t1
             LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id
+            and t2.deleted = 0
         WHERE
             t1.deleted = 0
             GROUP BY t1.id

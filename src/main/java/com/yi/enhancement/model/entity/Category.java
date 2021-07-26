@@ -39,7 +39,7 @@ public class Category implements Serializable {
     private Date updateTime;
 
     /**
-     * 逻辑删除
+     * 逻辑删除:1:已删除;0:未删除
      */
     @TableField(value = "deleted", fill = FieldFill.INSERT)
     private Integer deleted;

@@ -1,0 +1,35 @@
+.m-pagination ul li{
+    list-style: none;
+    font-family: sans-serif;
+}
+
+.m-pagination ul li a{
+    text-decoration: none;
+    position: relative;
+    display: block;
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 34px;
+    background: #353535;
+    color: #565656;
+    margin: 5px;
+    border-radius: 4px;
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, .1),
+    0 2px 5px rgba(0, 0, 0, .5);
+    transition: all 300ms;
+}
+
+.m-pagination ul li a.active,
+.m-pagination ul li a:hover{
+    color: #fff;
+    text-shadow: 0 0 5px #34e7e4,
+    0 0 5px #34e7e4,
+    0 0 5px #34e7e4,
+    0 0 5px #34e7e4,
+    0 0 5px #34e7e4,
+    0 0 5px #34e7e4,
+    0 0 5px #34e7e4,
+    0 0 5px #34e7e4;
+}

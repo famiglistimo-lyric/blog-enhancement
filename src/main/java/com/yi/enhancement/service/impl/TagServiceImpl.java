@@ -6,9 +6,13 @@ import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.exception.ExceptionCodeEnum;
 import com.yi.enhancement.model.dto.CategoryDTO;
 import com.yi.enhancement.model.dto.TagDTO;
+import com.yi.enhancement.model.entity.ArticleTagRelation;
 import com.yi.enhancement.model.entity.Category;
 import com.yi.enhancement.model.entity.Tag;
 import com.yi.enhancement.mapper.TagMapper;
+import com.yi.enhancement.model.vo.TagVo;
+import com.yi.enhancement.service.IArticleService;
+import com.yi.enhancement.service.IArticleTagRelationService;
 import com.yi.enhancement.service.ITagService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
@@ -16,6 +20,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -28,10 +33,32 @@ import java.util.List;
 @Service
 public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements ITagService {
 
+    private final IArticleTagRelationService articleTagRelationService;
+
+    public TagServiceImpl(IArticleTagRelationService articleTagRelationService) {
+        this.articleTagRelationService = articleTagRelationService;
+    }
+
     @Override
     public List<TagDTO> listTagDTO() {
-        List<TagDTO> tagDTOS = this.baseMapper.listCategoryDTO();
-        return tagDTOS;
+        return this.baseMapper.listTagDTO();
+    }
+
+    @Override
+    public List<TagVo> listTagVo() {
+        return this.baseMapper.listTagVo();
+    }
+
+    @Override
+    public List<TagVo> listTagVoHit(Long articleId) {
+        List<TagVo> tagVoList = this.baseMapper.listTagVo();
+        List<ArticleTagRelation> articleTagRelationList = articleTagRelationService.listArticleTagRelationByArticleId(articleId);
+        List<Long> hitTagIdList = articleTagRelationList.stream().map(ArticleTagRelation::getTagId).collect(Collectors.toList());
+        return tagVoList.stream().peek((element) -> {
+            if (hitTagIdList.contains(element.getId())) {
+                element.setHit(true);
+            }
+        }).collect(Collectors.toList());
     }
 
     @Override
