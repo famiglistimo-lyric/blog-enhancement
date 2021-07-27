@@ -15,6 +15,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -64,7 +66,7 @@ public class MainController {
     }
 
     @GetMapping("/article/{id}")
-    public String blog(@PathVariable Long id, Model model) throws CustomException {
+    public String article(@PathVariable Long id, Model model) throws CustomException {
         UserDTO user = userService.getUser(1L);
         model.addAttribute("user", user);
         Article article = articleService.getAndConvert(id);
@@ -110,6 +112,19 @@ public class MainController {
             }
         }
         model.addAttribute("tagList", tagVos);
+        model.addAttribute("categoryList", categoryService.listCategoryVo());
+        Long userId = 1L;
+        model.addAttribute("user", userService.updateViews(userId));
+        model.addAttribute("technicalSupportList", technicalSupportService.listTechnicalSupportVo());
+        return "articleList";
+    }
+
+    @PostMapping("/main/articleList/search/")
+    public String search(@RequestParam String queryCondition,
+                      Model model) throws CustomException {
+        model.addAttribute("articlePage", articleService.pageArticleWeb(null,null,null,null, null));
+        model.addAttribute("archiveMap", articleService.listArticleVo(null, null, queryCondition));
+        model.addAttribute("tagList", tagService.listTagVo());
         model.addAttribute("categoryList", categoryService.listCategoryVo());
         Long userId = 1L;
         model.addAttribute("user", userService.updateViews(userId));

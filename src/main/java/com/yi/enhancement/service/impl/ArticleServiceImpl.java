@@ -126,7 +126,11 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     @Override
     public Map<String,List<ArticleVo>> listArticleVo(Long categoryId, Long tagId, String queryCondition) {
         Map<String,List<ArticleVo>> articleVoMap = new HashMap<>(8);
-        List<ArticleVo> articleVoList = this.baseMapper.listArticleVo(categoryId, tagId, queryCondition);
+        List<Long> articleIdList = null;
+        if(tagId != null){
+            articleIdList = articleTagRelationService.listArticleId(tagId);
+        }
+        List<ArticleVo> articleVoList = this.baseMapper.listArticleVo(categoryId, articleIdList, queryCondition);
         for (ArticleVo articleVo : articleVoList) {
             Date createTime = articleVo.getCreateTime();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy");

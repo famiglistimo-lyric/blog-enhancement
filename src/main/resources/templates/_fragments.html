@@ -43,12 +43,12 @@
                 </ul>
             </nav>
         </div>
-        <form th:action="@{/search}" method="post" id="header-search" class="header-search-type-text">
+        <form name="search" th:action="@{/main/articleList/search/}" method="post" id="header-search" class="header-search-type-text">
             <div class="header-search-input-frame">
                 <label for="header-search-text"></label>
-                <input type="search" name="q" id="header-search-text" value="" placeholder="Search...">
+                <input type="search" name="queryCondition" id="header-search-text" th:value="${queryCondition}" placeholder="Search...">
             </div>
-            <button><i class="far search icon" style="color: #a4b0be"></i></button>
+            <button><i class="far search icon" style="color: #a4b0be" onclick="document.forms['search'].submit()"></i></button>
         </form>
     </header>
 </div>

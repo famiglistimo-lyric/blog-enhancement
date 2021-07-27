@@ -136,6 +136,15 @@
         <if test="categoryId != null">
             and category_id = #{categoryId}
         </if>
+        <if test="queryCondition != null and queryCondition != ''">
+            and title like CONCAT('%',#{queryCondition},'%')
+        </if>
+        <if test="articleIdList != null">
+            and id in
+            <foreach collection="articleIdList" item="id" open="(" close=")" separator=",">
+                #{id}
+            </foreach>
+        </if>
         ORDER BY
         create_time DESC
     </select>

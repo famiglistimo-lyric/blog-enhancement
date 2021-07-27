@@ -53,9 +53,9 @@ public interface ArticleMapper extends BaseMapper<Article> {
     /**
      * 主页的文章列表
      * @param categoryId 文章分类id
-     * @param tagId 文章标签id
+     * @param articleIdList 文章idList
      * @param queryCondition 搜索条件
      * @return 文章列表
      */
-    List<ArticleVo> listArticleVo(Long categoryId, Long tagId, String queryCondition);
+    List<ArticleVo> listArticleVo(Long categoryId, @Param("articleIdList") List<Long> articleIdList, String queryCondition);
 }
