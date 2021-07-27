@@ -2,6 +2,7 @@ package com.yi.enhancement.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.exception.ExceptionCodeEnum;
@@ -27,6 +28,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -110,7 +112,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public IPage<ArticleDTO> pageArticleWeb(Integer page, Integer pageSize) {
+    public IPage<ArticleDTO> pageArticleWeb(Long categoryId, Long tagId, String queryCondition, Integer page, Integer pageSize) {
         if (page == null) {
             page = 1;
         }
@@ -119,6 +121,23 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         }
         Page<ArticleDTO> pageCondition = new Page<>(page, pageSize);
         return this.baseMapper.pageArticleDTOWeb(pageCondition);
+    }
+
+    @Override
+    public Map<String,List<ArticleVo>> listArticleVo(Long categoryId, Long tagId, String queryCondition) {
+        Map<String,List<ArticleVo>> articleVoMap = new HashMap<>(8);
+        List<ArticleVo> articleVoList = this.baseMapper.listArticleVo(categoryId, tagId, queryCondition);
+        for (ArticleVo articleVo : articleVoList) {
+            Date createTime = articleVo.getCreateTime();
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
+            String articleYear = formatter.format(createTime);
+            if(CollectionUtils.isEmpty(articleVoMap.get(articleYear))){
+                articleVoMap.put(articleYear,new ArrayList<>());
+            }
+            List<ArticleVo> articleVos = articleVoMap.get(articleYear);
+            articleVos.add(articleVo);
+        }
+        return articleVoMap;
     }
 
     @Override
@@ -154,5 +173,4 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         articleTagRelationService.saveBatch(willInsertArticleTagRelationList);
         return true;
     }
-
 }

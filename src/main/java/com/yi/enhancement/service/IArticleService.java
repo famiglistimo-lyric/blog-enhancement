@@ -5,6 +5,10 @@ import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.model.dto.ArticleDTO;
 import com.yi.enhancement.model.entity.Article;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.yi.enhancement.model.vo.ArticleVo;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -39,13 +43,16 @@ public interface IArticleService extends IService<Article> {
     IPage<ArticleDTO> pageArticle(String title, Integer status, Long categoryId, Long tagId, Integer page, Integer pageSize);
 
     /**
-     * 文章分页
+     * 主页的文章分页
      *
-     * @param page     当前页
-     * @param pageSize 每页数据量
+     * @param categoryId     文章分类id
+     * @param tagId          文章标签id
+     * @param queryCondition 搜索条件
+     * @param page           当前页
+     * @param pageSize       每页数据量
      * @return 文章列表
      */
-    IPage<ArticleDTO> pageArticleWeb(Integer page, Integer pageSize);
+    IPage<ArticleDTO> pageArticleWeb(Long categoryId, Long tagId, String queryCondition, Integer page, Integer pageSize);
 
     /**
      * 根据文章id获得文章详情
@@ -63,4 +70,14 @@ public interface IArticleService extends IService<Article> {
      * @throws CustomException 异常
      */
     boolean saveArticle(ArticleDTO articleDTO) throws CustomException;
+
+    /**
+     * 主页的文章列表
+     *
+     * @param categoryId     文章分类id
+     * @param tagId          文章标签id
+     * @param queryCondition 搜索条件
+     * @return 文章列表
+     */
+    Map<String,List<ArticleVo>> listArticleVo(Long categoryId, Long tagId, String queryCondition);
 }

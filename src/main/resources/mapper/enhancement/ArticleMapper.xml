@@ -125,4 +125,18 @@
         where t1.deleted = 0
         and t1.id = #{articleId}
     </select>
+    <select id="listArticleVo" resultType="com.yi.enhancement.model.vo.ArticleVo">
+        SELECT
+        id,
+        title,
+        create_time
+        FROM
+        article
+        where deleted = 0
+        <if test="categoryId != null">
+            and category_id = #{categoryId}
+        </if>
+        ORDER BY
+        create_time DESC
+    </select>
 </mapper>

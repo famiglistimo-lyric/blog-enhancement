@@ -14,7 +14,6 @@
     <link rel="stylesheet" th:href="@{/css/animate.css}"/>
     <link rel='stylesheet' th:href="@{/lib/nprogress/nprogress.css}"/>
     <link rel="stylesheet" th:href="@{/lib/prism/prism.css}">
-    <link rel="stylesheet" th:href="@{/css/pagination.css}">
 </head>
 <body>
 <!--顶部导航-->
@@ -26,10 +25,10 @@
             <nav class="top-menu-full mobile-hidden">
                 <ul class="top-menu-primary">
                     <li>
-                        <a class="latest" th:href="@{/}"><span>Home</span></a>
+                        <a class="latest" th:href="@{/}" th:classappend="${n==1} ? 'active'"><span>Home</span></a>
                     </li>
                     <li>
-                        <a class="hot" href=""><span>Place</span></a>
+                        <a class="hot" th:href="@{/main/articleList}" th:classappend="${n==2} ? 'active'"><span>Place</span></a>
                     </li>
                     <li>
                         <a class="top-list" href=""><span>Author</span></a>

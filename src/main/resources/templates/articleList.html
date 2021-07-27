@@ -4,8 +4,9 @@
 <head th:replace="_fragments :: head(~{::title})">
 </head>
 <body>
-<div th:replace="_fragments :: menu(1)"></div>
+<div th:replace="_fragments :: menu(2)"></div>
 <!--中间部分-->
+
     <div class="ui grid" style="margin:auto">
         <div class="ui four wide column mobile-hidden animate__animated animate__fadeIn" style="margin-top: 50px">
             <div class="ui segment m-shadow m-block-display-color">
@@ -60,31 +61,40 @@
         </div>
         <div class="ui eight wide column animate__animated animate__fadeIn" style="margin-top: 50px;">
             <div class="ui segment m-shadow m-block-display-color">
-                <img th:src="${user.banner}" style="width: 100%;height: 100%">
-                <div class="ui top attached segment m-border-none" style="background: inherit">
-                    <div class="ui two column grid">
-                        <div class="ui left aligned column">
+                <div class="ui top attached segment m-border-none" style="background: transparent">
+                    <div class="ui middle aligned two column grid">
+                        <div class="left aligned column">
                             <h2 class="ui header"><span class="m-font-style m-special-font-style">Archives</span></h2>
                         </div>
                     </div>
                 </div>
-                <div class="ui attached segment m-padding-top-bottom-large content m-border-none"
-                     style="background: inherit">
-                    <ul class="post-list">
-                        <li class="post-item" th:each="article : ${articlePage.records}">
-                            <div style="display: flex;align-items: center">
-                                <div class="meta m-font-style">
-                                    <time th:text="${#dates.format(article.updateTime,'yyyy-MM-dd')}"
-                                          itemprop="datePublished"></time>
+                <div class="ui attached segment m-border-none" style="background: transparent">
+                    <div>
+                        <th:block th:each="item : ${archiveMap}">
+                            <h2 class="ui left aligned">
+                                <div style="display: flex">
+                                    <span class="m-font-style m-special-font-style" th:text="${item.key}">2021</span>
                                 </div>
-                                <div>
-                                    <span class="meta m-article-title">
-                                        <a href="#" th:text="${article.title}" th:href="@{/article/{id}(id=${article.id})}">Javascript 连等赋值</a>
-                                    </span>
-                                </div>
+                            </h2>
+                            <div class="content">
+                                <ul class="post-list">
+                                    <li class="post-item" th:each="article : ${item.value}">
+                                        <div style="display: flex;align-items: center">
+                                            <div class="meta m-font-style">
+                                                <time th:text="${#dates.format(article.createTime,'yyyy-MM-dd')}">
+                                                </time>
+                                            </div>
+                                            <div>
+                                                <span class="meta m-article-title">
+                                                    <a href="#" th:text="${article.title}" th:href="@{/article/{id}(id=${article.id})}">Javascript 连等赋值</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
-                        </li>
-                    </ul>
+                        </th:block>
+                    </div>
                 </div>
             </div>
         </div>
@@ -123,8 +133,8 @@
                     </div>
                     <ul id="tags">
                         <li class="tag tag-sfw" th:each="tag : ${tagList}">
-                            <a class="tag-name" th:href="@{/main/articleList/tag/{tagId}(tagId=${tag.id})}" th:if="${tag.hit == false}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'"></a>
-                            <a class="tag-name" th:href="@{/main/articleList/tag/{tagId}(tagId=${tag.id})}" th:if="${tag.hit == true}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'" style="background-color: #3d5c3d"></a>
+                            <a class="tag-name" th:href="@{/main/articleList/{tagId}(tagId=${tag.id})}" th:if="${tag.hit == false}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'"></a>
+                            <a class="tag-name" th:href="@{/main/articleList/{tagId}(tagId=${tag.id})}" th:if="${tag.hit == true}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'" style="background-color: #3d5c3d"></a>
                         </li>
                     </ul>
                 </div>

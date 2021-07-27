@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yi.enhancement.model.dto.ArticleDTO;
 import com.yi.enhancement.model.entity.Article;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.yi.enhancement.model.vo.ArticleVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -48,4 +49,13 @@ public interface ArticleMapper extends BaseMapper<Article> {
      * @return 文章详情
      */
     ArticleDTO getArticle(Long articleId);
+
+    /**
+     * 主页的文章列表
+     * @param categoryId 文章分类id
+     * @param tagId 文章标签id
+     * @param queryCondition 搜索条件
+     * @return 文章列表
+     */
+    List<ArticleVo> listArticleVo(Long categoryId, Long tagId, String queryCondition);
 }

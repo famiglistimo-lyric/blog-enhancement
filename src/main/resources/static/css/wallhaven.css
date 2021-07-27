@@ -143,7 +143,6 @@ a, article, aside, b, body, button, code, dd, div, dl, dt, em, fieldset, footer,
     font-size: 1em;
     line-height: 1.3em;
     vertical-align: baseline;
-    font-family: inherit;
     text-decoration: none;
     font-style: normal;
     color: inherit;
@@ -1395,8 +1394,6 @@ body {
 
 .top-menu {
     position: relative;
-    font-family: Montserrat, 'Source Sans Pro', Arial, sans;
-    font-variant: small-caps;
     line-height: 50px;
     display: inline-block;
     vertical-align: top;
@@ -1665,7 +1662,12 @@ body {
 .top-menu .top-menu-social span {
     display: none
 }
-
+.latest.active{
+    background-color: rgba(170, 221, 51, .1)
+}
+.hot.active{
+    background-color: rgba(255, 68, 51, .1)
+}
 .top-menu a.latest:active, .top-menu a.latest:focus, .top-menu a.latest:hover {
     background-color: rgba(170, 221, 51, .1)
 }
