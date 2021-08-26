@@ -192,16 +192,6 @@ img {
     box-sizing: content-box
 }
 
-a {
-    transition-duration: .25s;
-    transition-property: color, background, opacity, text-shadow, box-shadow, border-color;
-    -webkit-backface-visibility: hidden
-}
-
-a:active, a:focus, a:hover {
-    text-shadow: 0 0 2px rgba(220, 255, 255, .3)
-}
-
 strong {
     font-weight: 700
 }
@@ -956,7 +946,10 @@ input[type=search] {
 }
 
 input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, input[type=number]:focus {
-    background-color: #4d4d4d
+    background-color: #636e72
+}
+textarea:focus, input[type=email]:focus, input[type=password]:focus, input[type=number]:focus {
+    background-color: #636e72
 }
 
 input[type=checkbox], input[type=radio] {
@@ -981,11 +974,11 @@ input[type=checkbox], input[type=radio] {
     transition-duration: .25s
 }
 
-input[type=checkbox]:checked + label, input[type=radio]:checked + label {
-    color: #fff;
-    background-color: #5e5e5e;
-    background-image: linear-gradient(to bottom, #777 0, #444 100%)
-}
+/*input[type=checkbox]:checked + label, input[type=radio]:checked + label {*/
+/*    color: #fff;*/
+/*    background-color: #5e5e5e;*/
+/*    background-image: linear-gradient(to bottom, #777 0, #444 100%)*/
+/*}*/
 
 input[type=checkbox] + label > .checked, input[type=radio] + label > .checked {
     display: none
@@ -4323,50 +4316,6 @@ input:checked + label.purity.nsfw {
 .usergroup-7 {
     color: #b336ed !important;
     font-weight: 700
-}
-
-.avatar {
-    box-sizing: content-box;
-    position: relative;
-    display: inline-block;
-    height: 200px;
-    width: 200px
-}
-
-.avatar img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    max-width: 200px;
-    max-height: 200px
-}
-
-.avatar-32 {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
-    text-align: center
-}
-
-.avatar-32 > img, img.avatar-32 {
-    width: auto;
-    height: auto;
-    max-width: 32px;
-    max-height: 32px;
-    vertical-align: middle
-}
-
-.avatar-20, .avatar-20 > img {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    vertical-align: middle;
-    margin-right: 2px
 }
 
 #profile-header {

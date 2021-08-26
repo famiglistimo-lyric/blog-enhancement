@@ -55,12 +55,20 @@ public interface IArticleService extends IService<Article> {
     IPage<ArticleDTO> pageArticleWeb(Long categoryId, Long tagId, String queryCondition, Integer page, Integer pageSize);
 
     /**
-     * 根据文章id获得文章详情
+     * 根据文章id获得文章详情(不获取内容)
      *
      * @param id 文章id
      * @return 文章详情
      */
     ArticleDTO getArticle(Long id);
+
+    /**
+     * 根据文章id获得文章详情
+     *
+     * @param id 文章id
+     * @return 文章详情
+     */
+    ArticleDTO getArticleDetail(Long id);
 
     /**
      * 保存文章的相关信息

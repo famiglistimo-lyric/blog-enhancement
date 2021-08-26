@@ -2,8 +2,11 @@ package com.yi.enhancement.mapper;
 
 import com.yi.enhancement.model.entity.Comment;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.yi.enhancement.model.vo.CommentVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * <p>
@@ -17,4 +20,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CommentMapper extends BaseMapper<Comment> {
 
+    /**
+     * 查询该文章下的所有评论
+     * @param articleId 文章id
+     * @return 该文章的所有评论
+     */
+    List<CommentVo> listCommentByArticleId(Long articleId);
 }

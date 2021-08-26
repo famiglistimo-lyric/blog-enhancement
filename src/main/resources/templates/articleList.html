@@ -75,7 +75,7 @@
                                     <span class="m-font-style m-special-font-style" th:text="${item.key}">2021</span>
                                 </div>
                             </h2>
-                            <div class="content">
+                            <div class="list-content">
                                 <ul class="post-list">
                                     <li class="post-item" th:each="article : ${item.value}">
                                         <div style="display: flex;align-items: center">
@@ -101,7 +101,7 @@
             <div class="ui segment m-shadow m-block-display-color">
                 <div class="ui segment m-signature-background-color">
                     <div th:text="${user.userSignature}"
-                         style="word-wrap:break-word;text-align: left;white-space: pre-line;">
+                         style="word-wrap:break-word;text-align: left;white-space: pre-line;line-height: 26px">
                     </div>
                 </div>
             </div>
@@ -132,8 +132,8 @@
                     </div>
                     <ul id="tags">
                         <li class="tag tag-sfw" th:each="tag : ${tagList}">
-                            <a class="tag-name" th:href="@{/main/articleList/{tagId}(tagId=${tag.id})}" th:if="${tag.hit == false}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'"></a>
-                            <a class="tag-name" th:href="@{/main/articleList/{tagId}(tagId=${tag.id})}" th:if="${tag.hit == true}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'" style="background-color: #3d5c3d"></a>
+                            <a class="tag-name" th:href="@{/main/articleList/tag/{tagId}(tagId=${tag.id})}" th:if="${tag.hit == false}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'"></a>
+                            <a class="tag-name" th:href="@{/main/articleList/tag/{tagId}(tagId=${tag.id})}" th:if="${tag.hit == true}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'" style="background-color: #3d5c3d"></a>
                         </li>
                     </ul>
                 </div>

@@ -253,6 +253,14 @@ pre[class*="language-json"]:before{
 	color: #a29bfe;
 }
 
+pre[class*="language-docker"]:before{
+	display: block;
+	right: 70px;
+	position: absolute;
+	content: "Docker";
+	color: #55efc4;
+}
+
 @media print {
 	code[class*="language-"],
 	pre[class*="language-"] {

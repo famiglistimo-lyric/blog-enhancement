@@ -1,24 +1,24 @@
 package com.yi.enhancement.controller.content;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.yi.enhancement.constant.LoginConstant;
 import com.yi.enhancement.exception.CustomException.CustomException;
-import com.yi.enhancement.model.dto.ArticleDTO;
+import com.yi.enhancement.interceptor.EnterInterceptor;
 import com.yi.enhancement.model.dto.UserDTO;
 import com.yi.enhancement.model.entity.Article;
+import com.yi.enhancement.model.entity.Comment;
 import com.yi.enhancement.model.entity.User;
 import com.yi.enhancement.model.vo.CategoryVo;
 import com.yi.enhancement.model.vo.TagVo;
+import com.yi.enhancement.model.vo.UserVo;
 import com.yi.enhancement.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -40,16 +40,24 @@ public class MainController {
 
     private final ITechnicalSupportService technicalSupportService;
 
+    private final ICommentService commentService;
+
+    private final IUserAvatarService userAvatarService;
+
     public MainController(IArticleService articleService,
                           ICategoryService categoryService,
                           ITagService tagService,
                           IUserService userService,
-                          ITechnicalSupportService technicalSupportService) {
+                          ITechnicalSupportService technicalSupportService,
+                          ICommentService commentService,
+                          IUserAvatarService userAvatarService) {
         this.articleService = articleService;
         this.categoryService = categoryService;
         this.tagService = tagService;
         this.userService = userService;
         this.technicalSupportService = technicalSupportService;
+        this.commentService = commentService;
+        this.userAvatarService = userAvatarService;
     }
 
     @GetMapping("/")
@@ -57,7 +65,7 @@ public class MainController {
         Long userId = 1L;
         int currentPage = 1;
         int pageSize = 8;
-        model.addAttribute("articlePage", articleService.pageArticleWeb(null,null,null,currentPage, pageSize));
+        model.addAttribute("articlePage", articleService.pageArticleWeb(null, null, null, currentPage, pageSize));
         model.addAttribute("tagList", tagService.listTagVo());
         model.addAttribute("categoryList", categoryService.listCategoryVo());
         model.addAttribute("user", userService.updateViews(userId));
@@ -80,13 +88,13 @@ public class MainController {
     @GetMapping("/main/articleList/category/{categoryId}")
     public String category(@PathVariable(required = false) Long categoryId,
                            Model model) throws CustomException {
-        model.addAttribute("articlePage", articleService.pageArticleWeb(null,null,null,null, null));
+        model.addAttribute("articlePage", articleService.pageArticleWeb(null, null, null, null, null));
         model.addAttribute("archiveMap", articleService.listArticleVo(categoryId, null, null));
         model.addAttribute("tagList", tagService.listTagVo());
         List<CategoryVo> categoryVos = categoryService.listCategoryVo();
         for (CategoryVo categoryVo : categoryVos) {
             Long id = categoryVo.getId();
-            if(categoryId.equals(id)){
+            if (categoryId.equals(id)) {
                 categoryVo.setHit(true);
                 break;
             }
@@ -100,13 +108,13 @@ public class MainController {
 
     @GetMapping("/main/articleList/tag/{tagId}")
     public String tag(@PathVariable(required = false) Long tagId,
-                           Model model) throws CustomException {
-        model.addAttribute("articlePage", articleService.pageArticleWeb(null,null,null,null, null));
+                      Model model) throws CustomException {
+        model.addAttribute("articlePage", articleService.pageArticleWeb(null, null, null, null, null));
         model.addAttribute("archiveMap", articleService.listArticleVo(null, tagId, null));
         List<TagVo> tagVos = tagService.listTagVo();
         for (TagVo tagVo : tagVos) {
             Long id = tagVo.getId();
-            if(tagId.equals(id)){
+            if (tagId.equals(id)) {
                 tagVo.setHit(true);
                 break;
             }
@@ -121,8 +129,8 @@ public class MainController {
 
     @PostMapping("/main/articleList/search/")
     public String search(@RequestParam String queryCondition,
-                      Model model) throws CustomException {
-        model.addAttribute("articlePage", articleService.pageArticleWeb(null,null,null,null, null));
+                         Model model) throws CustomException {
+        model.addAttribute("articlePage", articleService.pageArticleWeb(null, null, null, null, null));
         model.addAttribute("archiveMap", articleService.listArticleVo(null, null, queryCondition));
         model.addAttribute("tagList", tagService.listTagVo());
         model.addAttribute("categoryList", categoryService.listCategoryVo());
@@ -134,7 +142,7 @@ public class MainController {
 
     @GetMapping("/main/articleList")
     public String articleList(Model model) throws CustomException {
-        model.addAttribute("articlePage", articleService.pageArticleWeb(null,null,null,null, null));
+        model.addAttribute("articlePage", articleService.pageArticleWeb(null, null, null, null, null));
         model.addAttribute("archiveMap", articleService.listArticleVo(null, null, null));
         model.addAttribute("tagList", tagService.listTagVo());
         model.addAttribute("categoryList", categoryService.listCategoryVo());
@@ -142,5 +150,35 @@ public class MainController {
         model.addAttribute("user", userService.updateViews(userId));
         model.addAttribute("technicalSupportList", technicalSupportService.listTechnicalSupportVo());
         return "articleList";
+    }
+
+    @PostMapping("/main/comments")
+    public String comments(Comment comment, HttpSession session, HttpServletRequest request) throws CustomException {
+        Long articleId = comment.getArticleId();
+        User user = (User) session.getAttribute(LoginConstant.LOGIN_USER);
+        // todo 登录以后 拿到本人的头像
+        if (user != null) {
+            // 博主登录
+            comment.setAvatar(user.getAvatar());
+            comment.setManagerComment(true);
+        } else {
+            // 临时用户登录
+            UserVo userVo = EnterInterceptor.threadLocal.get();
+            String avatar = userAvatarService.getByUserKey(userVo.getUserKey());
+            comment.setManagerComment(false);
+            comment.setAvatar(avatar);
+        }
+        comment.setArticleId(articleId);
+        commentService.saveComment(comment);
+        return "redirect:/main/comments/" + articleId;
+    }
+
+    /**
+     * 查询该文章下的所有评论
+     */
+    @GetMapping("/main/comments/{articleId}")
+    public String comments(@PathVariable Long articleId, Model model) {
+        model.addAttribute("comments", commentService.listByArticleId(articleId));
+        return "article :: commentList";
     }
 }

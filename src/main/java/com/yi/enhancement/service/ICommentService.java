@@ -2,6 +2,9 @@ package com.yi.enhancement.service;
 
 import com.yi.enhancement.model.entity.Comment;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.yi.enhancement.model.vo.CommentVo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,18 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ICommentService extends IService<Comment> {
 
+    /**
+     * 查询文章下的所有评论
+     *
+     * @param articleId 文章id
+     * @return 评论列表
+     */
+    List<CommentVo> listByArticleId(Long articleId);
+
+    /**
+     * 保存评论
+     *
+     * @param comment 评论
+     */
+    void saveComment(Comment comment);
 }

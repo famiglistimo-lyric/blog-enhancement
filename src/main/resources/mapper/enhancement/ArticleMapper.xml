@@ -125,6 +125,30 @@
         where t1.deleted = 0
         and t1.id = #{articleId}
     </select>
+
+    <select id="getArticleDetail" resultMap="singleArticleDTO">
+        SELECT
+        t1.id,
+        t1.title,
+        t1.stamp,
+        t1.comments,
+        t1.original,
+        t1.content,
+        t1.status,
+        t1.recommend,
+        t1.appreciate,
+        t1.views,
+        t1.create_time,
+        t1.update_time,
+        t1.user_id,
+        t1.category_id,
+        t2.name category_name
+        FROM
+        article t1
+        left join category t2 on t1.category_id = t2.id
+        where t1.deleted = 0
+        and t1.id = #{articleId}
+    </select>
     <select id="listArticleVo" resultType="com.yi.enhancement.model.vo.ArticleVo">
         SELECT
         id,

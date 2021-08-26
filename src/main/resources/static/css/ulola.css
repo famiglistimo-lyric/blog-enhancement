@@ -154,7 +154,7 @@ body h3, body h4, body h5, body h6 {
         text-align: left
     }
 }
-.content a[data-fancybox] {
+.list-content a[data-fancybox] {
     display: block;
     margin: 10px 0;
     border: 4px solid transparent;
@@ -164,7 +164,7 @@ body h3, body h4, body h5, body h6 {
     transition: all .3s ease-out
 }
 
-.content a[data-fancybox]:hover {
+.list-content a[data-fancybox]:hover {
     border: 4px solid #dda80f;
     background: #000 ff
 }
@@ -181,8 +181,7 @@ body ol {
     list-style: decimal
 }
 
-
-.content {
+.list-content {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -190,13 +189,13 @@ body ol {
     margin: auto 0;
 }
 
-.content p {
+.list-content p {
     hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     -webkit-hyphens: auto
 }
-.content a {
+.list-content a {
     color: #c9cacc;
     text-decoration: none;
     background-image: linear-gradient(transparent, transparent 5px, #c9cacc 5px, #c9cacc);
@@ -205,44 +204,40 @@ body ol {
     background-repeat: repeat-x
 }
 
-.content a:hover {
-    background-image: linear-gradient(transparent, transparent 4px, #2bbc8a 4px, #2bbc8a)
-}
-
-.content a.icon {
+.list-content a.icon {
     background: 0 0
 }
 
-.content a.icon:hover {
+.list-content a.icon:hover {
     color: #2bbc8a
 }
 
-.content .h1 a, .content h1 a, .content h2 a, .content h3 a, .content h4 a, .content h5 a, .content h6 a {
+.list-content .h1 a, .list-content h1 a, .list-content h2 a, .list-content h3 a, .list-content h4 a, .list-content h5 a, .list-content h6 a {
     background: 0 0;
     color: inherit;
     text-decoration: none
 }
 
-.content .h1 a:hover, .content h1 a:hover, .content h2 a:hover, .content h3 a:hover, .content h4 a:hover, .content h5 a:hover, .content h6 a:hover {
+.list-content .h1 a:hover, .list-content h1 a:hover, .list-content h2 a:hover, .list-content h3 a:hover, .list-content h4 a:hover, .list-content h5 a:hover, .list-content h6 a:hover {
     background-image: linear-gradient(transparent, transparent 6px, #2bbc8a 6px, #2bbc8a);
     background-position: bottom;
     background-size: 100% 6px;
     background-repeat: repeat-x
 }
 
-.content h6 a {
+.list-content h6 a {
     background: 0 0;
     color: inherit;
     text-decoration: none
 }
 
-.content h6 a:hover {
+.list-content h6 a:hover {
     background-image: linear-gradient(transparent, transparent 6px, #2bbc8a 6px, #2bbc8a);
     background-position: bottom;
     background-size: 100% 6px;
     background-repeat: repeat-x
 }
-.content a:hover {
+.list-content a:hover {
     color: #00B5AD;
     background-image: linear-gradient(transparent,transparent 5px,#00B5AD 5px,#00B5AD);
 }

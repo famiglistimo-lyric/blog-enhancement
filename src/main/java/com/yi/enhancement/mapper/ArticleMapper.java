@@ -26,6 +26,7 @@ public interface ArticleMapper extends BaseMapper<Article> {
 
     /**
      * 文章分页
+     *
      * @param pageCondition 分页条件
      * @param title         查询条件:标题
      * @param status        查询条件:状态
@@ -38,24 +39,37 @@ public interface ArticleMapper extends BaseMapper<Article> {
 
     /**
      * 文章分页
+     *
      * @param pageCondition 分页条件
      * @return 文章列表
      */
     IPage<ArticleDTO> pageArticleDTOWeb(Page<ArticleDTO> pageCondition);
 
     /**
-     * 根据文章id获取文章详情
+     * 根据文章id获取文章详情(不获取内容)
+     *
      * @param articleId 文章id
      * @return 文章详情
      */
     ArticleDTO getArticle(Long articleId);
 
     /**
+     * 根据文章id获取文章详情
+     *
+     * @param articleId 文章id
+     * @return 文章详情
+     */
+    ArticleDTO getArticleDetail(Long articleId);
+
+    /**
      * 主页的文章列表
-     * @param categoryId 文章分类id
-     * @param articleIdList 文章idList
+     *
+     * @param categoryId     文章分类id
+     * @param articleIdList  文章idList
      * @param queryCondition 搜索条件
      * @return 文章列表
      */
     List<ArticleVo> listArticleVo(Long categoryId, @Param("articleIdList") List<Long> articleIdList, String queryCondition);
+
+
 }

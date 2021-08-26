@@ -40,6 +40,14 @@ public class ArticleController {
         return jsonResult;
     }
 
+    @GetMapping("/getArticleDetail")
+    public JsonResult getArticleDetail(Long id) {
+        JsonResult jsonResult = new JsonResult();
+        jsonResult.setSuccess(true);
+        jsonResult.setObj(articleService.getArticleDetail(id));
+        return jsonResult;
+    }
+
     @PostMapping("/saveArticle")
     public JsonResult saveArticle(@RequestBody ArticleDTO articleDTO) throws CustomException {
         articleService.saveArticle(articleDTO);

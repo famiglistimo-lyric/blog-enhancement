@@ -150,6 +150,11 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
+    public ArticleDTO getArticleDetail(Long id) {
+        return this.baseMapper.getArticleDetail(id);
+    }
+
+    @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean saveArticle(ArticleDTO articleDTO) throws CustomException {
         Article article = new Article();
@@ -177,4 +182,6 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         articleTagRelationService.saveBatch(willInsertArticleTagRelationList);
         return true;
     }
+
+
 }

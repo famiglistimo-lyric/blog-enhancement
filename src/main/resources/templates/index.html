@@ -68,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="ui attached segment m-padding-top-bottom-large content m-border-none"
+                <div class="ui attached segment m-padding-top-bottom-large list-content m-border-none"
                      style="background: inherit">
                     <ul class="post-list">
                         <li class="post-item" th:each="article : ${articlePage.records}">
@@ -91,8 +91,8 @@
         <div class="ui four wide column mobile-hidden animate__animated animate__fadeIn" style="margin-top: 50px">
             <div class="ui segment m-shadow m-block-display-color">
                 <div class="ui segment m-signature-background-color">
-                    <div th:text="${user.userSignature}"
-                         style="word-wrap:break-word;text-align: left;white-space: pre-line;">
+                    <div class="m-font-pattern" th:text="${user.userSignature}"
+                         style="word-wrap:break-word;text-align: left;white-space: pre-line;line-height: 26px">
                     </div>
                 </div>
             </div>
@@ -147,6 +147,8 @@
             </div>
         </div>
     </div>
+<footer th:replace="_fragments :: footer">
+</footer>
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>

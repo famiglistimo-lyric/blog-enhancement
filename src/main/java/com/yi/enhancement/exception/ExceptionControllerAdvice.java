@@ -20,7 +20,7 @@ public class ExceptionControllerAdvice {
      */
     @ExceptionHandler(value = CustomException.class)
     public JsonResult handleCustomException(CustomException e) {
-        log.error(e.getMessage());
+        log.error("发生异常:",e);
         JsonResult jsonResult = new JsonResult();
         jsonResult.setSuccess(false);
         jsonResult.setMsg(e.getMessage());
@@ -32,7 +32,7 @@ public class ExceptionControllerAdvice {
      */
     @ExceptionHandler(value = Exception.class)
     public JsonResult handleException(Exception e) {
-        log.error(e.getMessage());
+        log.error("发生异常:",e);
         JsonResult jsonResult = new JsonResult();
         jsonResult.setSuccess(false);
         jsonResult.setMsg(e.getMessage());
