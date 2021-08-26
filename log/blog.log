@@ -1504,3 +1504,397 @@ You may wish to exclude one of them to ensure predictable runtime behavior
 2021-08-26 17:11:08.662  INFO 5100 --- [restartedMain] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
 2021-08-26 17:11:08.663  INFO 5100 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
 2021-08-26 17:11:08.663  INFO 5100 --- [restartedMain] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2021-08-26 17:13:20.234  WARN 10188 --- [main] ory$DuplicateJsonObjectContextCustomizer : 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/D:/maven-repository/blog-enhancement-maven/blog-enhancement-repository/org/json/json/20170516/json-20170516.jar!/org/json/JSONObject.class
+	jar:file:/D:/maven-repository/blog-enhancement-maven/blog-enhancement-repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-08-26 17:13:20.276  INFO 10188 --- [main] c.y.e.EnhancementApplicationTests        : Starting EnhancementApplicationTests using Java 1.8.0_261 on LAPTOP-P12KV1HJ with PID 10188 (started by lyric in D:\blog-enhancement)
+2021-08-26 17:13:20.278 DEBUG 10188 --- [main] c.y.e.EnhancementApplicationTests        : Running with Spring Boot v2.5.0, Spring v5.3.7
+2021-08-26 17:13:20.279  INFO 10188 --- [main] c.y.e.EnhancementApplicationTests        : No active profile set, falling back to default profiles: default
+2021-08-26 17:13:22.278  WARN 10188 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.yi.enhancement.model.entity.UserAvatar".
+2021-08-26 17:13:24.944  INFO 10188 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-26 17:13:27.109  INFO 10188 --- [main] c.y.e.EnhancementApplicationTests        : Started EnhancementApplicationTests in 7.742 seconds (JVM running for 8.843)
+2021-08-26 17:13:27.114  INFO 10188 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2021-08-26 17:13:27.117  INFO 10188 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2021-08-26 17:19:11.826  INFO 5100 --- [http-nio-8065-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-26 17:19:11.828  INFO 5100 --- [http-nio-8065-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-26 17:19:11.829  INFO 5100 --- [http-nio-8065-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-08-26 17:19:11.841  INFO 5100 --- [http-nio-8065-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2021-08-26 17:19:11.931  INFO 5100 --- [http-nio-8065-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2021-08-26 17:19:11.931 DEBUG 5100 --- [http-nio-8065-exec-1] c.y.e.m.CategoryMapper.listCategoryDTO   : ==>  Preparing: select * from category where deleted = 0
+2021-08-26 17:19:11.931 DEBUG 5100 --- [http-nio-8065-exec-1] c.y.e.m.CategoryMapper.listCategoryDTO   : ==> Parameters: 
+2021-08-26 17:19:11.938 DEBUG 5100 --- [http-nio-8065-exec-1] c.y.e.m.CategoryMapper.listCategoryDTO   : <==      Total: 7
+2021-08-26 17:19:11.939 DEBUG 5100 --- [http-nio-8065-exec-3] c.y.e.m.A.pageArticleDTO_mpCount         : ==>  Preparing: SELECT COUNT(*) FROM (SELECT t1.id, t1.title, t1.stamp, t1.comments, t1.original, t1.status, t1.recommend, t1.appreciate, t1.views, t1.create_time, t1.update_time, t1.user_id, t1.category_id, t2.name category_name, COUNT(t3.id) comment_counts FROM article t1 LEFT JOIN category t2 ON t1.category_id = t2.id LEFT JOIN comment t3 ON t1.id = t3.article_id WHERE 1 = 1 AND t1.deleted = 0 GROUP BY t1.id ORDER BY t1.update_time DESC) TOTAL
+2021-08-26 17:19:11.939 DEBUG 5100 --- [http-nio-8065-exec-3] c.y.e.m.A.pageArticleDTO_mpCount         : ==> Parameters: 
+2021-08-26 17:19:11.948 DEBUG 5100 --- [http-nio-8065-exec-3] c.y.e.m.A.pageArticleDTO_mpCount         : <==      Total: 1
+2021-08-26 17:19:11.951 DEBUG 5100 --- [http-nio-8065-exec-3] c.y.e.m.ArticleMapper.pageArticleDTO     : ==>  Preparing: SELECT t1.id, t1.title, t1.stamp, t1.comments, t1.original, t1.status, t1.recommend, t1.appreciate, t1.views, t1.create_time, t1.update_time, t1.user_id, t1.category_id, t2.name category_name, COUNT(t3.id) comment_counts FROM article t1 left join category t2 on t1.category_id = t2.id left join comment t3 on t1.id = t3.article_id where 1 = 1 and t1.deleted = 0 GROUP BY t1.id ORDER BY t1.update_time DESC LIMIT ?
+2021-08-26 17:19:11.951 DEBUG 5100 --- [http-nio-8065-exec-3] c.y.e.m.ArticleMapper.pageArticleDTO     : ==> Parameters: 10(Long)
+2021-08-26 17:19:11.962 DEBUG 5100 --- [http-nio-8065-exec-3] c.y.e.m.ArticleMapper.pageArticleDTO     : <==      Total: 10
+2021-08-26 17:19:11.962 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.mapper.TagMapper.listTagDTO        : ==>  Preparing: select * from tag where deleted = 0
+2021-08-26 17:19:11.962 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.mapper.TagMapper.listTagDTO        : ==> Parameters: 
+2021-08-26 17:19:11.970 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.mapper.TagMapper.listTagDTO        : <==      Total: 16
+2021-08-26 17:19:11.970 DEBUG 5100 --- [http-nio-8065-exec-3] c.y.e.m.A.listArticleTagRelation         : ==>  Preparing: SELECT t1.article_id, t1.tag_id, t2.NAME tag_name FROM `article_tag_relation` t1 LEFT JOIN tag t2 ON t1.tag_id = t2.id where t1.deleted = 0 and t1.article_id in ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? )
+2021-08-26 17:19:11.971 DEBUG 5100 --- [http-nio-8065-exec-3] c.y.e.m.A.listArticleTagRelation         : ==> Parameters: 1425471799704485890(Long), 1422859366288633858(Long), 1422858220186677249(Long), 1421015168581169154(Long), 1412282588771983361(Long), 1417068435190890497(Long), 1413098195377475585(Long), 1412368578865827841(Long), 1412302448763674626(Long), 1412280944730644481(Long)
+2021-08-26 17:19:11.979 DEBUG 5100 --- [http-nio-8065-exec-3] c.y.e.m.A.listArticleTagRelation         : <==      Total: 13
+2021-08-26 17:19:20.184 DEBUG 5100 --- [http-nio-8065-exec-4] c.y.e.m.C.pageCategory_mpCount           : ==>  Preparing: SELECT COUNT(*) FROM (SELECT t1.id, t1.NAME, COUNT(t2.category_id) article_counts FROM category t1 LEFT JOIN article t2 ON t1.id = t2.category_id AND t2.deleted = 0 WHERE t1.deleted = 0 GROUP BY t1.id ORDER BY t1.update_time DESC) TOTAL
+2021-08-26 17:19:20.184 DEBUG 5100 --- [http-nio-8065-exec-4] c.y.e.m.C.pageCategory_mpCount           : ==> Parameters: 
+2021-08-26 17:19:20.190 DEBUG 5100 --- [http-nio-8065-exec-4] c.y.e.m.C.pageCategory_mpCount           : <==      Total: 1
+2021-08-26 17:19:20.191 DEBUG 5100 --- [http-nio-8065-exec-4] c.y.e.m.CategoryMapper.pageCategory      : ==>  Preparing: SELECT t1.id, t1.NAME, COUNT(t2.category_id) article_counts FROM category t1 LEFT JOIN article t2 ON t1.id = t2.category_id and t2.deleted = 0 where t1.deleted = 0 GROUP BY t1.id order by t1.update_time desc LIMIT ?
+2021-08-26 17:19:20.192 DEBUG 5100 --- [http-nio-8065-exec-4] c.y.e.m.CategoryMapper.pageCategory      : ==> Parameters: 10(Long)
+2021-08-26 17:19:20.199 DEBUG 5100 --- [http-nio-8065-exec-4] c.y.e.m.CategoryMapper.pageCategory      : <==      Total: 7
+2021-08-26 17:19:20.848 DEBUG 5100 --- [http-nio-8065-exec-5] c.y.e.mapper.TagMapper.pageTag_mpCount   : ==>  Preparing: SELECT COUNT(*) FROM (SELECT t1.*, COUNT(t2.article_id) article_counts FROM tag t1 LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id AND t2.deleted = 0 WHERE t1.deleted = 0 GROUP BY t1.id ORDER BY update_time DESC) TOTAL
+2021-08-26 17:19:20.848 DEBUG 5100 --- [http-nio-8065-exec-5] c.y.e.mapper.TagMapper.pageTag_mpCount   : ==> Parameters: 
+2021-08-26 17:19:20.855 DEBUG 5100 --- [http-nio-8065-exec-5] c.y.e.mapper.TagMapper.pageTag_mpCount   : <==      Total: 1
+2021-08-26 17:19:20.856 DEBUG 5100 --- [http-nio-8065-exec-5] c.y.e.mapper.TagMapper.pageTag           : ==>  Preparing: SELECT t1.*, COUNT(t2.article_id) article_counts FROM tag t1 LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id and t2.deleted = 0 WHERE t1.deleted = 0 GROUP BY t1.id order by update_time desc LIMIT ?
+2021-08-26 17:19:20.856 DEBUG 5100 --- [http-nio-8065-exec-5] c.y.e.mapper.TagMapper.pageTag           : ==> Parameters: 10(Long)
+2021-08-26 17:19:20.863 DEBUG 5100 --- [http-nio-8065-exec-5] c.y.e.mapper.TagMapper.pageTag           : <==      Total: 10
+2021-08-26 17:19:21.830 DEBUG 5100 --- [http-nio-8065-exec-7] c.y.e.m.CategoryMapper.listCategoryDTO   : ==>  Preparing: select * from category where deleted = 0
+2021-08-26 17:19:21.830 DEBUG 5100 --- [http-nio-8065-exec-7] c.y.e.m.CategoryMapper.listCategoryDTO   : ==> Parameters: 
+2021-08-26 17:19:21.834 DEBUG 5100 --- [http-nio-8065-exec-6] c.y.e.m.A.pageArticleDTO_mpCount         : ==>  Preparing: SELECT COUNT(*) FROM (SELECT t1.id, t1.title, t1.stamp, t1.comments, t1.original, t1.status, t1.recommend, t1.appreciate, t1.views, t1.create_time, t1.update_time, t1.user_id, t1.category_id, t2.name category_name, COUNT(t3.id) comment_counts FROM article t1 LEFT JOIN category t2 ON t1.category_id = t2.id LEFT JOIN comment t3 ON t1.id = t3.article_id WHERE 1 = 1 AND t1.deleted = 0 GROUP BY t1.id ORDER BY t1.update_time DESC) TOTAL
+2021-08-26 17:19:21.834 DEBUG 5100 --- [http-nio-8065-exec-6] c.y.e.m.A.pageArticleDTO_mpCount         : ==> Parameters: 
+2021-08-26 17:19:21.837 DEBUG 5100 --- [http-nio-8065-exec-7] c.y.e.m.CategoryMapper.listCategoryDTO   : <==      Total: 7
+2021-08-26 17:19:21.842 DEBUG 5100 --- [http-nio-8065-exec-6] c.y.e.m.A.pageArticleDTO_mpCount         : <==      Total: 1
+2021-08-26 17:19:21.843 DEBUG 5100 --- [http-nio-8065-exec-6] c.y.e.m.ArticleMapper.pageArticleDTO     : ==>  Preparing: SELECT t1.id, t1.title, t1.stamp, t1.comments, t1.original, t1.status, t1.recommend, t1.appreciate, t1.views, t1.create_time, t1.update_time, t1.user_id, t1.category_id, t2.name category_name, COUNT(t3.id) comment_counts FROM article t1 left join category t2 on t1.category_id = t2.id left join comment t3 on t1.id = t3.article_id where 1 = 1 and t1.deleted = 0 GROUP BY t1.id ORDER BY t1.update_time DESC LIMIT ?
+2021-08-26 17:19:21.843 DEBUG 5100 --- [http-nio-8065-exec-6] c.y.e.m.ArticleMapper.pageArticleDTO     : ==> Parameters: 10(Long)
+2021-08-26 17:19:21.854 DEBUG 5100 --- [http-nio-8065-exec-6] c.y.e.m.ArticleMapper.pageArticleDTO     : <==      Total: 10
+2021-08-26 17:19:21.855 DEBUG 5100 --- [http-nio-8065-exec-6] c.y.e.m.A.listArticleTagRelation         : ==>  Preparing: SELECT t1.article_id, t1.tag_id, t2.NAME tag_name FROM `article_tag_relation` t1 LEFT JOIN tag t2 ON t1.tag_id = t2.id where t1.deleted = 0 and t1.article_id in ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? )
+2021-08-26 17:19:21.856 DEBUG 5100 --- [http-nio-8065-exec-6] c.y.e.m.A.listArticleTagRelation         : ==> Parameters: 1425471799704485890(Long), 1422859366288633858(Long), 1422858220186677249(Long), 1421015168581169154(Long), 1412282588771983361(Long), 1417068435190890497(Long), 1413098195377475585(Long), 1412368578865827841(Long), 1412302448763674626(Long), 1412280944730644481(Long)
+2021-08-26 17:19:21.874 DEBUG 5100 --- [http-nio-8065-exec-6] c.y.e.m.A.listArticleTagRelation         : <==      Total: 13
+2021-08-26 17:19:22.130 DEBUG 5100 --- [http-nio-8065-exec-8] c.y.e.mapper.TagMapper.listTagDTO        : ==>  Preparing: select * from tag where deleted = 0
+2021-08-26 17:19:22.130 DEBUG 5100 --- [http-nio-8065-exec-8] c.y.e.mapper.TagMapper.listTagDTO        : ==> Parameters: 
+2021-08-26 17:19:22.137 DEBUG 5100 --- [http-nio-8065-exec-8] c.y.e.mapper.TagMapper.listTagDTO        : <==      Total: 16
+2021-08-26 17:19:24.743 DEBUG 5100 --- [http-nio-8065-exec-9] c.y.e.m.CategoryMapper.listCategoryDTO   : ==>  Preparing: select * from category where deleted = 0
+2021-08-26 17:19:24.743 DEBUG 5100 --- [http-nio-8065-exec-1] c.y.e.mapper.TagMapper.listTagDTO        : ==>  Preparing: select * from tag where deleted = 0
+2021-08-26 17:19:24.744 DEBUG 5100 --- [http-nio-8065-exec-9] c.y.e.m.CategoryMapper.listCategoryDTO   : ==> Parameters: 
+2021-08-26 17:19:24.744 DEBUG 5100 --- [http-nio-8065-exec-1] c.y.e.mapper.TagMapper.listTagDTO        : ==> Parameters: 
+2021-08-26 17:19:24.750 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.m.A.pageArticleDTO_mpCount         : ==>  Preparing: SELECT COUNT(*) FROM (SELECT t1.id, t1.title, t1.stamp, t1.comments, t1.original, t1.status, t1.recommend, t1.appreciate, t1.views, t1.create_time, t1.update_time, t1.user_id, t1.category_id, t2.name category_name, COUNT(t3.id) comment_counts FROM article t1 LEFT JOIN category t2 ON t1.category_id = t2.id LEFT JOIN comment t3 ON t1.id = t3.article_id WHERE 1 = 1 AND t1.deleted = 0 GROUP BY t1.id ORDER BY t1.update_time DESC) TOTAL
+2021-08-26 17:19:24.750 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.m.A.pageArticleDTO_mpCount         : ==> Parameters: 
+2021-08-26 17:19:24.752 DEBUG 5100 --- [http-nio-8065-exec-1] c.y.e.mapper.TagMapper.listTagDTO        : <==      Total: 16
+2021-08-26 17:19:24.757 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.m.A.pageArticleDTO_mpCount         : <==      Total: 1
+2021-08-26 17:19:24.759 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.m.ArticleMapper.pageArticleDTO     : ==>  Preparing: SELECT t1.id, t1.title, t1.stamp, t1.comments, t1.original, t1.status, t1.recommend, t1.appreciate, t1.views, t1.create_time, t1.update_time, t1.user_id, t1.category_id, t2.name category_name, COUNT(t3.id) comment_counts FROM article t1 left join category t2 on t1.category_id = t2.id left join comment t3 on t1.id = t3.article_id where 1 = 1 and t1.deleted = 0 GROUP BY t1.id ORDER BY t1.update_time DESC LIMIT ?
+2021-08-26 17:19:24.759 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.m.ArticleMapper.pageArticleDTO     : ==> Parameters: 10(Long)
+2021-08-26 17:19:24.761 DEBUG 5100 --- [http-nio-8065-exec-9] c.y.e.m.CategoryMapper.listCategoryDTO   : <==      Total: 7
+2021-08-26 17:19:24.767 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.m.ArticleMapper.pageArticleDTO     : <==      Total: 10
+2021-08-26 17:19:24.767 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.m.A.listArticleTagRelation         : ==>  Preparing: SELECT t1.article_id, t1.tag_id, t2.NAME tag_name FROM `article_tag_relation` t1 LEFT JOIN tag t2 ON t1.tag_id = t2.id where t1.deleted = 0 and t1.article_id in ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? )
+2021-08-26 17:19:24.768 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.m.A.listArticleTagRelation         : ==> Parameters: 1425471799704485890(Long), 1422859366288633858(Long), 1422858220186677249(Long), 1421015168581169154(Long), 1412282588771983361(Long), 1417068435190890497(Long), 1413098195377475585(Long), 1412368578865827841(Long), 1412302448763674626(Long), 1412280944730644481(Long)
+2021-08-26 17:19:24.774 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.m.A.listArticleTagRelation         : <==      Total: 13
+2021-08-26 17:25:35.365 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.m.A.pageArticleDTOWeb_mpCount      : ==>  Preparing: SELECT COUNT(*) FROM article WHERE deleted = 0
+2021-08-26 17:25:35.365 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.m.A.pageArticleDTOWeb_mpCount      : ==> Parameters: 
+2021-08-26 17:25:35.371 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.m.A.pageArticleDTOWeb_mpCount      : <==      Total: 1
+2021-08-26 17:25:35.372 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.m.ArticleMapper.pageArticleDTOWeb  : ==>  Preparing: SELECT id, title, create_time, update_time FROM article where deleted = 0 ORDER BY update_time DESC LIMIT ?
+2021-08-26 17:25:35.372 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.m.ArticleMapper.pageArticleDTOWeb  : ==> Parameters: 8(Long)
+2021-08-26 17:25:35.381 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.m.ArticleMapper.pageArticleDTOWeb  : <==      Total: 8
+2021-08-26 17:25:35.383 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.mapper.TagMapper.listTagVo         : ==>  Preparing: SELECT t1.*, COUNT(t2.article_id) article_counts FROM tag t1 LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id and t2.deleted = 0 WHERE t1.deleted = 0 GROUP BY t1.id
+2021-08-26 17:25:35.383 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.mapper.TagMapper.listTagVo         : ==> Parameters: 
+2021-08-26 17:25:35.390 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.mapper.TagMapper.listTagVo         : <==      Total: 16
+2021-08-26 17:25:35.391 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.m.CategoryMapper.listCategoryVo    : ==>  Preparing: SELECT t1.id, t1.NAME, COUNT(t2.category_id) article_counts FROM category t1 LEFT JOIN article t2 ON t1.id = t2.category_id and t2.deleted = 0 where t1.deleted = 0 GROUP BY t1.id
+2021-08-26 17:25:35.391 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.m.CategoryMapper.listCategoryVo    : ==> Parameters: 
+2021-08-26 17:25:35.398 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.m.CategoryMapper.listCategoryVo    : <==      Total: 7
+2021-08-26 17:25:35.404 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.mapper.UserMapper.getUser          : ==>  Preparing: SELECT * FROM user WHERE deleted = 0 AND id = ?
+2021-08-26 17:25:35.404 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.mapper.UserMapper.getUser          : ==> Parameters: 1(Long)
+2021-08-26 17:25:35.411 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.mapper.UserMapper.getUser          : <==      Total: 1
+2021-08-26 17:25:35.428 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.mapper.UserMapper.updateById       : ==>  Preparing: UPDATE user SET qq=?, email=?, wechat=?, avatar=?, banner=?, nickname=?, user_signature=?, views=?, create_time=?, update_time=? WHERE id=? AND deleted=0
+2021-08-26 17:25:35.432 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.mapper.UserMapper.updateById       : ==> Parameters: 2044619214(String), lyric0926@163.com(String), 17805428855(String), https://yi-blog.oss-cn-hangzhou.aliyuncs.com/2021-07-11/6a879a71-ca69-4ef3-a5f7-e8c6f67dd0b7Screenshot_20210424_204530.jpg(String), https://yi-blog.oss-cn-hangzhou.aliyuncs.com/2021-07-26/b11a2006-e61e-44cb-b870-b5f1ca28bf0awallhaven-281d5y.png(String), lyric(String), 有最奇崛的峰峦
+成全过你我张狂
+海上清辉与圆月 盛进杯光
+有最孤傲的雪山
+静听过你我诵章
+世人惊羡的桥段 不过寻常(String), 3006(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-08-26 17:25:35.428(Timestamp), 1(Long)
+2021-08-26 17:25:35.447 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.mapper.UserMapper.updateById       : <==    Updates: 1
+2021-08-26 17:25:35.452 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.m.T.listTechnicalSupportVo         : ==>  Preparing: SELECT * FROM technical_support where deleted = 0
+2021-08-26 17:25:35.452 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.m.T.listTechnicalSupportVo         : ==> Parameters: 
+2021-08-26 17:25:35.463 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.m.T.listTechnicalSupportVo         : <==      Total: 3
+2021-08-26 17:25:37.703 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.UserMapper.getUser          : ==>  Preparing: SELECT * FROM user WHERE deleted = 0 AND id = ?
+2021-08-26 17:25:37.704 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.UserMapper.getUser          : ==> Parameters: 1(Long)
+2021-08-26 17:25:37.717 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.UserMapper.getUser          : <==      Total: 1
+2021-08-26 17:25:37.718 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-08-26 17:25:37.718 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1425471799704485890(Long)
+2021-08-26 17:25:37.726 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-08-26 17:25:37.732 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.ArticleMapper.updateById    : ==>  Preparing: UPDATE article SET title=?, content=?, stamp=?, comments=?, status=?, recommend=?, appreciate=?, views=?, create_time=?, update_time=?, category_id=? WHERE id=? AND deleted=0
+2021-08-26 17:25:37.733 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.ArticleMapper.updateById    : ==> Parameters: 夜间小读物(String), 
+```java
+package com.yi.blog.interceptor;
+
+import com.yi.blog.constant.CommentConstant;
+import com.yi.blog.constant.LoginConstant;
+import com.yi.blog.entity.User;
+import com.yi.blog.service.AvatarGenerate;
+import com.yi.blog.service.impl.RandomAvatarImpl;
+import com.yi.blog.vo.UserInfoTo;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.UUID;
+
+/**
+ * @Author: lwj
+ * @DateTime: 2021/3/28 1:44
+ * @Description: 该拦截器是做的评论头像的功能
+ */
+public class EnterInterceptor implements HandlerInterceptor {
+
+    public static ThreadLocal<UserInfoTo> threadLocal = new ThreadLocal<>();
+
+    /**
+     * 目标方法执行之前
+     */
+    @Override
+    public boolean preHandle(HttpServletRequest request,
+                             HttpServletResponse response,
+                             Object handler) throws Exception {
+
+        UserInfoTo userInfoTo = new UserInfoTo();
+
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute(LoginConstant.LOGIN_USER);
+        if(user != null){
+            //用户登录
+            userInfoTo.setUserId(user.getId());
+        }
+
+        Cookie[] cookies = request.getCookies();
+        if(cookies!=null && cookies.length>0){
+            for (Cookie cookie : cookies) {
+                //user-key
+                String name = cookie.getName();
+                if(name.equals(CommentConstant.TEMP_USER_COOKIE_NAME)){
+                    userInfoTo.setUserKey(cookie.getValue());
+                    userInfoTo.setTempUser(true);
+                }
+            }
+        }
+
+        //如果没有临时用户一定分配一个临时用户
+        if(userInfoTo.getUserKey() == null || userInfoTo.getUserKey().isEmpty()){
+            String uuid = UUID.randomUUID().toString();
+            userInfoTo.setUserKey(uuid);
+        }
+        //目标方法执行之前
+        threadLocal.set(userInfoTo);
+        return true;
+    }
+
+    /**
+     * 业务执行之后；分配临时用户，让浏览器保存
+     */
+    @Override
+    public void postHandle(HttpServletRequest request,
+                           HttpServletResponse response,
+                           Object handler,
+                           ModelAndView modelAndView) throws Exception {
+        UserInfoTo userInfoTo = threadLocal.get();
+
+        //如果用户没登录一定保存一个临时用户
+        if(!userInfoTo.isTempUser()){
+            //持续的延长临时用户的过期时间
+            Cookie cookie = new Cookie(CommentConstant.TEMP_USER_COOKIE_NAME, userInfoTo.getUserKey());
+            cookie.setMaxAge(CommentConstant.TEMP_USER_COOKIE_TIMEOUT);
+            response.addCookie(cookie);
+        }
+    }
+}
+
+```
+(String), true(Boolean), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 31(Integer), 2021-08-11 22:58:56.0(Timestamp), 2021-08-11 22:58:56.0(Timestamp), 1(Long), 1425471799704485890(Long)
+2021-08-26 17:25:37.749 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.ArticleMapper.updateById    : <==    Updates: 1
+2021-08-26 17:25:37.821 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.m.CategoryMapper.listCategoryVo    : ==>  Preparing: SELECT t1.id, t1.NAME, COUNT(t2.category_id) article_counts FROM category t1 LEFT JOIN article t2 ON t1.id = t2.category_id and t2.deleted = 0 where t1.deleted = 0 GROUP BY t1.id
+2021-08-26 17:25:37.821 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.m.CategoryMapper.listCategoryVo    : ==> Parameters: 
+2021-08-26 17:25:37.829 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.m.CategoryMapper.listCategoryVo    : <==      Total: 7
+2021-08-26 17:25:37.831 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-08-26 17:25:37.831 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1425471799704485890(Long)
+2021-08-26 17:25:37.838 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-08-26 17:25:37.840 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.TagMapper.listTagVo         : ==>  Preparing: SELECT t1.*, COUNT(t2.article_id) article_counts FROM tag t1 LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id and t2.deleted = 0 WHERE t1.deleted = 0 GROUP BY t1.id
+2021-08-26 17:25:37.840 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.TagMapper.listTagVo         : ==> Parameters: 
+2021-08-26 17:25:37.848 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.TagMapper.listTagVo         : <==      Total: 16
+2021-08-26 17:25:37.849 DEBUG 5100 --- [http-nio-8065-exec-10] .e.m.A.listArticleTagRelationByArticleId : ==>  Preparing: SELECT t1.article_id, t1.tag_id, t2.NAME tag_name FROM `article_tag_relation` t1 LEFT JOIN tag t2 ON t1.tag_id = t2.id where t1.deleted = 0 and t1.article_id = ?
+2021-08-26 17:25:37.849 DEBUG 5100 --- [http-nio-8065-exec-10] .e.m.A.listArticleTagRelationByArticleId : ==> Parameters: 1425471799704485890(Long)
+2021-08-26 17:25:37.856 DEBUG 5100 --- [http-nio-8065-exec-10] .e.m.A.listArticleTagRelationByArticleId : <==      Total: 1
+2021-08-26 17:25:38.421 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.m.C.listCommentByArticleId         : ==>  Preparing: SELECT id, avatar, nickname, content, email, manager_comment, article_id, parent_comment_id, create_time, deleted FROM comment WHERE article_id = ? AND deleted = 0 ORDER BY create_time desc
+2021-08-26 17:25:38.422 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.m.C.listCommentByArticleId         : ==> Parameters: 1425471799704485890(Long)
+2021-08-26 17:25:38.430 DEBUG 5100 --- [http-nio-8065-exec-2] c.y.e.m.C.listCommentByArticleId         : <==      Total: 12
+2021-08-26 17:25:57.859 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.UserAvatarMapper.selectOne  : ==>  Preparing: SELECT avatar,user_key,create_time,update_time FROM user_avatar WHERE (user_key = ?)
+2021-08-26 17:25:57.859 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.UserAvatarMapper.selectOne  : ==> Parameters: 28ab78fe-a2de-4e9e-b066-2c781744c7bc(String)
+2021-08-26 17:25:57.867 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.UserAvatarMapper.selectOne  : <==      Total: 1
+2021-08-26 17:25:57.886 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.CommentMapper.insert        : ==>  Preparing: INSERT INTO comment ( id, avatar, nickname, content, email, manager_comment, article_id, parent_comment_id, create_time, deleted ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2021-08-26 17:25:57.887 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.CommentMapper.insert        : ==> Parameters: 1430823824696811521(Long), /images/comment/1.svg(String), 1212312123(String), 123123123(String), 123123123(String), false(Boolean), 1425471799704485890(Long), 0(Long), 2021-08-26 17:25:57.886(Timestamp), 0(Integer)
+2021-08-26 17:25:57.901 DEBUG 5100 --- [http-nio-8065-exec-10] c.y.e.mapper.CommentMapper.insert        : <==    Updates: 1
+2021-08-26 17:25:57.916 DEBUG 5100 --- [http-nio-8065-exec-8] c.y.e.m.C.listCommentByArticleId         : ==>  Preparing: SELECT id, avatar, nickname, content, email, manager_comment, article_id, parent_comment_id, create_time, deleted FROM comment WHERE article_id = ? AND deleted = 0 ORDER BY create_time desc
+2021-08-26 17:25:57.916 DEBUG 5100 --- [http-nio-8065-exec-8] c.y.e.m.C.listCommentByArticleId         : ==> Parameters: 1425471799704485890(Long)
+2021-08-26 17:25:57.924 DEBUG 5100 --- [http-nio-8065-exec-8] c.y.e.m.C.listCommentByArticleId         : <==      Total: 13
+2021-08-26 17:26:23.385  INFO 22600 --- [restartedMain] c.yi.enhancement.EnhancementApplication  : Starting EnhancementApplication using Java 1.8.0_261 on LAPTOP-P12KV1HJ with PID 22600 (D:\blog-enhancement\target\classes started by lyric in D:\blog-enhancement)
+2021-08-26 17:26:23.390 DEBUG 22600 --- [restartedMain] c.yi.enhancement.EnhancementApplication  : Running with Spring Boot v2.5.0, Spring v5.3.7
+2021-08-26 17:26:23.390  INFO 22600 --- [restartedMain] c.yi.enhancement.EnhancementApplication  : No active profile set, falling back to default profiles: default
+2021-08-26 17:26:23.438  INFO 22600 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in D:\maven-repository\blog-enhancement-maven\blog-enhancement-repository\com\sun\xml\bind\jaxb-impl\2.2.3-1\jaxb-impl-2.2.3-1.jar referenced one or more files that do not exist: file:/D:/maven-repository/blog-enhancement-maven/blog-enhancement-repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/jaxb-api.jar,file:/D:/maven-repository/blog-enhancement-maven/blog-enhancement-repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/activation.jar,file:/D:/maven-repository/blog-enhancement-maven/blog-enhancement-repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/jsr173_1.0_api.jar,file:/D:/maven-repository/blog-enhancement-maven/blog-enhancement-repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/jaxb1-impl.jar
+2021-08-26 17:26:23.439  INFO 22600 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-08-26 17:26:23.439  INFO 22600 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-08-26 17:26:24.718  INFO 22600 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8065 (http)
+2021-08-26 17:26:24.727  INFO 22600 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-26 17:26:24.727  INFO 22600 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-08-26 17:26:24.801  INFO 22600 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-08-26 17:26:24.801  INFO 22600 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1361 ms
+2021-08-26 17:26:25.344  WARN 22600 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.yi.enhancement.model.entity.UserAvatar".
+2021-08-26 17:26:26.840  INFO 22600 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-26 17:26:27.480  INFO 22600 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-08-26 17:26:28.486  INFO 22600 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8065 (http) with context path ''
+2021-08-26 17:26:28.955  INFO 22600 --- [restartedMain] c.yi.enhancement.EnhancementApplication  : Started EnhancementApplication in 6.793 seconds (JVM running for 7.958)
+2021-08-26 17:26:28.958  INFO 22600 --- [restartedMain] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2021-08-26 17:26:28.960  INFO 22600 --- [restartedMain] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2021-08-26 17:26:32.203  INFO 22600 --- [http-nio-8065-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-26 17:26:32.204  INFO 22600 --- [http-nio-8065-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-26 17:26:32.205  INFO 22600 --- [http-nio-8065-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-08-26 17:26:32.286  INFO 22600 --- [http-nio-8065-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-08-26 17:26:32.520  INFO 22600 --- [http-nio-8065-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-08-26 17:26:32.528 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.UserMapper.getUser          : ==>  Preparing: SELECT * FROM user WHERE deleted = 0 AND id = ?
+2021-08-26 17:26:32.551 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.UserMapper.getUser          : ==> Parameters: 1(Long)
+2021-08-26 17:26:32.581 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.UserMapper.getUser          : <==      Total: 1
+2021-08-26 17:26:32.594 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-08-26 17:26:32.595 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1425471799704485890(Long)
+2021-08-26 17:26:32.606 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-08-26 17:26:32.635 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.ArticleMapper.updateById    : ==>  Preparing: UPDATE article SET title=?, content=?, stamp=?, comments=?, status=?, recommend=?, appreciate=?, views=?, create_time=?, update_time=?, category_id=? WHERE id=? AND deleted=0
+2021-08-26 17:26:32.646 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.ArticleMapper.updateById    : ==> Parameters: 夜间小读物(String), 
+```java
+package com.yi.blog.interceptor;
+
+import com.yi.blog.constant.CommentConstant;
+import com.yi.blog.constant.LoginConstant;
+import com.yi.blog.entity.User;
+import com.yi.blog.service.AvatarGenerate;
+import com.yi.blog.service.impl.RandomAvatarImpl;
+import com.yi.blog.vo.UserInfoTo;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.UUID;
+
+/**
+ * @Author: lwj
+ * @DateTime: 2021/3/28 1:44
+ * @Description: 该拦截器是做的评论头像的功能
+ */
+public class EnterInterceptor implements HandlerInterceptor {
+
+    public static ThreadLocal<UserInfoTo> threadLocal = new ThreadLocal<>();
+
+    /**
+     * 目标方法执行之前
+     */
+    @Override
+    public boolean preHandle(HttpServletRequest request,
+                             HttpServletResponse response,
+                             Object handler) throws Exception {
+
+        UserInfoTo userInfoTo = new UserInfoTo();
+
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute(LoginConstant.LOGIN_USER);
+        if(user != null){
+            //用户登录
+            userInfoTo.setUserId(user.getId());
+        }
+
+        Cookie[] cookies = request.getCookies();
+        if(cookies!=null && cookies.length>0){
+            for (Cookie cookie : cookies) {
+                //user-key
+                String name = cookie.getName();
+                if(name.equals(CommentConstant.TEMP_USER_COOKIE_NAME)){
+                    userInfoTo.setUserKey(cookie.getValue());
+                    userInfoTo.setTempUser(true);
+                }
+            }
+        }
+
+        //如果没有临时用户一定分配一个临时用户
+        if(userInfoTo.getUserKey() == null || userInfoTo.getUserKey().isEmpty()){
+            String uuid = UUID.randomUUID().toString();
+            userInfoTo.setUserKey(uuid);
+        }
+        //目标方法执行之前
+        threadLocal.set(userInfoTo);
+        return true;
+    }
+
+    /**
+     * 业务执行之后；分配临时用户，让浏览器保存
+     */
+    @Override
+    public void postHandle(HttpServletRequest request,
+                           HttpServletResponse response,
+                           Object handler,
+                           ModelAndView modelAndView) throws Exception {
+        UserInfoTo userInfoTo = threadLocal.get();
+
+        //如果用户没登录一定保存一个临时用户
+        if(!userInfoTo.isTempUser()){
+            //持续的延长临时用户的过期时间
+            Cookie cookie = new Cookie(CommentConstant.TEMP_USER_COOKIE_NAME, userInfoTo.getUserKey());
+            cookie.setMaxAge(CommentConstant.TEMP_USER_COOKIE_TIMEOUT);
+            response.addCookie(cookie);
+        }
+    }
+}
+
+```
+(String), true(Boolean), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 32(Integer), 2021-08-11 22:58:56.0(Timestamp), 2021-08-11 22:58:56.0(Timestamp), 1(Long), 1425471799704485890(Long)
+2021-08-26 17:26:32.662 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.ArticleMapper.updateById    : <==    Updates: 1
+2021-08-26 17:26:32.712 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.m.CategoryMapper.listCategoryVo    : ==>  Preparing: SELECT t1.id, t1.NAME, COUNT(t2.category_id) article_counts FROM category t1 LEFT JOIN article t2 ON t1.id = t2.category_id and t2.deleted = 0 where t1.deleted = 0 GROUP BY t1.id
+2021-08-26 17:26:32.712 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.m.CategoryMapper.listCategoryVo    : ==> Parameters: 
+2021-08-26 17:26:32.721 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.m.CategoryMapper.listCategoryVo    : <==      Total: 7
+2021-08-26 17:26:32.724 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-08-26 17:26:32.725 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1425471799704485890(Long)
+2021-08-26 17:26:32.733 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-08-26 17:26:32.739 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.TagMapper.listTagVo         : ==>  Preparing: SELECT t1.*, COUNT(t2.article_id) article_counts FROM tag t1 LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id and t2.deleted = 0 WHERE t1.deleted = 0 GROUP BY t1.id
+2021-08-26 17:26:32.739 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.TagMapper.listTagVo         : ==> Parameters: 
+2021-08-26 17:26:32.752 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.TagMapper.listTagVo         : <==      Total: 16
+2021-08-26 17:26:32.758 DEBUG 22600 --- [http-nio-8065-exec-1] .e.m.A.listArticleTagRelationByArticleId : ==>  Preparing: SELECT t1.article_id, t1.tag_id, t2.NAME tag_name FROM `article_tag_relation` t1 LEFT JOIN tag t2 ON t1.tag_id = t2.id where t1.deleted = 0 and t1.article_id = ?
+2021-08-26 17:26:32.758 DEBUG 22600 --- [http-nio-8065-exec-1] .e.m.A.listArticleTagRelationByArticleId : ==> Parameters: 1425471799704485890(Long)
+2021-08-26 17:26:32.765 DEBUG 22600 --- [http-nio-8065-exec-1] .e.m.A.listArticleTagRelationByArticleId : <==      Total: 1
+2021-08-26 17:26:33.752 DEBUG 22600 --- [http-nio-8065-exec-7] c.y.e.m.C.listCommentByArticleId         : ==>  Preparing: SELECT id, avatar, nickname, content, email, manager_comment, article_id, parent_comment_id, create_time, deleted FROM comment WHERE article_id = ? AND deleted = 0 ORDER BY create_time desc
+2021-08-26 17:26:33.752 DEBUG 22600 --- [http-nio-8065-exec-7] c.y.e.m.C.listCommentByArticleId         : ==> Parameters: 1425471799704485890(Long)
+2021-08-26 17:26:33.765 DEBUG 22600 --- [http-nio-8065-exec-7] c.y.e.m.C.listCommentByArticleId         : <==      Total: 13
+2021-08-26 17:26:40.156 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.UserAvatarMapper.selectOne  : ==>  Preparing: SELECT avatar,user_key,create_time,update_time FROM user_avatar WHERE (user_key = ?)
+2021-08-26 17:26:40.156 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.UserAvatarMapper.selectOne  : ==> Parameters: 28ab78fe-a2de-4e9e-b066-2c781744c7bc(String)
+2021-08-26 17:26:40.165 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.UserAvatarMapper.selectOne  : <==      Total: 1
+2021-08-26 17:26:40.185 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.CommentMapper.insert        : ==>  Preparing: INSERT INTO comment ( id, avatar, nickname, content, email, manager_comment, article_id, parent_comment_id, create_time, deleted ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2021-08-26 17:26:40.186 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.CommentMapper.insert        : ==> Parameters: 1430824002111733761(Long), /images/comment/1.svg(String), 12312123(String), 3123123123(String), 123123(String), false(Boolean), 1425471799704485890(Long), 0(Long), 2021-08-26 17:26:40.185(Timestamp), 0(Integer)
+2021-08-26 17:26:40.202 DEBUG 22600 --- [http-nio-8065-exec-1] c.y.e.mapper.CommentMapper.insert        : <==    Updates: 1
+2021-08-26 17:26:40.209 DEBUG 22600 --- [http-nio-8065-exec-4] c.y.e.m.C.listCommentByArticleId         : ==>  Preparing: SELECT id, avatar, nickname, content, email, manager_comment, article_id, parent_comment_id, create_time, deleted FROM comment WHERE article_id = ? AND deleted = 0 ORDER BY create_time desc
+2021-08-26 17:26:40.210 DEBUG 22600 --- [http-nio-8065-exec-4] c.y.e.m.C.listCommentByArticleId         : ==> Parameters: 1425471799704485890(Long)
+2021-08-26 17:26:40.220 DEBUG 22600 --- [http-nio-8065-exec-4] c.y.e.m.C.listCommentByArticleId         : <==      Total: 14
+2021-08-26 17:26:43.898 DEBUG 22600 --- [http-nio-8065-exec-3] c.y.e.mapper.UserAvatarMapper.selectOne  : ==>  Preparing: SELECT avatar,user_key,create_time,update_time FROM user_avatar WHERE (user_key = ?)
+2021-08-26 17:26:43.898 DEBUG 22600 --- [http-nio-8065-exec-3] c.y.e.mapper.UserAvatarMapper.selectOne  : ==> Parameters: 28ab78fe-a2de-4e9e-b066-2c781744c7bc(String)
+2021-08-26 17:26:43.905 DEBUG 22600 --- [http-nio-8065-exec-3] c.y.e.mapper.UserAvatarMapper.selectOne  : <==      Total: 1
+2021-08-26 17:26:43.918 DEBUG 22600 --- [http-nio-8065-exec-3] c.y.e.mapper.CommentMapper.insert        : ==>  Preparing: INSERT INTO comment ( id, avatar, nickname, content, email, manager_comment, article_id, parent_comment_id, create_time, deleted ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2021-08-26 17:26:43.919 DEBUG 22600 --- [http-nio-8065-exec-3] c.y.e.mapper.CommentMapper.insert        : ==> Parameters: 1430824017748099074(Long), /images/comment/1.svg(String), 12312123(String), 1231231233(String), 123123(String), false(Boolean), 1425471799704485890(Long), 0(Long), 2021-08-26 17:26:43.918(Timestamp), 0(Integer)
+2021-08-26 17:26:43.933 DEBUG 22600 --- [http-nio-8065-exec-3] c.y.e.mapper.CommentMapper.insert        : <==    Updates: 1
+2021-08-26 17:26:43.940 DEBUG 22600 --- [http-nio-8065-exec-9] c.y.e.m.C.listCommentByArticleId         : ==>  Preparing: SELECT id, avatar, nickname, content, email, manager_comment, article_id, parent_comment_id, create_time, deleted FROM comment WHERE article_id = ? AND deleted = 0 ORDER BY create_time desc
+2021-08-26 17:26:43.940 DEBUG 22600 --- [http-nio-8065-exec-9] c.y.e.m.C.listCommentByArticleId         : ==> Parameters: 1425471799704485890(Long)
+2021-08-26 17:26:43.949 DEBUG 22600 --- [http-nio-8065-exec-9] c.y.e.m.C.listCommentByArticleId         : <==      Total: 15
+2021-08-26 17:26:47.272 DEBUG 22600 --- [http-nio-8065-exec-6] c.y.e.mapper.UserAvatarMapper.selectOne  : ==>  Preparing: SELECT avatar,user_key,create_time,update_time FROM user_avatar WHERE (user_key = ?)
+2021-08-26 17:26:47.272 DEBUG 22600 --- [http-nio-8065-exec-6] c.y.e.mapper.UserAvatarMapper.selectOne  : ==> Parameters: 28ab78fe-a2de-4e9e-b066-2c781744c7bc(String)
+2021-08-26 17:26:47.279 DEBUG 22600 --- [http-nio-8065-exec-6] c.y.e.mapper.UserAvatarMapper.selectOne  : <==      Total: 1
+2021-08-26 17:26:47.293 DEBUG 22600 --- [http-nio-8065-exec-6] c.y.e.mapper.CommentMapper.insert        : ==>  Preparing: INSERT INTO comment ( id, avatar, nickname, content, email, manager_comment, article_id, parent_comment_id, create_time, deleted ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2021-08-26 17:26:47.294 DEBUG 22600 --- [http-nio-8065-exec-6] c.y.e.mapper.CommentMapper.insert        : ==> Parameters: 1430824031878709249(Long), /images/comment/1.svg(String), 12312123(String), 1232333213123123(String), 123123(String), false(Boolean), 1425471799704485890(Long), 0(Long), 2021-08-26 17:26:47.292(Timestamp), 0(Integer)
+2021-08-26 17:26:47.310 DEBUG 22600 --- [http-nio-8065-exec-6] c.y.e.mapper.CommentMapper.insert        : <==    Updates: 1
+2021-08-26 17:26:47.315 DEBUG 22600 --- [http-nio-8065-exec-10] c.y.e.m.C.listCommentByArticleId         : ==>  Preparing: SELECT id, avatar, nickname, content, email, manager_comment, article_id, parent_comment_id, create_time, deleted FROM comment WHERE article_id = ? AND deleted = 0 ORDER BY create_time desc
+2021-08-26 17:26:47.316 DEBUG 22600 --- [http-nio-8065-exec-10] c.y.e.m.C.listCommentByArticleId         : ==> Parameters: 1425471799704485890(Long)
+2021-08-26 17:26:47.324 DEBUG 22600 --- [http-nio-8065-exec-10] c.y.e.m.C.listCommentByArticleId         : <==      Total: 16

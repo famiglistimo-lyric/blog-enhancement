@@ -27,7 +27,7 @@ public class CommentDateUtil {
         // 评论的时间
         long commentTime = date.getTime();
         // 时间差(毫秒)
-        Long timeDifference = currentTimeMillis - commentTime;
+        Long timeDifference = currentTimeMillis+100 - commentTime;
         if (timeDifference < 0) {
             // 超过当前时间,直接return
             return date.toString();
