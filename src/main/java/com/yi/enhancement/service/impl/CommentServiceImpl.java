@@ -1,6 +1,7 @@
 package com.yi.enhancement.service.impl;
 
-import com.aliyun.oss.common.utils.DateUtil;
+import cn.hutool.core.util.StrUtil;
+import com.yi.enhancement.constant.Constant;
 import com.yi.enhancement.model.entity.Comment;
 import com.yi.enhancement.mapper.CommentMapper;
 import com.yi.enhancement.model.vo.CommentVo;
@@ -8,11 +9,9 @@ import com.yi.enhancement.service.ICommentService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yi.enhancement.util.CommentDateUtil;
 import org.springframework.stereotype.Service;
-import org.thymeleaf.util.DateUtils;
+import org.thymeleaf.util.StringUtils;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,7 +31,7 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         // 查出该文章下的所有评论
         List<CommentVo> allComment = this.baseMapper.listCommentByArticleId(articleId);
         return allComment.stream()
-                .peek((element) -> element.setCommentDate(CommentDateUtil.formatCommentDate(System.currentTimeMillis(),element.getCreateTime())))
+                .peek((element) -> element.setCommentDate(CommentDateUtil.formatCommentDate(System.currentTimeMillis(), element.getCreateTime())))
                 .filter((element) -> element.getParentCommentId() == 0)
                 .peek((element) -> {
                     List<CommentVo> list = new ArrayList<>();
@@ -61,5 +60,26 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
             comment.setParentCommentId(0L);
         }
         this.baseMapper.insert(comment);
+    }
+
+    @Override
+    public String judgeParams(Comment comment) {
+        StringBuilder errorMessage = new StringBuilder();
+        String nickname = comment.getNickname();
+        if (StringUtils.isEmpty(nickname)) {
+            errorMessage.append(Constant.NICKNAME_NOT_NULL);
+        }
+        String email = comment.getEmail();
+        if (StringUtils.isEmpty(email)) {
+            errorMessage.append(Constant.EMAIL_NOT_NULL);
+        }
+        String content = comment.getContent();
+        if (StringUtils.isEmpty(content)) {
+            errorMessage.append(Constant.CONTENT_NOT_NULL);
+        }
+        if (StrUtil.isNotEmpty(content) && content.length() > Constant.COMMENT_CONTENT_LENGTH_MAX) {
+            errorMessage.append(Constant.LENGTH_TOO_LONG);
+        }
+        return errorMessage.toString();
     }
 }

@@ -26,8 +26,8 @@ public class CommentDateUtil {
     public static String formatCommentDate(long currentTimeMillis, Date date) {
         // 评论的时间
         long commentTime = date.getTime();
-        // 时间差(毫秒)
-        Long timeDifference = currentTimeMillis+100 - commentTime;
+        // 时间差(毫秒,+1000是因为可能时间稍有偏差)
+        Long timeDifference = currentTimeMillis+1000 - commentTime;
         if (timeDifference < 0) {
             // 超过当前时间,直接return
             return date.toString();

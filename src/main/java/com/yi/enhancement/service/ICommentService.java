@@ -30,4 +30,11 @@ public interface ICommentService extends IService<Comment> {
      * @param comment 评论
      */
     void saveComment(Comment comment);
+
+    /**
+     * 校验评论的参数
+     * @param comment 评论
+     * @return 校验结果
+     */
+    String judgeParams(Comment comment);
 }

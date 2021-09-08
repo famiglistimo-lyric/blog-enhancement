@@ -1,5 +1,7 @@
 package com.yi.enhancement.controller.content;
 
+import cn.hutool.core.util.StrUtil;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.yi.enhancement.constant.LoginConstant;
 import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.interceptor.EnterInterceptor;
@@ -15,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -153,10 +156,15 @@ public class MainController {
     }
 
     @PostMapping("/main/comments")
-    public String comments(Comment comment, HttpSession session, HttpServletRequest request) throws CustomException {
+    public String comments(Comment comment, HttpSession session, RedirectAttributes redirectAttributes) throws CustomException {
         Long articleId = comment.getArticleId();
-        User user = (User) session.getAttribute(LoginConstant.LOGIN_USER);
+        String message = commentService.judgeParams(comment);
+        if (StrUtil.isNotEmpty(message)) {
+            redirectAttributes.addFlashAttribute("message", message);
+            return "redirect:/main/comments/" + articleId;
+        }
         // todo 登录以后 拿到本人的头像
+        User user = (User) session.getAttribute(LoginConstant.LOGIN_USER);
         if (user != null) {
             // 博主登录
             comment.setAvatar(user.getAvatar());

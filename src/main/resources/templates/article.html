@@ -88,25 +88,30 @@
                     </div>
                     <!--评论区域-->
                     <div style="padding: 0 30px 0 30px">
-                        <div class="">
-                            <!--留言区域-->
-                            <div id="m-comment-container" class="ui comments m-comment-container" style="max-width: 100%">
-                                <div th:fragment="commentList">
-                                    <h2>Comments</h2>
-                                    <div class="comment" th:each="comment : ${comments}">
+                        <!--留言区域-->
+                        <div id="m-comment-container" class="ui comments m-comment-container" style="max-width: 100%">
+                            <div th:fragment="commentList">
+                                <h2>Comments</h2>
+                                <div class="comment" th:each="comment : ${comments}">
+                                    <div>
                                         <div class="avatar" style="width: 68px;margin-right: 11px">
                                             <img th:src="@{${comment.avatar}}" style="width: 68px">
                                         </div>
                                         <div class="content">
-                                                        <span class="author">
-                                                            <span th:text="${comment.nickname}" class="m-comment-nickname">Matt</span>
+                                            <div style="display: flex;align-items: center">
+                                                <div>
+                                                    <span class="author">
+                                                            <span th:text="${comment.nickname}"
+                                                                  class="m-comment-nickname">Matt</span>
                                                             <div class="ui mini basic teal left pointing label m-padded-mini"
                                                                  style="background: transparent !important;"
                                                                  th:if="${comment.managerComment}">博主</div>
-                                                        </span>
-                                            <div class="metadata">
-                                                <span class="date m-comment-date"
-                                                      th:text="${comment.commentDate}">Today at 5:42PM</span>
+                                                    </span>
+                                                </div>
+                                                <div class="metadata">
+                                                    <span class="date m-comment-date"
+                                                          th:text="${comment.commentDate}">Today at 5:42PM</span>
+                                                </div>
                                             </div>
                                             <div class="text m-font-pattern"
                                                  style="margin-top: 10px;margin-bottom: 10px"
@@ -120,16 +125,18 @@
                                                    onclick="reply(this)">回复</a>
                                             </div>
                                         </div>
-                                        <div class="comments" style="background: transparent"
-                                             th:if="${comment.childrenComments}!= null and ${#arrays.length(comment.childrenComments)}>0">
-                                            <div class="comment" style="background: transparent"
-                                                 th:each="reply : ${comment.childrenComments}">
+                                    </div>
 
-                                                <div class="avatar" style="width: 68px;margin-right: 11px">
-                                                    <img src="https://unsplash.it/100/100?image=1005"
-                                                         th:src="@{${reply.avatar}}" style="width: 68px">
-                                                </div>
-                                                <div class="content" style="background: transparent">
+                                    <div class="comments" style="background: transparent"
+                                         th:if="${comment.childrenComments}!= null and ${#arrays.length(comment.childrenComments)}>0">
+                                        <div class="comment" style="background: transparent"
+                                             th:each="reply : ${comment.childrenComments}">
+
+                                            <div class="avatar" style="width: 68px;margin-right: 11px">
+                                                <img src="https://unsplash.it/100/100?image=1005"
+                                                     th:src="@{${reply.avatar}}" style="width: 68px">
+                                            </div>
+                                            <div class="content" style="background: transparent">
                                                                 <span class="author"
                                                                       style="background: transparent">
                                                                     <span class="m-comment-nickname"
@@ -140,62 +147,67 @@
                                                                     <span th:text="|@ ${reply.parentComment.nickname}|"
                                                                           class="m-teal">@ 小白</span>
                                                                 </span>
-                                                    <div class="metadata">
-                                                        <span class="date m-comment-date"
-                                                              th:text="${comment.commentDate}">Today at 5:42PM</span>
-                                                    </div>
-                                                    <div class="text m-font-pattern"
-                                                         style="margin-top: 10px;margin-bottom: 10px"
-                                                         th:text="${reply.content}">
-                                                        How artistic!
-                                                    </div>
-                                                    <div class="actions">
+                                                <div class="metadata">
+                                                    <span class="date m-comment-date"
+                                                          th:text="${reply.commentDate}"></span>
+                                                </div>
+                                                <div class="text m-font-pattern"
+                                                     style="margin-top: 10px;margin-bottom: 10px"
+                                                     th:text="${reply.content}">How artistic!
+                                                </div>
+                                                <div class="actions">
                                                         <span>
                                                             <a class="m-reply m-font-pattern" data-commentid="1"
                                                                data-commentnickname="Matt"
                                                                th:attr="data-commentid=${reply.id},data-commentnickname=${reply.nickname}"
                                                                onclick="reply(this)">回复</a>
                                                         </span>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div id="messageNotice" class="ui pink message"
+                                     th:unless="${#strings.isEmpty(message)}">
+                                    <i class="close icon"></i>
+                                    <!--th:text="${message}"-->
+                                    <p th:text="${message}">这是一个特殊的通知，如果不喜欢你可以删掉。</p>
+                                </div>
                             </div>
-                            <div class="m-comment-write">
-                                <form id="comment-form" style="margin: 20px 0">
-                                    <input type="hidden" name="articleId" th:value="${article.id}">
-                                    <input type="hidden" name="parentCommentId" value="-1">
-                                    <div style="display: flex;justify-content: left">
-                                        <div class="m-comment-input-field">
-                                            <input type="text" name="nickname" required="" autocomplete="off">
-                                            <label style="color: #dcdde1">请输入您的昵称 *</label>
-                                            <span></span>
-                                        </div>
-                                        <div class="m-comment-input-field" style="margin-left: 20px">
-                                            <input type="text" name="email" required="" autocomplete="off">
-                                            <label style="color: #dcdde1">请输入电子邮箱 *</label>
-                                            <span></span>
-                                        </div>
-                                        <div class="m-comment-input-field" style="margin-left: 20px">
-                                            <input type="text" name="friendLink" required="" autocomplete="off">
-                                            <label style="color: #dcdde1">请输入网址</label>
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="m-comment-textarea-field"
-                                         style="margin-top: 45px;width: 100%;height: 100px">
-                                        <textarea type="text" name="content" autocomplete="off" required=""
-                                                  style="width: 100%;height: 100%"></textarea>
-                                        <label style="color: #dcdde1">请输入评论内容 *</label>
+
+                        </div>
+
+                        <div class="m-comment-write">
+                            <form id="comment-form" style="margin: 20px 0">
+                                <input type="hidden" name="articleId" th:value="${article.id}">
+                                <input type="hidden" name="parentCommentId" value="-1">
+                                <div style="display: flex;justify-content: left">
+                                    <div class="m-comment-input-field">
+                                        <input type="text" name="nickname" required="" autocomplete="off">
+                                        <label style="color: #dcdde1">请输入您的昵称 *</label>
                                         <span></span>
                                     </div>
-                                    <button id="comment-post-btn" type="button"
-                                            class="ui inverted teal basic button btn" style="margin-top:auto">提 交
-                                    </button>
-                                </form>
-                            </div>
+                                    <div class="m-comment-input-field" style="margin-left: 20px">
+                                        <input type="text" name="email" required="" autocomplete="off">
+                                        <label style="color: #dcdde1">请输入电子邮箱 *</label>
+                                        <span></span>
+                                    </div>
+                                    <div class="m-comment-input-field" style="margin-left: 20px">
+                                        <input type="text" name="friendLink" required="" autocomplete="off">
+                                        <label style="color: #dcdde1">请输入网址</label>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="m-comment-textarea-field"
+                                     style="margin-top: 45px;width: 100%;height: 100px">
+                                        <textarea type="text" name="content" autocomplete="off" required=""
+                                                  style="width: 100%;height: 100%"></textarea>
+                                    <span></span>
+                                </div>
+                                <button id="comment-post-btn" type="button"
+                                        class="ui inverted teal basic button btn" style="margin-top:auto">提 交
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -209,11 +221,6 @@
         <div id="toTop-button" class="ui icon button grey basic"><i class="large arrow up icon"></i></div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
-<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
-<script th:src="@{/lib/prism/prism.js}"></script>
-<script th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
 <th:block th:replace="_fragments :: script">
 
 </th:block>
@@ -279,19 +286,18 @@
             "email": $("[name='email']").val(),
             "content": $("[name='content']").val()
         }, function (responseTxt, statusTxt, xhr) {
-            $(window).scrollTo($('#m-comment-container'), 500);
             clearContent();
         });
     }
 
     function clearContent() {
         $("[name='parentCommentId']").val(-1);
-        $("[name='content']").val('')
+        $("[name='content']").attr("placeholder", '').val('')
     }
 
     function reply(obj) {
         // 点击回复
-        if(!$('#comment-post-cancel-btn').length > 0){
+        if (!$('#comment-post-cancel-btn').length > 0) {
             // 如果存在撤销按钮,则点击回复不渲染
             $('#comment-post-btn').after('<button id="comment-post-cancel-btn" type="button" ' +
                 'class="ui inverted teal basic button btn" style="margin-top:auto">撤 销</button>')
@@ -303,11 +309,14 @@
         $(window).scrollTo($('#comment-form'), 500);
     }
 
-    $('body').on('click','#comment-post-cancel-btn',function () {
+    $('body').on('click', '#comment-post-cancel-btn', function () {
         $("[name='parentCommentId']").val(-1);
-        $("[name='content']").attr("placeholder",'').val('');
-        $(this).remove();
+        $("[name='content']").attr("placeholder", '').val('');
+
     })
+    $('body').on('click', '#messageNotice', function () {
+        $(this).closest('.message').transition('fade');
+    });
 </script>
 </body>
 </html>
