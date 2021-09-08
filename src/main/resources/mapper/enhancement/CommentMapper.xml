@@ -9,6 +9,7 @@
             nickname,
             content,
             email,
+            website,
             manager_comment,
             article_id,
             parent_comment_id,

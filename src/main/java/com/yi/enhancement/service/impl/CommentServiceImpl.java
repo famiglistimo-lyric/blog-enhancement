@@ -1,6 +1,8 @@
 package com.yi.enhancement.service.impl;
 
+import cn.hutool.core.lang.Validator;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.extra.validation.ValidationUtil;
 import com.yi.enhancement.constant.Constant;
 import com.yi.enhancement.model.entity.Comment;
 import com.yi.enhancement.mapper.CommentMapper;
@@ -65,20 +67,36 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
     @Override
     public String judgeParams(Comment comment) {
         StringBuilder errorMessage = new StringBuilder();
+        // 昵称验证
         String nickname = comment.getNickname();
         if (StringUtils.isEmpty(nickname)) {
             errorMessage.append(Constant.NICKNAME_NOT_NULL);
         }
-        String email = comment.getEmail();
-        if (StringUtils.isEmpty(email)) {
-            errorMessage.append(Constant.EMAIL_NOT_NULL);
+        if (StrUtil.isNotEmpty(nickname) && nickname.length() > Constant.COMMENT_NICKNAME_LENGTH_MAX) {
+            errorMessage.append(Constant.NICKNAME_LENGTH_TOO_LONG);
         }
+        // 邮箱验证
+        String email = comment.getEmail();
+        if (!Validator.isEmail(email)) {
+            errorMessage.append(Constant.EMAIL_ERROR);
+        }
+        // 评论内容验证
         String content = comment.getContent();
         if (StringUtils.isEmpty(content)) {
             errorMessage.append(Constant.CONTENT_NOT_NULL);
         }
         if (StrUtil.isNotEmpty(content) && content.length() > Constant.COMMENT_CONTENT_LENGTH_MAX) {
-            errorMessage.append(Constant.LENGTH_TOO_LONG);
+            errorMessage.append(Constant.CONTENT_LENGTH_TOO_LONG);
+        }
+        // 网址验证
+        String website = comment.getWebsite();
+        if(StrUtil.isNotEmpty(website)){
+            if(!Validator.isUrl(website)){
+                errorMessage.append(Constant.URL_ERROR);
+            }
+            if (website.length() > Constant.COMMENT_WEBSITE_LENGTH_MAX) {
+                errorMessage.append(Constant.WEBSITE_LENGTH_TOO_LONG);
+            }
         }
         return errorMessage.toString();
     }

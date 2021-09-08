@@ -1,6 +1,5 @@
 package com.yi.enhancement.model.entity;
 
-import java.time.LocalDateTime;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -49,6 +48,11 @@ public class Comment implements Serializable {
      * 邮箱
      */
     private String email;
+
+    /**
+     * 评论人的个人网站地址
+     */
+    private String website;
 
     /**
      * 是否是管理员评论

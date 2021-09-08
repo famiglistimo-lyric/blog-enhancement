@@ -241,6 +241,10 @@
     font-weight: normal;
 }
 
+.author a:hover{
+    color: #ffffff;
+}
+
 .m-comment-date {
     color: #dfe4ea;
     font-size: .375em;
