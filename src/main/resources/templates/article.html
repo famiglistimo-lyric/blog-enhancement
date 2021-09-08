@@ -131,14 +131,16 @@
                                          th:if="${comment.childrenComments}!= null and ${#arrays.length(comment.childrenComments)}>0">
                                         <div class="comment" style="background: transparent"
                                              th:each="reply : ${comment.childrenComments}">
-
-                                            <div class="avatar" style="width: 68px;margin-right: 11px">
-                                                <img src="https://unsplash.it/100/100?image=1005"
-                                                     th:src="@{${reply.avatar}}" style="width: 68px">
-                                            </div>
-                                            <div class="content" style="background: transparent">
-                                                                <span class="author"
-                                                                      style="background: transparent">
+                                            <div>
+                                                <div class="avatar" style="width: 68px;margin-right: 11px">
+                                                    <img src="https://unsplash.it/100/100?image=1005"
+                                                         th:src="@{${reply.avatar}}" style="width: 68px">
+                                                </div>
+                                                <div class="content" style="background: transparent">
+                                                    <div style="display: flex;align-items: center">
+                                                        <div>
+                                                        <span class="author"
+                                                              style="background: transparent">
                                                                     <span class="m-comment-nickname"
                                                                           th:text="${reply.nickname}">小红</span>
                                                                     <div class="ui  basic teal left pointing label m-padded-mini"
@@ -146,22 +148,25 @@
                                                                          th:if="${reply.managerComment}">博主</div>
                                                                     <span th:text="|@ ${reply.parentComment.nickname}|"
                                                                           class="m-teal">@ 小白</span>
-                                                                </span>
-                                                <div class="metadata">
-                                                    <span class="date m-comment-date"
-                                                          th:text="${reply.commentDate}"></span>
-                                                </div>
-                                                <div class="text m-font-pattern"
-                                                     style="margin-top: 10px;margin-bottom: 10px"
-                                                     th:text="${reply.content}">How artistic!
-                                                </div>
-                                                <div class="actions">
+                                                        </span>
+                                                        </div>
+                                                        <div class="metadata">
+                                                        <span class="date m-comment-date"
+                                                              th:text="${reply.commentDate}"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text m-font-pattern"
+                                                         style="margin-top: 10px;margin-bottom: 10px"
+                                                         th:text="${reply.content}">How artistic!
+                                                    </div>
+                                                    <div class="actions">
                                                         <span>
                                                             <a class="m-reply m-font-pattern" data-commentid="1"
                                                                data-commentnickname="Matt"
                                                                th:attr="data-commentid=${reply.id},data-commentnickname=${reply.nickname}"
                                                                onclick="reply(this)">回复</a>
                                                         </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
