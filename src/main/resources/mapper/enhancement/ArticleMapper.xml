@@ -81,11 +81,15 @@
         <if test="categoryId != null">
             and t1.category_id = #{categoryId}
         </if>
-        <if test="articleIdList != null">
+        <if test="articleIdList != null and articleIdList.size != 0">
             and t1.id in
             <foreach collection="articleIdList" item="id" open="(" close=")" separator=",">
                 #{id}
             </foreach>
+        </if>
+        <if test="articleIdList != null and articleIdList.size == 0">
+            -- 证明是该标签没文章,直接返回null
+            and 1 = 2
         </if>
         GROUP BY t1.id
         ORDER BY

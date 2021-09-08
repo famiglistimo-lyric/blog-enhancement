@@ -1,5 +1,6 @@
 package com.yi.enhancement.service.impl;
 
+import cn.hutool.core.collection.CollUtil;
 import com.aliyun.oss.common.utils.DateUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -92,6 +93,9 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         // key:文章id;value:文章的tagList
         Map<Long, List<Tag>> articleTagListMap = new HashMap<>(16);
         List<ArticleDTO> records = articleIPage.getRecords();
+        if (CollUtil.isEmpty(records)) {
+            return articleIPage;
+        }
         for (ArticleDTO record : records) {
             articleTagListMap.put(record.getId(), new ArrayList<>());
         }
@@ -124,10 +128,10 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public Map<String,List<ArticleVo>> listArticleVo(Long categoryId, Long tagId, String queryCondition) {
-        Map<String,List<ArticleVo>> articleVoMap = new HashMap<>(8);
+    public Map<String, List<ArticleVo>> listArticleVo(Long categoryId, Long tagId, String queryCondition) {
+        Map<String, List<ArticleVo>> articleVoMap = new HashMap<>(8);
         List<Long> articleIdList = null;
-        if(tagId != null){
+        if (tagId != null) {
             articleIdList = articleTagRelationService.listArticleId(tagId);
         }
         List<ArticleVo> articleVoList = this.baseMapper.listArticleVo(categoryId, articleIdList, queryCondition);
@@ -135,8 +139,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
             Date createTime = articleVo.getCreateTime();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
             String articleYear = formatter.format(createTime);
-            if(CollectionUtils.isEmpty(articleVoMap.get(articleYear))){
-                articleVoMap.put(articleYear,new ArrayList<>());
+            if (CollectionUtils.isEmpty(articleVoMap.get(articleYear))) {
+                articleVoMap.put(articleYear, new ArrayList<>());
             }
             List<ArticleVo> articleVos = articleVoMap.get(articleYear);
             articleVos.add(articleVo);
