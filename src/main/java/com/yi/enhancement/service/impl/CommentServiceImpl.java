@@ -10,9 +10,14 @@ import com.yi.enhancement.model.vo.CommentVo;
 import com.yi.enhancement.service.ICommentService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yi.enhancement.util.CommentDateUtil;
+import com.yi.enhancement.util.IpAndAddressUtil;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.thymeleaf.util.StringUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -53,7 +58,7 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
     }
 
     @Override
-    public void saveComment(Comment comment) {
+    public void saveComment(Comment comment, HttpServletRequest request) {
         Long parentCommentId = comment.getParentCommentId();
         // 不等于-1，说明有父级
         if (parentCommentId != -1) {
@@ -90,8 +95,8 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         }
         // 网址验证
         String website = comment.getWebsite();
-        if(StrUtil.isNotEmpty(website)){
-            if(!Validator.isUrl(website)){
+        if (StrUtil.isNotEmpty(website)) {
+            if (!Validator.isUrl(website)) {
                 errorMessage.append(Constant.URL_ERROR);
             }
             if (website.length() > Constant.COMMENT_WEBSITE_LENGTH_MAX) {
@@ -99,5 +104,16 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
             }
         }
         return errorMessage.toString();
+    }
+
+    @Override
+    public Comment getExtra(HttpServletRequest request, Comment comment) {
+        String browserName = IpAndAddressUtil.getBrowserName(request);
+        String browserVersion = IpAndAddressUtil.getBrowserVersion(request);
+        String osName = IpAndAddressUtil.getOsName(request);
+        comment.setBrowserName(browserName);
+        comment.setBrowserVersion(browserVersion);
+        comment.setOsName(osName);
+        return comment;
     }
 }

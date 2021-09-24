@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
- * 评论表 前端控制器
+ * 评论 前端控制器
  * </p>
  *
  * @author lwj

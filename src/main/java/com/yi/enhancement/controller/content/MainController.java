@@ -156,7 +156,8 @@ public class MainController {
     }
 
     @PostMapping("/main/comments")
-    public String comments(Comment comment, HttpSession session, RedirectAttributes redirectAttributes) throws CustomException {
+    public String comments(Comment comment, HttpSession session,
+                           RedirectAttributes redirectAttributes, HttpServletRequest request) throws CustomException {
         Long articleId = comment.getArticleId();
         String message = commentService.judgeParams(comment);
         if (StrUtil.isNotEmpty(message)) {
@@ -176,8 +177,9 @@ public class MainController {
             comment.setManagerComment(false);
             comment.setAvatar(avatar);
         }
+        comment = commentService.getExtra(request, comment);
         comment.setArticleId(articleId);
-        commentService.saveComment(comment);
+        commentService.saveComment(comment, request);
         return "redirect:/main/comments/" + articleId;
     }
 

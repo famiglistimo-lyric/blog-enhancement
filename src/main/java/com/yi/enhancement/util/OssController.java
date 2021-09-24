@@ -49,7 +49,6 @@ public class OssController {
         String format = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         // 用户上传文件时指定的前缀。
         String dir = format + "/";
-
         Map<String, String> respMap = null;
         try {
             long expireTime = 30;

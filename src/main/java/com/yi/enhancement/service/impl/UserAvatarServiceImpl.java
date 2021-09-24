@@ -1,6 +1,6 @@
 package com.yi.enhancement.service.impl;
 
-import com.aliyun.oss.common.utils.DateUtil;
+import cn.hutool.core.date.DateUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.model.entity.UserAvatar;
@@ -47,7 +47,7 @@ public class UserAvatarServiceImpl extends ServiceImpl<UserAvatarMapper, UserAva
         UserAvatar userAvatar = new UserAvatar();
         userAvatar.setUserKey(userKey);
         userAvatar.setAvatar(avatar);
-        userAvatar.setUpdateTime(new Date());
+        userAvatar.setUpdateTime(DateUtil.date());
         this.baseMapper.insert(userAvatar);
         return userAvatar.getAvatar();
     }

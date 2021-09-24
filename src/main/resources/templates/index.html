@@ -12,7 +12,7 @@
                 <img class="ui small circular image" src="" th:src="${user.avatar}" style="margin: auto">
                 <div class="ui divider"></div>
                 <div>
-                    <h1 class="ui m-font-pattern header m-opacity-mini"
+                    <h1 class="ui m-font-pattern m-font-style"
                         th:text="${user.nickname}"></h1>
                     <div>
                         <div style="margin-top: 15px">
@@ -52,7 +52,7 @@
                         <div class="heart centers"></div>
                         <div class="heart right sided"></div>
                     </div>
-                    <img src="https://shawnzeng.com/wp-content/uploads/2018/07/IMG_1970.jpg"
+                    <img src="https://yi-blog.oss-cn-hangzhou.aliyuncs.com/2021-07-11/6a879a71-ca69-4ef3-a5f7-e8c6f67dd0b7Screenshot_20210424_204530.jpg"
                          style="width:50px;height:50px;vertical-align:-20px;border-radius:50%;margin-bottom:5px;-webkit-box-shadow:1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);border: 2px solid #fff;"/><br/>
                 </div>
                 <div style="margin-top: 10px"><span id="love_time"></span></div>
@@ -149,8 +149,6 @@
     </div>
 <footer th:replace="_fragments :: footer">
 </footer>
-</body>
-</html>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
 <th:block th:replace="_fragments :: script">
@@ -163,7 +161,6 @@
     $('#menu-toggle').click(function () {
         $('.top-menu-full').toggleClass('mobile-hidden');
     })
-
     function setTime() {
         var createTime = Math.round(new Date(Date.UTC(2021, 01, 08, 9, 21, 0)).getTime() / 1000
     )
@@ -175,33 +172,7 @@
             + ' 秒 ';
         document.getElementById("love_time").innerHTML = currentTimeHtml;
     }
-
-    function secondToDate(second) {
-        if (!second) {
-            return 0;
-        }
-        const time = new Array(0, 0, 0, 0, 0);
-        if (second >= 365 * 24 * 3600) {
-            time[0] = parseInt(second / (365 * 24 * 3600));
-            second %= 365 * 24 * 3600;
-        }
-        if (second >= 24 * 3600) {
-            time[1] = parseInt(second / (24 * 3600));
-            second %= 24 * 3600;
-        }
-        if (second >= 3600) {
-            time[2] = parseInt(second / 3600);
-            second %= 3600;
-        }
-        if (second >= 60) {
-            time[3] = parseInt(second / 60);
-            second %= 60;
-        }
-        if (second > 0) {
-            time[4] = second;
-        }
-        return time;
-    }
-
     setInterval(setTime, 1000);
 </script>
+</body>
+</html>

@@ -70,9 +70,19 @@ public class Comment implements Serializable {
     private Long parentCommentId;
 
     /**
-     * ip地址+时间
+     * 浏览器名称
      */
-    private String ipAndTime;
+    private String browserName;
+
+    /**
+     * 浏览器版本
+     */
+    private String browserVersion;
+
+    /**
+     * 操作系统名称
+     */
+    private String osName;
 
     /**
      * 创建时间

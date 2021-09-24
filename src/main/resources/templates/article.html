@@ -65,12 +65,12 @@
                     <div style="display: flex;justify-content: flex-start;align-items: center;">
                         <img class="ui small circular image" th:src="${user.avatar}"
                              style="width: 50px;margin-left: 20px">
-                        <div style="font-size: 25px;margin-left: 20px" th:text="${user.nickname}"><p></p></div>
-                        <div class="" style="margin-left: 20px">
+                        <div class="m-font-style" style="font-size: 25px;margin-left: 20px" th:text="${user.nickname}"><p></p></div>
+                        <div class="m-font-style" style="margin-left: 20px">
                             <i class="ui calendar icon"></i><span
                                 th:text="${#dates.format(article.updateTime,'yyyy-MM-dd')}"></span>
                         </div>
-                        <div style="margin-left: 20px">
+                        <div class="m-font-style" style="margin-left: 20px">
                             <i class="ui eye icon"></i><span th:text="${article.views}"></span>
                         </div>
                         <div class="ui inverted teal basic button" style="margin-left:auto"
@@ -82,7 +82,7 @@
                     </div>
                     <!--文章真正的内容-->
                     <div id="waypoint" style="padding: 0 30px 0 30px">
-                        <div id="content" class="enhancement-content markdown js-toc-content"
+                        <div id="content" class="typo typo-selection enhancement-content markdown js-toc-content"
                              style="text-align: left;margin-top: 20px;" th:utext="${article.content}">
 
                         </div>
@@ -109,9 +109,19 @@
                                                                  th:if="${comment.managerComment}">博主</div>
                                                     </span>
                                                 </div>
-                                                <div class="metadata">
-                                                    <span class="date m-comment-date"
+                                                <div class="metadata m-font-style">
+                                                    &nbsp;
+                                                    <span class="date m-comment-extra-info"
                                                           th:text="${comment.commentDate}">Today at 5:42PM</span>
+                                                    &nbsp;
+                                                    <span class="m-comment-extra-info"
+                                                          th:text="${comment.browserName}"></span>
+                                                    &nbsp;
+                                                    <span class="m-comment-extra-info"
+                                                          th:text="${comment.browserVersion}"></span>
+                                                    &nbsp;
+                                                    <span class="m-comment-extra-info"
+                                                          th:text="${comment.osName}"></span>
                                                 </div>
                                             </div>
                                             <div class="text m-font-pattern"
@@ -151,9 +161,19 @@
                                                                           class="m-teal">@ 小白</span>
                                                         </span>
                                                         </div>
-                                                        <div class="metadata">
-                                                        <span class="date m-comment-date"
-                                                              th:text="${reply.commentDate}"></span>
+                                                        <div class="metadata m-font-style">
+                                                            &nbsp;
+                                                            <span class="date m-comment-extra-info"
+                                                                  th:text="${reply.commentDate}">Today at 5:42PM</span>
+                                                            &nbsp;
+                                                            <span class="m-comment-extra-info"
+                                                                  th:text="${reply.browserName}"></span>
+                                                            &nbsp;
+                                                            <span class="m-comment-extra-info"
+                                                                  th:text="${reply.browserVersion}"></span>
+                                                            &nbsp;
+                                                            <span class="m-comment-extra-info"
+                                                                  th:text="${reply.osName}"></span>
                                                         </div>
                                                     </div>
                                                     <div class="text m-font-pattern"
@@ -227,6 +247,8 @@
         <div id="toTop-button" class="ui icon button grey basic"><i class="large arrow up icon"></i></div>
     </div>
 </div>
+<footer th:replace="_fragments :: footer">
+</footer>
 <th:block th:replace="_fragments :: script">
 
 </th:block>
