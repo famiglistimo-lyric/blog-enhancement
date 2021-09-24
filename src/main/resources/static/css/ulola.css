@@ -1,7 +1,7 @@
 @font-face {
     font-style: normal;
     font-family: "Meslo LG";
-    src: local("Meslo LG S"), url(../fonts/MesloLGS-Regular-25.ttf) format("truetype")
+    src: local("Meslo LG S"), url(../fonts/MesloLGS-Regular.woff) format("truetype")
 }
 
 div.bandage-container {

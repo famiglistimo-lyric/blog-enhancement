@@ -45,7 +45,8 @@
             </div>
             <div class="ui segment m-shadow m-block-display-color animate__animated animate__fadeIn">
                 <div style="display: flex;justify-content:center;">
-                    <img src="https://shawnzeng.com/wp-content/uploads/2018/07/IMG_1970.jpg"
+                    <img id="nothing" src="https://yi-blog.oss-cn-hangzhou.aliyuncs.com/2021-07-10/1111.png"
+                         th:attr="data-content='没错，我没有女盆友'"
                          style="width:50px;height:50px;vertical-align:-20px;border-radius:50%;margin-right:5px;margin-bottom:5px;-webkit-box-shadow:1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);border: 2px solid #fff;"/>
                     <div class="chest">
                         <div class="heart left sided top"></div>
@@ -149,13 +150,14 @@
     </div>
 <footer th:replace="_fragments :: footer">
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
 <th:block th:replace="_fragments :: script">
 
 </th:block>
 <script>
     $('.technical-support-avatar')
+        .popup()
+    ;
+    $('#nothing')
         .popup()
     ;
     $('#menu-toggle').click(function () {
