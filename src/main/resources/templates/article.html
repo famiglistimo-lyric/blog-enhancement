@@ -236,12 +236,12 @@
 </div>
 <footer th:replace="_fragments :: footer">
 </footer>
-<script th:src="@{/lib/prism/prism.js}"></script>
-<script th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
-<script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
 <th:block th:replace="_fragments :: script">
 
 </th:block>
+<script th:src="@{/lib/prism/prism.js}"></script>
+<script th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+<script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
 <script>
     //文章进度条的节流操作,防止页面不流畅
     let timer = 0;

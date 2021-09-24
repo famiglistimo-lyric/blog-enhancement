@@ -1,9 +1,6 @@
 package com.yi.enhancement;
 
-import cn.hutool.http.HttpRequest;
-import cn.hutool.http.HttpUtil;
 import com.yi.enhancement.util.AddressUtils;
-import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mock.web.MockMultipartFile;

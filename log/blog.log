@@ -2185,3 +2185,369 @@ You may wish to exclude one of them to ensure predictable runtime behavior
 2021-09-24 16:29:54.225  INFO 25692 --- [main] c.y.e.EnhancementApplicationTests        : Started EnhancementApplicationTests in 11.267 seconds (JVM running for 12.444)
 2021-09-24 16:29:54.228  INFO 25692 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
 2021-09-24 16:29:54.232  INFO 25692 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2021-09-24 16:44:04.130 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.m.A.pageArticleDTOWeb_mpCount      : ==>  Preparing: SELECT COUNT(*) FROM article WHERE deleted = 0
+2021-09-24 16:44:04.131 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.m.A.pageArticleDTOWeb_mpCount      : ==> Parameters: 
+2021-09-24 16:44:04.137 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.m.A.pageArticleDTOWeb_mpCount      : <==      Total: 1
+2021-09-24 16:44:04.138 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.m.ArticleMapper.pageArticleDTOWeb  : ==>  Preparing: SELECT id, title, create_time, update_time FROM article where deleted = 0 ORDER BY update_time DESC LIMIT ?
+2021-09-24 16:44:04.139 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.m.ArticleMapper.pageArticleDTOWeb  : ==> Parameters: 8(Long)
+2021-09-24 16:44:04.145 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.m.ArticleMapper.pageArticleDTOWeb  : <==      Total: 8
+2021-09-24 16:44:04.146 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.mapper.TagMapper.listTagVo         : ==>  Preparing: SELECT t1.*, COUNT(t2.article_id) article_counts FROM tag t1 LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id and t2.deleted = 0 WHERE t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:44:04.146 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.mapper.TagMapper.listTagVo         : ==> Parameters: 
+2021-09-24 16:44:04.154 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.mapper.TagMapper.listTagVo         : <==      Total: 16
+2021-09-24 16:44:04.154 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.m.CategoryMapper.listCategoryVo    : ==>  Preparing: SELECT t1.id, t1.NAME, COUNT(t2.category_id) article_counts FROM category t1 LEFT JOIN article t2 ON t1.id = t2.category_id and t2.deleted = 0 where t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:44:04.155 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.m.CategoryMapper.listCategoryVo    : ==> Parameters: 
+2021-09-24 16:44:04.162 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.m.CategoryMapper.listCategoryVo    : <==      Total: 7
+2021-09-24 16:44:04.162 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.mapper.UserMapper.getUser          : ==>  Preparing: SELECT * FROM user WHERE deleted = 0 AND id = ?
+2021-09-24 16:44:04.162 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.mapper.UserMapper.getUser          : ==> Parameters: 1(Long)
+2021-09-24 16:44:04.176 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.mapper.UserMapper.getUser          : <==      Total: 1
+2021-09-24 16:44:04.177 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.mapper.UserMapper.updateById       : ==>  Preparing: UPDATE user SET qq=?, email=?, wechat=?, avatar=?, banner=?, nickname=?, user_signature=?, views=?, create_time=?, update_time=? WHERE id=? AND deleted=0
+2021-09-24 16:44:04.179 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.mapper.UserMapper.updateById       : ==> Parameters: 2044619214(String), lyric0926@163.com(String), 17805428855(String), https://yi-blog.oss-cn-hangzhou.aliyuncs.com/2021-07-11/6a879a71-ca69-4ef3-a5f7-e8c6f67dd0b7Screenshot_20210424_204530.jpg(String), https://yi-blog.oss-cn-hangzhou.aliyuncs.com/2021-09-16/fdb78008-7df7-4224-8d3a-c97268b9b066wallhaven-v95om8.jpg(String), lyric(String), 许多事情我们的确无能为力。
+但即使如此我们也不该因此消沉不是吗？
+乐观起来，忘记伤痛继续前行远比一次又一次揭开伤疤要好得多！(String), 3456(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-09-24 16:44:04.177(Timestamp), 1(Long)
+2021-09-24 16:44:04.194 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.mapper.UserMapper.updateById       : <==    Updates: 1
+2021-09-24 16:44:04.195 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.m.T.listTechnicalSupportVo         : ==>  Preparing: SELECT * FROM technical_support where deleted = 0
+2021-09-24 16:44:04.195 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.m.T.listTechnicalSupportVo         : ==> Parameters: 
+2021-09-24 16:44:04.204 DEBUG 6464 --- [http-nio-80-exec-3] c.y.e.m.T.listTechnicalSupportVo         : <==      Total: 3
+2021-09-24 16:44:05.759 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.UserMapper.getUser          : ==>  Preparing: SELECT * FROM user WHERE deleted = 0 AND id = ?
+2021-09-24 16:44:05.759 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.UserMapper.getUser          : ==> Parameters: 1(Long)
+2021-09-24 16:44:05.767 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.UserMapper.getUser          : <==      Total: 1
+2021-09-24 16:44:05.768 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-09-24 16:44:05.768 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:44:05.777 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-09-24 16:44:05.779 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.updateById    : ==>  Preparing: UPDATE article SET title=?, content=?, stamp=?, comments=?, status=?, recommend=?, appreciate=?, views=?, create_time=?, update_time=?, category_id=? WHERE id=? AND deleted=0
+2021-09-24 16:44:05.780 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.updateById    : ==> Parameters: 构建博客的过程(String), * 打算加速度计
+* 啊速度加啊四的记录数据
+* 啊实打实角度来看 
+* 大撒旦实打实
+
+1. 啊实打实大大是阿萨大时代是
+2. 啊实打实大大是阿萨大时代是
+3. 啊实打实大大是阿萨大时代是
+4. 啊实打实大大是阿萨大时代是
+
+> 12312312123123123123****
+
+我觉得世界很美好,你呢？哈哈哈哈哈
+
+ 
+(String), true(Boolean), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 141(Integer), 2021-09-10 17:57:45.0(Timestamp), 2021-09-16 14:28:58.0(Timestamp), 1(Long), 1436267639821877250(Long)
+2021-09-24 16:44:05.794 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.updateById    : <==    Updates: 1
+2021-09-24 16:44:05.802 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.m.CategoryMapper.listCategoryVo    : ==>  Preparing: SELECT t1.id, t1.NAME, COUNT(t2.category_id) article_counts FROM category t1 LEFT JOIN article t2 ON t1.id = t2.category_id and t2.deleted = 0 where t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:44:05.803 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.m.CategoryMapper.listCategoryVo    : ==> Parameters: 
+2021-09-24 16:44:05.812 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.m.CategoryMapper.listCategoryVo    : <==      Total: 7
+2021-09-24 16:44:05.813 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-09-24 16:44:05.813 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:44:05.821 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-09-24 16:44:05.821 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.TagMapper.listTagVo         : ==>  Preparing: SELECT t1.*, COUNT(t2.article_id) article_counts FROM tag t1 LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id and t2.deleted = 0 WHERE t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:44:05.821 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.TagMapper.listTagVo         : ==> Parameters: 
+2021-09-24 16:44:05.829 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.TagMapper.listTagVo         : <==      Total: 16
+2021-09-24 16:44:05.829 DEBUG 6464 --- [http-nio-80-exec-5] .e.m.A.listArticleTagRelationByArticleId : ==>  Preparing: SELECT t1.article_id, t1.tag_id, t2.NAME tag_name FROM `article_tag_relation` t1 LEFT JOIN tag t2 ON t1.tag_id = t2.id where t1.deleted = 0 and t1.article_id = ?
+2021-09-24 16:44:05.830 DEBUG 6464 --- [http-nio-80-exec-5] .e.m.A.listArticleTagRelationByArticleId : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:44:05.836 DEBUG 6464 --- [http-nio-80-exec-5] .e.m.A.listArticleTagRelationByArticleId : <==      Total: 1
+2021-09-24 16:44:10.949 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.mapper.UserMapper.getUser          : ==>  Preparing: SELECT * FROM user WHERE deleted = 0 AND id = ?
+2021-09-24 16:44:10.950 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.mapper.UserMapper.getUser          : ==> Parameters: 1(Long)
+2021-09-24 16:44:10.958 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.mapper.UserMapper.getUser          : <==      Total: 1
+2021-09-24 16:44:10.958 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-09-24 16:44:10.958 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:44:10.965 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-09-24 16:44:10.968 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.mapper.ArticleMapper.updateById    : ==>  Preparing: UPDATE article SET title=?, content=?, stamp=?, comments=?, status=?, recommend=?, appreciate=?, views=?, create_time=?, update_time=?, category_id=? WHERE id=? AND deleted=0
+2021-09-24 16:44:10.969 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.mapper.ArticleMapper.updateById    : ==> Parameters: 构建博客的过程(String), * 打算加速度计
+* 啊速度加啊四的记录数据
+* 啊实打实角度来看 
+* 大撒旦实打实
+
+1. 啊实打实大大是阿萨大时代是
+2. 啊实打实大大是阿萨大时代是
+3. 啊实打实大大是阿萨大时代是
+4. 啊实打实大大是阿萨大时代是
+
+> 12312312123123123123****
+
+我觉得世界很美好,你呢？哈哈哈哈哈
+
+ 
+(String), true(Boolean), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 142(Integer), 2021-09-10 17:57:45.0(Timestamp), 2021-09-16 14:28:58.0(Timestamp), 1(Long), 1436267639821877250(Long)
+2021-09-24 16:44:10.984 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.mapper.ArticleMapper.updateById    : <==    Updates: 1
+2021-09-24 16:44:10.985 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.m.CategoryMapper.listCategoryVo    : ==>  Preparing: SELECT t1.id, t1.NAME, COUNT(t2.category_id) article_counts FROM category t1 LEFT JOIN article t2 ON t1.id = t2.category_id and t2.deleted = 0 where t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:44:10.986 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.m.CategoryMapper.listCategoryVo    : ==> Parameters: 
+2021-09-24 16:44:10.992 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.m.CategoryMapper.listCategoryVo    : <==      Total: 7
+2021-09-24 16:44:10.993 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-09-24 16:44:10.993 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:44:11.000 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-09-24 16:44:11.001 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.mapper.TagMapper.listTagVo         : ==>  Preparing: SELECT t1.*, COUNT(t2.article_id) article_counts FROM tag t1 LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id and t2.deleted = 0 WHERE t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:44:11.001 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.mapper.TagMapper.listTagVo         : ==> Parameters: 
+2021-09-24 16:44:11.008 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.mapper.TagMapper.listTagVo         : <==      Total: 16
+2021-09-24 16:44:11.008 DEBUG 6464 --- [http-nio-80-exec-9] .e.m.A.listArticleTagRelationByArticleId : ==>  Preparing: SELECT t1.article_id, t1.tag_id, t2.NAME tag_name FROM `article_tag_relation` t1 LEFT JOIN tag t2 ON t1.tag_id = t2.id where t1.deleted = 0 and t1.article_id = ?
+2021-09-24 16:44:11.008 DEBUG 6464 --- [http-nio-80-exec-9] .e.m.A.listArticleTagRelationByArticleId : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:44:11.015 DEBUG 6464 --- [http-nio-80-exec-9] .e.m.A.listArticleTagRelationByArticleId : <==      Total: 1
+2021-09-24 16:46:01.525 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.mapper.UserMapper.getUser          : ==>  Preparing: SELECT * FROM user WHERE deleted = 0 AND id = ?
+2021-09-24 16:46:01.526 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.mapper.UserMapper.getUser          : ==> Parameters: 1(Long)
+2021-09-24 16:46:01.534 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.mapper.UserMapper.getUser          : <==      Total: 1
+2021-09-24 16:46:01.535 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-09-24 16:46:01.535 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:46:01.542 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-09-24 16:46:01.543 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.mapper.ArticleMapper.updateById    : ==>  Preparing: UPDATE article SET title=?, content=?, stamp=?, comments=?, status=?, recommend=?, appreciate=?, views=?, create_time=?, update_time=?, category_id=? WHERE id=? AND deleted=0
+2021-09-24 16:46:01.543 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.mapper.ArticleMapper.updateById    : ==> Parameters: 构建博客的过程(String), * 打算加速度计
+* 啊速度加啊四的记录数据
+* 啊实打实角度来看 
+* 大撒旦实打实
+
+1. 啊实打实大大是阿萨大时代是
+2. 啊实打实大大是阿萨大时代是
+3. 啊实打实大大是阿萨大时代是
+4. 啊实打实大大是阿萨大时代是
+
+> 12312312123123123123****
+
+我觉得世界很美好,你呢？哈哈哈哈哈
+
+ 
+(String), true(Boolean), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 143(Integer), 2021-09-10 17:57:45.0(Timestamp), 2021-09-16 14:28:58.0(Timestamp), 1(Long), 1436267639821877250(Long)
+2021-09-24 16:46:01.561 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.mapper.ArticleMapper.updateById    : <==    Updates: 1
+2021-09-24 16:46:01.562 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.m.CategoryMapper.listCategoryVo    : ==>  Preparing: SELECT t1.id, t1.NAME, COUNT(t2.category_id) article_counts FROM category t1 LEFT JOIN article t2 ON t1.id = t2.category_id and t2.deleted = 0 where t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:46:01.563 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.m.CategoryMapper.listCategoryVo    : ==> Parameters: 
+2021-09-24 16:46:01.570 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.m.CategoryMapper.listCategoryVo    : <==      Total: 7
+2021-09-24 16:46:01.571 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-09-24 16:46:01.571 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:46:01.577 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-09-24 16:46:01.578 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.mapper.TagMapper.listTagVo         : ==>  Preparing: SELECT t1.*, COUNT(t2.article_id) article_counts FROM tag t1 LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id and t2.deleted = 0 WHERE t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:46:01.578 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.mapper.TagMapper.listTagVo         : ==> Parameters: 
+2021-09-24 16:46:01.587 DEBUG 6464 --- [http-nio-80-exec-4] c.y.e.mapper.TagMapper.listTagVo         : <==      Total: 16
+2021-09-24 16:46:01.587 DEBUG 6464 --- [http-nio-80-exec-4] .e.m.A.listArticleTagRelationByArticleId : ==>  Preparing: SELECT t1.article_id, t1.tag_id, t2.NAME tag_name FROM `article_tag_relation` t1 LEFT JOIN tag t2 ON t1.tag_id = t2.id where t1.deleted = 0 and t1.article_id = ?
+2021-09-24 16:46:01.588 DEBUG 6464 --- [http-nio-80-exec-4] .e.m.A.listArticleTagRelationByArticleId : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:46:01.595 DEBUG 6464 --- [http-nio-80-exec-4] .e.m.A.listArticleTagRelationByArticleId : <==      Total: 1
+2021-09-24 16:47:15.348 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.mapper.UserMapper.getUser          : ==>  Preparing: SELECT * FROM user WHERE deleted = 0 AND id = ?
+2021-09-24 16:47:15.349 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.mapper.UserMapper.getUser          : ==> Parameters: 1(Long)
+2021-09-24 16:47:15.357 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.mapper.UserMapper.getUser          : <==      Total: 1
+2021-09-24 16:47:15.358 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-09-24 16:47:15.358 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:47:15.369 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-09-24 16:47:15.370 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.mapper.ArticleMapper.updateById    : ==>  Preparing: UPDATE article SET title=?, content=?, stamp=?, comments=?, status=?, recommend=?, appreciate=?, views=?, create_time=?, update_time=?, category_id=? WHERE id=? AND deleted=0
+2021-09-24 16:47:15.371 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.mapper.ArticleMapper.updateById    : ==> Parameters: 构建博客的过程(String), * 打算加速度计
+* 啊速度加啊四的记录数据
+* 啊实打实角度来看 
+* 大撒旦实打实
+
+1. 啊实打实大大是阿萨大时代是
+2. 啊实打实大大是阿萨大时代是
+3. 啊实打实大大是阿萨大时代是
+4. 啊实打实大大是阿萨大时代是
+
+> 12312312123123123123****
+
+我觉得世界很美好,你呢？哈哈哈哈哈
+
+ 
+(String), true(Boolean), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 144(Integer), 2021-09-10 17:57:45.0(Timestamp), 2021-09-16 14:28:58.0(Timestamp), 1(Long), 1436267639821877250(Long)
+2021-09-24 16:47:15.411 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.mapper.ArticleMapper.updateById    : <==    Updates: 1
+2021-09-24 16:47:15.412 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.m.CategoryMapper.listCategoryVo    : ==>  Preparing: SELECT t1.id, t1.NAME, COUNT(t2.category_id) article_counts FROM category t1 LEFT JOIN article t2 ON t1.id = t2.category_id and t2.deleted = 0 where t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:47:15.413 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.m.CategoryMapper.listCategoryVo    : ==> Parameters: 
+2021-09-24 16:47:15.422 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.m.CategoryMapper.listCategoryVo    : <==      Total: 7
+2021-09-24 16:47:15.423 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-09-24 16:47:15.423 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:47:15.431 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-09-24 16:47:15.432 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.mapper.TagMapper.listTagVo         : ==>  Preparing: SELECT t1.*, COUNT(t2.article_id) article_counts FROM tag t1 LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id and t2.deleted = 0 WHERE t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:47:15.432 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.mapper.TagMapper.listTagVo         : ==> Parameters: 
+2021-09-24 16:47:15.439 DEBUG 6464 --- [http-nio-80-exec-1] c.y.e.mapper.TagMapper.listTagVo         : <==      Total: 16
+2021-09-24 16:47:15.439 DEBUG 6464 --- [http-nio-80-exec-1] .e.m.A.listArticleTagRelationByArticleId : ==>  Preparing: SELECT t1.article_id, t1.tag_id, t2.NAME tag_name FROM `article_tag_relation` t1 LEFT JOIN tag t2 ON t1.tag_id = t2.id where t1.deleted = 0 and t1.article_id = ?
+2021-09-24 16:47:15.439 DEBUG 6464 --- [http-nio-80-exec-1] .e.m.A.listArticleTagRelationByArticleId : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:47:15.446 DEBUG 6464 --- [http-nio-80-exec-1] .e.m.A.listArticleTagRelationByArticleId : <==      Total: 1
+2021-09-24 16:47:15.749 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.m.C.listCommentByArticleId         : ==>  Preparing: SELECT id, avatar, nickname, content, email, website, manager_comment, article_id, parent_comment_id, browser_name, browser_version, os_name, create_time, deleted FROM comment WHERE article_id = ? AND deleted = 0 ORDER BY create_time desc
+2021-09-24 16:47:15.750 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.m.C.listCommentByArticleId         : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:47:15.760 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.m.C.listCommentByArticleId         : <==      Total: 14
+2021-09-24 16:47:34.159 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.UserMapper.getUser          : ==>  Preparing: SELECT * FROM user WHERE deleted = 0 AND id = ?
+2021-09-24 16:47:34.159 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.UserMapper.getUser          : ==> Parameters: 1(Long)
+2021-09-24 16:47:34.168 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.UserMapper.getUser          : <==      Total: 1
+2021-09-24 16:47:34.169 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-09-24 16:47:34.169 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:47:34.177 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-09-24 16:47:34.179 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.updateById    : ==>  Preparing: UPDATE article SET title=?, content=?, stamp=?, comments=?, status=?, recommend=?, appreciate=?, views=?, create_time=?, update_time=?, category_id=? WHERE id=? AND deleted=0
+2021-09-24 16:47:34.180 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.updateById    : ==> Parameters: 构建博客的过程(String), * 打算加速度计
+* 啊速度加啊四的记录数据
+* 啊实打实角度来看 
+* 大撒旦实打实
+
+1. 啊实打实大大是阿萨大时代是
+2. 啊实打实大大是阿萨大时代是
+3. 啊实打实大大是阿萨大时代是
+4. 啊实打实大大是阿萨大时代是
+
+> 12312312123123123123****
+
+我觉得世界很美好,你呢？哈哈哈哈哈
+
+ 
+(String), true(Boolean), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 145(Integer), 2021-09-10 17:57:45.0(Timestamp), 2021-09-16 14:28:58.0(Timestamp), 1(Long), 1436267639821877250(Long)
+2021-09-24 16:47:34.199 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.updateById    : <==    Updates: 1
+2021-09-24 16:47:34.200 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.m.CategoryMapper.listCategoryVo    : ==>  Preparing: SELECT t1.id, t1.NAME, COUNT(t2.category_id) article_counts FROM category t1 LEFT JOIN article t2 ON t1.id = t2.category_id and t2.deleted = 0 where t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:47:34.201 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.m.CategoryMapper.listCategoryVo    : ==> Parameters: 
+2021-09-24 16:47:34.207 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.m.CategoryMapper.listCategoryVo    : <==      Total: 7
+2021-09-24 16:47:34.208 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-09-24 16:47:34.208 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:47:34.215 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-09-24 16:47:34.215 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.TagMapper.listTagVo         : ==>  Preparing: SELECT t1.*, COUNT(t2.article_id) article_counts FROM tag t1 LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id and t2.deleted = 0 WHERE t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:47:34.215 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.TagMapper.listTagVo         : ==> Parameters: 
+2021-09-24 16:47:34.223 DEBUG 6464 --- [http-nio-80-exec-5] c.y.e.mapper.TagMapper.listTagVo         : <==      Total: 16
+2021-09-24 16:47:34.224 DEBUG 6464 --- [http-nio-80-exec-5] .e.m.A.listArticleTagRelationByArticleId : ==>  Preparing: SELECT t1.article_id, t1.tag_id, t2.NAME tag_name FROM `article_tag_relation` t1 LEFT JOIN tag t2 ON t1.tag_id = t2.id where t1.deleted = 0 and t1.article_id = ?
+2021-09-24 16:47:34.224 DEBUG 6464 --- [http-nio-80-exec-5] .e.m.A.listArticleTagRelationByArticleId : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:47:34.232 DEBUG 6464 --- [http-nio-80-exec-5] .e.m.A.listArticleTagRelationByArticleId : <==      Total: 1
+2021-09-24 16:47:34.421 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.m.C.listCommentByArticleId         : ==>  Preparing: SELECT id, avatar, nickname, content, email, website, manager_comment, article_id, parent_comment_id, browser_name, browser_version, os_name, create_time, deleted FROM comment WHERE article_id = ? AND deleted = 0 ORDER BY create_time desc
+2021-09-24 16:47:34.422 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.m.C.listCommentByArticleId         : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:47:34.450 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.m.C.listCommentByArticleId         : <==      Total: 14
+2021-09-24 16:48:07.157 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.mapper.UserMapper.getUser          : ==>  Preparing: SELECT * FROM user WHERE deleted = 0 AND id = ?
+2021-09-24 16:48:07.157 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.mapper.UserMapper.getUser          : ==> Parameters: 1(Long)
+2021-09-24 16:48:07.166 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.mapper.UserMapper.getUser          : <==      Total: 1
+2021-09-24 16:48:07.167 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-09-24 16:48:07.167 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:48:07.185 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-09-24 16:48:07.186 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.mapper.ArticleMapper.updateById    : ==>  Preparing: UPDATE article SET title=?, content=?, stamp=?, comments=?, status=?, recommend=?, appreciate=?, views=?, create_time=?, update_time=?, category_id=? WHERE id=? AND deleted=0
+2021-09-24 16:48:07.188 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.mapper.ArticleMapper.updateById    : ==> Parameters: 构建博客的过程(String), * 打算加速度计
+* 啊速度加啊四的记录数据
+* 啊实打实角度来看 
+* 大撒旦实打实
+
+1. 啊实打实大大是阿萨大时代是
+2. 啊实打实大大是阿萨大时代是
+3. 啊实打实大大是阿萨大时代是
+4. 啊实打实大大是阿萨大时代是
+
+> 12312312123123123123****
+
+我觉得世界很美好,你呢？哈哈哈哈哈
+
+ 
+(String), true(Boolean), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 146(Integer), 2021-09-10 17:57:45.0(Timestamp), 2021-09-16 14:28:58.0(Timestamp), 1(Long), 1436267639821877250(Long)
+2021-09-24 16:48:07.202 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.mapper.ArticleMapper.updateById    : <==    Updates: 1
+2021-09-24 16:48:07.203 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.m.CategoryMapper.listCategoryVo    : ==>  Preparing: SELECT t1.id, t1.NAME, COUNT(t2.category_id) article_counts FROM category t1 LEFT JOIN article t2 ON t1.id = t2.category_id and t2.deleted = 0 where t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:48:07.203 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.m.CategoryMapper.listCategoryVo    : ==> Parameters: 
+2021-09-24 16:48:07.214 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.m.CategoryMapper.listCategoryVo    : <==      Total: 7
+2021-09-24 16:48:07.215 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-09-24 16:48:07.215 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:48:07.243 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-09-24 16:48:07.243 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.mapper.TagMapper.listTagVo         : ==>  Preparing: SELECT t1.*, COUNT(t2.article_id) article_counts FROM tag t1 LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id and t2.deleted = 0 WHERE t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:48:07.243 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.mapper.TagMapper.listTagVo         : ==> Parameters: 
+2021-09-24 16:48:07.253 DEBUG 6464 --- [http-nio-80-exec-6] c.y.e.mapper.TagMapper.listTagVo         : <==      Total: 16
+2021-09-24 16:48:07.254 DEBUG 6464 --- [http-nio-80-exec-6] .e.m.A.listArticleTagRelationByArticleId : ==>  Preparing: SELECT t1.article_id, t1.tag_id, t2.NAME tag_name FROM `article_tag_relation` t1 LEFT JOIN tag t2 ON t1.tag_id = t2.id where t1.deleted = 0 and t1.article_id = ?
+2021-09-24 16:48:07.255 DEBUG 6464 --- [http-nio-80-exec-6] .e.m.A.listArticleTagRelationByArticleId : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:48:07.264 DEBUG 6464 --- [http-nio-80-exec-6] .e.m.A.listArticleTagRelationByArticleId : <==      Total: 1
+2021-09-24 16:48:19.368 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.mapper.UserMapper.getUser          : ==>  Preparing: SELECT * FROM user WHERE deleted = 0 AND id = ?
+2021-09-24 16:48:19.369 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.mapper.UserMapper.getUser          : ==> Parameters: 1(Long)
+2021-09-24 16:48:19.376 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.mapper.UserMapper.getUser          : <==      Total: 1
+2021-09-24 16:48:19.377 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-09-24 16:48:19.377 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:48:19.384 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-09-24 16:48:19.385 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.mapper.ArticleMapper.updateById    : ==>  Preparing: UPDATE article SET title=?, content=?, stamp=?, comments=?, status=?, recommend=?, appreciate=?, views=?, create_time=?, update_time=?, category_id=? WHERE id=? AND deleted=0
+2021-09-24 16:48:19.386 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.mapper.ArticleMapper.updateById    : ==> Parameters: 构建博客的过程(String), * 打算加速度计
+* 啊速度加啊四的记录数据
+* 啊实打实角度来看 
+* 大撒旦实打实
+
+1. 啊实打实大大是阿萨大时代是
+2. 啊实打实大大是阿萨大时代是
+3. 啊实打实大大是阿萨大时代是
+4. 啊实打实大大是阿萨大时代是
+
+> 12312312123123123123****
+
+我觉得世界很美好,你呢？哈哈哈哈哈
+
+ 
+(String), true(Boolean), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 147(Integer), 2021-09-10 17:57:45.0(Timestamp), 2021-09-16 14:28:58.0(Timestamp), 1(Long), 1436267639821877250(Long)
+2021-09-24 16:48:19.401 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.mapper.ArticleMapper.updateById    : <==    Updates: 1
+2021-09-24 16:48:19.403 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.m.CategoryMapper.listCategoryVo    : ==>  Preparing: SELECT t1.id, t1.NAME, COUNT(t2.category_id) article_counts FROM category t1 LEFT JOIN article t2 ON t1.id = t2.category_id and t2.deleted = 0 where t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:48:19.403 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.m.CategoryMapper.listCategoryVo    : ==> Parameters: 
+2021-09-24 16:48:19.410 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.m.CategoryMapper.listCategoryVo    : <==      Total: 7
+2021-09-24 16:48:19.410 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-09-24 16:48:19.410 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:48:19.417 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-09-24 16:48:19.417 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.mapper.TagMapper.listTagVo         : ==>  Preparing: SELECT t1.*, COUNT(t2.article_id) article_counts FROM tag t1 LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id and t2.deleted = 0 WHERE t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:48:19.418 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.mapper.TagMapper.listTagVo         : ==> Parameters: 
+2021-09-24 16:48:19.424 DEBUG 6464 --- [http-nio-80-exec-10] c.y.e.mapper.TagMapper.listTagVo         : <==      Total: 16
+2021-09-24 16:48:19.425 DEBUG 6464 --- [http-nio-80-exec-10] .e.m.A.listArticleTagRelationByArticleId : ==>  Preparing: SELECT t1.article_id, t1.tag_id, t2.NAME tag_name FROM `article_tag_relation` t1 LEFT JOIN tag t2 ON t1.tag_id = t2.id where t1.deleted = 0 and t1.article_id = ?
+2021-09-24 16:48:19.425 DEBUG 6464 --- [http-nio-80-exec-10] .e.m.A.listArticleTagRelationByArticleId : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:48:19.431 DEBUG 6464 --- [http-nio-80-exec-10] .e.m.A.listArticleTagRelationByArticleId : <==      Total: 1
+2021-09-24 16:48:19.647 DEBUG 6464 --- [http-nio-80-exec-8] c.y.e.m.C.listCommentByArticleId         : ==>  Preparing: SELECT id, avatar, nickname, content, email, website, manager_comment, article_id, parent_comment_id, browser_name, browser_version, os_name, create_time, deleted FROM comment WHERE article_id = ? AND deleted = 0 ORDER BY create_time desc
+2021-09-24 16:48:19.648 DEBUG 6464 --- [http-nio-80-exec-8] c.y.e.m.C.listCommentByArticleId         : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:48:19.657 DEBUG 6464 --- [http-nio-80-exec-8] c.y.e.m.C.listCommentByArticleId         : <==      Total: 14
+2021-09-24 16:48:26.007 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.m.A.pageArticleDTOWeb_mpCount      : ==>  Preparing: SELECT COUNT(*) FROM article WHERE deleted = 0
+2021-09-24 16:48:26.007 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.m.A.pageArticleDTOWeb_mpCount      : ==> Parameters: 
+2021-09-24 16:48:26.014 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.m.A.pageArticleDTOWeb_mpCount      : <==      Total: 1
+2021-09-24 16:48:26.015 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.m.ArticleMapper.pageArticleDTOWeb  : ==>  Preparing: SELECT id, title, create_time, update_time FROM article where deleted = 0 ORDER BY update_time DESC LIMIT ?
+2021-09-24 16:48:26.015 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.m.ArticleMapper.pageArticleDTOWeb  : ==> Parameters: 8(Long)
+2021-09-24 16:48:26.021 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.m.ArticleMapper.pageArticleDTOWeb  : <==      Total: 8
+2021-09-24 16:48:26.022 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.mapper.TagMapper.listTagVo         : ==>  Preparing: SELECT t1.*, COUNT(t2.article_id) article_counts FROM tag t1 LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id and t2.deleted = 0 WHERE t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:48:26.022 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.mapper.TagMapper.listTagVo         : ==> Parameters: 
+2021-09-24 16:48:26.030 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.mapper.TagMapper.listTagVo         : <==      Total: 16
+2021-09-24 16:48:26.031 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.m.CategoryMapper.listCategoryVo    : ==>  Preparing: SELECT t1.id, t1.NAME, COUNT(t2.category_id) article_counts FROM category t1 LEFT JOIN article t2 ON t1.id = t2.category_id and t2.deleted = 0 where t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:48:26.032 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.m.CategoryMapper.listCategoryVo    : ==> Parameters: 
+2021-09-24 16:48:26.040 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.m.CategoryMapper.listCategoryVo    : <==      Total: 7
+2021-09-24 16:48:26.041 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.mapper.UserMapper.getUser          : ==>  Preparing: SELECT * FROM user WHERE deleted = 0 AND id = ?
+2021-09-24 16:48:26.041 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.mapper.UserMapper.getUser          : ==> Parameters: 1(Long)
+2021-09-24 16:48:26.049 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.mapper.UserMapper.getUser          : <==      Total: 1
+2021-09-24 16:48:26.050 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.mapper.UserMapper.updateById       : ==>  Preparing: UPDATE user SET qq=?, email=?, wechat=?, avatar=?, banner=?, nickname=?, user_signature=?, views=?, create_time=?, update_time=? WHERE id=? AND deleted=0
+2021-09-24 16:48:26.051 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.mapper.UserMapper.updateById       : ==> Parameters: 2044619214(String), lyric0926@163.com(String), 17805428855(String), https://yi-blog.oss-cn-hangzhou.aliyuncs.com/2021-07-11/6a879a71-ca69-4ef3-a5f7-e8c6f67dd0b7Screenshot_20210424_204530.jpg(String), https://yi-blog.oss-cn-hangzhou.aliyuncs.com/2021-09-16/fdb78008-7df7-4224-8d3a-c97268b9b066wallhaven-v95om8.jpg(String), lyric(String), 许多事情我们的确无能为力。
+但即使如此我们也不该因此消沉不是吗？
+乐观起来，忘记伤痛继续前行远比一次又一次揭开伤疤要好得多！(String), 3457(Integer), 2020-09-02 15:16:51.0(Timestamp), 2021-09-24 16:48:26.05(Timestamp), 1(Long)
+2021-09-24 16:48:26.067 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.mapper.UserMapper.updateById       : <==    Updates: 1
+2021-09-24 16:48:26.068 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.m.T.listTechnicalSupportVo         : ==>  Preparing: SELECT * FROM technical_support where deleted = 0
+2021-09-24 16:48:26.068 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.m.T.listTechnicalSupportVo         : ==> Parameters: 
+2021-09-24 16:48:26.075 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.m.T.listTechnicalSupportVo         : <==      Total: 3
+2021-09-24 16:48:28.017 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.mapper.UserMapper.getUser          : ==>  Preparing: SELECT * FROM user WHERE deleted = 0 AND id = ?
+2021-09-24 16:48:28.018 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.mapper.UserMapper.getUser          : ==> Parameters: 1(Long)
+2021-09-24 16:48:28.025 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.mapper.UserMapper.getUser          : <==      Total: 1
+2021-09-24 16:48:28.026 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-09-24 16:48:28.026 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:48:28.034 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-09-24 16:48:28.036 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.mapper.ArticleMapper.updateById    : ==>  Preparing: UPDATE article SET title=?, content=?, stamp=?, comments=?, status=?, recommend=?, appreciate=?, views=?, create_time=?, update_time=?, category_id=? WHERE id=? AND deleted=0
+2021-09-24 16:48:28.037 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.mapper.ArticleMapper.updateById    : ==> Parameters: 构建博客的过程(String), * 打算加速度计
+* 啊速度加啊四的记录数据
+* 啊实打实角度来看 
+* 大撒旦实打实
+
+1. 啊实打实大大是阿萨大时代是
+2. 啊实打实大大是阿萨大时代是
+3. 啊实打实大大是阿萨大时代是
+4. 啊实打实大大是阿萨大时代是
+
+> 12312312123123123123****
+
+我觉得世界很美好,你呢？哈哈哈哈哈
+
+ 
+(String), true(Boolean), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 148(Integer), 2021-09-10 17:57:45.0(Timestamp), 2021-09-16 14:28:58.0(Timestamp), 1(Long), 1436267639821877250(Long)
+2021-09-24 16:48:28.051 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.mapper.ArticleMapper.updateById    : <==    Updates: 1
+2021-09-24 16:48:28.053 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.m.CategoryMapper.listCategoryVo    : ==>  Preparing: SELECT t1.id, t1.NAME, COUNT(t2.category_id) article_counts FROM category t1 LEFT JOIN article t2 ON t1.id = t2.category_id and t2.deleted = 0 where t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:48:28.053 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.m.CategoryMapper.listCategoryVo    : ==> Parameters: 
+2021-09-24 16:48:28.063 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.m.CategoryMapper.listCategoryVo    : <==      Total: 7
+2021-09-24 16:48:28.063 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.mapper.ArticleMapper.selectById    : ==>  Preparing: SELECT id,title,content,first_picture,stamp,comments,original,status,recommend,appreciate,views,create_time,update_time,category_id,user_id,deleted FROM article WHERE id=? AND deleted=0
+2021-09-24 16:48:28.063 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.mapper.ArticleMapper.selectById    : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:48:28.070 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.mapper.ArticleMapper.selectById    : <==      Total: 1
+2021-09-24 16:48:28.071 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.mapper.TagMapper.listTagVo         : ==>  Preparing: SELECT t1.*, COUNT(t2.article_id) article_counts FROM tag t1 LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id and t2.deleted = 0 WHERE t1.deleted = 0 GROUP BY t1.id
+2021-09-24 16:48:28.071 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.mapper.TagMapper.listTagVo         : ==> Parameters: 
+2021-09-24 16:48:28.078 DEBUG 6464 --- [http-nio-80-exec-7] c.y.e.mapper.TagMapper.listTagVo         : <==      Total: 16
+2021-09-24 16:48:28.078 DEBUG 6464 --- [http-nio-80-exec-7] .e.m.A.listArticleTagRelationByArticleId : ==>  Preparing: SELECT t1.article_id, t1.tag_id, t2.NAME tag_name FROM `article_tag_relation` t1 LEFT JOIN tag t2 ON t1.tag_id = t2.id where t1.deleted = 0 and t1.article_id = ?
+2021-09-24 16:48:28.079 DEBUG 6464 --- [http-nio-80-exec-7] .e.m.A.listArticleTagRelationByArticleId : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:48:28.085 DEBUG 6464 --- [http-nio-80-exec-7] .e.m.A.listArticleTagRelationByArticleId : <==      Total: 1
+2021-09-24 16:48:28.195 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.m.C.listCommentByArticleId         : ==>  Preparing: SELECT id, avatar, nickname, content, email, website, manager_comment, article_id, parent_comment_id, browser_name, browser_version, os_name, create_time, deleted FROM comment WHERE article_id = ? AND deleted = 0 ORDER BY create_time desc
+2021-09-24 16:48:28.195 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.m.C.listCommentByArticleId         : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:48:28.203 DEBUG 6464 --- [http-nio-80-exec-9] c.y.e.m.C.listCommentByArticleId         : <==      Total: 14
+2021-09-24 16:48:43.215 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.m.C.listCommentByArticleId         : ==>  Preparing: SELECT id, avatar, nickname, content, email, website, manager_comment, article_id, parent_comment_id, browser_name, browser_version, os_name, create_time, deleted FROM comment WHERE article_id = ? AND deleted = 0 ORDER BY create_time desc
+2021-09-24 16:48:43.215 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.m.C.listCommentByArticleId         : ==> Parameters: 1436267639821877250(Long)
+2021-09-24 16:48:43.223 DEBUG 6464 --- [http-nio-80-exec-2] c.y.e.m.C.listCommentByArticleId         : <==      Total: 14
+2021-09-24 16:49:04.456  WARN 1332 --- [main] ory$DuplicateJsonObjectContextCustomizer : 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/D:/maven-repository/blog-enhancement-maven/blog-enhancement-repository/org/json/json/20170516/json-20170516.jar!/org/json/JSONObject.class
+	jar:file:/D:/maven-repository/blog-enhancement-maven/blog-enhancement-repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-09-24 16:49:04.498  INFO 1332 --- [main] c.y.e.EnhancementApplicationTests        : Starting EnhancementApplicationTests using Java 1.8.0_261 on LAPTOP-P12KV1HJ with PID 1332 (started by lyric in D:\blog-enhancement)
+2021-09-24 16:49:04.499 DEBUG 1332 --- [main] c.y.e.EnhancementApplicationTests        : Running with Spring Boot v2.5.0, Spring v5.3.7
+2021-09-24 16:49:04.500  INFO 1332 --- [main] c.y.e.EnhancementApplicationTests        : No active profile set, falling back to default profiles: default
+2021-09-24 16:49:06.287  WARN 1332 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.yi.enhancement.model.entity.UserAvatar".
+2021-09-24 16:49:08.933  INFO 1332 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-09-24 16:49:11.112  INFO 1332 --- [main] c.y.e.EnhancementApplicationTests        : Started EnhancementApplicationTests in 7.503 seconds (JVM running for 8.458)
+2021-09-24 16:49:11.114  INFO 1332 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2021-09-24 16:49:11.117  INFO 1332 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
