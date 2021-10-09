@@ -6,6 +6,7 @@
 <body>
 <div th:replace="_fragments :: menu(2)"></div>
 <!--中间部分-->
+<div id="main">
     <div class="ui grid" style="margin:auto">
         <div class="ui four wide column mobile-hidden animate__animated animate__fadeIn" style="margin-top: 50px">
             <div class="ui segment m-shadow m-block-display-color">
@@ -16,11 +17,11 @@
                         th:text="${user.nickname}"></h1>
                     <div>
                         <div style="margin-top: 15px">
-                        <span class="m-font-pattern m-opacity-mini m-font-spaced">
-                           <i class="iconfont icon-location" style="margin-right: 5px"></i>
-                           <span style="font-weight: normal;font-size: 15px" th:text="${user.geographic.province}"></span>
-                           <span style="font-weight: normal;font-size: 15px" th:text="${user.geographic.city}"></span>
-                        </span>
+                    <span class="m-font-pattern m-opacity-mini m-font-spaced">
+                       <i class="iconfont icon-location" style="margin-right: 5px"></i>
+                       <span style="font-weight: normal;font-size: 15px" th:text="${user.geographic.province}"></span>
+                       <span style="font-weight: normal;font-size: 15px" th:text="${user.geographic.city}"></span>
+                    </span>
                         </div>
                         <div class="" style="margin-top: 5px">
                             <h5 class="m-font-pattern m-opacity-mini m-font-spaced">
@@ -33,8 +34,8 @@
                     </div>
                 </div>
                 <div class="ui fluid vertical menu m-signature-background-color" style="text-align: left;">
-                <span class="item m-font-pattern m-opacity-mini m-font-style">Archives:<span
-                        th:text="${articlePage.total}">29</span></span>
+            <span class="item m-font-pattern m-opacity-mini m-font-style">Archives:<span
+                    th:text="${articlePage.total}">29</span></span>
                     <span class="item m-font-pattern m-opacity-mini m-font-style">QQ:<span
                             th:text="${user.qq}">29</span></span>
                     <span class="item m-font-pattern m-opacity-mini m-font-style">wechat:<span
@@ -45,14 +46,15 @@
             </div>
             <div class="ui segment m-shadow m-block-display-color animate__animated animate__fadeIn">
                 <div style="display: flex;justify-content:center;">
-                    <img src="https://shawnzeng.com/wp-content/uploads/2018/07/IMG_1970.jpg"
+                    <img id="nothing" src="https://yi-blog.oss-cn-hangzhou.aliyuncs.com/2021-07-10/1111.png"
+                         th:attr="data-content='没错，我没有女盆友'"
                          style="width:50px;height:50px;vertical-align:-20px;border-radius:50%;margin-right:5px;margin-bottom:5px;-webkit-box-shadow:1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);border: 2px solid #fff;"/>
                     <div class="chest">
                         <div class="heart left sided top"></div>
                         <div class="heart centers"></div>
                         <div class="heart right sided"></div>
                     </div>
-                    <img src="https://shawnzeng.com/wp-content/uploads/2018/07/IMG_1970.jpg"
+                    <img src="https://yi-blog.oss-cn-hangzhou.aliyuncs.com/2021-07-11/6a879a71-ca69-4ef3-a5f7-e8c6f67dd0b7Screenshot_20210424_204530.jpg"
                          style="width:50px;height:50px;vertical-align:-20px;border-radius:50%;margin-bottom:5px;-webkit-box-shadow:1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);border: 2px solid #fff;"/><br/>
                 </div>
                 <div style="margin-top: 10px"><span id="love_time"></span></div>
@@ -60,6 +62,7 @@
         </div>
         <div class="ui eight wide column animate__animated animate__fadeIn" style="margin-top: 50px;">
             <div class="ui segment m-shadow m-block-display-color">
+                <img  th:src="${user.banner}" style="width: 100%;height: 100%">
                 <div class="ui top attached segment m-border-none" style="background: transparent">
                     <div class="ui middle aligned two column grid">
                         <div class="left aligned column">
@@ -84,9 +87,9 @@
                                                 </time>
                                             </div>
                                             <div>
-                                                <span class="meta m-article-title">
-                                                    <a href="#" th:text="${article.title}" th:href="@{/article/{id}(id=${article.id})}">Javascript 连等赋值</a>
-                                                </span>
+                                            <span class="meta m-article-title">
+                                                <a href="#" th:text="${article.title}" th:href="@{/article/{id}(id=${article.id})}">Javascript 连等赋值</a>
+                                            </span>
                                             </div>
                                         </div>
                                     </li>
@@ -99,7 +102,7 @@
         </div>
         <div class="ui four wide column mobile-hidden animate__animated animate__fadeIn" style="margin-top: 50px">
             <div class="ui segment m-shadow m-block-display-color">
-                <div class="ui segment m-signature-background-color">
+                <div class="ui m-font-pattern segment m-signature-background-color">
                     <div th:text="${user.userSignature}"
                          style="word-wrap:break-word;text-align: left;white-space: pre-line;line-height: 26px">
                     </div>
@@ -156,8 +159,9 @@
             </div>
         </div>
     </div>
-    <footer th:replace="_fragments :: footer">
-    </footer>
+</div>
+<footer th:replace="_fragments :: footer">
+</footer>
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>

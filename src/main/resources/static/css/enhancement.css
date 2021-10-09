@@ -4,6 +4,19 @@
     margin: 0 5px;
 }
 
+a:hover {
+    color: #c9cacc;
+    text-decoration:none;
+}
+
+#main {
+    width: 1280px;
+    margin: 8px auto 0;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 @keyframes smile {
     2%, 24%, 80% {
         -webkit-transform: translate(0, 1.5px) rotate(1.5deg);
@@ -365,6 +378,14 @@
 }
 
 .author a:hover{
+    color: #ffffff;
+}
+
+.my-name a:hover{
+    color: #ffffff;
+}
+
+.safe-link a:hover{
     color: #ffffff;
 }
 

@@ -6,6 +6,7 @@
 <body>
 <div th:replace="_fragments :: menu(1)"></div>
 <!--中间部分-->
+<div id="main">
     <div class="ui grid" style="margin:auto">
         <div class="ui four wide column mobile-hidden animate__animated animate__fadeIn" style="margin-top: 50px">
             <div class="ui segment m-shadow m-block-display-color">
@@ -148,6 +149,8 @@
             </div>
         </div>
     </div>
+</div>
+
 <footer th:replace="_fragments :: footer">
 </footer>
 <th:block th:replace="_fragments :: script">

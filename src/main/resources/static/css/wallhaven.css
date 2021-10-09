@@ -1280,16 +1280,6 @@ body {
     overflow: hidden
 }
 
-#main {
-    position: relative;
-    min-height: 100%;
-    min-width: 800px;
-    border-color: #000;
-    border-top-width: 50px;
-    transition: .15s border-top-width;
-    background: #171717 url(/images/bg-dark-grain.png) top left repeat
-}
-
 #searchbar:not(.collapsed) ~ #main {
     border-top-width: 105px
 }

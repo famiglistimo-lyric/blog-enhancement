@@ -1,5 +1,7 @@
 package com.yi.enhancement;
 
+import cn.hutool.core.date.DatePattern;
+import cn.hutool.core.date.DateUtil;
 import com.yi.enhancement.util.AddressUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -27,4 +29,12 @@ class EnhancementApplicationTests {
         String city = AddressUtils.getCity("119.146.182.130");
         System.out.println(city);
     }
+
+    @Test
+    void test2(){
+        String format = DateUtil.format(DateUtil.date(), DatePattern.PURE_DATE_PATTERN);
+        System.out.println(format);
+    }
+
+
 }
