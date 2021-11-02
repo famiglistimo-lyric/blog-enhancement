@@ -149,6 +149,16 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
+    public void deleteArticle(Long articleId) {
+        QueryWrapper<Article> queryWrapper1 = new QueryWrapper<>();
+        queryWrapper1.eq("id", articleId);
+        this.remove(queryWrapper1);
+        QueryWrapper<ArticleTagRelation> queryWrapper2 = new QueryWrapper<>();
+        queryWrapper2.eq("article_id", articleId);
+        articleTagRelationService.remove(queryWrapper2);
+    }
+
+    @Override
     public ArticleDTO getArticle(Long id) {
         return this.baseMapper.getArticle(id);
     }
@@ -180,9 +190,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
             articleTagRelation.setArticleId(article.getId());
             willInsertArticleTagRelationList.add(articleTagRelation);
         }
-        QueryWrapper<ArticleTagRelation> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("article_id", article.getId());
-        articleTagRelationService.remove(queryWrapper);
+        articleTagRelationService.deleteReally(article.getId());
         articleTagRelationService.saveBatch(willInsertArticleTagRelationList);
         return true;
     }

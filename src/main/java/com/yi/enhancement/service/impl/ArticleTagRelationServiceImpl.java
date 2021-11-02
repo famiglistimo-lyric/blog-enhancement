@@ -34,4 +34,9 @@ public class ArticleTagRelationServiceImpl extends ServiceImpl<ArticleTagRelatio
     public List<ArticleTagRelation> listArticleTagRelationByArticleId(Long articleId) {
         return this.baseMapper.listArticleTagRelationByArticleId(articleId);
     }
+
+    @Override
+    public void deleteReally(Long articleId) {
+        this.baseMapper.deleteReally(articleId);
+    }
 }

@@ -56,4 +56,14 @@ public class ArticleController {
         jsonResult.setMsg(Constant.HANDLE_SUCCESS);
         return jsonResult;
     }
+
+    @GetMapping("/deleteArticle")
+    public JsonResult deleteArticle(Long articleId) {
+        articleService.deleteArticle(articleId);
+        JsonResult jsonResult = new JsonResult();
+        jsonResult.setSuccess(true);
+        jsonResult.setMsg(Constant.HANDLE_SUCCESS);
+        return jsonResult;
+    }
+
 }

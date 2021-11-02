@@ -24,6 +24,7 @@ public interface ArticleTagRelationMapper extends BaseMapper<ArticleTagRelation>
 
     /**
      * 根据标签Id得到属于该标签的所有文章Id
+     *
      * @param tagId 标签Id
      * @return 所有文章Id
      */
@@ -31,6 +32,7 @@ public interface ArticleTagRelationMapper extends BaseMapper<ArticleTagRelation>
 
     /**
      * 根据文章id获取该文章的所有标签
+     *
      * @param articleId 文章id
      * @return tag列表
      */
@@ -38,6 +40,7 @@ public interface ArticleTagRelationMapper extends BaseMapper<ArticleTagRelation>
 
     /**
      * 根据文章Id查出所有的文章标签
+     *
      * @param articleIds 文章id
      * @return 文章和标签的关系DTO
      */
@@ -45,8 +48,16 @@ public interface ArticleTagRelationMapper extends BaseMapper<ArticleTagRelation>
 
     /**
      * 根绝文章Id查出所有的文章标签
+     *
      * @param articleId 文章id
      * @return 文章和标签的关系
      */
     List<ArticleTagRelation> listArticleTagRelationByArticleId(Long articleId);
+
+    /**
+     * 根据文章id删除文章标签
+     *
+     * @param articleId 文章id
+     */
+    void deleteReally(@Param("articleId") Long articleId);
 }

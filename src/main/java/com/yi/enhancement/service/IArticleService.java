@@ -87,5 +87,12 @@ public interface IArticleService extends IService<Article> {
      * @param queryCondition 搜索条件
      * @return 文章列表
      */
-    Map<String,List<ArticleVo>> listArticleVo(Long categoryId, Long tagId, String queryCondition);
+    Map<String, List<ArticleVo>> listArticleVo(Long categoryId, Long tagId, String queryCondition);
+
+    /**
+     * 删除文章
+     *
+     * @param articleId 文章id
+     */
+    void deleteArticle(Long articleId);
 }

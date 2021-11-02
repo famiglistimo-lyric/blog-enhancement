@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author lwj
@@ -18,6 +18,7 @@ public interface IArticleTagRelationService extends IService<ArticleTagRelation>
 
     /**
      * 根据标签Id得到属于该标签的所有文章Id
+     *
      * @param tagId 标签Id
      * @return 所有文章Id
      */
@@ -25,6 +26,7 @@ public interface IArticleTagRelationService extends IService<ArticleTagRelation>
 
     /**
      * 根据文章Id查出所有的文章标签
+     *
      * @param articleIds 文章id
      * @return 文章和标签的关系DTO
      */
@@ -32,8 +34,16 @@ public interface IArticleTagRelationService extends IService<ArticleTagRelation>
 
     /**
      * 根绝文章Id查出所有的文章标签
+     *
      * @param articleId 文章id
      * @return 文章和标签的关系
      */
     List<ArticleTagRelation> listArticleTagRelationByArticleId(Long articleId);
+
+    /**
+     * 根据文章id删除文章标签
+     *
+     * @param articleId 文章id
+     */
+    void deleteReally(Long articleId);
 }
