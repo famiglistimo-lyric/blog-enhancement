@@ -1,5 +1,6 @@
 package com.yi.enhancement;
 
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.yi.enhancement.util.AddressUtils;
@@ -40,9 +41,7 @@ class EnhancementApplicationTests {
 
     @Test
     void test3(){
-        String s = "{\"pay_date\":\"2021-10-19 14:37:37\",\"biz_scene\":\"ENTRUST_TRANSFER\",\"action_type\":\"FINISH\",\"pay_fund_order_id\":\"20211019110070001506820011639428\",\"origin_interface\":\"alipay.fund.trans.uni.transfer\",\"out_biz_no\":\"82088daf8ddb4a179bfc3b4b0de0bb11\",\"trans_amount\":\"0.01\",\"product_code\":\"SINGLE_TRANSFER_NO_PWD\",\"order_id\":\"20211019110070000006820063412098\",\"status\":\"SUCCESS\"}";
-        JSONObject jsonObject = JSONUtil.parseObj(s);
-        Object out_biz_no = jsonObject.get("out_biz_no");
-        System.out.println(out_biz_no.toString());
+        String thisMonthStart = DateUtil.beginOfMonth(DateUtil.date()).toString("yyyy-MM-dd HH:mm:ss");
+        System.out.println(thisMonthStart);
     }
 }
