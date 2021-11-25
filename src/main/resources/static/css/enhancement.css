@@ -1,3 +1,8 @@
+#content img {
+    display: block;
+    margin: 20px auto;
+}
+
 .my-face {
     animation: smile 5s infinite ease-in-out;
     display: inline-block;
@@ -6,7 +11,7 @@
 
 a:hover {
     color: #c9cacc;
-    text-decoration:none;
+    text-decoration: none;
 }
 
 #main {
@@ -126,7 +131,7 @@ a:hover {
     }
 }
 
-#my-face{
+#my-face {
     -webkit-animation: haha 5s infinite ease-in-out;
     animation: haha 5s infinite ease-in-out;
     display: inline-block;
@@ -377,15 +382,15 @@ a:hover {
     font-weight: normal;
 }
 
-.author a:hover{
+.author a:hover {
     color: #ffffff;
 }
 
-.my-name a:hover{
+.my-name a:hover {
     color: #ffffff;
 }
 
-.safe-link a:hover{
+.safe-link a:hover {
     color: #ffffff;
 }
 
@@ -426,9 +431,11 @@ a:hover {
     font-weight: 100 !important;
     line-height: 1.8 !important;
 }
-.m-reply:hover{
+
+.m-reply:hover {
     color: #48dbfb !important;
 }
+
 .chest {
     width: 50px;
     height: 50px;
