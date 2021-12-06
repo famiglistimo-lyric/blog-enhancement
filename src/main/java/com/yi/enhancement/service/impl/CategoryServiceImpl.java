@@ -43,17 +43,18 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
 
     @Override
     public List<CategoryVo> listCategoryVo() {
-        return this.baseMapper.listCategoryVo();
+        List<CategoryVo> categoryVos = this.baseMapper.listCategoryVo();
+        return categoryVos.stream().filter((element) -> element.getArticleCounts() > 0).collect(Collectors.toList());
     }
 
     @Override
     public List<CategoryVo> listCategoryVoHit(Long articleId) {
-        List<CategoryVo> categoryVos = this.baseMapper.listCategoryVo();
+        List<CategoryVo> categoryVos = this.listCategoryVo();
         Article article = articleService.getById(articleId);
         Long categoryId = article.getCategoryId();
         for (CategoryVo categoryVo : categoryVos) {
             Long id = categoryVo.getId();
-            if(id.equals(categoryId)){
+            if (id.equals(categoryId)) {
                 categoryVo.setHit(true);
                 break;
             }
@@ -76,7 +77,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     @Override
     public boolean saveCategory(CategoryDTO categoryDTO) throws CustomException {
         Category category = new Category();
-        BeanUtils.copyProperties(categoryDTO,category);
+        BeanUtils.copyProperties(categoryDTO, category);
         try {
             this.saveOrUpdate(category);
         } catch (DuplicateKeyException e) {

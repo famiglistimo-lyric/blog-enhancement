@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author lwj
@@ -46,12 +46,13 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements ITagS
 
     @Override
     public List<TagVo> listTagVo() {
-        return this.baseMapper.listTagVo();
+        List<TagVo> tagVos = this.baseMapper.listTagVo();
+        return tagVos.stream().filter((element) -> element.getArticleCounts() > 0).collect(Collectors.toList());
     }
 
     @Override
     public List<TagVo> listTagVoHit(Long articleId) {
-        List<TagVo> tagVoList = this.baseMapper.listTagVo();
+        List<TagVo> tagVoList = this.listTagVo();
         List<ArticleTagRelation> articleTagRelationList = articleTagRelationService.listArticleTagRelationByArticleId(articleId);
         List<Long> hitTagIdList = articleTagRelationList.stream().map(ArticleTagRelation::getTagId).collect(Collectors.toList());
         return tagVoList.stream().peek((element) -> {
@@ -76,7 +77,7 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements ITagS
     @Override
     public boolean saveTag(TagDTO tagDTO) throws CustomException {
         Tag tag = new Tag();
-        BeanUtils.copyProperties(tagDTO,tag);
+        BeanUtils.copyProperties(tagDTO, tag);
         try {
             this.saveOrUpdate(tag);
         } catch (DuplicateKeyException e) {

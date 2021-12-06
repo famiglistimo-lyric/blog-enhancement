@@ -71,7 +71,8 @@ public class MainController {
         model.addAttribute("articlePage", articleService.pageArticleWeb(null, null, null, currentPage, pageSize));
         model.addAttribute("tagList", tagService.listTagVo());
         model.addAttribute("categoryList", categoryService.listCategoryVo());
-        model.addAttribute("user", userService.updateViews(userId));
+        User user = userService.updateViews(userId);
+        model.addAttribute("user", user);
         model.addAttribute("technicalSupportList", technicalSupportService.listTechnicalSupportVo());
         return "index";
     }

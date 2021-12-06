@@ -134,9 +134,6 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         if (tagId != null) {
             articleIdList = articleTagRelationService.listArticleId(tagId);
         }
-        if(CollectionUtils.isEmpty(articleIdList)){
-            return null;
-        }
         List<ArticleVo> articleVoList = this.baseMapper.listArticleVo(categoryId, articleIdList, queryCondition);
         for (ArticleVo articleVo : articleVoList) {
             Date createTime = articleVo.getCreateTime();
