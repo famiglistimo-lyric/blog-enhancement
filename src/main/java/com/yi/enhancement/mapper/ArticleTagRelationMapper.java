@@ -52,7 +52,7 @@ public interface ArticleTagRelationMapper extends BaseMapper<ArticleTagRelation>
      * @param articleId 文章id
      * @return 文章和标签的关系
      */
-    List<ArticleTagRelation> listArticleTagRelationByArticleId(Long articleId);
+    List<ArticleTagRelation> listArticleTagRelationByArticleId(@Param("articleId") Long articleId, @Param("deleted") Integer deleted);
 
     /**
      * 根据文章id删除文章标签

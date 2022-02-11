@@ -43,7 +43,7 @@ public interface ArticleMapper extends BaseMapper<Article> {
      * @param pageCondition 分页条件
      * @return 文章列表
      */
-    IPage<ArticleDTO> pageArticleDTOWeb(Page<ArticleDTO> pageCondition);
+    IPage<ArticleDTO> pageArticleDTOWeb(Page<ArticleDTO> pageCondition, @Param("status") Integer status);
 
     /**
      * 根据文章id获取文章详情(不获取内容)
@@ -69,7 +69,7 @@ public interface ArticleMapper extends BaseMapper<Article> {
      * @param queryCondition 搜索条件
      * @return 文章列表
      */
-    List<ArticleVo> listArticleVo(Long categoryId, @Param("articleIdList") List<Long> articleIdList, String queryCondition);
+    List<ArticleVo> listArticleVo(Long categoryId, @Param("articleIdList") List<Long> articleIdList, String queryCondition, @Param("status") Integer status);
 
 
 }

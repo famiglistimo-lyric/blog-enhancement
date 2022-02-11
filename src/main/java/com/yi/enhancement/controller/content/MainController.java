@@ -8,6 +8,7 @@ import com.yi.enhancement.interceptor.EnterInterceptor;
 import com.yi.enhancement.model.dto.UserDTO;
 import com.yi.enhancement.model.entity.Article;
 import com.yi.enhancement.model.entity.Comment;
+import com.yi.enhancement.model.entity.NutritionFacts;
 import com.yi.enhancement.model.entity.User;
 import com.yi.enhancement.model.vo.CategoryVo;
 import com.yi.enhancement.model.vo.TagVo;

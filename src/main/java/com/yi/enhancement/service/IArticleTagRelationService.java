@@ -32,13 +32,15 @@ public interface IArticleTagRelationService extends IService<ArticleTagRelation>
      */
     List<ArticleTagRelationDTO> listArticleTagRelation(List<Long> articleIds);
 
+
     /**
-     * 根绝文章Id查出所有的文章标签
+     * 根据文章Id查出所有的文章标签
      *
      * @param articleId 文章id
+     * @param deleted   删除标志
      * @return 文章和标签的关系
      */
-    List<ArticleTagRelation> listArticleTagRelationByArticleId(Long articleId);
+    List<ArticleTagRelation> listArticleTagRelationByArticleId(Long articleId, Integer deleted);
 
     /**
      * 根据文章id删除文章标签

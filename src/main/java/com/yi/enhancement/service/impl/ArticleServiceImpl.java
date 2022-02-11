@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.yi.enhancement.constant.enums.DeletedEnum;
+import com.yi.enhancement.constant.enums.StatusEnum;
 import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.exception.ExceptionCodeEnum;
 import com.yi.enhancement.model.dto.ArticleDTO;
@@ -124,7 +126,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
             pageSize = 10;
         }
         Page<ArticleDTO> pageCondition = new Page<>(page, pageSize);
-        return this.baseMapper.pageArticleDTOWeb(pageCondition);
+        return this.baseMapper.pageArticleDTOWeb(pageCondition, StatusEnum.PUBLIC.getCode());
     }
 
     @Override
@@ -134,7 +136,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         if (tagId != null) {
             articleIdList = articleTagRelationService.listArticleId(tagId);
         }
-        List<ArticleVo> articleVoList = this.baseMapper.listArticleVo(categoryId, articleIdList, queryCondition);
+        List<ArticleVo> articleVoList = this.baseMapper.listArticleVo(categoryId, articleIdList, queryCondition, StatusEnum.PUBLIC.getCode());
         for (ArticleVo articleVo : articleVoList) {
             Date createTime = articleVo.getCreateTime();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
@@ -181,13 +183,17 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         }
         List<Tag> tagList = articleDTO.getTagList();
         // 将新标签插入数据库
-        List<Tag> willInsertTagList = tagList.stream().filter((item) -> item.getId() == null).collect(Collectors.toList());
-        tagService.saveBatch(willInsertTagList);
+        List<Tag> willSaveTagList = tagList.stream().filter((item) -> item.getId() == null).collect(Collectors.toList());
+        tagService.saveBatch(willSaveTagList);
         List<ArticleTagRelation> willInsertArticleTagRelationList = new ArrayList<>();
         for (Tag tag : tagList) {
             ArticleTagRelation articleTagRelation = new ArticleTagRelation();
             articleTagRelation.setTagId(tag.getId());
             articleTagRelation.setArticleId(article.getId());
+//            articleTagRelation.setDeleted(DeletedEnum.UNDELETED.getCode());
+//            if(!article.getStatus()){
+//                articleTagRelation.setDeleted(DeletedEnum.DELETED.getCode());
+//            }
             willInsertArticleTagRelationList.add(articleTagRelation);
         }
         articleTagRelationService.deleteReally(article.getId());

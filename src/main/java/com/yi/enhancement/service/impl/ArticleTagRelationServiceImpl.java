@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author lwj
@@ -31,8 +31,8 @@ public class ArticleTagRelationServiceImpl extends ServiceImpl<ArticleTagRelatio
     }
 
     @Override
-    public List<ArticleTagRelation> listArticleTagRelationByArticleId(Long articleId) {
-        return this.baseMapper.listArticleTagRelationByArticleId(articleId);
+    public List<ArticleTagRelation> listArticleTagRelationByArticleId(Long articleId, Integer deleted) {
+        return this.baseMapper.listArticleTagRelationByArticleId(articleId, deleted);
     }
 
     @Override

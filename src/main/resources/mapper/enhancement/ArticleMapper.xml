@@ -104,6 +104,9 @@
         FROM
         article
         where deleted = 0
+        <if test="status != null">
+            and status = #{status}
+        </if>
         ORDER BY
         update_time DESC
     </select>
@@ -161,6 +164,9 @@
         FROM
         article
         where deleted = 0
+        <if test="status != null">
+            and status = #{status}
+        </if>
         <if test="categoryId != null">
             and category_id = #{categoryId}
         </if>

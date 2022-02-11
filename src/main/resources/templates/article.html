@@ -6,19 +6,19 @@
 <body>
 <div th:replace="_fragments :: menu(2)"></div>
 <div id="main">
-    <div class="ui grid" style="margin:auto">
-        <div class="ui three wide column mobile-hidden" style="margin-top: 50px">
-            <div class="ui segment left aligned m-shadow m-block-display-color animate__animated animate__fadeIn">
-                <div style="padding: 5px 15px">
-                    <div style="display: flex;align-items: flex-start;justify-content: flex-start">
-                        <i class="m-special-font-style m-big-iconfont icon-file-copy"></i>
-                        <span class="m-special-font-style" style="font-weight: normal;font-size: 20px;margin-left: 5px">文章分类</span>
-                    </div>
-                    <ul id="categories">
-                        <li class="tag tag-nsfw" th:each="category : ${categoryList}">
-                            <a class="tag-name"
-                               th:href="@{/main/articleList/category/{categoryId}(categoryId=${category.id})}"
-                               th:if="${category.hit == false}"
+                            <div class="ui grid" style="margin:auto">
+                                <div class="ui three wide column mobile-hidden" style="margin-top: 50px">
+                                    <div class="ui segment left aligned m-shadow m-block-display-color animate__animated animate__fadeIn">
+                                        <div style="padding: 5px 15px">
+                                            <div style="display: flex;align-items: flex-start;justify-content: flex-start">
+                                                <i class="m-special-font-style m-big-iconfont icon-file-copy"></i>
+                                                <span class="m-special-font-style" style="font-weight: normal;font-size: 20px;margin-left: 5px">文章分类</span>
+                                            </div>
+                                            <ul id="categories">
+                                                <li class="tag tag-nsfw" th:each="category : ${categoryList}">
+                                                    <a class="tag-name"
+                                                       th:href="@{/main/articleList/category/{categoryId}(categoryId=${category.id})}"
+                                                       th:if="${category.hit == false}"
                                th:text="${category.name}+' ('+${category.articleCounts}+')'"></a>
                             <a class="tag-name"
                                th:href="@{/main/articleList/category/{categoryId}(categoryId=${category.id})}"

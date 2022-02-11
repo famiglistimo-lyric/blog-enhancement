@@ -2,6 +2,7 @@ package com.yi.enhancement.service.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.yi.enhancement.constant.enums.DeletedEnum;
 import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.exception.ExceptionCodeEnum;
 import com.yi.enhancement.model.dto.CategoryDTO;
@@ -53,7 +54,8 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements ITagS
     @Override
     public List<TagVo> listTagVoHit(Long articleId) {
         List<TagVo> tagVoList = this.listTagVo();
-        List<ArticleTagRelation> articleTagRelationList = articleTagRelationService.listArticleTagRelationByArticleId(articleId);
+        List<ArticleTagRelation> articleTagRelationList = articleTagRelationService
+                .listArticleTagRelationByArticleId(articleId, DeletedEnum.UNDELETED.getCode());
         List<Long> hitTagIdList = articleTagRelationList.stream().map(ArticleTagRelation::getTagId).collect(Collectors.toList());
         return tagVoList.stream().peek((element) -> {
             if (hitTagIdList.contains(element.getId())) {
