@@ -5,6 +5,7 @@
 </head>
 <body>
 <div th:replace="_fragments :: menu(2)"></div>
+<div th:replace="_fragments :: snow"></div>
 <div id="main">
     <div class="ui grid" style="margin:auto">
         <div class="ui three wide column mobile-hidden" style="margin-top: 50px">
@@ -48,7 +49,7 @@
         </div>
         <div class="ui ten wide column animate__animated animate__fadeIn" style="margin-top: 50px;">
             <div class="m-shadow">
-                <div class="ui segment" style="background: inherit">
+                <div class="ui segment" style="background: #1c1c1c !important;">
                     <div style="display: flex;justify-content: flex-start;align-items: center;">
                         <img class="ui small circular image" th:src="${user.avatar}"
                              style="width: 50px;margin-left: 20px">

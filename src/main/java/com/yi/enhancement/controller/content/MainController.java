@@ -65,7 +65,7 @@ public class MainController {
         this.userAvatarService = userAvatarService;
     }
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public String index(Model model, HttpServletResponse response) {
         Long userId = 1L;
         int currentPage = 1;
@@ -73,7 +73,7 @@ public class MainController {
         model.addAttribute("articlePage", articleService.pageArticleWeb(null, null, null, currentPage, pageSize));
         model.addAttribute("tagList", tagService.listTagVo());
         model.addAttribute("categoryList", categoryService.listCategoryVo());
-        User user = userService.updateViews(userId);
+        User user = userService.getUser(userId);
         model.addAttribute("user", user);
         model.addAttribute("technicalSupportList", technicalSupportService.listTechnicalSupportVo());
         return "index";

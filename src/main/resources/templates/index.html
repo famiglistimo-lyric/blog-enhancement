@@ -5,6 +5,7 @@
 </head>
 <body>
 <div th:replace="_fragments :: menu(1)"></div>
+<div th:replace="_fragments :: snow"></div>
 <!--中间部分-->
 <div id="main">
     <div class="ui grid" style="margin:auto">
@@ -27,7 +28,7 @@
                             <h5 class="m-font-pattern m-opacity-mini m-font-spaced">
                                 <div style="display: flex;align-items: center;justify-content: center">
                                     <i class="iconfont icon-eye" style="margin-right: 5px"></i>
-                                    <span class="m-font-style" style="font-size: 14px" th:text="${user.views}"></span>
+                                    <span id="views" class="m-font-style" style="font-size: 14px"></span>
                                 </div>
                             </h5>
                         </div>
@@ -157,6 +158,17 @@
 
 </th:block>
 <script>
+    var id = '[[${user.id}]]'
+    $.ajax({
+		url:"http://www.yizone.link/api/user/getViews",
+		type:"GET",
+        data:{id:id},
+		dataType : "json",
+		success:function (data) {
+		    var views = data.obj
+            $('#views').html(views)
+		},
+	});
     $('.technical-support-avatar')
         .popup()
     ;
