@@ -19,8 +19,6 @@ import java.util.List;
  * @author lwj
  * @since 2021-07-15
  */
-@Mapper
-@Repository
 public interface TechnicalSupportMapper extends BaseMapper<TechnicalSupport> {
 
     /**

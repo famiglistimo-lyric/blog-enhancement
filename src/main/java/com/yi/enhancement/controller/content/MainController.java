@@ -1,14 +1,12 @@
 package com.yi.enhancement.controller.content;
 
 import cn.hutool.core.util.StrUtil;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.yi.enhancement.constant.LoginConstant;
 import com.yi.enhancement.exception.CustomException.CustomException;
 import com.yi.enhancement.interceptor.EnterInterceptor;
 import com.yi.enhancement.model.dto.UserDTO;
 import com.yi.enhancement.model.entity.Article;
 import com.yi.enhancement.model.entity.Comment;
-import com.yi.enhancement.model.entity.NutritionFacts;
 import com.yi.enhancement.model.entity.User;
 import com.yi.enhancement.model.vo.CategoryVo;
 import com.yi.enhancement.model.vo.TagVo;
@@ -17,7 +15,10 @@ import com.yi.enhancement.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
@@ -64,11 +65,11 @@ public class MainController {
         this.userAvatarService = userAvatarService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/index")
     public String index(Model model, HttpServletResponse response) {
         Long userId = 1L;
         int currentPage = 1;
-        int pageSize = 8;
+        int pageSize = 16;
         model.addAttribute("articlePage", articleService.pageArticleWeb(null, null, null, currentPage, pageSize));
         model.addAttribute("tagList", tagService.listTagVo());
         model.addAttribute("categoryList", categoryService.listCategoryVo());

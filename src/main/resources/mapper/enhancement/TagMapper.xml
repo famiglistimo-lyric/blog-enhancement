@@ -27,9 +27,9 @@
         FROM
             tag t1
             LEFT JOIN article_tag_relation t2 ON t1.id = t2.tag_id
-            and t2.deleted = 0
         WHERE
             t1.deleted = 0
+            and t2.deleted = 0
             GROUP BY t1.id
             order by update_time desc
     </select>

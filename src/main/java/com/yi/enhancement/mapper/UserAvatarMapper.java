@@ -13,8 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author lwj
  * @since 2021-08-25
  */
-@Mapper
-@Repository
 public interface UserAvatarMapper extends BaseMapper<UserAvatar> {
 
 }

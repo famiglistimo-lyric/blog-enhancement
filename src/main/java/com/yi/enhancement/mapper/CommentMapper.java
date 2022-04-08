@@ -16,8 +16,6 @@ import java.util.List;
  * @author lwj
  * @since 2021-06-20
  */
-@Mapper
-@Repository
 public interface CommentMapper extends BaseMapper<Comment> {
 
     /**

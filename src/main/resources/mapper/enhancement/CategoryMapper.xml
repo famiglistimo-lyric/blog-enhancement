@@ -12,8 +12,8 @@
         FROM
             category t1
             LEFT JOIN article t2 ON t1.id = t2.category_id
-            and t2.deleted = 0
             where t1.deleted = 0
+            and t2.deleted = 0
             GROUP BY t1.id
             order by t1.update_time desc
     </select>
@@ -25,9 +25,9 @@
         FROM
             category t1
             LEFT JOIN article t2 ON t1.id = t2.category_id
+            where t1.deleted = 0
             and t2.deleted = 0
             and t2.status != 0
-            where t1.deleted = 0
             GROUP BY t1.id
     </select>
 </mapper>

@@ -14,10 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * @author: lyric
@@ -28,6 +25,13 @@ import java.util.UUID;
 @Slf4j
 @RequestMapping("/api")
 public class OssController {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String url = sc.nextLine();
+        String replace = url.replace("\\\"", "\"");
+        System.out.println(replace);
+    }
 
     @Resource
     OSS ossClient;
