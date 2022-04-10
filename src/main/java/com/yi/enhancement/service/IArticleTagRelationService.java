@@ -22,7 +22,7 @@ public interface IArticleTagRelationService extends IService<ArticleTagRelation>
      * @param tagId 标签Id
      * @return 所有文章Id
      */
-    List<Long> listArticleId(Long tagId);
+    List<Integer> listArticleId(Integer tagId);
 
     /**
      * 根据文章Id查出所有的文章标签
@@ -30,7 +30,7 @@ public interface IArticleTagRelationService extends IService<ArticleTagRelation>
      * @param articleIds 文章id
      * @return 文章和标签的关系DTO
      */
-    List<ArticleTagRelationDTO> listArticleTagRelation(List<Long> articleIds);
+    List<ArticleTagRelationDTO> listArticleTagRelation(List<Integer> articleIds);
 
 
     /**
@@ -40,12 +40,12 @@ public interface IArticleTagRelationService extends IService<ArticleTagRelation>
      * @param deleted   删除标志
      * @return 文章和标签的关系
      */
-    List<ArticleTagRelation> listArticleTagRelationByArticleId(Long articleId, Integer deleted);
+    List<ArticleTagRelation> listArticleTagRelationByArticleId(Integer articleId, Integer deleted);
 
     /**
      * 根据文章id删除文章标签
      *
      * @param articleId 文章id
      */
-    void deleteReally(Long articleId);
+    void deleteReally(Integer articleId);
 }

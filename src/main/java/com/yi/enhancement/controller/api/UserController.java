@@ -30,7 +30,7 @@ public class UserController {
     }
 
     @GetMapping("/getViews")
-    public JsonResult getViews(Long id) {
+    public JsonResult getViews(Integer id) {
         User user = userService.updateViews(id);
         JsonResult jsonResult = new JsonResult();
         jsonResult.setSuccess(true);
@@ -40,7 +40,7 @@ public class UserController {
     }
 
     @GetMapping("/getUser")
-    public JsonResult getUser(Long id) {
+    public JsonResult getUser(Integer id) {
         JsonResult jsonResult = new JsonResult();
         jsonResult.setSuccess(true);
         jsonResult.setMsg(Constant.HANDLE_SUCCESS);

@@ -21,22 +21,22 @@ import java.util.List;
 public class ArticleTagRelationServiceImpl extends ServiceImpl<ArticleTagRelationMapper, ArticleTagRelation> implements IArticleTagRelationService {
 
     @Override
-    public List<Long> listArticleId(Long tagId) {
+    public List<Integer> listArticleId(Integer tagId) {
         return this.baseMapper.listArticleId(tagId);
     }
 
     @Override
-    public List<ArticleTagRelationDTO> listArticleTagRelation(List<Long> articleIds) {
+    public List<ArticleTagRelationDTO> listArticleTagRelation(List<Integer> articleIds) {
         return this.baseMapper.listArticleTagRelation(articleIds);
     }
 
     @Override
-    public List<ArticleTagRelation> listArticleTagRelationByArticleId(Long articleId, Integer deleted) {
+    public List<ArticleTagRelation> listArticleTagRelationByArticleId(Integer articleId, Integer deleted) {
         return this.baseMapper.listArticleTagRelationByArticleId(articleId, deleted);
     }
 
     @Override
-    public void deleteReally(Long articleId) {
+    public void deleteReally(Integer articleId) {
         this.baseMapper.deleteReally(articleId);
     }
 }

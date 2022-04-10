@@ -20,7 +20,7 @@ public interface IUserService extends IService<User> {
      * @param userId 用户id
      * @return 用户信息
      */
-    User updateViews(Long userId);
+    User updateViews(Integer userId);
 
     /**
      * 保存用户信息
@@ -36,5 +36,5 @@ public interface IUserService extends IService<User> {
      * @param id 用户id
      * @return 用户信息
      */
-    UserDTO getUser(Long id);
+    UserDTO getUser(Integer id);
 }

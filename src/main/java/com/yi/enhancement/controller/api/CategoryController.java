@@ -56,7 +56,7 @@ public class CategoryController {
     }
 
     @GetMapping("/deleteCategory")
-    public JsonResult deleteCategory(Long id){
+    public JsonResult deleteCategory(Integer id){
         categoryService.deleteCategory(id);
         JsonResult jsonResult = new JsonResult();
         jsonResult.setSuccess(true);

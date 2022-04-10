@@ -59,12 +59,12 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
 
     @Override
     public void saveComment(Comment comment, HttpServletRequest request) {
-        Long parentCommentId = comment.getParentCommentId();
+        Integer parentCommentId = comment.getParentCommentId();
         // 不等于-1，说明有父级
         if (parentCommentId != -1) {
             comment.setParentCommentId(parentCommentId);
         } else {
-            comment.setParentCommentId(0L);
+            comment.setParentCommentId(0);
         }
         this.baseMapper.insert(comment);
     }

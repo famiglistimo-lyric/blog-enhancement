@@ -60,6 +60,36 @@
                 </div>
                 <div style="margin-top: 10px"><span id="love_time"></span></div>
             </div>
+            <div class="pulsing"></div>
+            <div class="card">
+                <div class="card-header">
+                    <!--                    <div class="img-container">-->
+                    <!--                        <img src="https://yi-blog.oss-cn-hangzhou.aliyuncs.com/music/%E4%BD%A0%E4%BC%9A%E6%88%90%E4%B8%BA%E4%BD%A0%E6%83%B3%E6%88%90%E4%B8%BA%E7%9A%84%E9%82%A3%E4%B8%AA%E4%BA%BA%20-%20%E6%A2%81%E5%8D%9A/dcd7807c7614ca099997e06b745023f.png"-->
+                    <!--                             alt="singer image" id="songImg">-->
+                    <!--                    </div>-->
+                    <div class="song-detail-container">
+                        <span class="title m-font-pattern m-font-style" id="title">你会成为你想的那个人 - 梁博</span>
+                    </div>
+                </div>
+
+                <div class="progress-container" id="progressContainer">
+                    <span class="progress" id="progress"></span>
+                </div>
+
+                <audio src="https://yi-blog.oss-cn-hangzhou.aliyuncs.com/music/%E4%BD%A0%E4%BC%9A%E6%88%90%E4%B8%BA%E4%BD%A0%E6%83%B3%E6%88%90%E4%B8%BA%E7%9A%84%E9%82%A3%E4%B8%AA%E4%BA%BA%20-%20%E6%A2%81%E5%8D%9A/%E6%A2%81%E5%8D%9A-%E4%BD%A0%E4%BC%9A%E6%88%90%E4%B8%BA%E4%BD%A0%E6%83%B3%E7%9A%84%E9%82%A3%E4%B8%AA%E4%BA%BA%28Live%29.mp3" id="player"></audio>
+                <div class="controls">
+                    <button class="control" id="prevBtn">
+                        <i class="fas fa-backward"></i>
+                    </button>
+                    <button class="control play" id="playBtn">
+                        <i class="fas fa-play" style="margin-left: 8px"></i>
+                        <i class="fas fa-pause" style="margin-left: 7px"></i>
+                    </button>
+                    <button class="control" id="nextBtn">
+                        <i class="fas fa-forward"></i>
+                    </button>
+                </div>
+            </div>
         </div>
         <div class="ui eight wide column animate__animated animate__fadeIn" style="margin-top: 50px;">
             <div class="ui segment m-shadow m-block-display-color">
@@ -71,33 +101,23 @@
                         </div>
                     </div>
                 </div>
-                <div class="ui attached segment m-border-none" style="background: transparent">
-                    <div>
-                        <th:block th:each="item : ${archiveMap}">
-                            <h2 class="ui left aligned">
-                                <div style="display: flex">
-                                    <span class="m-font-style m-special-font-style" th:text="${item.key}">2021</span>
+                <div id="default-article" class="ui attached segment m-padding-top-bottom-large list-content m-border-none animate__animated animate__fadeIn"
+                     style="background: inherit">
+                    <ul class="post-list">
+                        <li class="post-item" th:each="article : ${articlePage.records}">
+                            <div style="display: flex;align-items: center">
+                                <div class="meta m-font-style">
+                                    <time th:text="${#dates.format(article.updateTime,'yyyy-MM-dd')}"
+                                          itemprop="datePublished"></time>
                                 </div>
-                            </h2>
-                            <div class="list-content">
-                                <ul class="post-list">
-                                    <li class="post-item" th:each="article : ${item.value}">
-                                        <div style="display: flex;align-items: center">
-                                            <div class="meta m-font-style">
-                                                <time th:text="${#dates.format(article.createTime,'yyyy-MM-dd')}">
-                                                </time>
-                                            </div>
-                                            <div>
-                                            <span class="meta m-article-title">
-                                                <a href="#" th:text="${article.title}" th:href="@{/article/{id}(id=${article.id})}">Javascript 连等赋值</a>
-                                            </span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                                <div>
+                                    <span class="meta m-article-title">
+                                        <a href="#" th:text="${article.title}" th:href="@{/article/{id}(id=${article.id})}">Javascript 连等赋值</a>
+                                    </span>
+                                </div>
                             </div>
-                        </th:block>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -122,8 +142,9 @@
                     </div>
                     <ul id="categories">
                         <li class="tag tag-nsfw" th:each="category : ${categoryList}">
-                            <a class="tag-name" th:href="@{/main/articleList/category/{categoryId}(categoryId=${category.id})}" th:if="${category.hit == false}" th:text="${category.name}+' ('+${category.articleCounts}+')'"></a>
-                            <a class="tag-name" th:href="@{/main/articleList/category/{categoryId}(categoryId=${category.id})}" th:if="${category.hit == true}" th:text="${category.name}+' ('+${category.articleCounts}+')'" style="background-color: #5c3d3d"></a>
+                            <a class="tag-name" th:id = "category+${category.id}" style="cursor: pointer" th:onclick="selectByCategoryId([[${category.id}]]);" th:text="${category.name}+' ('+${category.articleCounts}+')'"></a>
+                            <!--                            <a class="tag-name" th:href="@{/main/articleList/category/{categoryId}(categoryId=${category.id})}" th:if="${category.hit == false}" th:text="${category.name}+' ('+${category.articleCounts}+')'"></a>-->
+                            <!--                            <a class="tag-name" th:href="@{/main/articleList/category/{categoryId}(categoryId=${category.id})}" th:if="${category.hit == true}" th:text="${category.name}+' ('+${category.articleCounts}+')'" style="background-color: #5c3d3d"></a>-->
                         </li>
                     </ul>
                 </div>
@@ -136,8 +157,9 @@
                     </div>
                     <ul id="tags">
                         <li class="tag tag-sfw" th:each="tag : ${tagList}">
-                            <a class="tag-name" th:href="@{/main/articleList/tag/{tagId}(tagId=${tag.id})}" th:if="${tag.hit == false}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'"></a>
-                            <a class="tag-name" th:href="@{/main/articleList/tag/{tagId}(tagId=${tag.id})}" th:if="${tag.hit == true}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'" style="background-color: #3d5c3d"></a>
+                            <a class="tag-name" th:id = "tag+${tag.id}" style="cursor: pointer" th:onclick="selectByTagId([[${tag.id}]]);" th:text="${tag.name}+' ('+${tag.articleCounts}+')'"></a>
+                            <!--                            <a class="tag-name" th:href="@{/main/articleList/tag/{tagId}(tagId=${tag.id})}" th:if="${tag.hit == false}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'"></a>-->
+                            <!--                            <a class="tag-name" th:href="@{/main/articleList/tag/{tagId}(tagId=${tag.id})}" th:if="${tag.hit == true}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'" style="background-color: #3d5c3d"></a>-->
                         </li>
                     </ul>
                 </div>
@@ -171,13 +193,34 @@
 
 </th:block>
 <script>
+    // 线上环境
+    const getViews = "http://www.yizone.link/api/user/getViews";
+    const articleList = "http://www.yizone.link/api/article/articleList";
+    const articleSearch = "http://www.yizone.link/api/article/articleSearch";
+    const articleTag = "http://www.yizone.link/api/article/tag";
+    const articleCategory = "http://www.yizone.link/api/article/category";
+    const article = "http://www.yizone.link/article";
+    const articleIndex = "http://www.yizone.link/api/article/indexArticle";
+
+    // 测试环境
+    // const getViews = "http://localhost:8065/api/user/getViews";
+    // const articleList = "http://localhost:8065/api/article/articleList";
+    // const articleSearch = "http://localhost:8065/api/article/articleSearch";
+    // const articleTag = "http://localhost:8065/api/article/tag";
+    // const articleCategory = "http://localhost:8065/api/article/category";
+    // const article = "http://localhost:8065/article";
+    // const articleIndex = "http://localhost:8065/api/article/indexArticle";
+
+
     $('.technical-support-avatar')
+        .popup()
+    ;
+    $('#nothing')
         .popup()
     ;
     $('#menu-toggle').click(function () {
         $('.top-menu-full').toggleClass('mobile-hidden');
     })
-
     function setTime() {
         var createTime = Math.round(new Date(Date.UTC(2021, 01, 08, 9, 21, 0)).getTime() / 1000
     )
@@ -189,33 +232,166 @@
             + ' 秒 ';
         document.getElementById("love_time").innerHTML = currentTimeHtml;
     }
+    setInterval(setTime, 1000);
 
-    function secondToDate(second) {
-        if (!second) {
-            return 0;
-        }
-        const time = new Array(0, 0, 0, 0, 0);
-        if (second >= 365 * 24 * 3600) {
-            time[0] = parseInt(second / (365 * 24 * 3600));
-            second %= 365 * 24 * 3600;
-        }
-        if (second >= 24 * 3600) {
-            time[1] = parseInt(second / (24 * 3600));
-            second %= 24 * 3600;
-        }
-        if (second >= 3600) {
-            time[2] = parseInt(second / 3600);
-            second %= 3600;
-        }
-        if (second >= 60) {
-            time[3] = parseInt(second / 60);
-            second %= 60;
-        }
-        if (second > 0) {
-            time[4] = second;
-        }
-        return time;
+    $('#place').click(function (){
+        $.ajax({
+            url:articleList,
+            type:"GET",
+            dataType : "json",
+            success:function (data) {
+                sortArticle(data);
+            },
+        })
+    });
+
+    var tagIdCache = ""
+
+    function selectByTagId(id){
+        removeClass();
+        let tagId = '#tag'+id;
+        $(tagId).addClass('tagHit');
+        tagIdCache = tagId;
+        $.ajax({
+            url:articleTag + '/' + id,
+            type:"GET",
+            dataType : "json",
+            success:function (data) {
+                sortArticle(data);
+            },
+        })
     }
 
-    setInterval(setTime, 1000);
+    var categoryIdCache = ""
+
+    function removeClass(){
+        if(tagIdCache !== ""){
+            $(tagIdCache).removeClass('tagHit');
+        }
+        if(categoryIdCache !== ""){
+            $(categoryIdCache).removeClass('categoryHit');
+        }
+    }
+
+    function selectByCategoryId(id){
+        removeClass();
+        let categoryId = '#category'+id;
+        $(categoryId).addClass('categoryHit');
+        categoryIdCache = categoryId;
+        $.ajax({
+            url:articleCategory + '/' + id,
+            type:"GET",
+            dataType : "json",
+            success:function (data) {
+                sortArticle(data);
+            },
+        })
+    }
+
+    function search(){
+        let searchCondition = $('#header-search-text').val();
+        if(searchCondition.trim() === ""){
+            return
+        }
+        $.ajax({
+            url:articleSearch,
+            type:"GET",
+            data:{queryCondition:searchCondition},
+            dataType : "json",
+            success:function (data) {
+                sortArticle(data);
+            },
+        })
+    }
+
+    function sortArticle(data){
+        let articleData = data.obj;
+        $('#default-article').empty();
+        let startHtml = '<div class="animate__animated animate__fadeIn">'
+        let endHtml = '</div>'
+        let html='';
+        html += startHtml;
+        let keyList = [];
+        for (let key in articleData) {
+            keyList.push(key)
+        }
+        keyList.sort(function(key1, key2) {
+            return key2 - key1
+        })
+        let resultMap = new Map()
+        for(var i=0;i<keyList.length;i++){
+            resultMap.set(keyList[i], articleData[keyList[i]])
+        }
+        for([key,value] of resultMap){
+            html += '                           <h2 class="ui left aligned">\n' +
+                '                                <div style="display: flex">\n' +
+                '                                    <span class="m-font-style m-special-font-style">'+key+'</span>\n' +
+                '                                </div>\n' +
+                '                            </h2>'
+            html += '<div class="list-content"><ul class="post-list">';
+            $.each(value,function (articleIndex,article){
+                let createTime = article.createTime.substring(0,10);
+                let articleId = article.id;
+                html += '                                        <li class="post-item">\n' +
+                    '                                        <div style="display: flex;align-items: center">\n' +
+                    '                                            <div class="meta m-font-style">\n' +
+                    '                                                <time>'+createTime+'\n' +
+                    '                                                </time>\n' +
+                    '                                            </div>\n' +
+                    '                                            <div>\n' +
+                    '                                            <span class="meta m-article-title">\n' +
+                    '                                                <a style="cursor: pointer" onClick = "forwardToArticle('+articleId+')">'+article.title+'</a>\n' +
+                    '                                            </span>\n' +
+                    '                                            </div>\n' +
+                    '                                        </div>\n' +
+                    '                                    </li>'
+            })
+        }
+        html += '</ul></div>';
+        html += endHtml
+        $('#default-article').html(html);
+        $('#place').addClass("active");
+        $('#latest').removeClass("active");
+    }
+
+    function forwardToArticle(articleId){
+        window.location.href = article + '/' + articleId;
+    }
+
+    $('#latest').click(function (){
+        $.ajax({
+            url:articleIndex,
+            type:"GET",
+            dataType : "json",
+            success:function (data) {
+                let articleList = data.obj.records;
+                $('#default-article').empty();
+                let startHtml = '<div class="animate__animated animate__fadeIn"><ul class="post-list">'
+                let endHtml = '</ul></div>'
+                let html='';
+                html += startHtml;
+                $.each(articleList,function (articleIndex,article){
+                    let createTime = article.createTime.substring(0,10);
+                    let articleId = article.id;
+                    html += '<li class="post-item">\n' +
+                        '                            <div style="display: flex;align-items: center">\n' +
+                        '                                <div class="meta m-font-style">\n' +
+                        '                                    <time>'+createTime+'</time>\n' +
+                        '                                </div>\n' +
+                        '                                <div>\n' +
+                        '                                    <span class="meta m-article-title">\n' +
+                        '                                        <a style="cursor: pointer" onClick = "forwardToArticle('+articleId+')">'+article.title+'</a>\n' +
+                        '                                    </span>\n' +
+                        '                                </div>\n' +
+                        '                            </div>\n' +
+                        '                        </li>'
+                })
+
+                html += endHtml
+                $('#default-article').html(html);
+                $('#latest').addClass("active");
+                $('#place').removeClass("active");
+            },
+        })
+    });
 </script>

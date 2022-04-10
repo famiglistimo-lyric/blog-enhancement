@@ -56,7 +56,7 @@ public class TagController {
     }
 
     @GetMapping("/deleteTag")
-    public JsonResult deleteTag(Long id){
+    public JsonResult deleteTag(Integer id){
         tagService.deleteTag(id);
         JsonResult jsonResult = new JsonResult();
         jsonResult.setSuccess(true);

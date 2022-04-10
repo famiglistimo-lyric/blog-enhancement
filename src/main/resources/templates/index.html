@@ -60,6 +60,9 @@
                 </div>
                 <div style="margin-top: 10px"><span id="love_time"></span></div>
             </div>
+            <div class="pulsing"></div>
+            <div th:replace="_fragments :: musicCard">
+            </div>
         </div>
         <div class="ui eight wide column animate__animated animate__fadeIn" style="margin-top: 50px;">
             <div class="ui segment m-shadow m-block-display-color">
@@ -71,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="ui attached segment m-padding-top-bottom-large list-content m-border-none"
+                <div id="default-article" class="ui attached segment m-padding-top-bottom-large list-content m-border-none animate__animated animate__fadeIn"
                      style="background: inherit">
                     <ul class="post-list">
                         <li class="post-item" th:each="article : ${articlePage.records}">
@@ -112,8 +115,9 @@
                     </div>
                     <ul id="categories">
                         <li class="tag tag-nsfw" th:each="category : ${categoryList}">
-                            <a class="tag-name" th:href="@{/main/articleList/category/{categoryId}(categoryId=${category.id})}" th:if="${category.hit == false}" th:text="${category.name}+' ('+${category.articleCounts}+')'"></a>
-                            <a class="tag-name" th:href="@{/main/articleList/category/{categoryId}(categoryId=${category.id})}" th:if="${category.hit == true}" th:text="${category.name}+' ('+${category.articleCounts}+')'" style="background-color: #5c3d3d"></a>
+                                <a class="tag-name" th:id = "category+${category.id}" style="cursor: pointer" th:onclick="selectByCategoryId([[${category.id}]]);" th:text="${category.name}+' ('+${category.articleCounts}+')'"></a>
+<!--                            <a class="tag-name" th:href="@{/main/articleList/category/{categoryId}(categoryId=${category.id})}" th:if="${category.hit == false}" th:text="${category.name}+' ('+${category.articleCounts}+')'"></a>-->
+<!--                            <a class="tag-name" th:href="@{/main/articleList/category/{categoryId}(categoryId=${category.id})}" th:if="${category.hit == true}" th:text="${category.name}+' ('+${category.articleCounts}+')'" style="background-color: #5c3d3d"></a>-->
                         </li>
                     </ul>
                 </div>
@@ -126,8 +130,9 @@
                     </div>
                     <ul id="tags">
                         <li class="tag tag-sfw" th:each="tag : ${tagList}">
-                            <a class="tag-name" th:href="@{/main/articleList/tag/{tagId}(tagId=${tag.id})}" th:if="${tag.hit == false}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'"></a>
-                            <a class="tag-name" th:href="@{/main/articleList/tag/{tagId}(tagId=${tag.id})}" th:if="${tag.hit == true}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'" style="background-color: #3d5c3d"></a>
+                                <a class="tag-name" th:id = "tag+${tag.id}" style="cursor: pointer" th:onclick="selectByTagId([[${tag.id}]]);" th:text="${tag.name}+' ('+${tag.articleCounts}+')'"></a>
+<!--                            <a class="tag-name" th:href="@{/main/articleList/tag/{tagId}(tagId=${tag.id})}" th:if="${tag.hit == false}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'"></a>-->
+<!--                            <a class="tag-name" th:href="@{/main/articleList/tag/{tagId}(tagId=${tag.id})}" th:if="${tag.hit == true}" th:text="${tag.name}+' ('+${tag.articleCounts}+')'" style="background-color: #3d5c3d"></a>-->
                         </li>
                     </ul>
                 </div>
@@ -150,6 +155,8 @@
             </div>
         </div>
     </div>
+    <!---->
+
 </div>
 
 <footer th:replace="_fragments :: footer">
@@ -158,17 +165,39 @@
 
 </th:block>
 <script>
+    // 线上环境
+    const getViews = "http://www.yizone.link/api/user/getViews";
+    const articleList = "http://www.yizone.link/api/article/articleList";
+    const articleSearch = "http://www.yizone.link/api/article/articleSearch";
+    const articleTag = "http://www.yizone.link/api/article/tag";
+    const articleCategory = "http://www.yizone.link/api/article/category";
+    const article = "http://www.yizone.link/article";
+    const articleIndex = "http://www.yizone.link/api/article/indexArticle";
+
+    // 测试环境
+    // const getViews = "http://localhost:8065/api/user/getViews";
+    // const articleList = "http://localhost:8065/api/article/articleList";
+    // const articleSearch = "http://localhost:8065/api/article/articleSearch";
+    // const articleTag = "http://localhost:8065/api/article/tag";
+    // const articleCategory = "http://localhost:8065/api/article/category";
+    // const article = "http://localhost:8065/article";
+    // const article = "http://localhost:8065/article";
+    // const articleIndex = "http://localhost:8065/api/article/indexArticle";
+
     var id = '[[${user.id}]]'
+
     $.ajax({
-		url:"http://www.yizone.link/api/user/getViews",
-		type:"GET",
+        // url:"http://www.yizone.link/api/user/getViews",
+        url:getViews,
+        type:"GET",
         data:{id:id},
-		dataType : "json",
-		success:function (data) {
-		    var views = data.obj
+        dataType : "json",
+        success:function (data) {
+            var views = data.obj
             $('#views').html(views)
-		},
-	});
+        },
+    });
+
     $('.technical-support-avatar')
         .popup()
     ;
@@ -190,6 +219,167 @@
         document.getElementById("love_time").innerHTML = currentTimeHtml;
     }
     setInterval(setTime, 1000);
+
+    $('#place').click(function (){
+        $.ajax({
+            url:articleList,
+            type:"GET",
+            dataType : "json",
+            success:function (data) {
+                sortArticle(data);
+            },
+        })
+    });
+
+    let tagIdCache = ""
+
+    function selectByTagId(id){
+        removeClass();
+        let tagId = '#tag'+id;
+        $(tagId).addClass('tagHit');
+        tagIdCache = tagId;
+        $.ajax({
+            url:articleTag + '/' + id,
+            type:"GET",
+            dataType : "json",
+            success:function (data) {
+                sortArticle(data);
+            },
+        })
+    }
+
+    let categoryIdCache = ""
+
+    function removeClass(){
+        if(tagIdCache !== ""){
+            $(tagIdCache).removeClass('tagHit');
+        }
+        if(categoryIdCache !== ""){
+            $(categoryIdCache).removeClass('categoryHit');
+        }
+    }
+
+    function selectByCategoryId(id){
+        removeClass();
+        let categoryId = '#category'+id;
+        $(categoryId).addClass('categoryHit');
+        categoryIdCache = categoryId;
+        $.ajax({
+            url:articleCategory + '/' + id,
+            type:"GET",
+            dataType : "json",
+            success:function (data) {
+                sortArticle(data);
+            },
+        })
+    }
+
+    function search(){
+        let searchCondition = $('#header-search-text').val();
+        if(searchCondition.trim() === ""){
+            return
+        }
+        $.ajax({
+            url:articleSearch,
+            type:"GET",
+            data:{queryCondition:searchCondition},
+            dataType : "json",
+            success:function (data) {
+                sortArticle(data);
+            },
+        })
+    }
+
+    function sortArticle(data){
+        let articleData = data.obj;
+        $('#default-article').empty();
+        let startHtml = '<div class="animate__animated animate__fadeIn">'
+        let endHtml = '</div>'
+        let html='';
+        html += startHtml;
+        let keyList = [];
+        for (let key in articleData) {
+            keyList.push(key)
+        }
+        keyList.sort(function(key1, key2) {
+            return key2 - key1
+        })
+        let resultMap = new Map()
+        for(var i=0;i<keyList.length;i++){
+            resultMap.set(keyList[i], articleData[keyList[i]])
+        }
+        for([key,value] of resultMap){
+            html += '                           <h2 class="ui left aligned">\n' +
+                '                                <div style="display: flex">\n' +
+                '                                    <span class="m-font-style m-special-font-style">'+key+'</span>\n' +
+                '                                </div>\n' +
+                '                            </h2>'
+            html += '<div class="list-content"><ul class="post-list">';
+            $.each(value,function (articleIndex,article){
+                let createTime = article.createTime.substring(0,10);
+                let articleId = article.id;
+                html += '                                        <li class="post-item">\n' +
+                    '                                        <div style="display: flex;align-items: center">\n' +
+                    '                                            <div class="meta m-font-style">\n' +
+                    '                                                <time>'+createTime+'\n' +
+                    '                                                </time>\n' +
+                    '                                            </div>\n' +
+                    '                                            <div>\n' +
+                    '                                            <span class="meta m-article-title">\n' +
+                    '                                                <a style="cursor: pointer" onClick = "forwardToArticle('+articleId+')">'+article.title+'</a>\n' +
+                    '                                            </span>\n' +
+                    '                                            </div>\n' +
+                    '                                        </div>\n' +
+                    '                                    </li>'
+            })
+        }
+        html += '</ul></div>';
+        html += endHtml
+        $('#default-article').html(html);
+        $('#place').addClass("active");
+        $('#latest').removeClass("active");
+    }
+
+    function forwardToArticle(articleId){
+        window.location.href = article + '/' + articleId;
+    }
+
+    $('#latest').click(function (){
+        $.ajax({
+            url:articleIndex,
+            type:"GET",
+            dataType : "json",
+            success:function (data) {
+                let articleList = data.obj.records;
+                $('#default-article').empty();
+                let startHtml = '<div class="animate__animated animate__fadeIn"><ul class="post-list">'
+                let endHtml = '</ul></div>'
+                let html='';
+                html += startHtml;
+                $.each(articleList,function (articleIndex,article){
+                    let createTime = article.createTime.substring(0,10);
+                    let articleId = article.id;
+                    html += '<li class="post-item">\n' +
+                        '                            <div style="display: flex;align-items: center">\n' +
+                        '                                <div class="meta m-font-style">\n' +
+                        '                                    <time>'+createTime+'</time>\n' +
+                        '                                </div>\n' +
+                        '                                <div>\n' +
+                        '                                    <span class="meta m-article-title">\n' +
+                        '                                        <a style="cursor: pointer" onClick = "forwardToArticle('+articleId+')">'+article.title+'</a>\n' +
+                        '                                    </span>\n' +
+                        '                                </div>\n' +
+                        '                            </div>\n' +
+                        '                        </li>'
+                })
+
+                html += endHtml
+                $('#default-article').html(html);
+                $('#latest').addClass("active");
+                $('#place').removeClass("active");
+            },
+        })
+    });
 </script>
 </body>
 </html>

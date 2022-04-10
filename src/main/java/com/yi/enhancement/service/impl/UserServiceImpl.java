@@ -25,7 +25,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
     @Override
-    public synchronized User updateViews(Long userId) {
+    public synchronized User updateViews(Integer userId) {
         UserDTO user = this.getUser(userId);
         Integer views = user.getViews();
         views = views + 1;
@@ -43,7 +43,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     @Override
-    public UserDTO getUser(Long id) {
+    public UserDTO getUser(Integer id) {
        return this.baseMapper.getUser(id);
     }
 }

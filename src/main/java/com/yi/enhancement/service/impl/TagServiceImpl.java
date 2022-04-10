@@ -52,11 +52,11 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements ITagS
     }
 
     @Override
-    public List<TagVo> listTagVoHit(Long articleId) {
+    public List<TagVo> listTagVoHit(Integer articleId) {
         List<TagVo> tagVoList = this.listTagVo();
         List<ArticleTagRelation> articleTagRelationList = articleTagRelationService
                 .listArticleTagRelationByArticleId(articleId, DeletedEnum.UNDELETED.getCode());
-        List<Long> hitTagIdList = articleTagRelationList.stream().map(ArticleTagRelation::getTagId).collect(Collectors.toList());
+        List<Integer> hitTagIdList = articleTagRelationList.stream().map(ArticleTagRelation::getTagId).collect(Collectors.toList());
         return tagVoList.stream().peek((element) -> {
             if (hitTagIdList.contains(element.getId())) {
                 element.setHit(true);
@@ -89,7 +89,7 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements ITagS
     }
 
     @Override
-    public boolean deleteTag(Long id) {
+    public boolean deleteTag(Integer id) {
         this.removeById(id);
         return true;
     }

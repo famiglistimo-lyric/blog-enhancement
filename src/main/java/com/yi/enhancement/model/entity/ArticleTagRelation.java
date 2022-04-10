@@ -25,17 +25,17 @@ public class ArticleTagRelation implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(type = IdType.ASSIGN_ID)
-    private Long id;
+    @TableId(type = IdType.AUTO)
+    private Integer id;
     /**
      * 文章id
      */
-    private Long articleId;
+    private Integer articleId;
 
     /**
      * 文章标签id
      */
-    private Long tagId;
+    private Integer tagId;
 
     /**
      * 逻辑删除:1:已删除;0:未删除

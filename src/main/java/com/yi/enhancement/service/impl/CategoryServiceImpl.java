@@ -48,12 +48,12 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     }
 
     @Override
-    public List<CategoryVo> listCategoryVoHit(Long articleId) {
+    public List<CategoryVo> listCategoryVoHit(Integer articleId) {
         List<CategoryVo> categoryVos = this.listCategoryVo();
         Article article = articleService.getById(articleId);
-        Long categoryId = article.getCategoryId();
+        Integer categoryId = article.getCategoryId();
         for (CategoryVo categoryVo : categoryVos) {
-            Long id = categoryVo.getId();
+            Integer id = categoryVo.getId();
             if (id.equals(categoryId)) {
                 categoryVo.setHit(true);
                 break;
@@ -87,7 +87,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     }
 
     @Override
-    public boolean deleteCategory(Long id) {
+    public boolean deleteCategory(Integer id) {
         this.removeById(id);
         return true;
     }

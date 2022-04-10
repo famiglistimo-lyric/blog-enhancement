@@ -67,7 +67,7 @@ public class MainController {
 
     @GetMapping("/")
     public String index(Model model, HttpServletResponse response) {
-        Long userId = 1L;
+        Integer userId = 1;
         int currentPage = 1;
         int pageSize = 16;
         model.addAttribute("articlePage", articleService.pageArticleWeb(null, null, null, currentPage, pageSize));
@@ -80,46 +80,46 @@ public class MainController {
     }
 
     @GetMapping("/article/{id}")
-    public String article(@PathVariable Long id, Model model) throws CustomException {
-        UserDTO user = userService.getUser(1L);
+    public String article(@PathVariable Integer id, Model model) throws CustomException {
+        UserDTO user = userService.getUser(1);
         model.addAttribute("user", user);
         Article article = articleService.getAndConvert(id);
         model.addAttribute("article", article);
-        Long articleId = article.getId();
+        Integer articleId = article.getId();
         model.addAttribute("categoryList", categoryService.listCategoryVoHit(articleId));
         model.addAttribute("tagList", tagService.listTagVoHit(articleId));
         return "article";
     }
 
     @GetMapping("/main/articleList/category/{categoryId}")
-    public String category(@PathVariable(required = false) Long categoryId,
+    public String category(@PathVariable(required = false) Integer categoryId,
                            Model model) throws CustomException {
         model.addAttribute("articlePage", articleService.pageArticleWeb(null, null, null, null, null));
         model.addAttribute("archiveMap", articleService.listArticleVo(categoryId, null, null));
         model.addAttribute("tagList", tagService.listTagVo());
         List<CategoryVo> categoryVos = categoryService.listCategoryVo();
         for (CategoryVo categoryVo : categoryVos) {
-            Long id = categoryVo.getId();
+            Integer id = categoryVo.getId();
             if (categoryId.equals(id)) {
                 categoryVo.setHit(true);
                 break;
             }
         }
         model.addAttribute("categoryList", categoryVos);
-        Long userId = 1L;
+        Integer userId = 1;
         model.addAttribute("user", userService.updateViews(userId));
         model.addAttribute("technicalSupportList", technicalSupportService.listTechnicalSupportVo());
         return "articleList";
     }
 
     @GetMapping("/main/articleList/tag/{tagId}")
-    public String tag(@PathVariable(required = false) Long tagId,
+    public String tag(@PathVariable(required = false) Integer tagId,
                       Model model) throws CustomException {
         model.addAttribute("articlePage", articleService.pageArticleWeb(null, null, null, null, null));
         model.addAttribute("archiveMap", articleService.listArticleVo(null, tagId, null));
         List<TagVo> tagVos = tagService.listTagVo();
         for (TagVo tagVo : tagVos) {
-            Long id = tagVo.getId();
+            Integer id = tagVo.getId();
             if (tagId.equals(id)) {
                 tagVo.setHit(true);
                 break;
@@ -127,7 +127,7 @@ public class MainController {
         }
         model.addAttribute("tagList", tagVos);
         model.addAttribute("categoryList", categoryService.listCategoryVo());
-        Long userId = 1L;
+        Integer userId = 1;
         model.addAttribute("user", userService.updateViews(userId));
         model.addAttribute("technicalSupportList", technicalSupportService.listTechnicalSupportVo());
         return "articleList";
@@ -140,7 +140,7 @@ public class MainController {
         model.addAttribute("archiveMap", articleService.listArticleVo(null, null, queryCondition));
         model.addAttribute("tagList", tagService.listTagVo());
         model.addAttribute("categoryList", categoryService.listCategoryVo());
-        Long userId = 1L;
+        Integer userId = 1;
         model.addAttribute("user", userService.updateViews(userId));
         model.addAttribute("technicalSupportList", technicalSupportService.listTechnicalSupportVo());
         return "articleList";
@@ -152,7 +152,7 @@ public class MainController {
         model.addAttribute("archiveMap", articleService.listArticleVo(null, null, null));
         model.addAttribute("tagList", tagService.listTagVo());
         model.addAttribute("categoryList", categoryService.listCategoryVo());
-        Long userId = 1L;
+        Integer userId = 1;
         model.addAttribute("user", userService.updateViews(userId));
         model.addAttribute("technicalSupportList", technicalSupportService.listTechnicalSupportVo());
         return "articleList";
@@ -161,7 +161,7 @@ public class MainController {
     @PostMapping("/main/comments")
     public String comments(Comment comment, HttpSession session,
                            RedirectAttributes redirectAttributes, HttpServletRequest request) throws CustomException {
-        Long articleId = comment.getArticleId();
+        Integer articleId = comment.getArticleId();
         String message = commentService.judgeParams(comment);
         if (StrUtil.isNotEmpty(message)) {
             redirectAttributes.addFlashAttribute("message", message);

@@ -365,6 +365,9 @@ body {
 .hot.active{
     background-color: rgba(255, 68, 51, .1)
 }
+.latest.active{
+    background-color: rgba(170, 221, 51, .1)
+}
 .top-menu a.latest:active, .top-menu a.latest:focus, .top-menu a.latest:hover {
     background-color: rgba(170, 221, 51, .1)
 }

@@ -36,7 +36,7 @@ public interface ICategoryService extends IService<Category> {
      * @param articleId 文章id
      * @return 文章分类List
      */
-    List<CategoryVo> listCategoryVoHit(Long articleId);
+    List<CategoryVo> listCategoryVoHit(Integer articleId);
 
     /**
      * 分类分页
@@ -59,5 +59,5 @@ public interface ICategoryService extends IService<Category> {
      * @param id 文章分类id
      * @return 是否成功
      */
-    boolean deleteCategory(Long id);
+    boolean deleteCategory(Integer id);
 }

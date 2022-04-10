@@ -32,8 +32,8 @@ public interface ArticleMapper extends BaseMapper<Article> {
      * @param articleIdList 查询条件:根据标签筛选出来的文章id
      * @return 文章列表
      */
-    IPage<ArticleDTO> pageArticleDTO(Page<ArticleDTO> pageCondition, String title, Integer status, Long categoryId,
-                                     @Param("articleIdList") List<Long> articleIdList);
+    IPage<ArticleDTO> pageArticleDTO(Page<ArticleDTO> pageCondition, String title, Integer status, Integer categoryId,
+                                     @Param("articleIdList") List<Integer> articleIdList);
 
     /**
      * 文章分页
@@ -49,7 +49,7 @@ public interface ArticleMapper extends BaseMapper<Article> {
      * @param articleId 文章id
      * @return 文章详情
      */
-    ArticleDTO getArticle(Long articleId);
+    ArticleDTO getArticle(Integer articleId);
 
     /**
      * 根据文章id获取文章详情
@@ -57,7 +57,7 @@ public interface ArticleMapper extends BaseMapper<Article> {
      * @param articleId 文章id
      * @return 文章详情
      */
-    ArticleDTO getArticleDetail(Long articleId);
+    ArticleDTO getArticleDetail(Integer articleId);
 
     /**
      * 主页的文章列表
@@ -67,7 +67,7 @@ public interface ArticleMapper extends BaseMapper<Article> {
      * @param queryCondition 搜索条件
      * @return 文章列表
      */
-    List<ArticleVo> listArticleVo(Long categoryId, @Param("articleIdList") List<Long> articleIdList, String queryCondition, @Param("status") Integer status);
+    List<ArticleVo> listArticleVo(Integer categoryId, @Param("articleIdList") List<Integer> articleIdList, String queryCondition, @Param("status") Integer status);
 
 
 }

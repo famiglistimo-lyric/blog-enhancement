@@ -26,8 +26,8 @@ public class Comment implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(type = IdType.ASSIGN_ID)
-    private Long id;
+    @TableId(type = IdType.AUTO)
+    private Integer id;
 
     /**
      * 头像地址
@@ -62,12 +62,12 @@ public class Comment implements Serializable {
     /**
      * 文章id
      */
-    private Long articleId;
+    private Integer articleId;
 
     /**
      * 父级的评论id
      */
-    private Long parentCommentId;
+    private Integer parentCommentId;
 
     /**
      * 浏览器名称

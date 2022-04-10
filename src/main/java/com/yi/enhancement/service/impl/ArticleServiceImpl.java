@@ -57,7 +57,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public Article getAndConvert(Long id) throws CustomException {
+    public Article getAndConvert(Integer id) throws CustomException {
         Article article = this.baseMapper.selectById(id);
         if (article == null) {
             throw new CustomException(ExceptionCodeEnum.BLOG_NOT_EXIST_EXCEPTION.getMessage());
@@ -79,7 +79,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public IPage<ArticleDTO> pageArticle(String title, Integer status, Long categoryId, Long tagId, Integer page, Integer pageSize) {
+    public IPage<ArticleDTO> pageArticle(String title, Integer status, Integer categoryId, Integer tagId, Integer page, Integer pageSize) {
         if (page == null) {
             page = 1;
         }
@@ -87,13 +87,13 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
             pageSize = 10;
         }
         Page<ArticleDTO> pageCondition = new Page<>(page, pageSize);
-        List<Long> articleIdList = null;
+        List<Integer> articleIdList = null;
         if (tagId != null) {
             articleIdList = articleTagRelationService.listArticleId(tagId);
         }
         IPage<ArticleDTO> articleIPage = this.baseMapper.pageArticleDTO(pageCondition, title, status, categoryId, articleIdList);
         // key:文章id;value:文章的tagList
-        Map<Long, List<Tag>> articleTagListMap = new HashMap<>(16);
+        Map<Integer, List<Tag>> articleTagListMap = new HashMap<>(16);
         List<ArticleDTO> records = articleIPage.getRecords();
         if (CollUtil.isEmpty(records)) {
             return articleIPage;
@@ -101,24 +101,24 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         for (ArticleDTO record : records) {
             articleTagListMap.put(record.getId(), new ArrayList<>());
         }
-        List<Long> articleIds = records.stream().map(Article::getId).collect(Collectors.toList());
+        List<Integer> articleIds = records.stream().map(Article::getId).collect(Collectors.toList());
         List<ArticleTagRelationDTO> articleTagRelationDTOList = articleTagRelationService.listArticleTagRelation(articleIds);
         for (ArticleTagRelationDTO articleTagRelationDTO : articleTagRelationDTOList) {
-            Long articleId = articleTagRelationDTO.getArticleId();
+            Integer articleId = articleTagRelationDTO.getArticleId();
             Tag tag = new Tag();
             tag.setId(articleTagRelationDTO.getTagId());
             tag.setName(articleTagRelationDTO.getTagName());
             articleTagListMap.get(articleId).add(tag);
         }
         for (ArticleDTO record : records) {
-            Long id = record.getId();
+            Integer id = record.getId();
             record.setTagList(articleTagListMap.get(id));
         }
         return articleIPage;
     }
 
     @Override
-    public IPage<ArticleDTO> pageArticleWeb(Long categoryId, Long tagId, String queryCondition, Integer page, Integer pageSize) {
+    public IPage<ArticleDTO> pageArticleWeb(Integer categoryId, Integer tagId, String queryCondition, Integer page, Integer pageSize) {
         if (page == null) {
             page = 1;
         }
@@ -130,9 +130,9 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public Map<String, List<ArticleVo>> listArticleVo(Long categoryId, Long tagId, String queryCondition) {
-        Map<String, List<ArticleVo>> articleVoMap = new HashMap<>(8);
-        List<Long> articleIdList = null;
+    public Map<String, List<ArticleVo>> listArticleVo(Integer categoryId, Integer tagId, String queryCondition) {
+        HashMap<String, List<ArticleVo>> articleVoMap = new HashMap<>();
+        List<Integer> articleIdList = null;
         if (tagId != null) {
             articleIdList = articleTagRelationService.listArticleId(tagId);
         }
@@ -151,7 +151,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public void deleteArticle(Long articleId) {
+    public void deleteArticle(Integer articleId) {
         QueryWrapper<Article> queryWrapper1 = new QueryWrapper<>();
         queryWrapper1.eq("id", articleId);
         this.remove(queryWrapper1);
@@ -161,12 +161,12 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public ArticleDTO getArticle(Long id) {
+    public ArticleDTO getArticle(Integer id) {
         return this.baseMapper.getArticle(id);
     }
 
     @Override
-    public ArticleDTO getArticleDetail(Long id) {
+    public ArticleDTO getArticleDetail(Integer id) {
         return this.baseMapper.getArticleDetail(id);
     }
 

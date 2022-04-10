@@ -22,5 +22,5 @@ public interface UserMapper extends BaseMapper<User> {
      * @param id 用户id
      * @return 用户信息
      */
-    UserDTO getUser(Long id);
+    UserDTO getUser(Integer id);
 }

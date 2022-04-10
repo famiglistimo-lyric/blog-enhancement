@@ -4,11 +4,38 @@
 <head th:replace="_fragments :: head(~{::title})">
 </head>
 <body>
-<div th:replace="_fragments :: menu(2)"></div>
+<div>
+    <header id="header" class="animate__animated animate__slideInDown">
+        <a id="logo"><h2 class="ui teal header"><span class="m-font-style m-special-font-style">Yizone</span></h2></a>
+        <div class="top-menu extended m-font-style">
+            <a id="menu-toggle" class="top-menu-toggle extended"><i class="far fa-bars icon"></i></a>
+            <nav class="top-menu-full mobile-hidden">
+                <ul class="top-menu-primary">
+                    <li>
+                        <a id="latest" style="cursor: pointer" class="latest"><span>Home</span></a>
+                    </li>
+                    <li>
+                        <a id="place" style="cursor: pointer" class="hot active"><span>Place</span></a>
+                    </li>
+                    <li>
+                        <a class="top-list" style="cursor: pointer"><span>Author</span></a>
+                    </li>
+                    <li>
+                        <a class="forums" style="cursor: pointer"><span>Link</span></a>
+                    </li>
+                    <li>
+                        <a class="upload" href="https://github.com/famiglistimo-lyric"
+                           target="_blank"><span>Github</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</div>
 <div th:replace="_fragments :: snow"></div>
 <div id="main">
     <div class="ui grid" style="margin:auto">
-        <div class="ui three wide column mobile-hidden" style="margin-top: 50px">
+        <div class="ui three wide column mobile-hidden" style="margin-top: 50px;">
             <div class="ui segment left aligned m-shadow m-block-display-color animate__animated animate__fadeIn">
                 <div style="padding: 5px 15px">
                     <div style="display: flex;align-items: flex-start;justify-content: flex-start">
@@ -45,6 +72,8 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+            <div th:replace="_fragments :: musicCard">
             </div>
         </div>
         <div class="ui ten wide column animate__animated animate__fadeIn" style="margin-top: 50px;">
@@ -339,6 +368,11 @@
     })
     $('body').on('click', '#messageNotice', function () {
         $(this).closest('.message').transition('fade');
+    });
+    const indexHtml = "http://www.yizone.link";
+    // const indexHtml = "http://localhost:8065";
+    $('#latest').click(function (){
+        window.location.href = indexHtml;
     });
 </script>
 </body>

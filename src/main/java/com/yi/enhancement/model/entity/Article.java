@@ -24,8 +24,8 @@ public class Article implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(type = IdType.ASSIGN_ID)
-    private Long id;
+    @TableId(type = IdType.AUTO)
+    private Integer id;
 
     /**
      * 文章标题
@@ -96,12 +96,12 @@ public class Article implements Serializable {
     /**
      * 所属分类id
      */
-    private Long categoryId;
+    private Integer categoryId;
 
     /**
      * 所属用户id
      */
-    private Long userId;
+    private Integer userId;
 
     /**
      * 逻辑删除:1:已删除;0:未删除

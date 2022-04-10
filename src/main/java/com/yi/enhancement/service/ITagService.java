@@ -36,7 +36,7 @@ public interface ITagService extends IService<Tag> {
      * @param articleId 文章id
      * @return 文章标签List
      */
-    List<TagVo> listTagVoHit(Long articleId);
+    List<TagVo> listTagVoHit(Integer articleId);
 
     /**
      * 标签分页
@@ -59,7 +59,7 @@ public interface ITagService extends IService<Tag> {
      * @param id 文章标签id
      * @return 是否成功
      */
-    boolean deleteTag(Long id);
+    boolean deleteTag(Integer id);
 
 
 }

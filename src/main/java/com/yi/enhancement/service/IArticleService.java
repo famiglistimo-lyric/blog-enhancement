@@ -27,7 +27,7 @@ public interface IArticleService extends IService<Article> {
      * @return 文章内容
      * @throws CustomException 异常
      */
-    Article getAndConvert(Long id) throws CustomException;
+    Article getAndConvert(Integer id) throws CustomException;
 
     /**
      * 文章分页
@@ -40,7 +40,7 @@ public interface IArticleService extends IService<Article> {
      * @param pageSize   每页数据量
      * @return 文章列表
      */
-    IPage<ArticleDTO> pageArticle(String title, Integer status, Long categoryId, Long tagId, Integer page, Integer pageSize);
+    IPage<ArticleDTO> pageArticle(String title, Integer status, Integer categoryId, Integer tagId, Integer page, Integer pageSize);
 
     /**
      * 主页的文章分页
@@ -52,7 +52,7 @@ public interface IArticleService extends IService<Article> {
      * @param pageSize       每页数据量
      * @return 文章列表
      */
-    IPage<ArticleDTO> pageArticleWeb(Long categoryId, Long tagId, String queryCondition, Integer page, Integer pageSize);
+    IPage<ArticleDTO> pageArticleWeb(Integer categoryId, Integer tagId, String queryCondition, Integer page, Integer pageSize);
 
     /**
      * 根据文章id获得文章详情(不获取内容)
@@ -60,7 +60,7 @@ public interface IArticleService extends IService<Article> {
      * @param id 文章id
      * @return 文章详情
      */
-    ArticleDTO getArticle(Long id);
+    ArticleDTO getArticle(Integer id);
 
     /**
      * 根据文章id获得文章详情
@@ -68,7 +68,7 @@ public interface IArticleService extends IService<Article> {
      * @param id 文章id
      * @return 文章详情
      */
-    ArticleDTO getArticleDetail(Long id);
+    ArticleDTO getArticleDetail(Integer id);
 
     /**
      * 保存文章的相关信息
@@ -87,12 +87,12 @@ public interface IArticleService extends IService<Article> {
      * @param queryCondition 搜索条件
      * @return 文章列表
      */
-    Map<String, List<ArticleVo>> listArticleVo(Long categoryId, Long tagId, String queryCondition);
+    Map<String, List<ArticleVo>> listArticleVo(Integer categoryId, Integer tagId, String queryCondition);
 
     /**
      * 删除文章
      *
      * @param articleId 文章id
      */
-    void deleteArticle(Long articleId);
+    void deleteArticle(Integer articleId);
 }

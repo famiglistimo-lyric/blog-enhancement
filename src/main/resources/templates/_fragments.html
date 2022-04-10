@@ -12,6 +12,10 @@
     <link rel="stylesheet" th:href="@{/css/wallhaven.css}">
     <link rel="stylesheet" th:href="@{/css/weather.css}">
     <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+    />
     <link rel="stylesheet" th:href="@{/css/iconfont.css}">
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel='stylesheet' th:href="@{/lib/nprogress/nprogress.css}">
@@ -230,16 +234,16 @@
             <nav class="top-menu-full mobile-hidden">
                 <ul class="top-menu-primary">
                     <li>
-                        <a class="latest" th:href="@{/}" th:classappend="${n==1} ? 'active'"><span>Home</span></a>
+                        <a id="latest" style="cursor: pointer" class="latest" th:classappend="${n==1} ? 'active'"><span>Home</span></a>
                     </li>
                     <li>
-                        <a class="hot" th:href="@{/main/articleList}" th:classappend="${n==2} ? 'active'"><span>Place</span></a>
+                        <a id="place" style="cursor: pointer" class="hot" th:classappend="${n==2} ? 'active'"><span>Place</span></a>
                     </li>
                     <li>
-                        <a class="top-list" href=""><span>Author</span></a>
+                        <a class="top-list" style="cursor: pointer"><span>Author</span></a>
                     </li>
                     <li>
-                        <a class="forums" href=""><span>Link</span></a>
+                        <a class="forums" style="cursor: pointer"><span>Link</span></a>
                     </li>
                     <li>
                         <a class="upload" href="https://github.com/famiglistimo-lyric"
@@ -248,14 +252,45 @@
                 </ul>
             </nav>
         </div>
-        <form name="search" th:action="@{/main/articleList/search/}" method="post" id="header-search" class="header-search-type-text">
+        <div id="header-search" class="header-search-type-text">
             <div class="header-search-input-frame m-font-style">
                 <label for="header-search-text"></label>
-                <input type="search" name="queryCondition" id="header-search-text" autocomplete="off" th:value="${queryCondition}" placeholder="Search...">
+                <input id="header-search-text" type="search" name="queryCondition" autocomplete="off" placeholder="Search...">
             </div>
-            <button><i class="far search icon" style="color: #a4b0be" onclick="document.forms['search'].submit()"></i></button>
-        </form>
+            <button><i class="far search icon" style="color: #a4b0be" onClick="search()"></i></button>
+        </div>
     </header>
+</div>
+<div th:fragment="musicCard">
+    <div class="card">
+        <div class="card-header">
+            <!--                    <div class="img-container">-->
+            <!--                        <img src="https://yi-blog.oss-cn-hangzhou.aliyuncs.com/music/%E4%BD%A0%E4%BC%9A%E6%88%90%E4%B8%BA%E4%BD%A0%E6%83%B3%E6%88%90%E4%B8%BA%E7%9A%84%E9%82%A3%E4%B8%AA%E4%BA%BA%20-%20%E6%A2%81%E5%8D%9A/dcd7807c7614ca099997e06b745023f.png"-->
+            <!--                             alt="singer image" id="songImg">-->
+            <!--                    </div>-->
+            <div class="song-detail-container">
+                <span class="title m-font-pattern m-font-style" id="title">你会成为你想的那个人 - 梁博</span>
+            </div>
+        </div>
+
+        <div class="progress-container" id="progressContainer">
+            <span class="progress" id="progress"></span>
+        </div>
+
+        <audio src="https://yi-blog.oss-cn-hangzhou.aliyuncs.com/music/%E4%BD%A0%E4%BC%9A%E6%88%90%E4%B8%BA%E4%BD%A0%E6%83%B3%E6%88%90%E4%B8%BA%E7%9A%84%E9%82%A3%E4%B8%AA%E4%BA%BA%20-%20%E6%A2%81%E5%8D%9A/%E6%A2%81%E5%8D%9A-%E4%BD%A0%E4%BC%9A%E6%88%90%E4%B8%BA%E4%BD%A0%E6%83%B3%E7%9A%84%E9%82%A3%E4%B8%AA%E4%BA%BA%28Live%29.mp3" id="player"></audio>
+        <div class="controls">
+            <button class="control" id="prevBtn">
+                <i class="fas fa-backward"></i>
+            </button>
+            <button class="control play" id="playBtn">
+                <i class="fas fa-play" style="margin-left: 8px"></i>
+                <i class="fas fa-pause" style="margin-left: 7px"></i>
+            </button>
+            <button class="control" id="nextBtn">
+                <i class="fas fa-forward"></i>
+            </button>
+        </div>
+    </div>
 </div>
 <footer th:fragment="footer">
     <div id="foot" class="m-font-pattern">
@@ -264,9 +299,11 @@
 </footer>
 <!--script-->
 <th:block th:fragment="script">
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
     <script th:src="@{/lib/nprogress/nprogress.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
     <!-- 点击爆炸效果-->
     <canvas class="fireworks" style="position: fixed; left: 0px; top: 0px; z-index: 1; pointer-events: none; width: 1440px; height: 451px;" width="2880" height="902"></canvas>
     <script type="text/javascript" th:src="@{/lib/anime/anime.min.js}"></script>
